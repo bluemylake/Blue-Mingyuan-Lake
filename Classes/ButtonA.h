@@ -13,8 +13,8 @@ public:
 	CREATE_FUNC(ButtonA);
 	virtual bool init();
 	virtual void initSprite();
-	void ccTouchesBegan(CCSet* pTouches, CCEvent *pEvent);
-	void ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent);
+	bool ccTouchBegan(CCTouch* pTouch, CCEvent *pEvent);
+	void ccTouchEnded(CCTouch* pTouch, CCEvent *pEvent);
 	void setPointers(Hero* hero,DiaWindow* diawindow,BigWindow* bigwindow);
 public:
 	Hero* hero;

@@ -12,7 +12,6 @@ class Button: public Controller,public CCLayer
 public:
 	virtual bool init();
 	virtual void initSprite();
-	virtual void ccTouchesBegan(CCSet* pTouch, CCEvent *pEvent);
 	virtual void ccTouchesEnded(CCSet* pTouch, CCEvent *pEvent);
 	virtual void ccTouchesMoved(CCSet* pTouch, CCEvent *pEvent);
 	int getDisaDistr();

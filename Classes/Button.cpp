@@ -21,16 +21,6 @@ CCSprite* Button::getSprite()
 	return buttonImg;
 }
 
-void Button::ccTouchesBegan(CCSet* pTouches, CCEvent *pEvent)
-{
-	if(!enable)return;
-	CCPoint TouchesLocation = getTouchPos(pTouches);
-	CCRect buttonRect=getBoundingBox();
-	if(!buttonRect.containsPoint(TouchesLocation))return;
-	controllerListener->respond(0);
-	return;
-}
-
 void Button::ccTouchesMoved(CCSet* pTouches, CCEvent *pEvent)
 {
 	ccTouchesBegan(pTouches,pEvent);

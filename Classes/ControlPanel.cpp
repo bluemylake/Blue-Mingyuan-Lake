@@ -23,23 +23,26 @@ void ControlPanel::setMap(Map* map)
 	this->map=map;
 }
 
-void ControlPanel::ccTouchesBegan(CCSet* pTouch, CCEvent *pEvent)
+void ControlPanel::ccTouchesBegan(CCSet* pTouches, CCEvent *pEvent)
 {
 	int distr;
-	dirButton->ccTouchesBegan(pTouch,pEvent);
-	buttonA->ccTouchesBegan(pTouch,pEvent);
+	dirButton->ccTouchesBegan(pTouches,pEvent);
+	CCTouch* pTouch=(CCTouch*)pTouches->anyObject();
+	buttonA->ccTouchBegan(pTouch,pEvent);
+
 	distr=buttonA->getDisaDistr();
-	touchScreen->ccTouchesBegan(pTouch,pEvent);
+	touchScreen->ccTouchesBegan(pTouches,pEvent);
 	int time=BUTTONA/DIRBUTTON;
 	dirButton->enable=(((distr%(DIRBUTTON*time))/DIRBUTTON)==0)?true:false;
 	buttonA->enable=((distr%(BUTTONA*time)/BUTTONA)==0)?true:false;
 }
 
-void ControlPanel::ccTouchesEnded(CCSet* pTouch, CCEvent *pEvent)
+void ControlPanel::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
 {
-	dirButton->ccTouchesEnded(pTouch,pEvent);
-	buttonA->ccTouchesEnded(pTouch,pEvent);
-	touchScreen->ccTouchesEnded(pTouch,pEvent);
+	dirButton->ccTouchesEnded(pTouches,pEvent);
+	CCTouch* pTouch=(CCTouch*)pTouches->anyObject();
+	buttonA->ccTouchEnded(pTouch,pEvent);
+	touchScreen->ccTouchesEnded(pTouches,pEvent);
 }
 
 void ControlPanel::ccTouchesMoved(CCSet* pTouch, CCEvent *pEvent)

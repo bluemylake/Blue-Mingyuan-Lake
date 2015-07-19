@@ -17,14 +17,15 @@ void ButtonA::initSprite()
     buttonImg->setTag(IMGSP);addChild(buttonImg);
 }
 
-void ButtonA::ccTouchesBegan(CCSet* pTouches, CCEvent *pEvent)
+bool ButtonA::ccTouchBegan(CCTouch* pTouch, CCEvent *pEvent)
 {
 	if(hero->isWalking) enable=false;
-    if(!enable)return;
+    if(!enable)return true;
 
     //判断按到按钮木有
-    CCPoint TouchesLocation = getTouchPos(pTouches);
-    if(!(getBoundingBox().containsPoint(TouchesLocation)))return;
+    //CCPoint TouchesLocation = getTouchPos(pTouches);
+	CCPoint touchLocation = pTouch->getLocation();
+    if(!(getBoundingBox().containsPoint(touchLocation)))return true;
 
     //按钮动画响应
     int aa=buttonImg->getContentSize().height;
@@ -49,10 +50,10 @@ void ButtonA::ccTouchesBegan(CCSet* pTouches, CCEvent *pEvent)
     //else if(!doShrink)hero->speed=3.0f;//$
     //if(!hero->isHeroWalking&&!doShrink)hero->speed=3.0f;//$
 
-    return;
+    return true;
 }
 
-void ButtonA::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
+void ButtonA::ccTouchEnded(CCTouch* pTouch, CCEvent *pEvent)
 {
     buttonImg->setTextureRect(CCRectMake(0,0,50,50));
     //hero->speed=1.0f;//$
