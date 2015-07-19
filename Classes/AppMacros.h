@@ -157,7 +157,8 @@
  * 2. define Event Id here
  * 3. register with Event Loader
  * 4. for A Trig, register listener with eManaer listener()
- * 5. for Stand Trig, register instant with isInstant() */
+ * 5. for Stand Trig, register instant with isInstant() 
+ * 6. document the CSV arg protocal */
 
 //For Event CSV
 #define EVENT_ATT_NUM 9
@@ -170,6 +171,7 @@
 #define NO_EVENT_FLAG -1
 #define TALKMAN_EVT 0
 #define GET_SUP_EVT 1
+#define DIALOG_EVT 2
 
 typedef enum{kNone=1,kWall=17,kEvent=41}CollisionType;
 typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;

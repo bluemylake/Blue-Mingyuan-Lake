@@ -99,6 +99,8 @@ ControllerListener* EventManager::listener(int type)
     {
 	case TALKMAN_EVT:
 	    return rGlobal->diawindow;
+	case DIALOG_EVT:
+	    return rGlobal->diawindow;
 	default:return NULL;
     }
     return NULL;

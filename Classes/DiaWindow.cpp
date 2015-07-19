@@ -60,7 +60,8 @@ void DiaWindow::respond()
 	if(nNext==nStr)
 	{
 		disappear();
-		controllerListener->endRespond();
+		if (controllerListener!=NULL)
+			controllerListener->endRespond();
 		nNext++;
 		return;
 	}
