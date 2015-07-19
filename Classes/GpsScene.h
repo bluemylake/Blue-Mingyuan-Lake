@@ -5,6 +5,12 @@
 #include "CsvUtil.h"
 using namespace cocos2d;
 
+#define MAP_CSV "csv/map.csv"
+#define WHOLE_MAP "map/wholemap.png"
+#define MAP_POINT "map/mappoint.png"
+#define	TOUCH_POINT "map/touchpoint.png"
+#define PLACE_NUM 70    //map.csv中地点的数量
+
 class Gps : public cocos2d::CCLayer
 {
 public:
