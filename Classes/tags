@@ -1,0 +1,798 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACQUIRE_ITEM_DIA	ItemEvent.h	6;"	d
+ALL_SUPERPOWER_INI	AppMacros.h	81;"	d
+ALL_SUPERPOWER_SRCD	AppMacros.h	66;"	d
+ALREADY_EQUIPPED	BagRecord.h	9;"	d
+ANIMATE_EVT	AppMacros.h	117;"	d
+ATRG_ATT	AppMacros.h	96;"	d
+ATRIG_NO_MAN_IMGNO	EventManager.h	15;"	d
+ATTACK	Animation.h	11;"	d
+A_CSV_PATH	GlobalPath.h	59;"	d
+A_TRIG	EventManager.h	12;"	d
+Ability	Ability.h	/^class Ability:public CCObject,public HurtAbl,public BuffAbl,public PeriodicAbl$/;"	c
+Animation	Animation.h	/^class Animation$/;"	c
+AppDelegate	AppDelegate.cpp	/^AppDelegate::AppDelegate() {$/;"	f	class:AppDelegate
+AppDelegate	AppDelegate.h	/^class  AppDelegate : private cocos2d::CCApplication$/;"	c
+BACKGROUND	AppMacros.h	34;"	d
+BAG_ITEM_MAX	BagRecord.h	6;"	d
+BGNAME_IMG_PATH	GlobalPath.h	39;"	d
+BGNAME_PATH_LEN	GlobalPath.h	40;"	d
+BIGWINDOW	AppMacros.h	27;"	d
+BLACK_IMG_PATH	GlobalPath.h	47;"	d
+BLOOD_IMG_PATH	GlobalPath.h	31;"	d
+BUILDING2_MLYR	AppMacros.h	46;"	d
+BUILDING_MLYR	AppMacros.h	47;"	d
+BUTTONA	AppMacros.h	30;"	d
+BUTTONA_IMG_PATH	GlobalPath.h	18;"	d
+BUTTONBD_PATH	GlobalPath.h	11;"	d
+BUTTONB_PATH	GlobalPath.h	10;"	d
+Backpack	Backpack.h	/^class Backpack$/;"	c
+BagItem	BagItem.h	/^class BagItem: public Entity$/;"	c
+BagRecord	BagRecord.h	/^class BagRecord$/;"	c
+BigWindow	BigWindow.h	/^class BigWindow:public Window$/;"	c
+BloodyEvent	BloodyEvent.h	/^class BloodyEvent: public Event$/;"	c
+BreakdawnEvent	NightfallEvent.h	/^class BreakdawnEvent$/;"	c
+BuffAbl	Ability.h	/^class BuffAbl$/;"	c
+Button	Button.h	/^class Button: public Controller,public CCLayer$/;"	c
+ButtonA	ButtonA.h	/^class ButtonA: public Button$/;"	c
+CHANGESCENE_EVT	AppMacros.h	111;"	d
+CLOSEN_IMG_PATH	GlobalPath.h	37;"	d
+CLOSES_IMG_PATH	GlobalPath.h	38;"	d
+COMABL	Ability.h	9;"	d
+COMBAT_IMG_PATH	GlobalPath.h	28;"	d
+CONTENTSP	AppMacros.h	42;"	d
+CONTROLPANELLAYER	AppMacros.h	16;"	d
+ChangeFile	PlayReader.cpp	/^void PlayReader::ChangeFile(cocos2d::CCString filePath) {$/;"	f	class:PlayReader
+Character	Character.h	/^class Character :public Entity, public CombatUnit$/;"	c
+CollisionType	AppMacros.h	/^typedef enum{kNone=1,kWall=17,kEvent=41}CollisionType;$/;"	t	typeref:enum:__anon1
+Combat	CombatScene.h	/^class Combat : public cocos2d::CCLayer$/;"	c
+CombatCtrl	CombatCtrl .h	/^class CombatCtrl : public cocos2d::CCLayer$/;"	c
+CombatEvent	CombatEvent.h	/^class CombatEvent: public Event$/;"	c
+CombatUnit	CombatUnit.h	/^class CombatUnit$/;"	c
+ControlPanel	ControlPanel.h	/^class ControlPanel : public CCLayer$/;"	c
+Controller	Controller.h	/^class Controller{$/;"	c
+ControllerListener	ControllerListener.h	/^class ControllerListener {$/;"	c
+CsvUtil	CsvUtil.h	/^class CsvUtil : public CCObject {$/;"	c
+DEFAULT_BLOOD	Player.h	13;"	d
+DIABOXSP	AppMacros.h	40;"	d
+DIAWINDOW	AppMacros.h	28;"	d
+DIAWINDOW_IMG_PATH	GlobalPath.h	20;"	d
+DIRBUTTON	AppMacros.h	29;"	d
+DIRBUTTON_IMG_PATH	GlobalPath.h	19;"	d
+DOWN	Animation.h	9;"	d
+DUIHUAKUANG_IMG_PATH	GlobalPath.h	41;"	d
+DiaWindow	DiaWindow.h	/^class DiaWindow:public Window,public Controller$/;"	c
+DirButton	DirButton.h	/^class DirButton: public Button$/;"	c
+Down	AppMacros.h	/^typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;$/;"	e	enum:__anon2
+EGLVIEW	AppMacros.h	155;"	d
+ENEMY1_IMG_PATH	GlobalPath.h	52;"	d
+ENEMY2_IMG_PATH	GlobalPath.h	53;"	d
+ENEMY3_IMG_PATH	GlobalPath.h	54;"	d
+ENEMY4_IMG_PATH	GlobalPath.h	55;"	d
+ENEMY_IMG_PATH	GlobalPath.h	30;"	d
+EVENT_ATT_NUM	EventLoader.h	9;"	d
+EVENT_CSV_PATH	EventManager.h	16;"	d
+EVENT_MLYR	AppMacros.h	45;"	d
+Emap	Emap.cpp	/^Emap::Emap()$/;"	f	class:Emap
+Emap	Emap.h	/^class Emap$/;"	c
+Enemy	Enemy.h	/^class Enemy:public Character{$/;"	c
+Entity	Entity.h	/^class Entity: public CCNode$/;"	c
+Event	Event.h	/^class Event: public CCObject$/;"	c
+EventLoader	EventLoader.h	/^class EventLoader$/;"	c
+EventManager	EventManager.h	/^class EventManager$/;"	c
+FACEDIR_INI	AppMacros.h	72;"	d
+FACEDIR_MRCD	AppMacros.h	57;"	d
+FADEOUT	Animation.h	18;"	d
+FIRSTSAVE_INI	AppMacros.h	69;"	d
+FIRSTSAVE_RCD	AppMacros.h	54;"	d
+FLASH_INI	AppMacros.h	80;"	d
+FLASH_SRCD	AppMacros.h	65;"	d
+FLOOR2_MLYR	AppMacros.h	49;"	d
+FLOOR_MLYR	AppMacros.h	50;"	d
+FaceDirection	AppMacros.h	/^typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;$/;"	t	typeref:enum:__anon2
+FileLoadUtil	FileLoadUtil.h	/^class FileLoadUtil : public CCObject {$/;"	c
+GATE_PATH	GlobalPath.h	7;"	d
+Gallery	GalleryScene.h	/^class Gallery : public cocos2d::CCLayer,public cocos2d::extension::CCTableViewDelegate,cocos2d::extension::CCTableViewDataSource  $/;"	c
+GetNextDialog	PlayReader.cpp	/^string PlayReader::GetNextDialog() {$/;"	f	class:PlayReader
+GlobalRes	GlobalRes.h	/^class GlobalRes$/;"	c
+GlobalState	GlobalState.h	/^class GlobalState: public Singleton<GlobalState>$/;"	c
+HELLOWORLDLAYER	AppMacros.h	12;"	d
+HERO	AppMacros.h	20;"	d
+HERO_IMG_PATH	GlobalPath.h	29;"	d
+HelloWorld	HelloWorldScene.h	/^class HelloWorld : public cocos2d::CCLayer$/;"	c
+Hero	Hero.h	/^class Hero : public WalkingMan$/;"	c
+Hp	CombatUnit.h	/^   int Hp;$/;"	m	class:CombatUnit
+HumanEntity	HumanEntity.h	/^class HumanEntity : public Entity, public ControllerListener$/;"	c
+HurtAbl	Ability.h	/^class HurtAbl$/;"	c
+ID	Ability.h	/^	int ID;$/;"	m	class:Ability
+ID	BagItem.h	/^   int ID;$/;"	m	class:BagItem
+ID	Character.h	/^	int ID;$/;"	m	class:Character
+IDX_ATT	AppMacros.h	108;"	d
+IDY_ATT	AppMacros.h	109;"	d
+ID_ATT	AppMacros.h	98;"	d
+IMGSP	AppMacros.h	39;"	d
+INCRXP_FIXED_ID	RestorationEvent.h	8;"	d
+INDEX_ZERO	Map.h	17;"	d
+INFORMATION_GRP	AppMacros.h	137;"	d
+ITEM2_IMG_PATH	GlobalPath.h	25;"	d
+ITEM_ID_INDEX	ItemEvent.h	5;"	d
+ITEM_IMG_PATH	GlobalPath.h	24;"	d
+ITEM_REMAIN	BagRecord.h	8;"	d
+ITEM_REMOVE	BagRecord.h	7;"	d
+IntToAddrForPNG	HumanEntity.cpp	/^void HumanEntity::IntToAddrForPNG(char addr[],int len,int n)$/;"	f	class:HumanEntity
+ItemEvent	ItemEvent.h	/^class ItemEvent: public Event$/;"	c
+ItemManager	ItemManager.h	/^class ItemManager$/;"	c
+Items	ItemManager.h	/^    CCArray* Items;$/;"	m	class:ItemManager
+JX_RESOLUHEI	AppMacros.h	85;"	d
+JX_RESOLUWID	AppMacros.h	84;"	d
+LABELSP	AppMacros.h	41;"	d
+LANDSCAPE_IMG_PATH	GlobalPath.h	44;"	d
+LEAFLET_IMG_PATH	GlobalPath.h	48;"	d
+Left	AppMacros.h	/^typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;$/;"	e	enum:__anon2
+MAN_IMG_PATH	GlobalPath.h	16;"	d
+MAN_PATH_LEN	GlobalPath.h	17;"	d
+MAN_START	AppMacros.h	23;"	d
+MAP	AppMacros.h	19;"	d
+MAP11	AppMacros.h	112;"	d
+MAP11_PATH	GlobalPath.h	14;"	d
+MAP12	AppMacros.h	113;"	d
+MAP12_PATH	GlobalPath.h	15;"	d
+MAPLAYER	AppMacros.h	15;"	d
+MAPNO_INI	AppMacros.h	73;"	d
+MAPNO_MRCD	AppMacros.h	58;"	d
+MAP_RESOLUHEI	AppMacros.h	87;"	d
+MAP_RESOLUWID	AppMacros.h	86;"	d
+MARK	AppMacros.h	147;"	d
+MENUSP2_IMG_PATH	GlobalPath.h	23;"	d
+MENUSP_IMG_PATH	GlobalPath.h	22;"	d
+MENU_IMG_PATH	GlobalPath.h	57;"	d
+M_CSV_PATH	GlobalPath.h	60;"	d
+Map	Map.h	/^class Map : public CCTMXTiledMap$/;"	c
+MapState	MapState.h	/^class MapState$/;"	c
+Menu	Menu.h	/^class Menu:public CCLayer$/;"	c
+MenuLayer	MenuLayer.h	/^class MenuLayer : public cocos2d::CCLayer$/;"	c
+NAME_PATH	GlobalPath.h	34;"	d
+NNPC_ATT	AppMacros.h	142;"	d
+NO_EVENT_FLAG	Emap.h	6;"	d
+NPCAX_ATT	AppMacros.h	143;"	d
+NPCUtil	NPCUtil.h	/^class NPCUtil$/;"	c
+NPCs	Map.h	/^    CCArray* NPCs; $/;"	m	class:Map
+NSTR_ATT	AppMacros.h	105;"	d
+NUM_ATTALT_INDEX	RestorationEvent.h	6;"	d
+NightfallEvent	NightfallEvent.h	/^class NightfallEvent$/;"	c
+PIC_MAX	HumanEntity.h	7;"	d
+PLACENAMEID_OBJ	AppMacros.h	140;"	d
+PLACENAME_EVT	AppMacros.h	118;"	d
+PLAYER_IMG_PATH	GlobalPath.h	51;"	d
+PLIST_IMG_PATH	GlobalPath.h	42;"	d
+PORTAL_EVT	AppMacros.h	107;"	d
+POSITIONX_INI	AppMacros.h	70;"	d
+POSITIONX_MRCD	AppMacros.h	55;"	d
+POSITIONY_INI	AppMacros.h	71;"	d
+POSITIONY_MRCD	AppMacros.h	56;"	d
+PathFinding	PathFinding.h	/^class PathFinding$/;"	c
+PeriodicAbl	Ability.h	/^class PeriodicAbl$/;"	c
+PlacenameWindow	PlacenameWindow.h	/^class PlacenameWindow:public Window$/;"	c
+PlayReader	PlayReader.cpp	/^PlayReader::PlayReader() {$/;"	f	class:PlayReader
+PlayReader	PlayReader.cpp	/^PlayReader::PlayReader(string filePath) {$/;"	f	class:PlayReader
+PlayReader	PlayReader.h	/^class PlayReader {$/;"	c
+Player	Player.cpp	/^Player::Player() {$/;"	f	class:Player
+Player	Player.h	/^class Player {$/;"	c
+Player1	Player1.h	/^class Player1 : public Character{$/;"	c
+PlayerNames	PlayReader.cpp	/^vector<string> PlayReader::PlayerNames() {$/;"	f	class:PlayReader
+ProcessSaver	PlayReader.cpp	/^ProcessSaver::ProcessSaver() {$/;"	f	class:ProcessSaver
+ProcessSaver	PlayReader.h	/^class ProcessSaver {$/;"	c
+RESTHP_FIXED_ID	RestorationEvent.h	7;"	d
+ROADSIGN_EVT	AppMacros.h	102;"	d
+RWINDOW	AppMacros.h	26;"	d
+RWINDOW_IMG_PATH	GlobalPath.h	21;"	d
+ReadFileWithFullPath	PlayReader.cpp	/^void PlayReader::ReadFileWithFullPath(cocos2d::CCString filePath) {$/;"	f	class:PlayReader
+RestorationEvent	RestorationEvent.h	/^class RestorationEvent: public Event$/;"	c
+Right	AppMacros.h	/^typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;$/;"	e	enum:__anon2
+SCENE_ID_INDEX	SceneChEvent.h	4;"	d
+SCRIPT_PATH	GlobalPath.h	35;"	d
+SCRIPT_PATH_LEN	GlobalPath.h	36;"	d
+SPEABL	Ability.h	10;"	d
+SPEED_INI	AppMacros.h	76;"	d
+SPEED_SRCD	AppMacros.h	61;"	d
+STAFFBG_IMG_PATH	GlobalPath.h	45;"	d
+STAFF_IMG_PATH	GlobalPath.h	46;"	d
+STAGGER	Animation.h	7;"	d
+STANDING	Map.h	14;"	d
+STANDINGMAN_ATTNUM	AppMacros.h	146;"	d
+STANDINGMAN_OBJ	AppMacros.h	139;"	d
+STANDTRG_ATT	AppMacros.h	95;"	d
+STAND_TRIG	EventManager.h	13;"	d
+STAND_TRIG_IMGNO	EventManager.h	14;"	d
+START1_PATH	GlobalPath.h	8;"	d
+START2_PATH	GlobalPath.h	9;"	d
+STD_WALK_DURATION	WalkingMan.h	9;"	d
+STEALTH	Animation.h	12;"	d
+STEALTHIN	Animation.h	16;"	d
+STEALTHOUT	Animation.h	15;"	d
+STEALTH_INI	AppMacros.h	78;"	d
+STEALTH_SRCD	AppMacros.h	63;"	d
+STORYCNT_INI	AppMacros.h	74;"	d
+STORYCNT_MRCD	AppMacros.h	59;"	d
+STRIKE	Animation.h	8;"	d
+SURF_INI	AppMacros.h	79;"	d
+SURF_SRCD	AppMacros.h	64;"	d
+SWAY	Animation.h	17;"	d
+ScaleBlood	CombatScene.cpp	/^void Combat::ScaleBlood(CCObject* character){$/;"	f	class:Combat
+SceneChEvent	SceneChEvent.h	/^class SceneChEvent: public Event$/;"	c
+Singleton	Singleton.hpp	/^class Singleton$/;"	c
+StandingMan	StandingMan.h	/^class StandingMan: public HumanEntity$/;"	c
+StoryWorld	Story.h	/^class StoryWorld : public cocos2d::CCLayer$/;"	c
+StringUtil	StringUtil.h	/^class StringUtil : public CCObject {$/;"	c
+SuperPower	SuperPower.h	/^class SuperPower$/;"	c
+TAISHANYADING	Animation.h	6;"	d
+TALKATIVEMAN_EVT	AppMacros.h	104;"	d
+TALKMAN_EVT	EventLoader.h	10;"	d
+TELEPORTIN	Animation.h	14;"	d
+TELEPORTOUT	Animation.h	13;"	d
+TELEPORT_INI	AppMacros.h	77;"	d
+TELEPORT_SRCD	AppMacros.h	62;"	d
+TOUCHSCREEN	AppMacros.h	31;"	d
+TURNING	Map.h	15;"	d
+TURNINGMAN_ATTNUM	AppMacros.h	145;"	d
+TURNINGMAN_OBJ	AppMacros.h	138;"	d
+TalkManEvent	TalkManEvent.h	/^class TalkManEvent: public Event$/;"	c
+TimeElapseEvent	TimeElapse.h	/^class TimeElapseEvent: public Event$/;"	c
+TimeElapseEvent	TimeElapseEvent.h	/^class TimeElapseEvent: public Event$/;"	c
+TouchScreen	TouchScreen.h	/^class TouchScreen: public Button$/;"	c
+TurningMan	TurningMan.h	/^class TurningMan: public HumanEntity$/;"	c
+UP	Animation.h	10;"	d
+Up	AppMacros.h	/^typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;$/;"	e	enum:__anon2
+VDRAWING_IMG_PATH	GlobalPath.h	43;"	d
+VectorLoader	VectorLoader.h	/^class VectorLoader$/;"	c
+WALKING	Map.h	16;"	d
+WALL_MLYR	AppMacros.h	48;"	d
+WATER_MLYR	AppMacros.h	51;"	d
+WalkingMan	WalkingMan.h	/^class WalkingMan:public HumanEntity$/;"	c
+WateryEvent	BloodyEvent.h	/^class WateryEvent: public Event$/;"	c
+Welcome	Welcome.h	/^class Welcome : public cocos2d::CCLayer$/;"	c
+Window	Window.h	/^class Window: public CCNode,public ControllerListener$/;"	c
+ZOOMSTROKELEN	AppMacros.h	156;"	d
+_ABILITIES_H_	Ability.h	2;"	d
+_ANIMATION_H_	Animation.h	2;"	d
+_APPMACROS_H_	AppMacros.h	2;"	d
+_APP_DELEGATE_H_	AppDelegate.h	2;"	d
+_BACKPACK_H_	Backpack.h	2;"	d
+_BAG_H_	BagRecord.h	2;"	d
+_BAG_ITEM_H_	BagItem.h	2;"	d
+_BLOODY_EVENT_H_	BloodyEvent.h	2;"	d
+_BUTTON_H_	Button.h	2;"	d
+_COMBAT_EVENT_H_	CombatEvent.h	2;"	d
+_COMBAT_UNIT_H_	CombatUnit.h	2;"	d
+_ControllerListener_H_	ControllerListener.h	2;"	d
+_Controller_H_	Controller.h	2;"	d
+_EMAP_H_	Emap.h	2;"	d
+_EVENT_H_	Event.h	2;"	d
+_EVENT_MANAGER_H_	EventManager.h	2;"	d
+_EVNET_LOADER_H_	EventLoader.h	2;"	d
+_Entity_H_	Entity.h	2;"	d
+_GLOBAL_RES_H_	GlobalRes.h	2;"	d
+_GLOBAL_STATE_H_	GlobalState.h	2;"	d
+_GlobalPath_H_	GlobalPath.h	2;"	d
+_HUMAN_ENTITY_H_	HumanEntity.h	2;"	d
+_ITEM_EVENT_H_	ItemEvent.h	2;"	d
+_ITEM_MANAGER_H_	ItemManager.h	2;"	d
+_MAP_STATE_H_	MapState.h	2;"	d
+_NIGHTFALL_EVENT_H_	NightfallEvent.h	2;"	d
+_NPC_UTIL_H_	NPCUtil.h	2;"	d
+_PATH_FINDING_H_	PathFinding.h	2;"	d
+_RESTORATION_EVENT_H_	RestorationEvent.h	2;"	d
+_SCENECH_EVENT_H_	SceneChEvent.h	2;"	d
+_SINGLETON_HPP_	Singleton.hpp	2;"	d
+_SUPER_POWER_H_	SuperPower.h	2;"	d
+_TALKMAN_EVENT_H_	TalkManEvent.h	2;"	d
+_TIME_ELAPSE_EVENT_H_	TimeElapse.h	2;"	d
+_TIME_ELAPSE_EVENT_H_	TimeElapseEvent.h	2;"	d
+_VECTOR_LOADER_H_	VectorLoader.h	2;"	d
+_WINDOW_H_	Window.h	2;"	d
+__BIG_WINDOW_H__	BigWindow.h	2;"	d
+__BUTTONA_H__	ButtonA.h	2;"	d
+__CHARACTER_H__	Character.h	11;"	d
+__COMBATCTRL_H__	CombatCtrl .h	2;"	d
+__CONTROL_PANEL_H__	ControlPanel.h	2;"	d
+__CSV_H__	CsvUtil.h	3;"	d
+__DIA_WINDOW_H__	DiaWindow.h	2;"	d
+__DIR_BUTTON_H__	DirButton.h	2;"	d
+__ENEMY_H__	Enemy.h	2;"	d
+__FILE_LOAD_UTIL_H__	FileLoadUtil.h	9;"	d
+__Gallery_H__	GalleryScene.h	2;"	d
+__HELLOWORLD_SCENE_H__	HelloWorldScene.h	2;"	d
+__HERO_H__	Hero.h	2;"	d
+__MAP_H__	Map.h	2;"	d
+__MENU_H__	Menu.h	2;"	d
+__MenuLayer_H__	MenuLayer.h	2;"	d
+__PLACENAME_WINDOW_H__	PlacenameWindow.h	2;"	d
+__PLAYER1_H__	Player1.h	2;"	d
+__STANDING_MAN_H__	StandingMan.h	7;"	d
+__STRING_UTIL_H__	StringUtil.h	9;"	d
+__StoryWorld_SCENE_H__	Story.h	2;"	d
+__TOUCH_SCREEN_H__	TouchScreen.h	2;"	d
+__TURNING_MAN_H__	TurningMan.h	6;"	d
+__WALKING_MAN_H__	WalkingMan.h	2;"	d
+_________CombatScene__	CombatScene.h	10;"	d
+_________PlayReader__	PlayReader.h	10;"	d
+_________Player__	Player.h	10;"	d
+_________Welcome__	Welcome.h	2;"	d
+_instance	Singleton.hpp	/^	static T* _instance;$/;"	m	class:Singleton
+_instance	Singleton.hpp	/^T* Singleton<T>::_instance=NULL;$/;"	m	class:Singleton
+_mapProcess	PlayReader.h	/^    int _x, _y, _mapProcess;$/;"	m	class:ProcessSaver
+_process	PlayReader.h	/^    int _process;$/;"	m	class:ProcessSaver
+_x	PlayReader.h	/^    int _x, _y, _mapProcess;$/;"	m	class:ProcessSaver
+_y	PlayReader.h	/^    int _x, _y, _mapProcess;$/;"	m	class:ProcessSaver
+abilities	CombatUnit.h	/^   CCArray* abilities;$/;"	m	class:CombatUnit
+ability	Character.h	/^	Ability* ability;$/;"	m	class:Character
+abilityNum	Player1.h	/^	int abilityNum[4];$/;"	m	class:Player1
+ablType	Ability.h	/^	unsigned char ablType;$/;"	m	class:Ability
+addItem	Backpack.cpp	/^bool Backpack::addItem(BagItem* item)    $/;"	f	class:Backpack
+addItemToRecord	BagRecord.cpp	/^bool BagRecord::addItemToRecord(int id)$/;"	f	class:BagRecord
+afterStep	WalkingMan.cpp	/^void WalkingMan::afterStep()$/;"	f	class:WalkingMan
+all	SuperPower.h	/^	bool all;$/;"	m	class:SuperPower
+allChoice	Story.h	/^    enum allChoice {fChoice = 10, sChoice, tChoice};$/;"	g	class:StoryWorld
+appear	BigWindow.cpp	/^void BigWindow::appear()$/;"	f	class:BigWindow
+appear	DiaWindow.cpp	/^void DiaWindow::appear()$/;"	f	class:DiaWindow
+appear	PlacenameWindow.cpp	/^void PlacenameWindow::appear()$/;"	f	class:PlacenameWindow
+applicationDidEnterBackground	AppDelegate.cpp	/^void AppDelegate::applicationDidEnterBackground() {$/;"	f	class:AppDelegate
+applicationDidFinishLaunching	AppDelegate.cpp	/^bool AppDelegate::applicationDidFinishLaunching() {$/;"	f	class:AppDelegate
+applicationWillEnterForeground	AppDelegate.cpp	/^void AppDelegate::applicationWillEnterForeground() {$/;"	f	class:AppDelegate
+args	Event.h	/^	CCArray* args;$/;"	m	class:Event
+attack	CombatUnit.h	/^   int attack;$/;"	m	class:CombatUnit
+avgGame	Story.cpp	/^void StoryWorld::avgGame(void) {$/;"	f	class:StoryWorld
+background	CombatCtrl .h	/^	CCSprite* background;$/;"	m	class:CombatCtrl
+background	CombatScene.h	/^	CCSprite *background;$/;"	m	class:Combat
+backpack	GlobalRes.h	/^    Backpack* backpack;$/;"	m	class:GlobalRes
+bagItemList	Backpack.h	/^    CCArray* bagItemList;$/;"	m	class:Backpack
+bagRecord	GlobalState.h	/^    BagRecord* bagRecord;$/;"	m	class:GlobalState
+beforeStep	WalkingMan.cpp	/^void WalkingMan::beforeStep()$/;"	f	class:WalkingMan
+bigwindow	ButtonA.h	/^	BigWindow* bigwindow;$/;"	m	class:ButtonA
+bigwindow	ControlPanel.h	/^	BigWindow* bigwindow;$/;"	m	class:ControlPanel
+blood	Player.h	/^    int blood;$/;"	m	class:Player
+buffRate	Ability.h	/^	float buffRate;$/;"	m	class:BuffAbl
+buffType	Ability.h	/^	int buffType;$/;"	m	class:BuffAbl
+buffValue	Ability.h	/^	int buffValue;$/;"	m	class:BuffAbl
+buttonA	ControlPanel.h	/^	ButtonA* buttonA;$/;"	m	class:ControlPanel
+buttonA	TouchScreen.h	/^	Button* buttonA;$/;"	m	class:TouchScreen
+buttonImg	Button.h	/^	CCSprite* buttonImg;$/;"	m	class:Button
+category	BagItem.h	/^   int category;$/;"	m	class:BagItem
+category	Event.h	/^	int category;$/;"	m	class:Event
+ccTouchBegan	MenuLayer.cpp	/^bool MenuLayer::ccTouchBegan(CCTouch *pTouch,CCEvent *pEvent)$/;"	f	class:MenuLayer
+ccTouchEnded	MenuLayer.cpp	/^void MenuLayer::ccTouchEnded(CCTouch *pTouch,CCEvent *pEvent)$/;"	f	class:MenuLayer
+ccTouchMoved	MenuLayer.cpp	/^void MenuLayer::ccTouchMoved(CCTouch *pTouch,CCEvent *pEvent)$/;"	f	class:MenuLayer
+ccTouchesBegan	Button.cpp	/^void Button::ccTouchesBegan(CCSet* pTouches, CCEvent *pEvent)$/;"	f	class:Button
+ccTouchesBegan	ButtonA.cpp	/^void ButtonA::ccTouchesBegan(CCSet* pTouches, CCEvent *pEvent)$/;"	f	class:ButtonA
+ccTouchesBegan	CombatCtrl.cpp	/^void CombatCtrl::ccTouchesBegan(CCSet*pTouches,CCEvent*pEvent)$/;"	f	class:CombatCtrl
+ccTouchesBegan	ControlPanel.cpp	/^void ControlPanel::ccTouchesBegan(CCSet* pTouch, CCEvent *pEvent)$/;"	f	class:ControlPanel
+ccTouchesBegan	DirButton.cpp	/^void DirButton::ccTouchesBegan(CCSet* pTouches, CCEvent *pEvent)$/;"	f	class:DirButton
+ccTouchesBegan	TouchScreen.cpp	/^void TouchScreen::ccTouchesBegan(CCSet* pTouch, CCEvent *pEvent)$/;"	f	class:TouchScreen
+ccTouchesEnded	Button.cpp	/^void Button::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)$/;"	f	class:Button
+ccTouchesEnded	ButtonA.cpp	/^void ButtonA::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)$/;"	f	class:ButtonA
+ccTouchesEnded	ControlPanel.cpp	/^void ControlPanel::ccTouchesEnded(CCSet* pTouch, CCEvent *pEvent)$/;"	f	class:ControlPanel
+ccTouchesEnded	Story.cpp	/^void StoryWorld::ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent){$/;"	f	class:StoryWorld
+ccTouchesEnded	TouchScreen.cpp	/^void TouchScreen::ccTouchesEnded(CCSet* pTouch, CCEvent *pEvent)$/;"	f	class:TouchScreen
+ccTouchesEnded	Welcome.cpp	/^void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)$/;"	f	class:Welcome
+ccTouchesMoved	Button.cpp	/^void Button::ccTouchesMoved(CCSet* pTouches, CCEvent *pEvent)$/;"	f	class:Button
+ccTouchesMoved	ControlPanel.cpp	/^void ControlPanel::ccTouchesMoved(CCSet* pTouch, CCEvent *pEvent)$/;"	f	class:ControlPanel
+ccTouchesMoved	TouchScreen.cpp	/^void TouchScreen::ccTouchesMoved(CCSet* pTouch, CCEvent *pEvent)$/;"	f	class:TouchScreen
+cellSizeForTable	GalleryScene.cpp	/^CCSize Gallery::cellSizeForTable(CCTableView *table)$/;"	f	class:Gallery
+checkCollision	Hero.cpp	/^CollisionType Hero::checkCollision(CCPoint tileCoord)$/;"	f	class:Hero
+checkEvent	Hero.cpp	/^CollisionType Hero::checkEvent(CCPoint tileCoord)$/;"	f	class:Hero
+consumptive	BagItem.h	/^   bool consumptive;$/;"	m	class:BagItem
+content	Window.h	/^	CCLabelTTF* content;$/;"	m	class:Window
+controllerListener	Controller.h	/^    ControllerListener* controllerListener;$/;"	m	class:Controller
+convertCoord	Window.cpp	/^CCPoint Window::convertCoord(CCNode* obj)$/;"	f	class:Window
+coord	Event.h	/^	CCPoint coord;$/;"	m	class:Event
+count	CombatCtrl .h	/^	int count;$/;"	m	class:CombatCtrl
+count	GalleryScene.h	/^	int count;$/;"	m	class:Gallery
+create	Ability.cpp	/^Ability* Ability::create(int type,int hurt,int stability,int lvlBuff,int hitRate,CCString description,int giveHurtActID,int receiveHurtActID)$/;"	f	class:Ability
+create	ControlPanel.cpp	/^ControlPanel* ControlPanel::create(Map* map)$/;"	f	class:ControlPanel
+create	Map.cpp	/^Map* Map::create(const char *tmxFile)$/;"	f	class:Map
+create	StandingMan.cpp	/^StandingMan* StandingMan::create(int picNo,int id)$/;"	f	class:StandingMan
+create	TurningMan.cpp	/^TurningMan* TurningMan::create(int picNo,int id)$/;"	f	class:TurningMan
+create	WalkingMan.cpp	/^WalkingMan* WalkingMan::create(int picNo,int id)$/;"	f	class:WalkingMan
+createAnimationForDirection	WalkingMan.cpp	/^CCAnimation* WalkingMan::createAnimationForDirection(int dirc)$/;"	f	class:WalkingMan
+crossMap	Map.cpp	/^Map* Map::crossMap(CCPoint tileBirthPoint,int mapNo)$/;"	f	class:Map
+curLine	PlayReader.h	/^    unsigned long curLine;$/;"	m	class:PlayReader
+current	Story.h	/^    char current;$/;"	m	class:StoryWorld
+cycStability	Ability.h	/^	int cycStability;$/;"	m	class:PeriodicAbl
+cycle	Ability.h	/^	int cycle;$/;"	m	class:PeriodicAbl
+dealEvent	ButtonA.cpp	/^void ButtonA::dealEvent()$/;"	f	class:ButtonA
+decideAbility	Enemy.cpp	/^int Enemy::decideAbility(int heroRemainHP,int heroLvl)$/;"	f	class:Enemy
+defence	CombatUnit.h	/^   int defence;$/;"	m	class:CombatUnit
+description	Ability.h	/^	CCString description;$/;"	m	class:Ability
+description	BagItem.h	/^   CCString description;$/;"	m	class:BagItem
+description	Event.h	/^	CCString* description;$/;"	m	class:Event
+dialog	DiaWindow.h	/^	CCArray* dialog;$/;"	m	class:DiaWindow
+dialog	Event.h	/^	CCArray* dialog;$/;"	m	class:Event
+dialog	Story.h	/^    char dialog[256];$/;"	m	class:StoryWorld
+dialogBox	Window.h	/^	CCSprite* dialogBox;$/;"	m	class:Window
+dialogs	PlayReader.h	/^    vector<string> dialogs;$/;"	m	class:PlayReader
+diawindow	ButtonA.h	/^	DiaWindow* diawindow;$/;"	m	class:ButtonA
+diawindow	ControlPanel.h	/^	DiaWindow* diawindow;$/;"	m	class:ControlPanel
+diawindow	GlobalRes.h	/^    DiaWindow* diawindow;$/;"	m	class:GlobalRes
+dir	HumanEntity.h	/^	int dir;$/;"	m	class:HumanEntity
+dirButton	ControlPanel.h	/^	Button* dirButton;$/;"	m	class:ControlPanel
+dirButton	TouchScreen.h	/^	Button* dirButton;$/;"	m	class:TouchScreen
+disaDistr	Button.h	/^	int disaDistr;$/;"	m	class:Button
+disableDirButton	ButtonA.cpp	/^void ButtonA::disableDirButton()$/;"	f	class:ButtonA
+disappear	BigWindow.cpp	/^void BigWindow::disappear()$/;"	f	class:BigWindow
+disappear	DiaWindow.cpp	/^void DiaWindow::disappear()$/;"	f	class:DiaWindow
+disappear	PlacenameWindow.cpp	/^void PlacenameWindow::disappear()$/;"	f	class:PlacenameWindow
+doEvent	Hero.cpp	/^void Hero::doEvent(CCPoint heroTilePos)$/;"	f	class:Hero
+doShrink	TouchScreen.h	/^	bool doShrink;$/;"	m	class:TouchScreen
+doneList	GlobalState.h	/^    bool* doneList;$/;"	m	class:GlobalState
+eAtrgr	EventManager.h	/^    Emap* eAtrgr;$/;"	m	class:EventManager
+eAtrgr	Map.h	/^    Emap* eAtrgr;$/;"	m	class:Map
+eBlood	CombatScene.h	/^	CCSprite *eBlood;$/;"	m	class:Combat
+eBloodLabel	CombatScene.h	/^	CCLabelTTF *eBloodLabel;$/;"	m	class:Combat
+eManager	EventManager.h	36;"	d
+eStand	EventManager.h	/^    Emap* eStand;$/;"	m	class:EventManager
+effectLabel	CombatCtrl .h	/^	CCLabelTTF *effectLabel;$/;"	m	class:CombatCtrl
+effectValue	BagItem.h	/^   int effectValue;$/;"	m	class:BagItem
+enable	Button.h	/^	bool enable;$/;"	m	class:Button
+enableDirButton	ButtonA.cpp	/^void ButtonA::enableDirButton()$/;"	f	class:ButtonA
+endRespond	ControllerListener.cpp	/^void ControllerListener::endRespond()$/;"	f	class:ControllerListener
+endRespond	Hero.cpp	/^void Hero::endRespond()$/;"	f	class:Hero
+endRespond	StandingMan.cpp	/^void StandingMan::endRespond()$/;"	f	class:StandingMan
+endRespond	TurningMan.cpp	/^void TurningMan::endRespond()$/;"	f	class:TurningMan
+endRespond	WalkingMan.cpp	/^void WalkingMan::endRespond()$/;"	f	class:WalkingMan
+enemy	CombatCtrl .h	/^	Enemy* enemy;$/;"	m	class:CombatCtrl
+enemy	CombatScene.h	/^	Enemy* enemy;$/;"	m	class:Combat
+enemyExp	Enemy.h	/^	int enemyExp;$/;"	m	class:Enemy
+events	EventManager.h	/^    CCArray* events;$/;"	m	class:EventManager
+evmap	Emap.h	/^	int** evmap;$/;"	m	class:Emap
+evolution	Player1.cpp	/^void Player1::evolution(int level){$/;"	f	class:Player1
+exitAction	Character.cpp	/^CCFiniteTimeAction* Character::exitAction()$/;"	f	class:Character
+fChoice	Story.h	/^    enum allChoice {fChoice = 10, sChoice, tChoice};$/;"	e	enum:StoryWorld::allChoice
+faceDir	MapState.h	/^   int faceDir;$/;"	m	class:MapState
+findEventById	EventManager.cpp	/^Event* EventManager::findEventById(int id)$/;"	f	class:EventManager
+findItemById	ItemManager.cpp	/^BagItem* ItemManager::findItemById(int id)$/;"	f	class:ItemManager
+findManById	NPCUtil.cpp	/^HumanEntity* NPCUtil::findManById(int id, CCArray* NPCs)$/;"	f	class:NPCUtil
+findPath	PathFinding.cpp	/^CCArray* PathFinding::findPath(CCPoint start, CCPoint end, Emap* walkMap)$/;"	f	class:PathFinding
+findValueInWithLine	CsvUtil.cpp	/^const int CsvUtil::findValueInWithLine( const char* chValue, int iValueCol, const char* csvFilePath ) {$/;"	f	class:CsvUtil
+firstChoose	CombatCtrl.cpp	/^void CombatCtrl::firstChoose(CCObject *sender){$/;"	f	class:CombatCtrl
+fixAbility	Player1.cpp	/^void Player1::fixAbility(int level){$/;"	f	class:Player1
+flash	SuperPower.h	/^	bool flash;$/;"	m	class:SuperPower
+focus	Hero.h	/^    bool focus;$/;"	m	class:Hero
+forever	TurningMan.h	/^	CCFiniteTimeAction* forever;$/;"	m	class:TurningMan
+forever	WalkingMan.h	/^    CCFiniteTimeAction* forever;$/;"	m	class:WalkingMan
+get	CsvUtil.cpp	/^const char* CsvUtil::get( int iRow, int iCol, const char* csvFilePath ) {$/;"	f	class:CsvUtil
+getAction	Animation.cpp	/^CCFiniteTimeAction* Animation::getAction(int choice,CCSize size)$/;"	f	class:Animation
+getAttackWithMethod	Player.cpp	/^bool Player::getAttackWithMethod(int type) {$/;"	f	class:Player
+getBlood	Player.cpp	/^int Player::getBlood() {$/;"	f	class:Player
+getBoundingBox	Button.cpp	/^CCRect Button::getBoundingBox()$/;"	f	class:Button
+getCurLine	PlayReader.cpp	/^int PlayReader::getCurLine() {$/;"	f	class:PlayReader
+getDataLines	FileLoadUtil.cpp	/^CCArray* FileLoadUtil::getDataLines( const char* sFilePath ) {$/;"	f	class:FileLoadUtil
+getDirection	WalkingMan.cpp	/^FaceDirection WalkingMan::getDirection(CCPoint vect)$/;"	f	class:WalkingMan
+getDisaDistr	Button.cpp	/^int Button::getDisaDistr()$/;"	f	class:Button
+getFileRowColNum	CsvUtil.cpp	/^const CCSize CsvUtil::getFileRowColNum( const char* csvFilePath )$/;"	f	class:CsvUtil
+getFloat	CsvUtil.cpp	/^const float CsvUtil::getFloat( int iRow, int iCol, const char* csvFilePath ) {$/;"	f	class:CsvUtil
+getGiveHurtAction	Character.cpp	/^CCFiniteTimeAction* Character::getGiveHurtAction(int abilityNum)$/;"	f	class:Character
+getHeroTilePos	Hero.cpp	/^CCPoint Hero::getHeroTilePos()$/;"	f	class:Hero
+getInt	CsvUtil.cpp	/^const int CsvUtil::getInt( int iRow, int iCol, const char* csvFilePath ) {$/;"	f	class:CsvUtil
+getItemNumList	Backpack.cpp	/^std::vector<int> Backpack::getItemNumList()$/;"	f	class:Backpack
+getItemUseList	Backpack.cpp	/^std::vector<bool> Backpack::getItemUseList()$/;"	f	class:Backpack
+getMapProcess	PlayReader.cpp	/^int ProcessSaver::getMapProcess() {$/;"	f	class:ProcessSaver
+getPositionX	PlayReader.cpp	/^int ProcessSaver::getPositionX() {$/;"	f	class:ProcessSaver
+getPositionY	PlayReader.cpp	/^int ProcessSaver::getPositionY() {$/;"	f	class:ProcessSaver
+getProcess	PlayReader.cpp	/^int ProcessSaver::getProcess() {$/;"	f	class:ProcessSaver
+getProperty	Enemy.cpp	/^void Enemy::getProperty()$/;"	f	class:Enemy
+getProperty	Player1.cpp	/^void Player1::getProperty()$/;"	f	class:Player1
+getRecvHurtAction	Character.cpp	/^CCFiniteTimeAction* Character::getRecvHurtAction(int abilityNum)$/;"	f	class:Character
+getSprite	Button.cpp	/^CCSprite* Button::getSprite()$/;"	f	class:Button
+getTouchPos	Button.cpp	/^CCPoint Button::getTouchPos(CCSet* pTouches)$/;"	f	class:Button
+getability	Character.cpp	/^void Character::getability(int num)$/;"	f	class:Character
+giveExp	Enemy.cpp	/^int Enemy::giveExp(){$/;"	f	class:Enemy
+giveHurt	Character.cpp	/^int Character::giveHurt(int abilityNum,int& type)$/;"	f	class:Character
+giveHurtActID	Ability.h	/^	int giveHurtActID;$/;"	m	class:Ability
+goWalking	HumanEntity.cpp	/^void HumanEntity::goWalking(float dt)$/;"	f	class:HumanEntity
+goWalking	StandingMan.cpp	/^void StandingMan::goWalking(float dt)$/;"	f	class:StandingMan
+goWalking	TurningMan.cpp	/^void TurningMan::goWalking(float dt)$/;"	f	class:TurningMan
+goWalking	WalkingMan.cpp	/^void WalkingMan::goWalking(float dt)$/;"	f	class:WalkingMan
+gotFocusT	Hero.cpp	/^void Hero::gotFocusT()$/;"	f	class:Hero
+happen	BloodyEvent.cpp	/^void BloodyEvent::happen()$/;"	f	class:BloodyEvent
+happen	BloodyEvent.cpp	/^void WateryEvent::happen()$/;"	f	class:WateryEvent
+happen	CombatEvent.cpp	/^void CombatEvent::happen()$/;"	f	class:CombatEvent
+happen	Event.cpp	/^void Event::happen()$/;"	f	class:Event
+happen	EventManager.cpp	/^ControllerListener* EventManager::happen(CCPoint coord, int ent)$/;"	f	class:EventManager
+happen	ItemEvent.cpp	/^void ItemEvent::happen()$/;"	f	class:ItemEvent
+happen	NightfallEvent.cpp	/^void BreakdawnEvent::happen()$/;"	f	class:BreakdawnEvent
+happen	NightfallEvent.cpp	/^void NightfallEvent::happen()$/;"	f	class:NightfallEvent
+happen	RestorationEvent.cpp	/^void RestorationEvent::happen()$/;"	f	class:RestorationEvent
+happen	SceneChEvent.cpp	/^void SceneChEvent::happen()$/;"	f	class:SceneChEvent
+happen	TalkManEvent.cpp	/^void TalkManEvent::happen()$/;"	f	class:TalkManEvent
+happen	TimeElapse.cpp	/^void TimeElapseEvent::happen()$/;"	f	class:TimeElapseEvent
+happen	TimeElapseEvent.cpp	/^void TimeElapseEvent::happen()$/;"	f	class:TimeElapseEvent
+hasTouchEnded	ControllerListener.cpp	/^bool ControllerListener::hasTouchEnded()$/;"	f	class:ControllerListener
+hasTouchEnded	DiaWindow.cpp	/^bool DiaWindow::hasTouchEnded()$/;"	f	class:DiaWindow
+hero	ButtonA.h	/^	Hero* hero;$/;"	m	class:ButtonA
+hero	ControlPanel.h	/^	Hero* hero;$/;"	m	class:ControlPanel
+hero	GlobalRes.h	/^    HumanEntity* hero;$/;"	m	class:GlobalRes
+hero	Menu.h	/^	Hero* hero;$/;"	m	class:Menu
+hero	TouchScreen.h	/^	Hero* hero;$/;"	m	class:TouchScreen
+hitRate	Ability.h	/^	float hitRate;$/;"	m	class:Ability
+humanPosForTileMove	Map.cpp	/^CCPoint Map::humanPosForTileMove(CCPoint tileCoord)$/;"	f	class:Map
+hurt	Ability.h	/^	int hurt;$/;"	m	class:HurtAbl
+iManager	ItemManager.h	13;"	d
+id	Event.h	/^	int id;$/;"	m	class:Event
+id	HumanEntity.h	/^	int id;$/;"	m	class:HumanEntity
+img	GalleryScene.h	/^	cocos2d::CCSprite *img;$/;"	m	class:Gallery
+imgNo	Event.h	/^	int imgNo;$/;"	m	class:Event
+info	Menu.cpp	/^void Menu::info(CCObject* sender){$/;"	f	class:Menu
+init	Ability.cpp	/^bool Ability::init()$/;"	f	class:Ability
+init	Button.cpp	/^bool Button::init()$/;"	f	class:Button
+init	ButtonA.cpp	/^bool ButtonA::init()$/;"	f	class:ButtonA
+init	Character.cpp	/^bool Character::init()$/;"	f	class:Character
+init	CombatCtrl.cpp	/^bool CombatCtrl::init() {$/;"	f	class:CombatCtrl
+init	CombatScene.cpp	/^bool Combat::init() {$/;"	f	class:Combat
+init	ControlPanel.cpp	/^bool ControlPanel::init()$/;"	f	class:ControlPanel
+init	CsvUtil.cpp	/^bool CsvUtil::init(){$/;"	f	class:CsvUtil
+init	DiaWindow.cpp	/^bool DiaWindow::init()$/;"	f	class:DiaWindow
+init	DirButton.cpp	/^bool DirButton::init()$/;"	f	class:DirButton
+init	Enemy.cpp	/^bool Enemy::init(){$/;"	f	class:Enemy
+init	Event.cpp	/^bool Event::init()$/;"	f	class:Event
+init	FileLoadUtil.cpp	/^bool FileLoadUtil::init() {$/;"	f	class:FileLoadUtil
+init	GalleryScene.cpp	/^bool Gallery::init()$/;"	f	class:Gallery
+init	HelloWorldScene.cpp	/^bool HelloWorld::init()$/;"	f	class:HelloWorld
+init	Hero.cpp	/^bool Hero::init() $/;"	f	class:Hero
+init	Menu.cpp	/^bool Menu::init()$/;"	f	class:Menu
+init	MenuLayer.cpp	/^bool MenuLayer::init()$/;"	f	class:MenuLayer
+init	Player.cpp	/^void Player::init() {$/;"	f	class:Player
+init	Player1.cpp	/^bool Player1::init(){$/;"	f	class:Player1
+init	StandingMan.cpp	/^bool StandingMan::init()$/;"	f	class:StandingMan
+init	Story.cpp	/^bool StoryWorld::init() {$/;"	f	class:StoryWorld
+init	StringUtil.cpp	/^bool StringUtil::init(){$/;"	f	class:StringUtil
+init	TouchScreen.cpp	/^bool TouchScreen::init()$/;"	f	class:TouchScreen
+init	TurningMan.cpp	/^bool TurningMan::init()$/;"	f	class:TurningMan
+init	WalkingMan.cpp	/^bool WalkingMan::init()$/;"	f	class:WalkingMan
+init	Welcome.cpp	/^bool Welcome::init() {$/;"	f	class:Welcome
+init	Window.cpp	/^bool Window::init()$/;"	f	class:Window
+initAction	Hero.cpp	/^void Hero::initAction(int dir)$/;"	f	class:Hero
+initAnim	TurningMan.cpp	/^void TurningMan::initAnim(int dir)$/;"	f	class:TurningMan
+initAnim	WalkingMan.cpp	/^CCAction* WalkingMan::initAnim(std::vector<CCPoint> route)$/;"	f	class:WalkingMan
+initAnimation	WalkingMan.cpp	/^void WalkingMan::initAnimation()$/;"	f	class:WalkingMan
+initControlPanel	HelloWorldScene.cpp	/^void HelloWorld::initControlPanel(Map* map)$/;"	f	class:HelloWorld
+initControllerListeners	ControlPanel.cpp	/^void ControlPanel::initControllerListeners()$/;"	f	class:ControlPanel
+initControllers	ControlPanel.cpp	/^void ControlPanel::initControllers()$/;"	f	class:ControlPanel
+initLabel	CombatScene.cpp	/^void Combat::initLabel(){$/;"	f	class:Combat
+initMap	HelloWorldScene.cpp	/^Map* HelloWorld::initMap()$/;"	f	class:HelloWorld
+initMenu1	CombatCtrl.cpp	/^void CombatCtrl::initMenu1(){$/;"	f	class:CombatCtrl
+initMenu2	CombatCtrl.cpp	/^void CombatCtrl::initMenu2(){$/;"	f	class:CombatCtrl
+initNPC	Map.cpp	/^void Map::initNPC()$/;"	f	class:Map
+initNPC	NPCUtil.cpp	/^CCArray* NPCUtil::initNPC()$/;"	f	class:NPCUtil
+initSprite	BigWindow.cpp	/^void BigWindow::initSprite()$/;"	f	class:BigWindow
+initSprite	Button.cpp	/^void Button::initSprite()$/;"	f	class:Button
+initSprite	ButtonA.cpp	/^void ButtonA::initSprite()$/;"	f	class:ButtonA
+initSprite	CombatScene.cpp	/^void Combat::initSprite(){$/;"	f	class:Combat
+initSprite	DiaWindow.cpp	/^void DiaWindow::initSprite()$/;"	f	class:DiaWindow
+initSprite	DirButton.cpp	/^void DirButton::initSprite()$/;"	f	class:DirButton
+initSprite	Entity.cpp	/^void Entity::initSprite() $/;"	f	class:Entity
+initSprite	HumanEntity.cpp	/^void HumanEntity::initSprite()$/;"	f	class:HumanEntity
+initSprite	PlacenameWindow.cpp	/^void PlacenameWindow::initSprite()$/;"	f	class:PlacenameWindow
+initView	Welcome.cpp	/^void Welcome::initView()$/;"	f	class:Welcome
+instance	Singleton.hpp	/^T* Singleton<T>::instance()$/;"	f	class:Singleton
+isDead	Character.cpp	/^bool Character::isDead()$/;"	f	class:Character
+isWalking	WalkingMan.h	/^    bool isWalking;$/;"	m	class:WalkingMan
+ishero	Character.h	/^	bool ishero;$/;"	m	class:Character
+itemIDList	BagRecord.h	/^   std::vector<int> itemIDList;$/;"	m	class:BagRecord
+itemNumList	BagRecord.h	/^   std::vector<int> itemNumList;$/;"	m	class:BagRecord
+itemUseList	BagRecord.h	/^   std::vector<bool> itemUseList;$/;"	m	class:BagRecord
+kEvent	AppMacros.h	/^typedef enum{kNone=1,kWall=17,kEvent=41}CollisionType;$/;"	e	enum:__anon1
+kNone	AppMacros.h	/^typedef enum{kNone=1,kWall=17,kEvent=41}CollisionType;$/;"	e	enum:__anon1
+kWall	AppMacros.h	/^typedef enum{kNone=1,kWall=17,kEvent=41}CollisionType;$/;"	e	enum:__anon1
+label	Window.h	/^	CCLabelTTF* label;$/;"	m	class:Window
+letsGo	Hero.cpp	/^void Hero::letsGo(float dt)$/;"	f	class:Hero
+level	CombatUnit.h	/^   int level;$/;"	m	class:CombatUnit
+levelUp	Player1.cpp	/^void Player1::levelUp(){$/;"	f	class:Player1
+lineNum	PlayReader.h	/^    unsigned long lineNum;$/;"	m	class:PlayReader
+listener	EventManager.cpp	/^ControllerListener* EventManager::listener(int type)$/;"	f	class:EventManager
+load	BigWindow.cpp	/^void BigWindow::load(CCTMXTiledMap* map,CCDictionary *properties)$/;"	f	class:BigWindow
+load	DiaWindow.cpp	/^void DiaWindow::load(CCArray* dialog)$/;"	f	class:DiaWindow
+load	EventManager.cpp	/^void EventManager::load(int sTime)$/;"	f	class:EventManager
+load	GlobalState.cpp	/^void GlobalState::load()$/;"	f	class:GlobalState
+load	ItemManager.cpp	/^void ItemManager::load()$/;"	f	class:ItemManager
+load	PlacenameWindow.cpp	/^void PlacenameWindow::load(CCTMXTiledMap* map,CCDictionary *properties)$/;"	f	class:PlacenameWindow
+load	Window.cpp	/^void Window::load(CCTMXTiledMap* map,CCDictionary *properties)$/;"	f	class:Window
+loadAllEvents	EventManager.cpp	/^void EventManager::loadAllEvents(int sTime)$/;"	f	class:EventManager
+loadDoneList	GlobalState.cpp	/^void GlobalState::loadDoneList()$/;"	f	class:GlobalState
+loadEmap	EventManager.cpp	/^void EventManager::loadEmap()$/;"	f	class:EventManager
+loadFile	CsvUtil.cpp	/^void CsvUtil::loadFile( const char* sPath ){$/;"	f	class:CsvUtil
+loadMapState	GlobalState.cpp	/^void GlobalState::loadMapState()$/;"	f	class:GlobalState
+loadPlayerState	GlobalState.cpp	/^void GlobalState::loadPlayerState()$/;"	f	class:GlobalState
+loadSuperPower	GlobalState.cpp	/^void GlobalState::loadSuperPower()$/;"	f	class:GlobalState
+lvlBuff	Ability.h	/^	float lvlBuff;$/;"	m	class:Ability
+mCsvDict	CsvUtil.h	/^    CCDictionary* mCsvDict;$/;"	m	class:CsvUtil
+mCsvUtil	CsvUtil.cpp	/^CsvUtil* CsvUtil::mCsvUtil = NULL;$/;"	m	class:CsvUtil	file:
+mCsvUtil	CsvUtil.h	/^    static CsvUtil* mCsvUtil;$/;"	m	class:CsvUtil
+mFileLoadUtil	FileLoadUtil.cpp	/^FileLoadUtil* FileLoadUtil::mFileLoadUtil = NULL;$/;"	m	class:FileLoadUtil	file:
+mFileLoadUtil	FileLoadUtil.h	/^    static FileLoadUtil* mFileLoadUtil;$/;"	m	class:FileLoadUtil
+mStringUtil	StringUtil.cpp	/^StringUtil* StringUtil::mStringUtil = NULL;$/;"	m	class:StringUtil	file:
+mStringUtil	StringUtil.h	/^    static StringUtil* mStringUtil;$/;"	m	class:StringUtil
+magicPower	Ability.h	/^	int magicPower;$/;"	m	class:Ability
+makeAChoice	Story.cpp	/^void StoryWorld::makeAChoice(CCObject *sender) {$/;"	f	class:StoryWorld
+map	ControlPanel.h	/^	Map* map;$/;"	m	class:ControlPanel
+map	GlobalRes.h	/^    CCTMXTiledMap* map;$/;"	m	class:GlobalRes
+map	Hero.h	/^    Map* map;$/;"	m	class:Hero
+map	Window.h	/^	CCTMXTiledMap* map;$/;"	m	class:Window
+map2	GalleryScene.h	/^	cocos2d::CCSprite* map2;$/;"	m	class:Gallery
+mapNo	MapState.h	/^   int mapNo;$/;"	m	class:MapState
+mapState	GlobalState.h	/^    MapState* mapState;$/;"	m	class:GlobalState
+markHappened	EventManager.cpp	/^void EventManager::markHappened(Event* event)$/;"	f	class:EventManager
+menu	Menu.h	/^	CCMenu* menu;$/;"	m	class:Menu
+menu1	CombatCtrl .h	/^	CCMenu *menu1;$/;"	m	class:CombatCtrl
+menu1CallBack	GalleryScene.cpp	/^void Gallery::menu1CallBack(CCObject* pSender){$/;"	f	class:Gallery
+menu1Enable	CombatCtrl .h	/^	bool menu1Enable;$/;"	m	class:CombatCtrl
+menu2	CombatCtrl .h	/^	CCMenu *menu2;$/;"	m	class:CombatCtrl
+menu2CallBack	GalleryScene.cpp	/^void Gallery::menu2CallBack(CCObject* pSender){$/;"	f	class:Gallery
+menu2Enable	CombatCtrl .h	/^	bool menu2Enable;$/;"	m	class:CombatCtrl
+menu3CallBack	GalleryScene.cpp	/^void Gallery::menu3CallBack(CCObject* pSender){$/;"	f	class:Gallery
+menuButton	Menu.h	/^	CCMenu* menuButton;$/;"	m	class:Menu
+menuClearCallback	Welcome.cpp	/^void Welcome::menuClearCallback(CCObject* pSender) {$/;"	f	class:Welcome
+menuCloseCallback	Story.cpp	/^void StoryWorld::menuCloseCallback(CCObject* pSender) {$/;"	f	class:StoryWorld
+menuEnable	GalleryScene.h	/^	bool menuEnable;$/;"	m	class:Gallery
+menuLeafletsCloseCallback	Story.cpp	/^void StoryWorld::menuLeafletsCloseCallback(CCObject* sender) {$/;"	f	class:StoryWorld
+menuNum	GalleryScene.h	/^	int menuNum;$/;"	m	class:Gallery
+menuStartCallback	Welcome.cpp	/^void Welcome::menuStartCallback(CCObject* pSender) {$/;"	f	class:Welcome
+move	Hero.h	/^    CCPoint move;$/;"	m	class:Hero
+moveLegs	Hero.h	/^    cocos2d::CCAction* moveLegs;$/;"	m	class:Hero
+moveMap	Hero.h	/^    cocos2d::CCAction* moveMap;$/;"	m	class:Hero
+myExp	Player1.h	/^	int myExp;$/;"	m	class:Player1
+nArg	Event.h	/^	int nArg;$/;"	m	class:Event
+nDia	Event.h	/^	int nDia;$/;"	m	class:Event
+nNext	DiaWindow.h	/^	int nNext;$/;"	m	class:DiaWindow
+nPre	Event.h	/^	int nPre;$/;"	m	class:Event
+nStr	DiaWindow.h	/^	int nStr;$/;"	m	class:DiaWindow
+name	Ability.h	/^	CCString name;$/;"	m	class:Ability
+name	BagItem.h	/^   CCString name;$/;"	m	class:BagItem
+name	CombatUnit.h	/^   CCString name;$/;"	m	class:CombatUnit
+newr	GlobalState.cpp	/^void GlobalState::newr()$/;"	f	class:GlobalState
+next	ControllerListener.h	/^	ControllerListener* next;$/;"	m	class:ControllerListener
+next	Event.h	/^	int next;$/;"	m	class:Event
+nextMove	BigWindow.cpp	/^void BigWindow::nextMove()$/;"	f	class:BigWindow
+nextMove	PlacenameWindow.cpp	/^void PlacenameWindow::nextMove()$/;"	f	class:PlacenameWindow
+nextMove	Window.cpp	/^void Window::nextMove()$/;"	f	class:Window
+numberOfCellsInTableView	GalleryScene.cpp	/^unsigned int Gallery::numberOfCellsInTableView(CCTableView *table)$/;"	f	class:Gallery
+over	Story.cpp	/^void StoryWorld::over() {$/;"	f	class:StoryWorld
+pBlood	CombatScene.h	/^	CCSprite *pBlood;$/;"	m	class:Combat
+pBloodLabel	CombatScene.h	/^	CCLabelTTF *pBloodLabel;$/;"	m	class:Combat
+picNo	Entity.h	/^    int picNo;$/;"	m	class:Entity
+picNum	Player1.h	/^	int picNum;\/\/½ø»¯ Í¼Æ¬	$/;"	m	class:Player1
+picture	Window.h	/^	CCSprite* picture;$/;"	m	class:Window
+player	CombatCtrl .h	/^	Player1* player;$/;"	m	class:CombatCtrl
+player	CombatScene.h	/^    Player1* player;$/;"	m	class:Combat
+playerGetAttack	Player.cpp	/^bool Player::playerGetAttack(int type)$/;"	f	class:Player
+playerState	GlobalState.h	/^    CombatUnit* playerState;$/;"	m	class:GlobalState
+playerlevel	Player.h	/^		int playerlevel;$/;"	m	class:Player
+plcnwindow	ControlPanel.h	/^	PlacenameWindow* plcnwindow;$/;"	m	class:ControlPanel
+pointImg	GalleryScene.h	/^	cocos2d::CCSprite* pointImg;$/;"	m	class:Gallery
+popScene	CombatCtrl.cpp	/^void CombatCtrl::popScene()$/;"	f	class:CombatCtrl
+positionFromTileCoord	Map.cpp	/^CCPoint Map::positionFromTileCoord(CCPoint tileCoord)$/;"	f	class:Map
+positionX	MapState.h	/^   int positionX;$/;"	m	class:MapState
+positionY	MapState.h	/^   int positionY;$/;"	m	class:MapState
+pres	Event.h	/^	CCArray* pres;$/;"	m	class:Event
+prevPlaceID	PlacenameWindow.h	/^	int prevPlaceID;$/;"	m	class:PlacenameWindow
+prevTouch	Welcome.h	/^	CCTouch* prevTouch;$/;"	m	class:Welcome
+properties	Window.h	/^	CCDictionary *properties;$/;"	m	class:Window
+quit	Menu.cpp	/^void Menu::quit(CCObject* sender)$/;"	f	class:Menu
+rGlobal	GlobalRes.h	21;"	d
+ratity	Enemy.h	/^	int ratity;$/;"	m	class:Enemy
+rcsid	strtok_r.c	/^static const char rcsid[] = "$Id: strtok_r.c,v 1.1 2001\/04\/24 14:25:34 chris Exp $";  $/;"	v	file:
+reader	Story.h	/^	PlayReader reader;$/;"	m	class:StoryWorld
+receiveExp	Player1.cpp	/^void Player1::receiveExp(int exp){$/;"	f	class:Player1
+receiveHurt	Character.cpp	/^void Character::receiveHurt(int hurt,int& type)$/;"	f	class:Character
+recvHurtActID	Ability.h	/^	int recvHurtActID;$/;"	m	class:Ability
+release	Singleton.hpp	/^void Singleton<T>::release()$/;"	f	class:Singleton
+releaseFile	CsvUtil.cpp	/^void CsvUtil::releaseFile( const char* sPath ){$/;"	f	class:CsvUtil
+remainHp	CombatUnit.h	/^   int remainHp;$/;"	m	class:CombatUnit
+removeAllChildrenWithCleanup	Map.cpp	/^void Map::removeAllChildrenWithCleanup(bool cleanup)$/;"	f	class:Map
+repeat	Event.h	/^	bool repeat;$/;"	m	class:Event
+respond	BigWindow.cpp	/^void BigWindow::respond(CCTMXTiledMap* map,CCDictionary *properties)$/;"	f	class:BigWindow
+respond	ControllerListener.cpp	/^void ControllerListener::respond(int dir)$/;"	f	class:ControllerListener
+respond	DiaWindow.cpp	/^void DiaWindow::respond()$/;"	f	class:DiaWindow
+respond	Hero.cpp	/^void Hero::respond(int dir) $/;"	f	class:Hero
+respond	HumanEntity.cpp	/^void HumanEntity::respond(int dir)$/;"	f	class:HumanEntity
+respond	PlacenameWindow.cpp	/^void PlacenameWindow::respond(int curPlaceID)$/;"	f	class:PlacenameWindow
+respond	StandingMan.cpp	/^void StandingMan::respond(int direction)$/;"	f	class:StandingMan
+respond	TurningMan.cpp	/^void TurningMan::respond(int dir)$/;"	f	class:TurningMan
+respond	WalkingMan.cpp	/^void WalkingMan::respond(int dir)$/;"	f	class:WalkingMan
+respond	Window.cpp	/^void Window::respond()$/;"	f	class:Window
+respond	Window.cpp	/^void Window::respond(int dir)$/;"	f	class:Window
+ret	Menu.cpp	/^void Menu::ret(CCObject* sender)$/;"	f	class:Menu
+route	WalkingMan.h	/^    std::vector<CCPoint> route;$/;"	m	class:WalkingMan
+rwindow	GlobalRes.h	/^    Window* rwindow;$/;"	m	class:GlobalRes
+sChoice	Story.h	/^    enum allChoice {fChoice = 10, sChoice, tChoice};$/;"	e	enum:StoryWorld::allChoice
+sEventManager	EventManager.h	/^typedef Singleton<EventManager> sEventManager;$/;"	t
+sGlobal	GlobalState.h	34;"	d
+sGlobalRes	GlobalRes.h	/^typedef Singleton<GlobalRes> sGlobalRes;$/;"	t
+sItemManager	ItemManager.h	/^typedef Singleton<ItemManager> sItemManager;$/;"	t
+sTime	MapState.h	/^   int sTime;$/;"	m	class:MapState
+save	GlobalState.cpp	/^void GlobalState::save()$/;"	f	class:GlobalState
+save	Menu.cpp	/^void Menu::save(CCObject* sender)$/;"	f	class:Menu
+save	PlayReader.cpp	/^void ProcessSaver::save(int x, int y, int mapProcess) {$/;"	f	class:ProcessSaver
+saveMapProcess	PlayReader.cpp	/^void ProcessSaver::saveMapProcess(int mapProcess) {$/;"	f	class:ProcessSaver
+savePosition	PlayReader.cpp	/^void ProcessSaver::savePosition(int x, int y) {$/;"	f	class:ProcessSaver
+saveProcess	PlayReader.cpp	/^void ProcessSaver::saveProcess(int process) {$/;"	f	class:ProcessSaver
+scene	CombatScene.cpp	/^CCScene* Combat::scene() {$/;"	f	class:Combat
+scene	GalleryScene.cpp	/^CCScene* Gallery::scene()$/;"	f	class:Gallery
+scene	HelloWorldScene.cpp	/^CCScene* HelloWorld::scene()$/;"	f	class:HelloWorld
+scene	MenuLayer.cpp	/^CCScene* MenuLayer::scene()$/;"	f	class:MenuLayer
+scene	Story.cpp	/^CCScene* StoryWorld::scene() {$/;"	f	class:StoryWorld
+scene	Welcome.cpp	/^CCScene* Welcome::scene() {$/;"	f	class:Welcome
+scrollViewDidScroll	GalleryScene.cpp	/^void Gallery::scrollViewDidScroll(CCScrollView* view){$/;"	f	class:Gallery
+scrollViewDidZoom	GalleryScene.cpp	/^void Gallery::scrollViewDidZoom(CCScrollView* view){$/;"	f	class:Gallery
+secondChoose	CombatCtrl.cpp	/^void CombatCtrl::secondChoose(CCObject *sender){$/;"	f	class:CombatCtrl
+setControllerListener	Cotroller.cpp	/^void Controller::setControllerListener( ControllerListener* controllerListener ) {$/;"	f	class:Controller
+setFaceDirection	HumanEntity.cpp	/^void HumanEntity::setFaceDirection(int dirc)$/;"	f	class:HumanEntity
+setGameStartPos	Map.cpp	/^void Map::setGameStartPos()$/;"	f	class:Map
+setHero	Menu.cpp	/^void Menu::setHero(Hero* hero)$/;"	f	class:Menu
+setID	HumanEntity.cpp	/^void HumanEntity::setID(int id)$/;"	f	class:HumanEntity
+setMap	ControlPanel.cpp	/^void ControlPanel::setMap(Map* map)$/;"	f	class:ControlPanel
+setNext	ControllerListener.cpp	/^void ControllerListener::setNext(ControllerListener* next)$/;"	f	class:ControllerListener
+setPointers	ButtonA.cpp	/^void ButtonA::setPointers(Hero* hero,DiaWindow* diawindow,BigWindow* bigwindow)$/;"	f	class:ButtonA
+setPointers	CombatCtrl.cpp	/^void CombatCtrl::setPointers(Player1* player,Enemy* enemy,CCSprite *background)$/;"	f	class:CombatCtrl
+setPointers	TouchScreen.cpp	/^void TouchScreen::setPointers(Hero* hero,Button* buttonA, Button* dirButton)$/;"	f	class:TouchScreen
+setRoute	WalkingMan.cpp	/^void WalkingMan::setRoute(std::vector<CCPoint> route)$/;"	f	class:WalkingMan
+sharedCsvUtil	CsvUtil.cpp	/^CsvUtil* CsvUtil::sharedCsvUtil(){$/;"	f	class:CsvUtil
+sharedFileLoadUtil	FileLoadUtil.cpp	/^FileLoadUtil* FileLoadUtil::sharedFileLoadUtil() {$/;"	f	class:FileLoadUtil
+sharedStrUtil	StringUtil.cpp	/^StringUtil* StringUtil::sharedStrUtil(){$/;"	f	class:StringUtil
+show	CombatScene.cpp	/^void Combat::show(){$/;"	f	class:Combat
+show	Menu.cpp	/^void Menu::show(CCObject* sender)$/;"	f	class:Menu
+speAtt	CombatUnit.h	/^   int speAtt;$/;"	m	class:CombatUnit
+speDef	CombatUnit.h	/^   int speDef;$/;"	m	class:CombatUnit
+speed	CombatUnit.h	/^   int speed;$/;"	m	class:CombatUnit
+speed	SuperPower.h	/^	float speed;$/;"	m	class:SuperPower
+split	PlayReader.cpp	/^void PlayReader::split(const char * str,const char * deli, vector<string> *list) {$/;"	f	class:PlayReader
+split	StringUtil.cpp	/^CCArray* StringUtil::split( const char* srcStr, const char* sSep ){$/;"	f	class:StringUtil
+sprite	Entity.h	/^    CCSprite* sprite;$/;"	m	class:Entity
+stability	Ability.h	/^	float stability;$/;"	m	class:Ability
+start	EventLoader.cpp	/^CCArray* EventLoader::start(const char* sFilePath)$/;"	f	class:EventLoader
+start	VectorLoader.cpp	/^std::vector<CCPoint>* VectorLoader::start(CCArray* intArray)$/;"	f	class:VectorLoader
+state	Welcome.h	/^	int state;$/;"	m	class:Welcome
+stealth	SuperPower.h	/^	bool stealth;$/;"	m	class:SuperPower
+stepDown	Hero.cpp	/^void Hero::stepDown()$/;"	f	class:Hero
+stepUp	Hero.cpp	/^void Hero::stepUp()$/;"	f	class:Hero
+storyCnt	MapState.h	/^   int storyCnt;$/;"	m	class:MapState
+strtok_r	strtok_r.c	/^char *strtok_r(char *s, const char *delim, char **save_ptr) {  $/;"	f
+strtok_r	strtok_r.c	20;"	d	file:
+superPower	GlobalState.h	/^    SuperPower* superPower;$/;"	m	class:GlobalState
+surf	SuperPower.h	/^	bool surf;$/;"	m	class:SuperPower
+tChoice	Story.h	/^    enum allChoice {fChoice = 10, sChoice, tChoice};$/;"	e	enum:StoryWorld::allChoice
+tableCellAtIndex	GalleryScene.cpp	/^CCTableViewCell* Gallery::tableCellAtIndex(CCTableView *table, unsigned int idx)$/;"	f	class:Gallery
+tableCellHighlight	GalleryScene.cpp	/^void Gallery::tableCellHighlight(CCTableView *table, CCTableViewCell *cell)$/;"	f	class:Gallery
+tableCellTouched	GalleryScene.cpp	/^void Gallery::tableCellTouched(CCTableView *table, CCTableViewCell *cell)$/;"	f	class:Gallery
+tableCellUnhighlight	GalleryScene.cpp	/^void Gallery::tableCellUnhighlight(CCTableView *table, CCTableViewCell *cell)$/;"	f	class:Gallery
+takeTile	Emap.cpp	/^void Emap::takeTile(CCPoint coord, int eventType)$/;"	f	class:Emap
+teleport	SuperPower.h	/^	bool teleport;$/;"	m	class:SuperPower
+teleportTo	TouchScreen.cpp	/^void TouchScreen::teleportTo(CCSet* pTouch, CCEvent *pEvent)$/;"	f	class:TouchScreen
+tileAt	Emap.cpp	/^int Emap::tileAt(CCPoint coord)$/;"	f	class:Emap
+tileCoordFromPosition	Map.cpp	/^CCPoint Map::tileCoordFromPosition(CCPoint position)$/;"	f	class:Map
+totalBlood	Player.h	/^		int totalBlood;$/;"	m	class:Player
+totalItem	BagRecord.h	/^   int totalItem;$/;"	m	class:BagRecord
+touchEnded	Hero.h	/^    int touchEnded;$/;"	m	class:Hero
+touchScreen	ControlPanel.h	/^	TouchScreen* touchScreen;$/;"	m	class:ControlPanel
+type	Ability.h	/^	int type;$/;"	m	class:HurtAbl
+type	BagItem.h	/^   int type;$/;"	m	class:BagItem
+type	Event.h	/^	int type;$/;"	m	class:Event
+type	Player.h	/^    int type;$/;"	m	class:Player
+useAbility	CombatCtrl.cpp	/^void CombatCtrl::useAbility(int abilityNum){$/;"	f	class:CombatCtrl
+useItem	Backpack.cpp	/^bool Backpack::useItem(BagItem* item)$/;"	f	class:Backpack
+useItemToRecord	BagRecord.cpp	/^int BagRecord::useItemToRecord(int id,bool isConsumptive)$/;"	f	class:BagRecord
+walk	WalkingMan.cpp	/^void WalkingMan::walk(CCArray* theRoute)$/;"	f	class:WalkingMan
+walkAnimations	WalkingMan.h	/^    cocos2d::CCAnimation** walkAnimations;$/;"	m	class:WalkingMan
+walkEnd	Hero.cpp	/^void Hero::walkEnd()$/;"	f	class:Hero
+zoomStroke	TouchScreen.cpp	/^void TouchScreen::zoomStroke(CCSet* pTouches, CCEvent *pEvent)$/;"	f	class:TouchScreen
+~AppDelegate	AppDelegate.cpp	/^AppDelegate::~AppDelegate() $/;"	f	class:AppDelegate
+~Emap	Emap.cpp	/^Emap::~Emap()$/;"	f	class:Emap
+~Event	Event.cpp	/^Event::~Event()$/;"	f	class:Event
+~EventManager	EventManager.cpp	/^EventManager::~EventManager()$/;"	f	class:EventManager
+~GlobalState	GlobalState.cpp	/^GlobalState::~GlobalState()$/;"	f	class:GlobalState
+~ItemManager	ItemManager.cpp	/^ItemManager::~ItemManager()$/;"	f	class:ItemManager
+~Map	Map.cpp	/^Map::~Map()$/;"	f	class:Map

@@ -1,0 +1,180 @@
+ssh-keygen -t rsa  -C "davidxk@qq.com"
+
+cd myRepository/
+git init
+git add file.txt
+git commit -m "Info of this add. "
+
+
+git status
+git diff
+
+
+
+git reset --hard HEAD^
+git reset --hard HEAD~1
+""commit log
+git log
+""command log
+git reflog
+git reset --hard HEAD@{1}
+
+
+
+We code in 'Working Directory'.
+Then we 'add' the new version to 'stage' (or 'index') where the files will be temporarily stored, to be 'commited' to 'master branch' later on.
+
+git diff HEAD -- file.txt
+
+
+
+""discard changes in 'Working Directory' and retrieve the version from 'stage'
+git checkout -- file.txt
+
+""undo the last 'add' operation
+git unstage HEAD file.txt
+
+""go to the last version
+git reset --hard HEAD^
+
+""The first case is for the circumstance where you have not yet 'added'
+""The second is for retraction after you have 'added'
+""The third command deals with the case where you have 'commited'
+
+
+
+""remove from 'Working Directory'
+rm file.txt
+
+""remove from 'stage'
+git rm file.txt
+
+""you can always undo the last change
+git checkout -- file.txt
+
+""commit the change
+git commit -m "Remove tile.txt"
+
+
+
+
+""connect local repo to remote repo
+git remote add origin git@server_name:user_name/remote_repo_name.git
+
+""use -u arg when pushing for the first time
+git push -u origin master
+
+git push origin branch_name
+
+
+
+cd target_directory_path
+git clone git@github.com:user_name/remote_repo_name.git
+
+
+
+
+'HEAD' points to 'master'
+'master' points to the latest 'commitment' when there is no branches
+When you create a new branch, a new pointer 'dev' is created to point to the latest 'commitment' of your branch whereas 'master' still points to the 'trunk'.
+'HEAD' always points to the pointer that points to the latest commitment.
+
+When 'master' points to the latest 'commitment' as does 'dev', the branch is merged with the trunk. 'dev' can therefore be deleted. This way of merging is called 'Fast-forward'.
+
+""show branches
+git branch
+
+""create new branch
+git branch branch_name
+
+""switch to a branch
+git checkout branch_name
+
+""create and switch to a branch
+git checkout -b branch_name
+
+""merge a branch to master
+git merge branch_name
+
+""delete a branch
+git branch -d branch_name
+
+
+
+Git shows conflict in branches with '<<<<<<<branch1', '=======' and '>>>>>>>branch2'. You can solve the conflict manully.
+""shows graphically of the merging of branches
+git log --graph
+
+
+
+""no-Fast-foward mode enables us to save the branch info after merging
+git merge --no-ff -m "Info on this commitment" branch_name
+
+
+
+Work Directory is where you make changes and not the place for storage
+""used to save the working directory
+git stash
+""used to pop the stash to working directory
+git pop
+git apply
+git drop
+
+
+
+""to drop a new feature that has not been merged
+git branch -D branch_name
+
+
+
+""see info of remote repo
+git remote -v
+
+""push the version that you want others to see
+git push origin local_branch_name
+
+""to get a branch from remote site
+git clone git@github.com:user_name/remote_repo_name.git
+git checkout -b local_branch_name origin/remote_branch_name
+git branch --set-upstream local_branch_name origin/remote_branch_name
+
+""to push a local change
+git push origin branch_name
+
+""if pushing should fail due to changes from others' work
+git pull
+""after manully fixing the conflicts
+git commit -m "Info on the fix."
+git push origin local_branch_name
+
+
+
+A tag is a time-related mark of a publishing version
+git tag version_number
+git tag version_number commit_id
+git tag
+git show version_number
+git tag -a version_number -m "tag info"
+
+git tag -d version_number
+git push origin version_number
+git push origin --tags
+""to delete remote tag
+git tag -d version_number
+git push origin :refs/tags/version_number
+
+
+
+""put a '.gitignore' file to your 'Working Directory' to ignore unwanted files
+""configuration file of a repo is in '.git/config'
+""that of the user is in ~/.gitconfig
+
+""configuring alias in terminal
+git config --global alias.the_alias of_the_original_command
+
+""configure alias in config file
+[alias]
+	the_alias = of_the_original_command
+[user]
+	name = username
+	email = your_email
