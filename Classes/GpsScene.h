@@ -27,13 +27,22 @@ public:
 	CCString* getpointName();
 	void showPosName(int num);
 	void menu3CallBack(CCObject* pSender);
+	//void ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent);
+	int touchDistance(double touchx,double touchy);
+	int touchDistance(CCPoint touchPos);
+	void showTouchPoint(int num);
+//	void showTouchPosName(int num);
+	void showTouchPosName(int num,CCPoint pos);
+	void ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent);
 public:
      double longitude;
 	 double latitude;
 	 CCLabelTTF* pLabel;
 	  CCLabelTTF* pLabel2;
+	    CCLabelTTF* pLabel3;
 	 CCSprite* mapPoint;
 	 CCSprite* wholeMap;
+	 CCSprite* touchPoint;
 };
 
 #endif // __Gps_SCENE_H__

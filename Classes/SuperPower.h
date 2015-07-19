@@ -11,5 +11,7 @@ public:
 	bool surf;
 	bool flash;
 	bool all;
+	SuperPower();
+	SuperPower(float sp,bool tl,bool st,bool sf,bool fl);
 };
 #endif

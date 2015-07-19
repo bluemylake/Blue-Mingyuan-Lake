@@ -42,6 +42,8 @@ bool Gps::init()
 	pLabel2 = CCLabelTTF::create("", "Arial", 60);
 	pLabel2->setPosition(ccp(origin.x + visibleSize.width/2,
 		origin.y + visibleSize.height - pLabel2->getContentSize().height-50));
+	
+	
 	this->addChild(pLabel,10);
 	this->addChild(pLabel2,10);
 
@@ -52,10 +54,17 @@ bool Gps::init()
 	wholeMap->setAnchorPoint(CCPointZero);
 	wholeMap->setPosition(CCPointZero);
 	this->addChild(wholeMap);
-	//
+	//加载位置指针
     mapPoint = CCSprite::create("mappoint.png");
 	mapPoint->setPosition(ccp(200,150));
 	this->addChild(mapPoint,10);
+	touchPoint = CCSprite::create("touchpoint.png");
+	touchPoint->setPosition(ccp(200,150));
+	this->addChild(touchPoint,10);
+	
+	pLabel3 = CCLabelTTF::create("", "Arial", 40);
+	pLabel3->setPosition(ccp(touchPoint->getPosition().x,touchPoint->getPosition().y+80));
+	this->addChild(pLabel3,10);
 
 	CCSprite* m1 = CCSprite::create("mapinfo/menu3.png");
 	CCSprite* m2 = CCSprite::create("mapinfo/menu3_select.png");
@@ -65,6 +74,9 @@ bool Gps::init()
 	returnMenu->alignItemsHorizontally();
 	returnMenu->setPosition(ccp(610,420));
 	this->addChild(returnMenu);
+
+	//触摸事件
+	this->setTouchEnabled(true);
 
     return true;
 }
@@ -100,8 +112,8 @@ void Gps::updateView(float dt)
 	num = Distance();
 	showPoint(num);
 #else
-	CCString* str = CCString::createWithFormat("%f",(float)longitude);
-	pLabel->setString(str->getCString());
+	//CCString* str = CCString::createWithFormat("%f",(float)longitude);
+	//pLabel->setString(str->getCString());
 #endif
 	
 }
@@ -134,7 +146,7 @@ CCPoint Gps::getpointPos(int num)
 
 
 int Gps::Distance()
-{//算距离最短的点的序号
+{//算与经纬度确定的点距离最短的点的序号
 	int i;
 	int num=0;
 	double lon,lat;
@@ -157,7 +169,69 @@ int Gps::Distance()
 	return num;
 }
 
+
+
+
+
 void Gps::menu3CallBack(CCObject* pSender){
 	CsvUtil::sharedCsvUtil()->releaseFile("map.csv");
 	CCDirector::sharedDirector()->popScene();
+}
+
+
+//触摸事件
+void Gps::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
+{
+	int num;
+	CCTouch* touch = (CCTouch*)pTouches->anyObject();
+	CCPoint touchPos = touch->getLocationInView();
+	num=touchDistance(touchPos);
+	showTouchPoint(num);
+}
+
+//得到触摸点距离最短的点
+int Gps::touchDistance(CCPoint touchPos)
+{
+	int i;
+	int num=0;
+	double mapx,mapy;
+	double d;
+	double mindis=1000.0;
+	int n=70;
+	CCPoint pos;
+	for (i=0;i<n;i++)
+	{
+		mapx = (double)CsvUtil::sharedCsvUtil()->getInt(i,4,"map.csv");
+		mapy = (double)CsvUtil::sharedCsvUtil()->getInt(i,5,"map.csv");
+		d = sqrt((mapx-touchPos.x)*(mapx-touchPos.x)+(mapy-(448-touchPos.y))*(mapy-(448-touchPos.y)));
+		//CCLOG("%d,%f",num,d);
+
+		if (d<mindis)
+		{
+			mindis = d;
+			num=i;
+		}
+	}
+	return num;
+}
+
+//显示touchpoint
+void Gps::showTouchPoint(int num)
+{
+	CCPoint pointPos;
+	pointPos = getpointPos(num);
+	CCMoveTo* movTo = CCMoveTo::create(0.2,pointPos);
+	touchPoint->runAction(movTo);
+	showTouchPosName(num,pointPos);
+}
+
+void Gps::showTouchPosName(int num,CCPoint pos)
+{
+	const char* name;
+	name = CsvUtil::sharedCsvUtil()->get(num,1,"map.csv");
+	pLabel3->setString(name);
+	if (pos.y>300)
+		pLabel3->setPosition(ccp(pos.x+30,pos.y));
+	else
+		pLabel3->setPosition(ccp(pos.x,pos.y+80));
 }
