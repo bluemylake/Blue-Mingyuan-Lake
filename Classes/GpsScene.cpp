@@ -187,7 +187,7 @@ void Gps::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 	showTouchPoint(num);
 }
 
-//得到触摸点距离最短的点
+//
 int Gps::touchDistance(CCPoint touchPos)
 {
 	int i;

@@ -5,6 +5,7 @@
 #include "PlacenameWindow.h"
 #include "Story.h"
 #include "AppMacros.h"
+#include "ShadowingMan.h"
 
 //respond to call from dirButton
 //provide interface for collision and event dealing for other means of transport
@@ -24,11 +25,13 @@ public:
 public:
     Map* map;
     CCPoint move;
+	ShadowingMan* shadow;
 private:
     bool init();
     void initAction(int dir);
     void letsGo(float dt);
     void stepUp();
+	void followMe();
     void walkEnd();
     CollisionType checkEvent(CCPoint tileCoord);
     void doEvent(CCPoint heroPosition);

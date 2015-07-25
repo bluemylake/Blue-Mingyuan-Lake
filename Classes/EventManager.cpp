@@ -29,7 +29,7 @@ ControllerListener* EventManager::happen(CCPoint coord, int ent)
 		if(!sGlobal->doneList[intg->getValue()])return NULL;
 	}
 
-	//check repeat
+	//check repeat: do not repeat && is done
 	if(!event->repeat && sGlobal->doneList[event->id]==true) 
 		return NULL;
 

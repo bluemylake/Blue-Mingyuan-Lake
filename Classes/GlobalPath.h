@@ -23,6 +23,7 @@
 #define MENUSP2_IMG_PATH "img/button/menuCh2.png"
 #define ITEM_IMG_PATH "img/button/item.png"
 #define ITEM2_IMG_PATH "img/button/item2.png"
+#define NIGHTBG_IMG_PATH "img/window/theNightIsDark.png"
 
 //combat
 #define COMBAT_IMG_PATH "img/combat/combat.png"

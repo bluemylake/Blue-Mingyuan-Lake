@@ -143,7 +143,19 @@ void Hero::stepUp()
 	if(checkCollision(ccp(heroCoord.x+moveCoord.x,
 					heroCoord.y-moveCoord.y))==kWall)
 	{
-		touchEnded=dir;walkEnd();
+		touchEnded=dir; walkEnd();
+	}
+}
+
+void Hero::followMe()
+{
+	if(touchEnded<=-1)
+	{
+		CCArray* heroPos = CCArray::create();
+		CCPoint heroCoord=getHeroTilePos();
+		heroPos->addObject(CCInteger::create(heroCoord.x));
+		heroPos->addObject(CCInteger::create(heroCoord.y));
+		CCNotificationCenter::sharedNotificationCenter()->postNotification("shadow", (CCObject*)heroPos);
 	}
 }
 
@@ -191,9 +203,10 @@ void Hero::initAction(int dir)
 	CCAnimate* anim=CCAnimate::create(walkAnimations[dir]);//ÐÐ×ß
 	CCDelayTime* delay=CCDelayTime::create(1.5f/32.0f*duration*1.8);
 	CCCallFunc* stepU=CCCallFunc::create(this,callfunc_selector(Hero::stepUp));
+	CCCallFunc* follM=CCCallFunc::create(this,callfunc_selector(Hero::followMe));
 	CCCallFunc* stepD=CCCallFunc::create(this,callfunc_selector(Hero::stepDown));
 	//CCSpawn* animJ=CCSpawn::create(anim,jump,NULL);
-	CCSequence* revAct=CCSequence::create(stepU,delay,revShift,stepD,NULL);
+	CCSequence* revAct = CCSequence::create(stepU, delay, follM, revShift, stepD, NULL);
 	moveLegs=CCRepeatForever::create(anim);
 	moveMap=CCRepeatForever::create(revAct);
 }

@@ -24,6 +24,7 @@ public:
 private:
 	void initControllerListeners();
 	void initControllers();
+	void initNightBg();
 public:
 	Hero* hero;
 	Button* dirButton;

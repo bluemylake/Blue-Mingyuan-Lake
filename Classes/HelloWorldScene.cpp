@@ -44,6 +44,8 @@ Map* HelloWorld::initMap()
 	map->initNPC();
 	map->setGameStartPos();
 
+	
+
 	CCLayer* mapLayer=CCLayer::create();
 	map->setTag(MAP);
 	mapLayer->addChild(map);
@@ -58,6 +60,15 @@ void HelloWorld::initControlPanel(Map* map)
 	//rGlobal->panel=panel;
 	panel->hero->setTag(HERO);
 	this->getChildByTag(MAPLAYER)->addChild(panel->hero,3);
+
+	//shadow init
+	panel->hero->shadow = ShadowingMan::create();
+	CCPoint heroPos = panel->hero->getHeroTilePos() + ccp(0, 1);
+	CCPoint tPos = map->positionFromTileCoord(heroPos);
+	panel->hero->shadow->setPosition(tPos);
+	//this->getChildByTag(MAPLAYER)->addChild(panel->hero->shadow,5);
+	map->addChild(panel->hero->shadow,5);
+
 	this->addChild(panel,15);
 }
 

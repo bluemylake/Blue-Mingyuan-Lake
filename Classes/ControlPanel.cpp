@@ -15,6 +15,7 @@ ControlPanel* ControlPanel::create(Map* map)
 	panel->setMap(map);
 	panel->initControllerListeners();
 	panel->initControllers();
+	panel->initNightBg();
 	return panel;
 }
 
@@ -99,4 +100,14 @@ void ControlPanel::initControllers()
 	Menu* menu=Menu::create();
 	menu->setHero(hero);
 	this->addChild(menu);
+}
+
+void ControlPanel::initNightBg()
+{
+	//the Night is Dark
+	CCSprite* nightBg = CCSprite::create(NIGHTBG_IMG_PATH);
+	rGlobal->nightBg = nightBg;
+	nightBg->setPosition(ccp(nightBg->getContentSize().width / 2, nightBg->getContentSize().height / 2));
+	nightBg->setOpacity(150);
+	this->addChild(nightBg);
 }
