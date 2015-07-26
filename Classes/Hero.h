@@ -25,7 +25,6 @@ public:
 public:
     Map* map;
     CCPoint move;
-	ShadowingMan* shadow;
 private:
     bool init();
     void initAction(int dir);
@@ -35,9 +34,13 @@ private:
     void walkEnd();
     CollisionType checkEvent(CCPoint tileCoord);
     void doEvent(CCPoint heroPosition);
+	void crossMap(int mapNo); 
     cocos2d::CCAction* moveMap;
     cocos2d::CCAction* moveLegs;
     int touchEnded;
     bool focus;
+
+	CCAction* moveHero;
+	void stepForward();
 };
 #endif

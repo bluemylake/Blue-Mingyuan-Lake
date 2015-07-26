@@ -14,6 +14,7 @@ public:
     Window* rwindow;
     DiaWindow* diawindow;
     Backpack* backpack;
+	HumanEntity* shadow;
 };
 //note that when an event wish to walk the hero, do as follow:
 //WalkingMan* walkHero=(WalkingMan*)rGloble->hero;

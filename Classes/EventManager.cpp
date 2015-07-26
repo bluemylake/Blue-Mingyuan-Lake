@@ -128,7 +128,7 @@ void EventManager::loadEmap()
 int EventManager::isInstant(Event* event)
 {
 	const int nn=2;
-	const int instant[nn]={GET_SUP_EVT};
+	const int instant[nn]={GET_SUP_EVT,SHADOW_EVT};
 	for(int i=0;i<nn;i++)
 		if(event->id==instant[i])
 			return TRUE;

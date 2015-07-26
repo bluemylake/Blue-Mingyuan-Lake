@@ -17,17 +17,19 @@ void GlobalState::load()
 
 void GlobalState::save()
 {
-   SAVE_INT(POSITIONX_MRCD, mapState->positionX);
-   SAVE_INT(POSITIONY_MRCD, mapState->positionY);
-   SAVE_INT(FACEDIR_MRCD, mapState->faceDir);
-   SAVE_INT(MAPNO_MRCD, mapState->mapNo);
-   SAVE_INT(STORYCNT_MRCD, mapState->storyCnt);
+	SAVE_INT(POSITIONX_MRCD, mapState->positionX);
+	SAVE_INT(POSITIONY_MRCD, mapState->positionY);
+	SAVE_INT(FACEDIR_MRCD, mapState->faceDir);
+	SAVE_INT(MAPNO_MRCD, mapState->mapNo);
+	SAVE_INT(STORYCNT_MRCD, mapState->storyCnt);
+	SAVE_BOOL(HAS_SHADOW_MRCD, mapState->hasSh);
+	SAVE_INT(SH_STAND_P_MRCD, mapState->standPos);
 
-   SAVE_INT(SPEED_SRCD, superPower->speed);
-   SAVE_BOOL(TELEPORT_SRCD, superPower->teleport);
-   SAVE_BOOL(STEALTH_SRCD, superPower->stealth);
-   SAVE_BOOL(SURF_SRCD, superPower->surf);
-   saveDoneList();
+	SAVE_INT(SPEED_SRCD, superPower->speed);
+	SAVE_BOOL(TELEPORT_SRCD, superPower->teleport);
+	SAVE_BOOL(STEALTH_SRCD, superPower->stealth);
+	SAVE_BOOL(SURF_SRCD, superPower->surf);
+	saveDoneList();
 }
 
 void GlobalState::newr()
@@ -37,6 +39,8 @@ void GlobalState::newr()
 	SAVE_INT(FACEDIR_MRCD,FACEDIR_INI);
 	SAVE_INT(MAPNO_MRCD,MAPNO_INI);
 	SAVE_INT(STORYCNT_MRCD,STORYCNT_INI);
+	SAVE_BOOL(HAS_SHADOW_MRCD,HAS_SHADOW_INI);
+	SAVE_INT(SH_STAND_P_MRCD,SH_STAND_P_INI);
 
 	SAVE_INT(SPEED_SRCD,SPEED_INI);
 	SAVE_BOOL(TELEPORT_SRCD,TELEPORT_INI);
@@ -60,6 +64,8 @@ void GlobalState::loadMapState()
     mapState->faceDir= LOAD_INT(FACEDIR_MRCD, FACEDIR_INI);
     mapState->mapNo = LOAD_INT(MAPNO_MRCD, MAPNO_INI);
     mapState->storyCnt = LOAD_INT(STORYCNT_MRCD, STORYCNT_INI);
+	mapState->hasSh = LOAD_BOOL(HAS_SHADOW_MRCD, HAS_SHADOW_INI);
+	mapState->standPos= LOAD_INT(SH_STAND_P_MRCD, SH_STAND_P_INI);
 }
 
 void GlobalState::loadSuperPower()

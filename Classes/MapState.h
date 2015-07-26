@@ -10,5 +10,7 @@ public:
    int positionY;
    int faceDir;
    int sTime;
+   bool hasSh;
+   int standPos;
 };
 #endif

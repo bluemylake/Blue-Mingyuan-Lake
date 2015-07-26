@@ -11,6 +11,7 @@ public:
     CREATE_FUNC(ShadowingMan);
 	bool init();
 	void shadow(CCObject* direction);
+	~ShadowingMan();
 };
 #endif
 

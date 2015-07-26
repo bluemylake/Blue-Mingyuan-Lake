@@ -57,6 +57,8 @@
 #define FACEDIR_MRCD "FaceDirection"
 #define MAPNO_MRCD "MapNo"
 #define STORYCNT_MRCD "StoryCnt"
+#define HAS_SHADOW_MRCD "HasShadow"
+#define SH_STAND_P_MRCD "ShStandPos"
 #define EVENTDONE_MRCD "EventDone"
 
 #define SPEED_SRCD "Speed"
@@ -73,6 +75,8 @@
 #define FACEDIR_INI 0
 #define MAPNO_INI MAP11
 #define STORYCNT_INI 0
+#define HAS_SHADOW_INI false
+#define SH_STAND_P_INI 2
 #define EVENTDONE_INI ""
 
 #define SPEED_INI 2.0
@@ -172,8 +176,12 @@
 #define TALKMAN_EVT 0
 #define GET_SUP_EVT 1
 #define DIALOG_EVT 2
+#define SHADOW_EVT 3
 
 typedef enum{kNone=1,kWall=17,kEvent=41}CollisionType;
 typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
 
+//switches
+#define DEBUG_MODE true
+#define HERO_COVER_MODE true 
 #endif /* __APPMACROS_H__ */

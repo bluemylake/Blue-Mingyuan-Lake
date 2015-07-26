@@ -108,6 +108,23 @@ void ControlPanel::initNightBg()
 	CCSprite* nightBg = CCSprite::create(NIGHTBG_IMG_PATH);
 	rGlobal->nightBg = nightBg;
 	nightBg->setPosition(ccp(nightBg->getContentSize().width / 2, nightBg->getContentSize().height / 2));
-	nightBg->setOpacity(150);
 	this->addChild(nightBg);
+
+	int hour = 8;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	struct cc_timeval now;
+	CCTime::gettimeofdayCocos2d(&now,NULL);
+	struct tm* tmm = localtime((const time_t*)&now.tv_sec);
+	if(tmm!=NULL) hour = tmm->tm_hour;
+#endif
+
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 )
+	time_t timep;
+	time(&timep);
+	struct tm* tmm = localtime(&timep);
+	if (tmm != NULL) hour = tmm->tm_hour;
+#endif
+
+	if (hour>=18 || hour<=7) nightBg->setOpacity(150);
+	else nightBg->setOpacity(0);
 }

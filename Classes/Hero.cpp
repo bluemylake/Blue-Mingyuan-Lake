@@ -2,7 +2,7 @@
 
 bool Hero::init() 
 {
-	setID(0); picNo=0; isWalking=false;  
+	setID(0); picNo=0; isWalking=false; 
 	map=(Map*)rGlobal->map;
 	dir=sGlobal->mapState->faceDir;
 
@@ -44,36 +44,20 @@ void Hero::doEvent(CCPoint heroTilePos)
 		{
 			case 0:case 1:case 2:case 3:case 4:
 			case 5:case 6:case 7:case 8:case 9:
+				if(id==sGlobal->mapState->storyCnt)
 				{
-					if(id==sGlobal->mapState->storyCnt)
-					{
-						touchEnded=dir;walkEnd();//endWalking
-						this->focus=false;
-						CCEGLView::sharedOpenGLView()->setDesignResolutionSize(JX_RESOLUWID, JX_RESOLUHEI, kResolutionExactFit);
-						CCScene* story=StoryWorld::scene();
-						CCDirector::sharedDirector()->pushScene(story);
-						this->gotFocusT();
-						sGlobal->mapState->storyCnt++;
-						sGlobal->save();
-					}
+					touchEnded=dir;walkEnd();//endWalking
+					this->focus=false;
+					CCEGLView::sharedOpenGLView()->setDesignResolutionSize(JX_RESOLUWID, JX_RESOLUHEI, kResolutionExactFit);
+					CCDirector::sharedDirector()->pushScene(StoryWorld::scene());
+					this->gotFocusT();
+					sGlobal->mapState->storyCnt++;
+					sGlobal->save();
 				}
 				break;
 
-			case MAP11:
-				touchEnded=dir;walkEnd();
-				map->removeAllChildrenWithCleanup(true);
-				map=Map::create(MAP12_PATH);//@
-				map->crossMap(heroTilePos,MAP11);
-				this->getParent()->addChild(map);
-				break;
-
-			case MAP12:
-				touchEnded=dir;walkEnd();
-				map->removeAllChildrenWithCleanup(true);
-				map=Map::create(MAP11_PATH);//@
-				map->crossMap(heroTilePos,MAP12);
-				this->getParent()->addChild(map);
-				break;
+			case MAP11: crossMap(MAP11); break;
+			case MAP12: crossMap(MAP12); break;
 			default:break;
 		}
 	}
@@ -127,36 +111,6 @@ void Hero::respond(int dir)
 void Hero::endRespond()
 {
 	touchEnded=dir;
-}
-
-void Hero::stepDown()
-{
-	if (checkEvent(getHeroTilePos())==kEvent)
-		doEvent(getHeroTilePos());
-	walkEnd();
-}
-
-void Hero::stepUp()
-{
-	CCPoint heroCoord=getHeroTilePos();
-	CCPoint moveCoord=move/map->getTileSize().height;
-	if(checkCollision(ccp(heroCoord.x+moveCoord.x,
-					heroCoord.y-moveCoord.y))==kWall)
-	{
-		touchEnded=dir; walkEnd();
-	}
-}
-
-void Hero::followMe()
-{
-	if(touchEnded<=-1)
-	{
-		CCArray* heroPos = CCArray::create();
-		CCPoint heroCoord=getHeroTilePos();
-		heroPos->addObject(CCInteger::create(heroCoord.x));
-		heroPos->addObject(CCInteger::create(heroCoord.y));
-		CCNotificationCenter::sharedNotificationCenter()->postNotification("shadow", (CCObject*)heroPos);
-	}
 }
 
 void Hero::walkEnd()
@@ -215,6 +169,40 @@ void Hero::initAction(int dir)
 
 
 
+void Hero::stepUp()
+{
+	CCPoint heroCoord=getHeroTilePos();
+	CCPoint moveCoord=move/map->getTileSize().height;
+	if(checkCollision(ccp(heroCoord.x+moveCoord.x,
+					heroCoord.y-moveCoord.y))==kWall)
+	{
+		touchEnded=dir; walkEnd();
+	}
+}
+
+void Hero::followMe()
+{
+	if(touchEnded<=-1)
+	{
+		CCArray* heroPos = CCArray::create();
+		CCPoint heroCoord=getHeroTilePos();
+		heroPos->addObject(CCInteger::create(heroCoord.x));
+		heroPos->addObject(CCInteger::create(heroCoord.y));
+		CCNotificationCenter::sharedNotificationCenter()->postNotification("rGlobal->shadow", (CCObject*)heroPos);
+	}
+}
+
+void Hero::stepDown()
+{
+	if (checkEvent(getHeroTilePos())==kEvent)
+		doEvent(getHeroTilePos());
+	walkEnd();
+}
+
+
+
+
+
 
 
 
@@ -254,4 +242,31 @@ CCPoint Hero::getHeroTilePos()
 void Hero::gotFocusT()
 {
 	focus=true;
+}
+
+void Hero::crossMap(int mapPart)
+{
+	//choose map 
+	CCString* path; int mapNo; CCPoint heroTilePos=getHeroTilePos();
+	CCPoint delt=ccp(1,0);
+	if(mapPart==MAP12)
+		path=CCString::create(MAP11_PATH), mapNo=MAP12, delt=ccp(1,0);
+	else 
+		path=CCString::create(MAP12_PATH), mapNo=MAP11, delt=ccp(-1,0);
+
+	//change map
+	touchEnded=dir;walkEnd();
+	map->removeAllChildrenWithCleanup(true);
+	map=Map::create(path->getCString());
+	map->crossMap(heroTilePos,mapNo);
+	rGlobal->map=map;
+	this->getParent()->addChild(map);
+
+	//re-create rGlobal->shadow
+	if(rGlobal->shadow==NULL) return;
+	rGlobal->shadow = ShadowingMan::create();
+	CCPoint heroPos = getHeroTilePos() + delt;
+	CCPoint tPos = map->positionFromTileCoord(heroPos);
+	rGlobal->shadow->setPosition(tPos);
+	map->addChild(rGlobal->shadow,5);
 }

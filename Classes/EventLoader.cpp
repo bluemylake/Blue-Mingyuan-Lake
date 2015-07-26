@@ -2,6 +2,7 @@
 #include "TalkManEvent.h"
 #include "GetSuPEvent.h"
 #include "DiaEvent.h"
+#include "GetShdwEvent.h"
 
 CCArray* EventLoader::start(const char* sFilePath)
 {
@@ -24,6 +25,8 @@ CCArray* EventLoader::start(const char* sFilePath)
 				event=GetSuPEvent::create(); break;
 			case DIALOG_EVT:
 				event=DiaEvent::create(); break;
+			case SHADOW_EVT:
+				event=GetShdwEvent::create(); break;
 				/*case ITEM_EVT:
 				  event=ItemEvent::create(); break;
 				  case COMBAT_EVT:

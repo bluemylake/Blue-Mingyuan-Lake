@@ -41,7 +41,13 @@ void ShadowingMan::shadow(CCObject* heroPos)
 	else
 		CCLog("Strange vect: (%f,%f)", vect.x, vect.y);
 
-	CCMoveBy* move=CCMoveBy::create(STD_WALK_DURATION*0.45,vect);
+	const float duration=STD_WALK_DURATION/sGlobal->superPower->speed;
+	CCMoveBy* move=CCMoveBy::create(duration*0.9,vect);
 	CCAnimate* anim=CCAnimate::create(walkAnimations[dir]);//行走
 	sprite->runAction(anim); this->runAction(move);
+}
+
+ShadowingMan::~ShadowingMan()
+{
+	CCNotificationCenter::sharedNotificationCenter()->purgeNotificationCenter();
 }
