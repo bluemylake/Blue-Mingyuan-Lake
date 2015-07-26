@@ -37,6 +37,8 @@
 #define SCRIPT_PATH_LEN 10
 #define CLOSEN_IMG_PATH "img/story/CloseNormal.png"
 #define CLOSES_IMG_PATH "img/story/CloseSelected.png"
+#define CONFIRM_BACKGROUND_IMG_PATH "img/story/ConfirmBackground.png"
+#define CONFIRM_BUTTOM_IMG_PATH "img/story/ConfirmButton.png"
 #define BGNAME_IMG_PATH "img/story/bg_x00.jpg"
 #define BGNAME_PATH_LEN 13
 #define DUIHUAKUANG_IMG_PATH "img/story/Duihuakuang.png"
