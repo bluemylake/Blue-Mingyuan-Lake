@@ -31,8 +31,10 @@ bool StoryWorld::init() {
   pMenu->setPosition(CCPointZero);
   addChild(pMenu, 2);
   
-  char bg_name[30] = BGNAME_IMG_PATH;
-  bg_name[BGNAME_PATH_LEN] = current;
+  char bg_name[30] = "" ;
+  char bg_num[4]="";
+  sprintf(bg_num, "%c00", current);
+  sprintf(bg_name, BGNAME_IMG_PATH, bg_num);
   CCSprite* pBackground = CCSprite::create(bg_name);
   pBackground->setPosition(ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
   pBackground->setScale(1);
@@ -56,7 +58,6 @@ bool StoryWorld::init() {
   pLabel->setPosition(ccp(40, origin.y + dialogBox->getContentSize().height - 3.4 * pLabel->getContentSize().height));
   pLabel->setAnchorPoint(CCPointZero);
   pLabel->setDimensions(CCSizeMake(1100, 0));
-  //    pLabel->setFontFillColor(ccc3(255, 0, 0));
   pLabel->setHorizontalAlignment(kCCTextAlignmentLeft);
   addChild(pLabel, 1);
   
@@ -74,7 +75,7 @@ bool StoryWorld::init() {
   leftSprite->setOpacity(0);
   spriteBatch->addChild(leftSprite, 0);
   
-  CCSprite *rightSprite=CCSprite::createWithSpriteFrameName("blank.png");
+  CCSprite *rightSprite=CCSprite::createWithSpriteFrameName(BLACK_IMG_PATH);
   //rightSprite->setScale(0.8);
   rightSprite->setPosition(ccp(800, 130));
   rightSprite->setTag(2);
@@ -163,8 +164,7 @@ void StoryWorld::avgGame(void) {
     }
       break;
     case '2': {
-      //            CCScene *combatScene = Combat::scene();
-      //            CCDirector::sharedDirector()->pushScene(combatScene);
+      // 以前的战斗Scene入口
     }
       break;
     case '3': {
@@ -216,8 +216,8 @@ void StoryWorld::avgGame(void) {
     for (int i =0; i<8; i++) {
       if (strcmp(all_bg[i], bg_num)==0) {
         CCSprite *Background = (CCSprite *)getChildByTag(108);
-        char bg_name[30]="img/story/bg_000.jpg";
-        sprintf(bg_name, "img/story/bg_%s.jpg", bg_num);
+        char bg_name[30]="";
+        sprintf(bg_name, BGNAME_IMG_PATH, bg_num);
         Background->setTexture(CCTextureCache::sharedTextureCache()->addImage(bg_name));
       }
     }
@@ -305,7 +305,7 @@ void StoryWorld::specialPartSwitchCase(int code) {
   switch (code) {
     case '1':{    // 剧本结束，确认下一个地点
       setTouchEnabled(false);
-      CCSprite *back = CCSprite::create("ConfirmBackground.png");
+      CCSprite *back = CCSprite::create(CONFIRM_BACKGROUND_IMG_PATH);
       back->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height/2));
       back->setTag(3);
       addChild(back, 3);
@@ -325,11 +325,11 @@ void StoryWorld::specialPartSwitchCase(int code) {
     }
       break;
     case '2':{    // 剧本完结，播放完结动画
-      CCSprite* staff_bg = CCSprite::create("staff_bg.png");
+      CCSprite* staff_bg = CCSprite::create(STAFFBG_IMG_PATH);
       staff_bg->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2 + CCDirector::sharedDirector()->getVisibleOrigin().x, CCDirector::sharedDirector()->getVisibleSize().height/2 + CCDirector::sharedDirector()->getVisibleOrigin().y));
       addChild(staff_bg, 4);
       
-      CCSprite* staff = CCSprite::create("staff.png");
+      CCSprite* staff = CCSprite::create(STAFF_IMG_PATH);
       staff->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, -CCDirector::sharedDirector()->getVisibleSize().height/2));
       addChild(staff, 5);
       
@@ -340,7 +340,7 @@ void StoryWorld::specialPartSwitchCase(int code) {
     }
       break;
     case '3':{
-      CCSprite *black = CCSprite::create("black.png");
+      CCSprite *black = CCSprite::create(BLACK_IMG_PATH);
       black->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height/2));
       black->setOpacity(0);
       addChild(black, 4);
@@ -439,22 +439,15 @@ void StoryWorld::leafletChoiceHandler(CCObject *sender) {
       // 显示宣传单一
       removeChildByTag(2);
       removeChildByTag(3);
-      CCSprite *blackBG = CCSprite::create("black.png");
+      
+      CCSprite *blackBG = CCSprite::create(LEAFLET_IMG_PATH);
       blackBG->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height/2));
       blackBG->setScale(1);
       blackBG->setTag(21);
       addChild(blackBG, 2);
-      // TODO
-      CCLabelTTF *xuanchuan = CCLabelTTF::create("        四川大学的历史源头最早可以追溯到康熙年间的锦江书院。锦江书院在清代雍正十一年(1733年)，被御定为全国22所最著名的省级书院之一，时人曾誉以“石室云霞思古梦，锦江风雨读书灯”。\n        锦江书院最有名的“功名富贵”楹联是：有补于天地曰功，有益于世教曰名，有精神之谓富，有廉耻之谓贵；不涉鄙陋斯为文，不入暧昧斯为章，溯乎始之谓道，信乎己之谓德。\n         锦江书院聘请了许多名流学者主讲，其中最有名的是担任山长近20年的四川丹棱人彭端淑（约1699一约1779年）。他与李调元、张问陶并称清代四川三才子，《为学一首示子侄》收入今天的中小学教材。\n        锦江书院学生刘光第（1859-1898），四川富顺人，1879-1882年在锦江书院就读，光绪九年（1883）进士，是戊戌变法殉难的“六君子”之一。", "Heiti SC", 40);
-      xuanchuan->setPosition(ccp(0, 40));
-      xuanchuan->setHorizontalAlignment(kCCTextAlignmentLeft);
-      xuanchuan->setAnchorPoint(CCPointZero);
-      xuanchuan->setDimensions(CCSizeMake(1100, 0));
-      xuanchuan->setTag(22);
-      addChild(xuanchuan, 3);
       
       // 关闭按钮
-      CCMenuItemImage *start = CCMenuItemImage::create("leafletsclose.png", "leafletsclose.png", this, menu_selector(StoryWorld::menuLeafletsCloseCallback));
+      CCMenuItemImage *start = CCMenuItemImage::create(LEAFLET_CLOSE_IMG_PATH, LEAFLET_CLOSE_IMG_PATH, this, menu_selector(StoryWorld::menuLeafletsCloseCallback));
       
       start->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width-40, CCDirector::sharedDirector()->getVisibleSize().height-40));
       
@@ -463,13 +456,11 @@ void StoryWorld::leafletChoiceHandler(CCObject *sender) {
       pMenu->setPosition(CCPointZero);
       pMenu->setTag(23);
       addChild(pMenu, 4);
-      
-      
     }
       return;
     case sChoice:
     default:{
-      saveProcessAndPopOut();
+      specialPartSwitchCase('1');
     }
       return;
   }
@@ -494,14 +485,14 @@ void StoryWorld::saveProcessAndPopOut() {
   CCDirector::sharedDirector()->popScene();
 }
 
-// 列表选择响应事件
+// 宣传单列表选择响应事件
 void StoryWorld::menuLeafletsCloseCallback(CCObject* sender) {
   removeChildByTag(21);
   removeChildByTag(22);
   removeChildByTag(23);
   setTouchEnabled(true);
-  
-  saveProcessAndPopOut();
+  // 显示下一个触发点
+  specialPartSwitchCase('1');
 }
 
 void StoryWorld::confirmButtonHandler(CCObject *sender) {
