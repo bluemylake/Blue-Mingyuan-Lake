@@ -75,7 +75,7 @@ bool StoryWorld::init() {
   leftSprite->setOpacity(0);
   spriteBatch->addChild(leftSprite, 0);
   
-  CCSprite *rightSprite=CCSprite::createWithSpriteFrameName("blank.png");
+  CCSprite *rightSprite=CCSprite::createWithSpriteFrameName(BLACK_IMG_PATH);
   //rightSprite->setScale(0.8);
   rightSprite->setPosition(ccp(800, 130));
   rightSprite->setTag(2);
