@@ -41,7 +41,7 @@ CCArray* NPCUtil::initNPC()
 			default:break;
 			}
 			man->setTag(MAN_START+event->id);
-			rGlobal->map->addChild(man,4);
+			rGlobal->map->addChild(man,NPC_ON_MAP_BACK_ZOR);
 			NPCs->addObject(man);
 		}
 	}

@@ -57,12 +57,12 @@ void HelloWorld::initControlPanel(Map* map)
 	ControlPanel* panel=ControlPanel::create(map);
 	//rGlobal->panel=panel;
 	panel->hero->setTag(HERO);
-	this->addChild(panel,15);
+	this->addChild(panel,PANEL_ON_MAPLYR_ZOR);
 
 	if(HERO_COVER_MODE)
-		map->addChild(panel->hero);
+		map->addChild(panel->hero,HERO_ON_MAP_ZOR);
 	else 
-		this->getChildByTag(MAPLAYER)->addChild(panel->hero,3);
+		this->getChildByTag(MAPLAYER)->addChild(panel->hero,HERO_ON_PANEL_ZOR);
 
 	//shadow init
 	Hero* hero = panel->hero;
@@ -72,6 +72,6 @@ void HelloWorld::initControlPanel(Map* map)
 	CCPoint heroPos = hero->getHeroTilePos() + ccp(1, 0);
 	CCPoint tPos = map->positionFromTileCoord(heroPos);
 	rGlobal->shadow->setPosition(tPos);
-	map->addChild(rGlobal->shadow,5);
+	map->addChild(rGlobal->shadow,HERO_ON_MAP_ZOR);
 }
 

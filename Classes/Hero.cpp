@@ -188,7 +188,7 @@ void Hero::followMe()
 		CCPoint heroCoord=getHeroTilePos();
 		heroPos->addObject(CCInteger::create(heroCoord.x));
 		heroPos->addObject(CCInteger::create(heroCoord.y));
-		CCNotificationCenter::sharedNotificationCenter()->postNotification("rGlobal->shadow", (CCObject*)heroPos);
+		CCNotificationCenter::sharedNotificationCenter()->postNotification(HERO_STEP_UP_MSG, (CCObject*)heroPos);
 	}
 }
 

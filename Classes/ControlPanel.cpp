@@ -67,7 +67,7 @@ void ControlPanel::initControllerListeners()
 	rwindow->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2,
 		CCDirector::sharedDirector()->getWinSize().height/2));
 	rGlobal->rwindow=rwindow;
-	this->addChild(rwindow,11);
+	this->addChild(rwindow,WIN_ON_PANEL_ZOR);
 
 	//bigwindow=BigWindow::create();
 	//this->setTag(BIGWINDOW);this->addChild(bigwindow,11);
@@ -75,7 +75,7 @@ void ControlPanel::initControllerListeners()
 
 	diawindow=DiaWindow::create();
 	rGlobal->diawindow=diawindow;
-	this->setTag(DIAWINDOW);this->addChild(diawindow,11);
+	this->setTag(DIAWINDOW);this->addChild(diawindow,WIN_ON_PANEL_ZOR);
 }
 
 void ControlPanel::initControllers()

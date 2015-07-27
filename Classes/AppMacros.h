@@ -180,8 +180,19 @@
 #define DIALOG_EVT 2
 #define SHADOW_EVT 3
 
+//Notification Center
+#define HERO_STEP_UP_MSG "HeroStepUp"
 typedef enum{kNone=1,kWall=17,kEvent=41}CollisionType;
 typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
+
+//zorders
+#define HERO_ON_MAP_ZOR 5
+#define HERO_MOVE_BACK_ZOR 3
+#define NPC_ON_MAP_BACK_ZOR 4
+#define NPC_ON_MAP_FRON_ZOR 6
+#define HERO_ON_PANEL_ZOR 3
+#define PANEL_ON_MAPLYR_ZOR 15
+#define WIN_ON_PANEL_ZOR 11
 
 //switches
 #define DEBUG_MODE true
