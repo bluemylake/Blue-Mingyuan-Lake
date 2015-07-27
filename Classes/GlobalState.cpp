@@ -24,6 +24,7 @@ void GlobalState::save()
 	SAVE_INT(STORYCNT_MRCD, mapState->storyCnt);
 	SAVE_BOOL(HAS_SHADOW_MRCD, mapState->hasSh);
 	SAVE_INT(SH_STAND_P_MRCD, mapState->standPos);
+	SAVE_INT(STORY_TIME_MRCD, mapState->sTime);
 
 	SAVE_INT(SPEED_SRCD, superPower->speed);
 	SAVE_BOOL(TELEPORT_SRCD, superPower->teleport);
@@ -41,6 +42,7 @@ void GlobalState::newr()
 	SAVE_INT(STORYCNT_MRCD,STORYCNT_INI);
 	SAVE_BOOL(HAS_SHADOW_MRCD,HAS_SHADOW_INI);
 	SAVE_INT(SH_STAND_P_MRCD,SH_STAND_P_INI);
+	SAVE_INT(STORY_TIME_MRCD,STORY_TIME_INI);
 
 	SAVE_INT(SPEED_SRCD,SPEED_INI);
 	SAVE_BOOL(TELEPORT_SRCD,TELEPORT_INI);
@@ -66,6 +68,7 @@ void GlobalState::loadMapState()
     mapState->storyCnt = LOAD_INT(STORYCNT_MRCD, STORYCNT_INI);
 	mapState->hasSh = LOAD_BOOL(HAS_SHADOW_MRCD, HAS_SHADOW_INI);
 	mapState->standPos= LOAD_INT(SH_STAND_P_MRCD, SH_STAND_P_INI);
+	mapState->sTime= LOAD_INT(STORY_TIME_MRCD, STORY_TIME_INI);
 }
 
 void GlobalState::loadSuperPower()

@@ -59,6 +59,7 @@
 #define STORYCNT_MRCD "StoryCnt"
 #define HAS_SHADOW_MRCD "HasShadow"
 #define SH_STAND_P_MRCD "ShStandPos"
+#define STORY_TIME_MRCD "StoryTime"
 #define EVENTDONE_MRCD "EventDone"
 
 #define SPEED_SRCD "Speed"
@@ -77,6 +78,7 @@
 #define STORYCNT_INI 0
 #define HAS_SHADOW_INI false
 #define SH_STAND_P_INI 2
+#define STORY_TIME_INI 10
 #define EVENTDONE_INI ""
 
 #define SPEED_INI 2.0
@@ -183,5 +185,5 @@ typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
 
 //switches
 #define DEBUG_MODE true
-#define HERO_COVER_MODE true 
+#define HERO_COVER_MODE FALSE 
 #endif /* __APPMACROS_H__ */

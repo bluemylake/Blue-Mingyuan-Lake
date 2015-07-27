@@ -46,7 +46,7 @@ ControllerListener* EventManager::happen(CCPoint coord, int ent)
 
 		curPtr=findEventById(event->next);
 	}
-	while(curPtr==NULL);
+	while(curPtr!=NULL);
 
 	return subject;
 }

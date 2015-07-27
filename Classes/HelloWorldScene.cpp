@@ -55,7 +55,7 @@ Map* HelloWorld::initMap()
 void HelloWorld::initControlPanel(Map* map)
 {
 	ControlPanel* panel=ControlPanel::create(map);
-	rGlobal->panel=panel;
+	//rGlobal->panel=panel;
 	panel->hero->setTag(HERO);
 	this->addChild(panel,15);
 

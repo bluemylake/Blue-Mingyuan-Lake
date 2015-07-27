@@ -16,6 +16,7 @@ using namespace cocos2d;
 #define STEALTHIN 10
 #define SWAY 11
 #define FADEOUT 12
+#define FADEIN 13
 
 
 class Animation

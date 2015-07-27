@@ -44,14 +44,14 @@ Map* Map::crossMap(CCPoint tileBirthPoint,int mapNo)
 		tileBirthPoint=ccp(2+3,tileBirthPoint.y);
 		sGlobal->mapState->mapNo=MAP12;
 		eManager->release();
-		eManager->load(EVENT_MAP11);
+		eManager->load(EVENT_MAP12);
 	}
 	else
 	{
 		tileBirthPoint=ccp(this->getMapSize().width-3-3,tileBirthPoint.y);
 		sGlobal->mapState->mapNo=MAP11;
 		eManager->release();
-		eManager->load(EVENT_MAP12);
+		eManager->load(EVENT_MAP11);
 	}
 	this->setPosition(this->humanPosForTileMove(tileBirthPoint));
 	initNPC();

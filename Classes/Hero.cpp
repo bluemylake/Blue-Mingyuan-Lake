@@ -258,8 +258,8 @@ void Hero::crossMap(int mapPart)
 	touchEnded=dir;walkEnd();
 	map->removeAllChildrenWithCleanup(true);
 	map=Map::create(path->getCString());
-	map->crossMap(heroTilePos,mapNo);
 	rGlobal->map=map;
+	map->crossMap(heroTilePos,mapNo);
 	this->getParent()->addChild(map);
 
 	//re-create rGlobal->shadow

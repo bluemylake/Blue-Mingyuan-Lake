@@ -87,6 +87,11 @@ CCFiniteTimeAction* Animation::getAction(int choice,CCSize size)
 			CCFadeOut* fadeOut = CCFadeOut::create(0.5);
 			action = fadeOut;
 		}
+	case FADEIN:
+		{
+			CCFadeIn* fadeIn = CCFadeIn::create(0.5);
+			action = fadeIn;
+		}
 	default:
 		break;
 	}
