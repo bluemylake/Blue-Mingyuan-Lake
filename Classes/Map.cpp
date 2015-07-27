@@ -39,20 +39,13 @@ void Map::initNPC()
 
 Map* Map::crossMap(CCPoint tileBirthPoint,int mapNo)
 {
-	if(mapNo==MAP11)
-	{
+	if(mapNo==MAP12) //Arriving to the right piece: MAP12
 		tileBirthPoint=ccp(2+3,tileBirthPoint.y);
-		sGlobal->mapState->mapNo=MAP12;
-		eManager->release();
-		eManager->load(EVENT_MAP12);
-	}
 	else
-	{
 		tileBirthPoint=ccp(this->getMapSize().width-3-3,tileBirthPoint.y);
-		sGlobal->mapState->mapNo=MAP11;
-		eManager->release();
-		eManager->load(EVENT_MAP11);
-	}
+	sGlobal->mapState->mapNo=mapNo;
+	eManager->release();
+	eManager->load(mapNo-MAP10,TimeUtil::getWeekDay());
 	this->setPosition(this->humanPosForTileMove(tileBirthPoint));
 	initNPC();
 	return this;

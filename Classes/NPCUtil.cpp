@@ -15,7 +15,8 @@ CCArray* NPCUtil::initNPC()
 			int cat=event->category;
 			int arg0;
 			HumanEntity* man;
-			CCInteger* intg=(CCInteger*)args->objectAtIndex(INDEX_ZERO);
+			CCInteger* intg;
+			if(args->count()!=0) intg = (CCInteger*)args->objectAtIndex(INDEX_ZERO);
 			switch(cat)
 			{
 			case STANDING:

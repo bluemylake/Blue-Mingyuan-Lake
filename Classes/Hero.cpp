@@ -46,7 +46,7 @@ void Hero::doEvent(CCPoint heroTilePos)
 			case 5:case 6:case 7:case 8:case 9:
 				if(id==sGlobal->mapState->storyCnt)
 				{
-					touchEnded=dir;walkEnd();//endWalking
+					touchEnded=dir;walkEnd();
 					this->focus=false;
 					CCEGLView::sharedOpenGLView()->setDesignResolutionSize(JX_RESOLUWID, JX_RESOLUHEI, kResolutionExactFit);
 					CCDirector::sharedDirector()->pushScene(StoryWorld::scene());
@@ -56,8 +56,8 @@ void Hero::doEvent(CCPoint heroTilePos)
 				}
 				break;
 
-			case MAP11: crossMap(MAP11); break;
-			case MAP12: crossMap(MAP12); break;
+			case MAP11: crossToMap(MAP12); break;
+			case MAP12: crossToMap(MAP11); break;
 			default:break;
 		}
 	}
@@ -161,6 +161,7 @@ void Hero::initAction(int dir)
 	CCCallFunc* stepD=CCCallFunc::create(this,callfunc_selector(Hero::stepDown));
 	//CCSpawn* animJ=CCSpawn::create(anim,jump,NULL);
 	CCSequence* revAct = CCSequence::create(stepU, delay, follM, revShift, stepD, NULL);
+
 	moveLegs=CCRepeatForever::create(anim);
 	moveMap=CCRepeatForever::create(revAct);
 }
@@ -244,15 +245,15 @@ void Hero::gotFocusT()
 	focus=true;
 }
 
-void Hero::crossMap(int mapPart)
+void Hero::crossToMap(int mapNo)
 {
 	//choose map 
-	CCString* path; int mapNo; CCPoint heroTilePos=getHeroTilePos();
+	CCString* path; CCPoint heroTilePos=getHeroTilePos();
 	CCPoint delt=ccp(1,0);
-	if(mapPart==MAP12)
-		path=CCString::create(MAP11_PATH), mapNo=MAP12, delt=ccp(1,0);
+	if(mapNo==MAP11) //arrive at MAP11
+		path=CCString::create(MAP11_PATH), delt=ccp(1,0);
 	else 
-		path=CCString::create(MAP12_PATH), mapNo=MAP11, delt=ccp(-1,0);
+		path=CCString::create(MAP12_PATH), delt=ccp(-1,0);
 
 	//change map
 	touchEnded=dir;walkEnd();

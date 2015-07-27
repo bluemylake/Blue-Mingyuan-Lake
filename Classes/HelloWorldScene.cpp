@@ -40,7 +40,9 @@ Map* HelloWorld::initMap()
 	if(mapNo==MAP11)map=Map::create(MAP11_PATH);//读取地图号map11
 	else map=Map::create(MAP12_PATH);//读取地图号map12	
 	sGlobalRes::instance()->map=map;
-	eManager->load(0);//@rGlobal->mapState->sTime
+	
+	//@eManager
+	eManager->load(mapNo-MAP10, TimeUtil::getWeekDay());
 	map->initNPC();
 	map->setGameStartPos();
 

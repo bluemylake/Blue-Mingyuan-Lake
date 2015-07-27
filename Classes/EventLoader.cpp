@@ -99,6 +99,5 @@ CCArray* EventLoader::start(const char* sFilePath)
 		}
 		eventSet->addObject(event);
 	}
-	eventSet->retain();
 	return eventSet;
 }

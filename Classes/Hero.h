@@ -34,7 +34,7 @@ private:
     void walkEnd();
     CollisionType checkEvent(CCPoint tileCoord);
     void doEvent(CCPoint heroPosition);
-	void crossMap(int mapNo); 
+	void crossToMap(int mapNo); 
     cocos2d::CCAction* moveMap;
     cocos2d::CCAction* moveLegs;
     int touchEnded;

@@ -120,6 +120,7 @@
 #define IDY_ATT "idy"
 
 #define CHANGESCENE_EVT "change scene"
+#define MAP10 18
 #define MAP11 19
 #define MAP12 20
 #define EVENT_MAP11 0
@@ -172,6 +173,7 @@
 #define STAND_TRIG 1
 #define STAND_TRIG_IMGNO -10
 #define ATRIG_NO_MAN_IMGNO -1
+#define MAP_SCALER 100
 
 //Event Ids
 #define NO_EVENT_FLAG -1
@@ -196,5 +198,5 @@ typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
 
 //switches
 #define DEBUG_MODE true
-#define HERO_COVER_MODE FALSE 
+#define HERO_COVER_MODE FALSE
 #endif /* __APPMACROS_H__ */

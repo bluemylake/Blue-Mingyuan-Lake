@@ -7,6 +7,7 @@
 #include "WalkingMan.h"
 #include "NPCUtil.h"
 #include "Emap.h"
+#include "TimeUtil.h"
 using namespace cocos2d;
 //displays the game Map and NPCs
 //stores the NPCs to respond to Events

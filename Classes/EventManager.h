@@ -15,7 +15,7 @@ using namespace cocos2d;
 class EventManager
 {
 public:
-    void load(int sTime);
+    void load(int fnmapNo, int weekday);
     ControllerListener* happen(CCPoint coord, int ent);//entrance through hero or buttonA
 	void next();
 	int isInstant(Event* event);
@@ -29,7 +29,7 @@ public:
 private:
     Event* findEventById(int id);
     ControllerListener* listener(int type);
-    void loadAllEvents(int sTime);
+    void loadAllEvents(int fileCode);
     void loadEmap();
     void markHappened(Event* event);
 };

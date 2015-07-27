@@ -27,7 +27,7 @@ bool MenuLayer::init()
 	diawindow->setControllerListener(hero);
 	addChild(diawindow,5);
 	sGlobalRes::instance()->diawindow=diawindow;//@
-	eManager->load(0);
+	//eManager->load(0);
 
 	map->initNPC();
 	map->setGameStartPos();

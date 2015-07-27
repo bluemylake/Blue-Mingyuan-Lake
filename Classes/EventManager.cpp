@@ -1,9 +1,12 @@
 #include "AppMacros.h"
 #include "EventManager.h"
 
-void EventManager::load(int sTime)
+void EventManager::load(int fnmapNo, int weekday)
 {
-	loadAllEvents(sTime);
+	events=CCArray::create();
+	events->retain();
+	loadAllEvents(fnmapNo*MAP_SCALER+weekday);
+	loadAllEvents(fnmapNo*MAP_SCALER+sGlobal->mapState->sTime);
 	loadEmap();
 }
 
@@ -69,7 +72,6 @@ void EventManager::release()
 
 EventManager::~EventManager()
 {
-	events->release();
 	release();
 }
 
@@ -106,10 +108,10 @@ ControllerListener* EventManager::listener(int type)
     return NULL;
 }
 
-void EventManager::loadAllEvents(int sTime)
+void EventManager::loadAllEvents(int fileCode)
 {
-	CCString* str=CCString::createWithFormat(EVENT_CSV_PATH,sTime);
-	events=EventLoader::start(str->getCString());
+	CCString* str=CCString::createWithFormat(EVENT_CSV_PATH,fileCode);
+	events->addObjectsFromArray(EventLoader::start(str->getCString())); 
 }
 
 void EventManager::loadEmap()
