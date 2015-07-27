@@ -1,149 +1,186 @@
-#include "AppMacros.h"//$
-#include "CombatScene.h"
+﻿#include "CombatScene.h"
+
 USING_NS_CC;
 
-//update:2014-10-4 19:37:38
-
-CCScene* Combat::scene() {
-	CCScene *scene = CCScene::create();
-	Combat *layer = Combat::create();
-	scene->addChild(layer);
-	// return the scene
-	return scene;
+CCScene* Combat::scene()
+{
+    // 'scene' is an autorelease object
+    CCScene *scene = CCScene::create();
+    // 'layer' is an autorelease object
+    Combat *layer = Combat::create();
+    // add layer as a child to scene
+    scene->addChild(layer);
+    // return the scene
+    return scene;
 }
 
-bool Combat::init() {
-
-	if (!CCLayer::init()) {
-		return false;
-	}
-
-	//��Ҫ���Ҵ�������
-	cc_timeval psv;
-	CCTime::gettimeofdayCocos2d(&psv,NULL);
-	unsigned long int rand_seed = psv.tv_sec*1000+psv.tv_usec/1000;
-	srand(rand_seed);
-
-	initSprite();
-	initLabel();
-	show();
-	return true;
-}
-
-
-void Combat::initSprite(){
-	background = CCSprite::create(COMBAT_IMG_PATH);//$
-	background->setPosition(ccp(background->getContentSize().width/2, background->getContentSize().height/2));
-	background->setTag(BACKGROUND);
-	addChild(background, 0);
-
-	player = Player1::create();
-	player->setPosition(ccp(-(player->getChildByTag(IMGSP)->getContentSize().width+150), 
-	player->getChildByTag(IMGSP)->getContentSize().height));
-	addChild(player);
-
-	enemy = Enemy::create();
-	enemy->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width - enemy->getChildByTag(IMGSP)->getContentSize().width-150,
-		CCDirector::sharedDirector()->getVisibleSize().height -enemy->getChildByTag(IMGSP)->getContentSize().height));
-	addChild(enemy);	
-
-	CombatCtrl* menu = CombatCtrl::create();
-	menu->setPointers(player,enemy,background);
-	addChild(menu);
-}
-
-//@label��ʾ
-void Combat::initLabel(){
-	CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(Combat::ScaleBlood),"gethurt",NULL);
+// on "init" you need to initialize your instance
+bool Combat::init()
+{
+    //////////////////////////////
+    // 1. super init first
+    if ( !CCLayer::init() )
+    {
+        return false;
+    }
+    
+    CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+    CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+	//角色创建
+	cplayer = CPlayer::create();
+	cplayer->setPlayer();
+	this->addChild(cplayer);
+	monster = Monster::create();
+	monster->setMonster();
+	this->addChild(monster);
+	//血条创建
+	playerblood = Blood::create();
+	playerblood->setBloodSlider();
+	playerblood->setSliderPosition(ccp(150,visibleSize.height-50));
+	playerblood->setTotalBlood(cplayer->healthPoint);
+	playerblood->setCurrentBlood(cplayer->currentHp);
 	
-	//��ʾ�Լ�����˵�Ѫ��ͼƬ
-	pBlood = CCSprite::create(BLOOD_IMG_PATH);//$
-	pBlood->setPosition(ccp(1047, 250));//138
-	pBlood->setAnchorPoint(ccp(1, 1));pBlood->setTag(12);
-	pBlood->setScaleX(1);
-	addChild(pBlood,1);
-	eBlood = CCSprite::create(BLOOD_IMG_PATH);//$
-	eBlood->setPosition(ccp(478, 558));
-	eBlood->setAnchorPoint(ccp(1, 1));eBlood->setTag(22);
-	eBlood->setScale(1);
-	addChild(eBlood,1);
+	monsterblood = Blood::create();
+	monsterblood->setBloodSlider();
+	monsterblood->setSliderPosition(ccp(visibleSize.width-150,visibleSize.height-50));
+	monsterblood->setTotalBlood(monster->healthPoint);
+	monsterblood->setCurrentBlood(monster->currentHp);
 
-	//��ʾ˫��Ѫ��ֵ
-	CCPoint pBloodPos = pBlood->getPosition();CCPoint eBloodPos = eBlood->getPosition();
-	char playerHp[10];char enemyHp[10];
-	sprintf(playerHp, "%d/%d",player->Hp,player->Hp);
-	pBloodLabel = CCLabelTTF::create("" ,"Heiti SC", 30);pBloodLabel->setString(playerHp);pBloodLabel->setPosition(ccp(pBloodPos.x-10,pBloodPos.y-22));pBloodLabel->setAnchorPoint(ccp(1, 0.5));pBloodLabel->setTag(13);
-	addChild(pBloodLabel,2);
-	sprintf(enemyHp, "%d/%d",enemy->Hp,enemy->Hp);
-	eBloodLabel = CCLabelTTF::create("", "Heiti SC", 30);eBloodLabel->setString(enemyHp);eBloodLabel->setPosition(ccp(eBloodPos.x-250,eBloodPos.y-22));eBloodLabel->setAnchorPoint(ccp(1, 0.5));eBloodLabel->setTag(23);
-	addChild(eBloodLabel,2);
+	this->addChild(playerblood);
+	this->addChild(monsterblood);
 
-	//��ʾ˫���ȼ�
-	char level[10];
-	sprintf(level,"Lv.%d",player->level);
-	CCLabelTTF *plevel = CCLabelTTF::create("","Heiti SC",30);plevel->setFontFillColor(ccBLACK);plevel->setString(level);plevel->setPosition(ccp(pBloodPos.x-13,pBloodPos.y+32));plevel->setAnchorPoint(ccp(1,1));plevel->setTag(33);
-	addChild(plevel,2);
-	sprintf(level,"Lv.%d",enemy->level);
-	CCLabelTTF *elevel = CCLabelTTF::create("","Heiti SC",30);plevel->setFontFillColor(ccBLACK);elevel->setString(level);elevel->setPosition(ccp(eBloodPos.x-320,eBloodPos.y+32));elevel->setAnchorPoint(ccp(1,1));elevel->setTag(33);
-	addChild(elevel,2);
+	//按钮创建
+	playerbutton = AbilityButton::create();
+	monsterbutton = AbilityButton::create();
+	playerbutton->CreateButton();
+	playerbutton->setButtonPosition(ccp(50,50));
+	playerbutton->updateDamage(cplayer->level);
+	monsterbutton->CreateButton();
+	monsterbutton->setButtonPosition(ccp(420,50));
+	monsterbutton->LockButtonTouch();
+	monsterbutton->updateDamage(monster->level);
+	this->addChild(playerbutton);
+	this->addChild(monsterbutton);
 
-	//��ʾ����
-	const char* pname;
-	const char* ename;
-	CCLabelTTF *pName = CCLabelTTF::create("","Heiti SC",30);
-	pname = player->name.getCString();
-	pName->setString(pname);
-	pName->setFontFillColor(ccBLACK);pName->setPosition(ccp(pBloodPos.x-300,pBloodPos.y+32));pName->setAnchorPoint(ccp(1,1));pName->setTag(33);
-	addChild(pName,2);
-	CCLabelTTF *eName = CCLabelTTF::create("","Heiti SC",30);
-	ename = enemy->name.getCString();
-	eName->setString(ename);
-	eName->setFontFillColor(ccBLACK);eName->setString(enemy->name.getCString());eName->setPosition(ccp(eBloodPos.x-10,eBloodPos.y+35));eName->setAnchorPoint(ccp(1,1));eName->setTag(33);
-	addChild(eName,2);
 
-	//����ֵ
+	this->scheduleUpdate();
 
-}
-
-void Combat::show(){
-
-	CCActionInterval* moveTo1 = CCMoveTo::create(1.5,ccp((player->getChildByTag(IMGSP)->getContentSize().width+150), 
-		player->getChildByTag(IMGSP)->getContentSize().height));
-	player->runAction(moveTo1);
-
-	CCAction* enemyUp = Animation::getAction(SWAY,enemy->getChildByTag(IMGSP)->getContentSize());
-	CCSequence* seq = CCSequence::create(CCDelayTime::create(1.5),enemyUp,NULL);
-	enemy->runAction(seq);
+    return true;
 }
 
 
 
-
-
-
-void Combat::ScaleBlood(CCObject* character){
-	Character* p = (Character*)character;
-
-	int ht = p->Hp-p->remainHp;
-
-	float st =  (float)p->remainHp/(float)p->Hp;
-	
-	CCScaleTo *Scale =CCScaleTo::create(0.5,st,1.0f);
-
-
-	char blood[10];
-	if (p->ishero)
+void Combat::update(float delta)
+{
+	if (playerbutton->isTouch==true)
 	{
-		Player1* player0=(Player1*)p;
-		sprintf(blood, "%d/%d", player0->remainHp,player0->Hp);
-		pBloodLabel->setString(blood);
-		pBlood->runAction(Scale);
+		//锁定playerbutton触摸
+		playerbutton->LockButtonTouch();
+		//怪物选择button
+		monsterButtonTag = monster->chooseButton();
+		//判断属性胜负
+		int winnerNum = checkButtonTag(playerbutton->tag,monsterButtonTag);
+		CCLOG("win:%d",winnerNum);
+		//伤害计算
+		int damage = damageCompute(winnerNum);
+		CCLOG("damage:%d",damage);
+		//播放战斗动画
+		//更新血条
+		updateBlood(winnerNum,damage);
+
+		playerbutton->isTouch=false;
+		//判断是否结束
+		checkGameOver();
+
+		
+	}
+	
+}
+
+//判断双方选择属性的胜负
+int Combat::checkButtonTag(int playerTag,int monsterTag)
+{
+	//平局
+	if (playerTag==monsterTag)
+	{
+		if(playerbutton->getDamageByTag(playerTag)>=monsterbutton->getDamageByTag(monsterTag))
+			return playerWin;
+		else
+			return monsterWin;
+	}
+	else if ((playerTag==0&&monsterTag==3)||(playerTag==1&&monsterTag==0)||(playerTag==2&&monsterTag==1))
+	{
+		return playerWin;
 	}
 	else
 	{
-		Enemy* enemy0=(Enemy*) p;
-		sprintf(blood, "%d/%d", enemy0->remainHp,enemy0->Hp);
-		eBloodLabel->setString(blood);
-		eBlood->runAction(Scale);
+		return monsterWin;
 	}
+}
+
+//伤害计算
+int Combat::damageCompute(int winnerNum)
+{
+	int damage,pdamage,mdamage;
+	//平局情况伤害为双方差值
+	if (playerbutton->tag==monsterButtonTag)
+	{
+		pdamage = playerbutton->getDamageByTag(playerbutton->tag);
+		mdamage = monsterbutton->getDamageByTag(monsterButtonTag);
+		damage = abs(pdamage-mdamage);
+	}
+	//非平局情况伤害值
+	else
+	{
+		if (winnerNum==playerWin)
+		{
+			damage = playerbutton->getDamageByTag(playerbutton->tag);
+		}
+		else if (winnerNum==monsterWin)
+		{
+			damage = monsterbutton->getDamageByTag(monsterButtonTag);
+		}
+	}
+	return damage;
+}
+
+//刷新血条
+void Combat::updateBlood(int winnerNum,int damage)
+{
+	if (winnerNum==playerWin)
+	{
+		monster->currentHp-=damage; 
+		if(monster->currentHp==0)
+			monster->currentHp=0;
+	}
+	else
+	{
+		cplayer->currentHp-=damage;
+		if(cplayer->currentHp==0)
+			cplayer->currentHp=0;
+	}
+
+	playerblood->setCurrentBlood(cplayer->currentHp);
+	monsterblood->setCurrentBlood(monster->currentHp);
+}
+
+void Combat::checkGameOver()
+{
+	if (cplayer->currentHp<=0)
+	{
+		CCLOG("monster win!");
+	}
+	else if (monster->currentHp<=0)
+	{
+		CCLOG("player win!");
+	}
+	else
+	{
+		//刷新一次button
+		playerbutton->updateDamage(cplayer->level);
+		monsterbutton->updateDamage(monster->level);
+		//恢复按钮可触摸状态
+		playerbutton->UnlockButtonTouch();
+	}
+		
 }

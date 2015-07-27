@@ -1,43 +1,47 @@
-//
-//  CombatScene.h
-//  血色明远湖
-//
-//  Created by Ring King on 14-4-22.
-//
-//
-
-#ifndef _________CombatScene__
-#define _________CombatScene__
+﻿#ifndef __COMBAT_SCENE_H__
+#define __COMBAT_SCENE_H__
 
 #include "cocos2d.h"
-#include "Player1.h"
-#include "Enemy.h"
-#include "CombatCtrl .h"
-#include "Animation.h"
-//update:2014-10-4 19:37:23
+#include "Blood.h"
+#include "CPlayer.h"
+#include "Monster.h"
+#include "AbilityButton.h"
+
+using namespace cocos2d;
+
+typedef enum{
+	playerWin,
+	monsterWin,
+	drawTie
+}chechResult;
+
 
 class Combat : public cocos2d::CCLayer
 {
 public:
+    // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
+    virtual bool init();  
+    // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::CCScene* scene();
+    // a selector callback
+    void menuCloseCallback(CCObject* pSender);
+    // implement the "static node()" method manually
     CREATE_FUNC(Combat);
-	virtual bool init();
-   
-	void initSprite();
-    void initLabel();
-	void show();
-
-	void ScaleBlood(CCObject* character);
+	virtual void update(float delta);
+	int checkButtonTag(int playerTag,int monsterTag);
+	int damageCompute(int winner);
+	//刷新血条
+	void updateBlood(int winnerNum,int damage);
+	void checkGameOver();
 private:
-    Player1* player;
-	Enemy* enemy;
-	CCSprite *background;
-	CCSprite *pBlood;
-	CCSprite *eBlood;
-	CCLabelTTF *pBloodLabel;
-	CCLabelTTF *eBloodLabel;
+	CPlayer* cplayer;
+	Monster* monster;
+	Blood* playerblood;
+	Blood* monsterblood;
+	AbilityButton* playerbutton;
+	AbilityButton* monsterbutton;
+	int monsterButtonTag;
+
 };
 
-#endif /* defined(_________CombatScene__) */
-
-
+#endif // __Combat_SCENE_H__
