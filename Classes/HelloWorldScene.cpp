@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include "TimeUtil.h"
 USING_NS_CC;
 
 //last: 20140925.2257
@@ -38,7 +39,6 @@ Map* HelloWorld::initMap()
 	Map* map;
 	if(mapNo==MAP11)map=Map::create(MAP11_PATH);//读取地图号map11
 	else map=Map::create(MAP12_PATH);//读取地图号map12	
-	//@eManager
 	sGlobalRes::instance()->map=map;
 	eManager->load(0);//@rGlobal->mapState->sTime
 	map->initNPC();

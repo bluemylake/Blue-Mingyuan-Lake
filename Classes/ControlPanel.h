@@ -7,6 +7,7 @@
 #include "ButtonA.h"
 #include "TouchScreen.h"
 #include "Menu.h"
+#include "TimeUtil.h"
 using namespace cocos2d;
 
 //update£º2014-9-26 01:33:57
