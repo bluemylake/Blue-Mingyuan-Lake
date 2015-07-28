@@ -6,6 +6,7 @@
 #include "CPlayer.h"
 #include "Monster.h"
 #include "AbilityButton.h"
+#include "Particles.h"
 
 using namespace cocos2d;
 
@@ -33,6 +34,8 @@ public:
 	//刷新血条
 	void updateBlood(int winnerNum,int damage);
 	void checkGameOver();
+	void playAnimation(CCObject* psender);
+	void setSignal();
 private:
 	CPlayer* cplayer;
 	Monster* monster;
@@ -40,7 +43,16 @@ private:
 	Blood* monsterblood;
 	AbilityButton* playerbutton;
 	AbilityButton* monsterbutton;
+	Particles* playerAttack;
+	Particles* monsterAttack;
+	
+	
 	int monsterButtonTag;
+	int damage;
+	int winnerNum;
+	bool isPlayingAnimation;
+	bool animationDone;
+
 
 };
 

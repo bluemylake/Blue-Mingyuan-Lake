@@ -23,7 +23,9 @@ bool Combat::init()
     {
         return false;
     }
-    
+	//
+    isPlayingAnimation = false;
+
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 	//角色创建
@@ -62,8 +64,16 @@ bool Combat::init()
 	this->addChild(playerbutton);
 	this->addChild(monsterbutton);
 
+	//游戏结束Label
 
+
+	//schedule监听，每帧刷新一次
 	this->scheduleUpdate();
+
+	//订阅播放动画的消息
+	CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(Combat::playAnimation),"animation",NULL);
+
+
 
     return true;
 }
@@ -72,26 +82,31 @@ bool Combat::init()
 
 void Combat::update(float delta)
 {
-	if (playerbutton->isTouch==true)
+	if (playerbutton->isTouch==true&&isPlayingAnimation==false)
 	{
 		//锁定playerbutton触摸
 		playerbutton->LockButtonTouch();
 		//怪物选择button
 		monsterButtonTag = monster->chooseButton();
 		//判断属性胜负
-		int winnerNum = checkButtonTag(playerbutton->tag,monsterButtonTag);
+		winnerNum = checkButtonTag(playerbutton->tag,monsterButtonTag);
 		CCLOG("win:%d",winnerNum);
 		//伤害计算
-		int damage = damageCompute(winnerNum);
+		damage = damageCompute(winnerNum);
 		CCLOG("damage:%d",damage);
 		//播放战斗动画
-		//更新血条
-		updateBlood(winnerNum,damage);
+		//post消息
+		CCNotificationCenter::sharedNotificationCenter()->postNotification("animation",NULL);
+		//playAnimation(playerbutton->tag,monsterButtonTag,winnerNum,damage);
 
-		playerbutton->isTouch=false;
-		//判断是否结束
-		checkGameOver();
 
+		
+			//更新血条
+			updateBlood(winnerNum,damage);
+
+			playerbutton->isTouch=false;
+			//判断是否结束
+			checkGameOver();
 		
 	}
 	
@@ -163,7 +178,7 @@ void Combat::updateBlood(int winnerNum,int damage)
 	playerblood->setCurrentBlood(cplayer->currentHp);
 	monsterblood->setCurrentBlood(monster->currentHp);
 }
-
+//判断游戏是否结束
 void Combat::checkGameOver()
 {
 	if (cplayer->currentHp<=0)
@@ -179,8 +194,73 @@ void Combat::checkGameOver()
 		//刷新一次button
 		playerbutton->updateDamage(cplayer->level);
 		monsterbutton->updateDamage(monster->level);
-		//恢复按钮可触摸状态
-		playerbutton->UnlockButtonTouch();
 	}
 		
+}
+
+
+void Combat::playAnimation(CCObject* psender)
+{
+	int pZorder,mZorder;
+	isPlayingAnimation=true;
+	animationDone = false;
+	playerAttack = Particles::create();
+	monsterAttack = Particles::create();
+	if (playerbutton->tag==0)
+	{
+		playerAttack->setFireParticle();
+		playerAttack->playerAttack();
+	}
+	if (playerbutton->tag==1)
+	{
+		playerAttack->setWaterParticle();
+		playerAttack->playerAttack();
+	}
+	if (playerbutton->tag==2)
+	{
+		playerAttack->setWoodParticle();
+		playerAttack->playerAttack();
+	}
+	//monster
+	if (monsterButtonTag==0)
+	{
+		monsterAttack->setFireParticle();
+		monsterAttack->monsterAttack();
+	}
+	if (monsterButtonTag==1)
+	{
+		monsterAttack->setWaterParticle();
+		monsterAttack->monsterAttack();
+	}
+	if (monsterButtonTag==2)
+	{
+		monsterAttack->setWoodParticle();
+		monsterAttack->monsterAttack();
+	}
+	
+	if (winnerNum==1)
+	{
+		pZorder=1;
+		mZorder=2;
+	}
+	else
+	{
+		pZorder=2;
+		mZorder=1;
+	}
+
+
+	CCSequence* seq = CCSequence::create(CCDelayTime::create(1.5),CCCallFunc::create(this,callfunc_selector(Combat::setSignal)),NULL);
+
+	playerbutton->runAction(seq);
+ 
+	addChild(playerAttack,pZorder);
+	addChild(monsterAttack,mZorder);
+}
+
+void Combat::setSignal()
+{
+	isPlayingAnimation=false;
+	//恢复按钮可触摸状态
+	playerbutton->UnlockButtonTouch();
 }
