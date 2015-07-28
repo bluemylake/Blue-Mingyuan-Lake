@@ -36,6 +36,8 @@ public:
 	void checkGameOver();
 	void playAnimation(CCObject* psender);
 	void setSignal();
+	void gameOver(CCObject* psender);
+	void popCombat();
 private:
 	CPlayer* cplayer;
 	Monster* monster;
@@ -45,11 +47,17 @@ private:
 	AbilityButton* monsterbutton;
 	Particles* playerAttack;
 	Particles* monsterAttack;
-	
-	
+	CCLabelTTF* winLabel;
+	CCLabelTTF* loseLabel;
+	CCLabelTTF* pbloodLabel;
+	CCLabelTTF* mbloodLabel;
+	CCLabelTTF* plevelLabel;
+	CCLabelTTF* mlevelLabel;
+
 	int monsterButtonTag;
 	int damage;
 	int winnerNum;
+	int gameWinner;
 	bool isPlayingAnimation;
 	bool animationDone;
 

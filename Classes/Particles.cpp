@@ -46,3 +46,12 @@ void Particles::monsterAttack()
 	mSystem->setAngle(180);
 	mSystem->setPosition(ccp(470,240));//ÉèÖÃÎ»ÖÃ
 }
+
+void Particles::setParticleDuration(float dt)
+{
+	mSystem->setDuration(dt);
+}
+void Particles::setParticleLife(float dt)
+{
+	mSystem->setLife(dt);
+}

@@ -15,6 +15,9 @@ public:
 	void setWoodParticle();
 	void playerAttack();
 	void monsterAttack();
+	//void setDuration();
+	void setParticleDuration(float dt);
+	void setParticleLife(float dt);
 private:
 	CCParticleSystemQuad *m_emitter;
 	CCParticleSystemQuad* mSystem;

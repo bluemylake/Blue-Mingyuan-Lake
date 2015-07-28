@@ -10,7 +10,7 @@ public:
 	CREATE_FUNC(Role);
 public:
 	virtual bool init();
-	int getHp();
+	//int getHp();
 	int exp;
 	int level;
 	int healthPoint;

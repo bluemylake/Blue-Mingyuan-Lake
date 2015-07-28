@@ -99,7 +99,7 @@ void StoryWorld::avgGame(void) {
   
   strcpy(dialog, reader.GetNextDialog().c_str());
   
-  char theName[10][11]={"","穆婧1:", "子轩:", "少杰:", "建国", "路人A:", "路人B:", "路人C:", "老爷爷:", "江姐:"};
+  char theName[10][11]={"","穆婧:", "子轩:", "少杰:", "建国", "路人A:", "路人B:", "路人C:", "老爷爷:", "江姐:"};
   
   myName->setString(theName[dialog[0]-48]);
   // 人物立绘切换

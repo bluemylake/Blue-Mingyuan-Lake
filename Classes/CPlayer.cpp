@@ -2,9 +2,10 @@
 
 bool CPlayer::init()
 {
-	healthPoint=100;
-	currentHp=healthPoint;
 	level=10;
+	healthPoint=100+level*2;
+	currentHp=healthPoint;
+	
 	return true;
 }
 void CPlayer::setPlayer()

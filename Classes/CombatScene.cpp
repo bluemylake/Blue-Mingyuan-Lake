@@ -40,16 +40,37 @@ bool Combat::init()
 	playerblood->setBloodSlider();
 	playerblood->setSliderPosition(ccp(150,visibleSize.height-50));
 	playerblood->setTotalBlood(cplayer->healthPoint);
-	playerblood->setCurrentBlood(cplayer->currentHp);
-	
+	playerblood->setCurrentBlood(cplayer->currentHp);	
 	monsterblood = Blood::create();
 	monsterblood->setBloodSlider();
 	monsterblood->setSliderPosition(ccp(visibleSize.width-150,visibleSize.height-50));
 	monsterblood->setTotalBlood(monster->healthPoint);
 	monsterblood->setCurrentBlood(monster->currentHp);
-
 	this->addChild(playerblood);
 	this->addChild(monsterblood);
+
+	//等级与当前血量label
+	/*等级*/
+	char level[10],blood[10];
+	sprintf(level,"Lv:%d",cplayer->level);
+	plevelLabel = CCLabelTTF::create(level, "Heiti SC",20);
+	plevelLabel->setPosition(ccp(60,visibleSize.height-20));
+	this->addChild(plevelLabel,2);
+	sprintf(level,"Lv:%d",monster->level);
+	mlevelLabel = CCLabelTTF::create(level, "Heiti SC",20);
+	mlevelLabel->setPosition(ccp(visibleSize.width-60,visibleSize.height-20));
+	this->addChild(mlevelLabel,2);
+	/*血量*/
+	sprintf(blood,"Hp:%d",cplayer->currentHp);
+	pbloodLabel = CCLabelTTF::create(blood, "Heiti SC",20);
+	pbloodLabel->setPosition(ccp(240,visibleSize.height-20));
+	this->addChild(pbloodLabel,2);
+	sprintf(blood,"Hp:%d",monster->currentHp);
+	mbloodLabel = CCLabelTTF::create(blood, "Heiti SC",20);
+	mbloodLabel->setPosition(ccp(visibleSize.width-240,visibleSize.height-20));
+	this->addChild(mbloodLabel,2);
+
+
 
 	//按钮创建
 	playerbutton = AbilityButton::create();
@@ -65,13 +86,22 @@ bool Combat::init()
 	this->addChild(monsterbutton);
 
 	//游戏结束Label
-
+	winLabel = CCLabelTTF::create("YOU WIN!", "Heiti SC", 80);
+	loseLabel = CCLabelTTF::create("YOU LOSE", "Heiti SC", 80);
+	winLabel->setPosition(ccp(visibleSize.width/2-20,visibleSize.height/2+20));
+	loseLabel->setPosition(ccp(visibleSize.width/2-20,visibleSize.height/2+20));
+	winLabel->setVisible(false);
+	loseLabel->setVisible(false);
+	this->addChild(winLabel);
+	this->addChild(loseLabel);
 
 	//schedule监听，每帧刷新一次
 	this->scheduleUpdate();
 
 	//订阅播放动画的消息
 	CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(Combat::playAnimation),"animation",NULL);
+	//订阅游戏结束
+	CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(Combat::gameOver),"gameover",NULL);
 
 
 
@@ -97,16 +127,11 @@ void Combat::update(float delta)
 		//播放战斗动画
 		//post消息
 		CCNotificationCenter::sharedNotificationCenter()->postNotification("animation",NULL);
-		//playAnimation(playerbutton->tag,monsterButtonTag,winnerNum,damage);
-
-
-		
-			//更新血条
-			updateBlood(winnerNum,damage);
-
-			playerbutton->isTouch=false;
-			//判断是否结束
-			checkGameOver();
+		//更新血条
+		updateBlood(winnerNum,damage);
+		playerbutton->isTouch=false;
+		//判断是否结束
+		checkGameOver();
 		
 	}
 	
@@ -115,6 +140,7 @@ void Combat::update(float delta)
 //判断双方选择属性的胜负
 int Combat::checkButtonTag(int playerTag,int monsterTag)
 {
+	CCLOG("tag:%d  tag:%d",playerTag,monsterTag);
 	//平局
 	if (playerTag==monsterTag)
 	{
@@ -123,7 +149,7 @@ int Combat::checkButtonTag(int playerTag,int monsterTag)
 		else
 			return monsterWin;
 	}
-	else if ((playerTag==0&&monsterTag==3)||(playerTag==1&&monsterTag==0)||(playerTag==2&&monsterTag==1))
+	else if ((playerTag==0&&monsterTag==2)||(playerTag==1&&monsterTag==0)||(playerTag==2&&monsterTag==1))
 	{
 		return playerWin;
 	}
@@ -165,28 +191,39 @@ void Combat::updateBlood(int winnerNum,int damage)
 	if (winnerNum==playerWin)
 	{
 		monster->currentHp-=damage; 
-		if(monster->currentHp==0)
+		if(monster->currentHp<=0)
 			monster->currentHp=0;
 	}
 	else
 	{
 		cplayer->currentHp-=damage;
-		if(cplayer->currentHp==0)
+		if(cplayer->currentHp<=0)
 			cplayer->currentHp=0;
 	}
 
 	playerblood->setCurrentBlood(cplayer->currentHp);
 	monsterblood->setCurrentBlood(monster->currentHp);
+	char blood[10];
+	sprintf(blood,"Hp:%d",cplayer->currentHp);
+	pbloodLabel->setString(blood);
+	sprintf(blood,"Hp:%d",monster->currentHp);
+	mbloodLabel->setString(blood);
 }
 //判断游戏是否结束
 void Combat::checkGameOver()
 {
 	if (cplayer->currentHp<=0)
 	{
+			gameWinner = 1;
+		CCNotificationCenter::sharedNotificationCenter()->postNotification("gameover",NULL);
+	
 		CCLOG("monster win!");
 	}
 	else if (monster->currentHp<=0)
 	{
+		gameWinner = 0;
+		CCNotificationCenter::sharedNotificationCenter()->postNotification("gameover",NULL);
+		
 		CCLOG("player win!");
 	}
 	else
@@ -204,6 +241,8 @@ void Combat::playAnimation(CCObject* psender)
 	int pZorder,mZorder;
 	isPlayingAnimation=true;
 	animationDone = false;
+	CCBlink* blk = CCBlink::create(0.5,3);
+	CCSequence* pblink = CCSequence::create(CCDelayTime::create(1.2),blk,NULL);
 	playerAttack = Particles::create();
 	monsterAttack = Particles::create();
 	if (playerbutton->tag==0)
@@ -239,14 +278,19 @@ void Combat::playAnimation(CCObject* psender)
 	}
 	
 	if (winnerNum==1)
-	{
+	{//monster win
 		pZorder=1;
 		mZorder=2;
+		playerAttack->setParticleLife(0.5);
+		cplayer->runAction(pblink);
+
 	}
 	else
 	{
 		pZorder=2;
 		mZorder=1;
+		monsterAttack->setParticleLife(0.5);
+		monster->runAction(pblink);
 	}
 
 
@@ -263,4 +307,31 @@ void Combat::setSignal()
 	isPlayingAnimation=false;
 	//恢复按钮可触摸状态
 	playerbutton->UnlockButtonTouch();
+}
+
+void Combat::gameOver(CCObject* psender)
+{
+	if (gameWinner==0)
+	{
+		winLabel->setVisible(true);
+
+	}
+	else
+	{
+		loseLabel->setVisible(true);
+	}
+	CCSequence* seq = CCSequence::create(CCDelayTime::create(3.5),CCCallFunc::create(this,callfunc_selector(Combat::popCombat)),NULL);
+	playerbutton->runAction(seq);
+}
+
+void Combat::popCombat()
+{
+	//存档
+	//保存：经验值exp
+
+
+	//各种release
+	//popScene
+	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(672,448, kResolutionExactFit);
+	CCDirector::sharedDirector()->popScene();
 }
