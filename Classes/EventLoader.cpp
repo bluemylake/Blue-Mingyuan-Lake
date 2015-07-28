@@ -3,6 +3,7 @@
 #include "GetSuPEvent.h"
 #include "DiaEvent.h"
 #include "GetShdwEvent.h"
+#include "ReloadEvent.h"
 
 CCArray* EventLoader::start(const char* sFilePath)
 {
@@ -27,6 +28,8 @@ CCArray* EventLoader::start(const char* sFilePath)
 				event=DiaEvent::create(); break;
 			case SHADOW_EVT:
 				event=GetShdwEvent::create(); break;
+			case RELOAD_EVT:
+				event=ReloadEvent::create(); break;
 				/*case ITEM_EVT:
 				  event=ItemEvent::create(); break;
 				  case COMBAT_EVT:

@@ -181,6 +181,7 @@
 #define GET_SUP_EVT 1
 #define DIALOG_EVT 2
 #define SHADOW_EVT 3
+#define RELOAD_EVT 4
 
 //Notification Center
 #define HERO_STEP_UP_MSG "HeroStepUp"
