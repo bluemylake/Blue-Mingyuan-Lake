@@ -1,6 +1,6 @@
 #include "ReloadEvent.h"
 #include "GlobalRes.h"
-#include "Animation.h"
+#include "AnimLib.h"
 #include "EventManager.h"
 #include "TimeUtil.h"
 #include "Map.h"
@@ -8,9 +8,9 @@
 void ReloadEvent::happen()
 {
 	CCSequence* blinkOfNight=CCSequence::create(
-			Animation::getAction(FADEIN,CCSize()),
+			AnimLib::getAction(FADEIN,CCSize()),
 			CCDelayTime::create(1.5f),
-			Animation::getAction(FADEOUT,CCSize()),
+			AnimLib::getAction(FADEOUT,CCSize()),
 			NULL);
 	rGlobal->nightBg->runAction(blinkOfNight);
 

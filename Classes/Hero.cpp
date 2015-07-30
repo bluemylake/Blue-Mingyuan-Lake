@@ -46,10 +46,12 @@ void Hero::doEvent(CCPoint heroTilePos)
 			case 5:case 6:case 7:case 8:case 9:
 				if(id==sGlobal->mapState->storyCnt)
 				{
-					touchEnded=dir;walkEnd();
+					touchEnded=dir;walkEnd();//endWalking
 					this->focus=false;
 					CCEGLView::sharedOpenGLView()->setDesignResolutionSize(JX_RESOLUWID, JX_RESOLUHEI, kResolutionExactFit);
-					CCDirector::sharedDirector()->pushScene(StoryWorld::scene());
+					CCScene* story=StoryWorld::scene();
+					CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, story);
+					CCDirector::sharedDirector()->pushScene(scenetrans);
 					this->gotFocusT();
 					sGlobal->mapState->storyCnt++;
 					sGlobal->save();
@@ -69,8 +71,9 @@ void Hero::doEvent(CCPoint heroTilePos)
 			touchEnded=dir;walkEnd();//endWalking
 			this->focus=false;
 			CCEGLView::sharedOpenGLView()->setDesignResolutionSize(JX_RESOLUWID, JX_RESOLUHEI, kResolutionExactFit);
-			CCScene* combat=Combat::scene();
-			CCDirector::sharedDirector()->pushScene(combat);//@
+//			CCScene* combat=Combat::scene();
+			//CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, combat);
+//			CCDirector::sharedDirector()->pushScene(scenetrans);//@
 		}
 		this->focus=true;
 		;}

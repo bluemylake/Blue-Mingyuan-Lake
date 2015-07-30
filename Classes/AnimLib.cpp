@@ -1,8 +1,8 @@
-#include "Animation.h"
+#include "AnimLib.h"
 
 //update:2014-10-3 01:30:47
 
-CCFiniteTimeAction* Animation::getAction(int choice,CCSize size)
+CCFiniteTimeAction* AnimLib::getAction(int choice,CCSize size)
 {
 	CCFiniteTimeAction* action=NULL;
 	switch(choice)

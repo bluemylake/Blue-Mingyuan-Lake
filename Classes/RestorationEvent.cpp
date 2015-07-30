@@ -3,7 +3,7 @@
 void RestorationEvent::happen()
 {
     CCInteger* intg=(CCInteger*)args->objectAtIndex(NUM_ATTALT_INDEX);
-    CombatUnit* player=sGlobal->playerState;
+    PlayerState* player=sGlobal->playerState;
     for(int i=0;i<intg->getValue();i++)
     {
 	int index=NUM_ATTALT_INDEX+2*i;

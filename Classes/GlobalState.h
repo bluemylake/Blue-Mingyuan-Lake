@@ -5,8 +5,9 @@
 #include "Singleton.hpp"
 #include "MapState.h"
 #include "SuperPower.h"
-#include "CombatUnit.h"
+//#include "CombatUnit.h"
 #include "BagRecord.h"
+#include "PlayerState.h"
 using namespace cocos2d;
 
 //Record of the state of the game in the memory
@@ -17,8 +18,9 @@ class GlobalState: public Singleton<GlobalState>
 public:
     MapState* mapState;
     SuperPower* superPower;
-    CombatUnit* playerState;
+    //CombatUnit* playerState;
     BagRecord* bagRecord;
+	PlayerState* playerState;
     bool doneList[MAX_DONE_LIST];
 public:
     void load();
@@ -31,6 +33,7 @@ private:
     void loadDoneList();
     void loadPlayerState();
 	void saveDoneList();
+	//void savePlayerState();
 };
 #define sGlobal GlobalState::instance()
 #endif

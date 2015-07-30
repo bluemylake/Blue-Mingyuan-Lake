@@ -1,5 +1,5 @@
-#ifndef _ANIMATION_H_
-#define _ANIMATION_H_
+#ifndef _ANIMLIB_H_
+#define _ANIMLIB_H_
 #include "cocos2d.h"
 using namespace cocos2d;
 
@@ -19,7 +19,7 @@ using namespace cocos2d;
 #define FADEIN 13
 
 
-class Animation
+class AnimLib
 {
 public:
 	static CCFiniteTimeAction* getAction(int choice,CCSize size);

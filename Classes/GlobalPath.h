@@ -35,9 +35,13 @@
 #define NAME_PATH  "txt/names.txt"
 #define SCRIPT_PATH "txt/Script0"
 #define SCRIPT_PATH_LEN 10
+#define FINAL_SCRIPT_PATH "txt/Fin1"
+#define FINAL_SCRIPT_PATH_LEN 7
 #define CLOSEN_IMG_PATH "img/story/CloseNormal.png"
 #define CLOSES_IMG_PATH "img/story/CloseSelected.png"
-#define BGNAME_IMG_PATH "img/story/bg_x00.jpg"
+#define CONFIRM_BACKGROUND_IMG_PATH "img/story/ConfirmBackground.png"
+#define CONFIRM_BUTTOM_IMG_PATH "img/story/ConfirmButton.png"
+#define BGNAME_IMG_PATH "img/story/bg_%s.jpg"
 #define BGNAME_PATH_LEN 13
 #define DUIHUAKUANG_IMG_PATH "img/story/Duihuakuang.png"
 #define PLIST_IMG_PATH "img/story/vdrawing.plist"
@@ -46,7 +50,8 @@
 #define STAFFBG_IMG_PATH "img/story/staff_bg.png"
 #define STAFF_IMG_PATH "img/story/staff.png"
 #define BLACK_IMG_PATH "img/story/black.png"
-#define LEAFLET_IMG_PATH "img/story/leafletsclose.png"
+#define LEAFLET_IMG_PATH "img/story/leaflet.png"
+#define LEAFLET_CLOSE_IMG_PATH "img/story/leafletsclose.png"
 
 //new combat
 #define PLAYER_IMG_PATH "img/new combat/hero.png"
