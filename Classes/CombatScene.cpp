@@ -33,7 +33,10 @@ bool Combat::init()
 	cplayer->setPlayer();
 	this->addChild(cplayer);
 	monster = Monster::create();
-	monster->setMonster();
+	monsterType = 0;//临时
+	monster->setMonster(monsterType);
+	
+
 	this->addChild(monster);
 	//血条创建
 	playerblood = Blood::create();
@@ -225,6 +228,8 @@ void Combat::checkGameOver()
 		CCNotificationCenter::sharedNotificationCenter()->postNotification("gameover",NULL);
 		
 		CCLOG("player win!");
+		cplayer->exp++;
+		sGlobal->playerState->exp = cplayer->exp;
 	}
 	else
 	{
@@ -327,10 +332,13 @@ void Combat::gameOver(CCObject* psender)
 void Combat::popCombat()
 {
 	//存档
+
+
 	//保存：经验值exp
 
 
-	//各种release
+	//移除观察者
+	CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
 	//popScene
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(672,448, kResolutionExactFit);
 	CCDirector::sharedDirector()->popScene();

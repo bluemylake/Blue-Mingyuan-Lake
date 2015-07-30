@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "GlobalState.h"
 #include "AppMacros.h"
+#include "CombatScene.h"
 using namespace cocos2d;
 //update：2014-10-1 15:59:03
 

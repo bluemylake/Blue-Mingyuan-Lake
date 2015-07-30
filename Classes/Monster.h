@@ -12,8 +12,9 @@ class Monster:public Role
 public:
 	CREATE_FUNC(Monster);
 public:
+	int monsterNo;
 	virtual bool init();
-	void setMonster();
+	void setMonster(int monType);
 	int chooseButton();
 	//void attack();
 private:

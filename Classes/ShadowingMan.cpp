@@ -5,7 +5,7 @@
 bool ShadowingMan::init()
 {
 	CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(ShadowingMan::shadow),"shadow",NULL);
-	this->picNo=9;
+	this->picNo=25;
 	//this->setID(SHADOWN_FLAG_ID);
 	this->initSprite();
 	this->initAnimation();

@@ -6,15 +6,31 @@ bool Monster::init()
 	CCTime::gettimeofdayCocos2d(&psv,NULL);
 	unsigned long int rand_seed = psv.tv_sec*1000+psv.tv_usec/1000;
 	srand(rand_seed);
-	healthPoint=100;
-	currentHp=healthPoint;
-	level=11;
+	
 	return true;
 }
-void Monster::setMonster()
+void Monster::setMonster(int monType)
 {
 	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-	monster = CCSprite::create(MONSTER);
+	char monPath[20];
+	if (monType==0)
+	{
+		monsterNo = (int)(CCRANDOM_0_1()*6);
+		sprintf(monPath,"monster%d.png",monsterNo);
+		monster = CCSprite::create(monPath);
+		level = (int)(CCRANDOM_0_1()*20);
+	}
+	else
+	{
+		sprintf(monPath,"monster%d.png",monType);
+		monster = CCSprite::create(monPath);
+		level = 30;
+	}
+
+	healthPoint=100+level*2;
+	currentHp=healthPoint;
+	
+	
 	monster->setPosition(ccp(visibleSize.width-100,visibleSize.height-200));
 	this->addChild(monster);
 }

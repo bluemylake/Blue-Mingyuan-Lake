@@ -38,6 +38,8 @@ public:
 	void setSignal();
 	void gameOver(CCObject* psender);
 	void popCombat();
+	//
+	int monsterType;
 private:
 	CPlayer* cplayer;
 	Monster* monster;

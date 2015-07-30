@@ -13,6 +13,7 @@ void GlobalState::load()
     loadSuperPower();
     loadPlayerState();
     loadDoneList();
+	loadPlayerState();
 }
 
 void GlobalState::save()
@@ -27,6 +28,8 @@ void GlobalState::save()
    SAVE_BOOL(TELEPORT_SRCD, superPower->teleport);
    SAVE_BOOL(STEALTH_SRCD, superPower->stealth);
    SAVE_BOOL(SURF_SRCD, superPower->surf);
+
+   SAVE_INT(EXP_CRCD,playerState->exp);
    saveDoneList();
 }
 
@@ -85,10 +88,6 @@ void GlobalState::loadDoneList()
 	}
 }
 
-void GlobalState::loadPlayerState()
-{
-
-}
 
 void GlobalState::saveDoneList()
 {
@@ -102,4 +101,13 @@ void GlobalState::saveDoneList()
 			list->addObject(str);
 		}
 	RcdUtil::saveList(list,DEFUALT_DELIM);
+}
+
+
+
+
+void GlobalState::loadPlayerState()
+{
+	playerState = new PlayerState;
+	playerState->exp = LOAD_INT(EXP_CRCD,EXP_INI);
 }

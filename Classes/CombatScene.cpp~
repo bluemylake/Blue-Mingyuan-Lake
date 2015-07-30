@@ -56,7 +56,7 @@ void Combat::showPlayer(){
 
 void Combat::showEnemy(){
 	
-	CCAction* enemyUp = Animation::getAction(SWAY,enemy->getChildByTag(IMGSP)->getContentSize());
+	CCAction* enemyUp = AnimLib::getAction(SWAY,enemy->getChildByTag(IMGSP)->getContentSize());
 	CCSequence* seq = CCSequence::create(CCDelayTime::create(1.5),enemyUp,NULL);
 	enemy->runAction(seq);
 }

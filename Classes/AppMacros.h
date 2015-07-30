@@ -66,6 +66,8 @@
 #define FLASH_SRCD "Flash"
 #define ALL_SUPERPOWER_SRCD "AllSuperPower"
 
+#define EXP_CRCD "Exp"
+
 //游戏记录的初始值命名法是属性名加_INI
 #define FIRSTSAVE_INI true
 #define POSITIONX_INI 63
@@ -75,12 +77,16 @@
 #define STORYCNT_INI 0
 #define EVENTDONE_INI ""
 
+#define EXP_INI 0
+
 #define SPEED_INI 2.0
 #define TELEPORT_INI false
 #define STEALTH_INI false
 #define SURF_INI false
 #define FLASH_INI false
 #define ALL_SUPERPOWER_INI false
+
+
 
 #define MAX_DONE_LIST 100
 #define DEFUALT_DELIM ','

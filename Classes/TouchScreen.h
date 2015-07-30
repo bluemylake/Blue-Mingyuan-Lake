@@ -5,6 +5,8 @@
 #include "AppMacros.h"
 #include "Button.h"
 #include "GlobalRes.h"
+#include "AnimLib.h"
+
 using namespace cocos2d;
 
 class TouchScreen: public Button

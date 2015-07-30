@@ -324,7 +324,7 @@ void StoryWorld::specialPartSwitchCase(int code) {
       addChild(menu, 3);
     }
       break;
-    case '2':{    // 剧本完结，播放完结动画
+    case '2':{    
       CCSprite* staff_bg = CCSprite::create(STAFFBG_IMG_PATH);
       staff_bg->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2 + CCDirector::sharedDirector()->getVisibleOrigin().x, CCDirector::sharedDirector()->getVisibleSize().height/2 + CCDirector::sharedDirector()->getVisibleOrigin().y));
       addChild(staff_bg, 4);
@@ -404,7 +404,7 @@ void StoryWorld::audioSwitchCase(int code) {
   }
 }
 
-// 结局选择处理
+//
 void StoryWorld::theFinalChoiceHandler(CCObject *sender) {
   int choice = ((CCNode *)sender)->getTag();
   char fileName[FINAL_SCRIPT_PATH_LEN*2] = FINAL_SCRIPT_PATH;
@@ -467,7 +467,7 @@ void StoryWorld::leafletChoiceHandler(CCObject *sender) {
 }
 
 
-// 游戏结束，返回开始界面
+// 
 void StoryWorld::gameOverAndBackToWelcome() {
   CCScene *welcome = Welcome::scene();
   CCTransitionCrossFade *backToWelcome = CCTransitionCrossFade::create(0.7, welcome);
@@ -475,7 +475,7 @@ void StoryWorld::gameOverAndBackToWelcome() {
 }
 
 
-// 保存进度并退出
+//
 void StoryWorld::saveProcessAndPopOut() {
   current+=1;
   CCUserDefault::sharedUserDefault()->setIntegerForKey("Process", current-'0');
@@ -485,13 +485,13 @@ void StoryWorld::saveProcessAndPopOut() {
   CCDirector::sharedDirector()->popScene();
 }
 
-// 宣传单列表选择响应事件
+//
 void StoryWorld::menuLeafletsCloseCallback(CCObject* sender) {
   removeChildByTag(21);
   removeChildByTag(22);
   removeChildByTag(23);
   setTouchEnabled(true);
-  // 显示下一个触发点
+  //
   specialPartSwitchCase('1');
 }
 
@@ -499,7 +499,7 @@ void StoryWorld::confirmButtonHandler(CCObject *sender) {
   saveProcessAndPopOut();
 }
 
-// 关闭按钮事件：退出游戏
+//
 void StoryWorld::menuCloseCallback(CCObject* pSender) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
   CCMessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");

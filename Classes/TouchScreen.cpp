@@ -54,9 +54,9 @@ void TouchScreen::teleportTo(CCSet* pTouch, CCEvent *pEvent)
 	CCPoint mapTileMove=hero->map->humanPosForTileMove(mapTileCoord);
 
 	CCSequence* teleport=CCSequence::create(CCDelayTime::create(0.5f),
-		Animation::getAction(TELEPORTOUT,hero->getChildByTag(IMGSP)->getContentSize()),
+		AnimLib::getAction(TELEPORTOUT,hero->getChildByTag(IMGSP)->getContentSize()),
 		CCDelayTime::create(0.40f),
-		Animation::getAction(TELEPORTIN,hero->getChildByTag(IMGSP)->getContentSize()),
+		AnimLib::getAction(TELEPORTIN,hero->getChildByTag(IMGSP)->getContentSize()),
 		NULL);
 	CCScaleTo* mapLayerMove=CCScaleTo::create(0.5f,1.0f);
 	CCSequence* mapMove=CCSequence::create(CCDelayTime::create(0.5f),
