@@ -1,0 +1,2 @@
+x,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres,,
+2,0,StrangeMan,100,1,0,1,-1,0,1,0,1,hello,
