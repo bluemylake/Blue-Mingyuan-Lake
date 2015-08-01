@@ -4,8 +4,6 @@
 #include "GlobalState.h"
 
 using namespace cocos2d;
- 
-#define PLAYER "player.png"
 
 class CPlayer:public Role
 {

@@ -1,3 +1,4 @@
+#include "GlobalPath.h"
 #include "Monster.h"
 
 bool Monster::init()
@@ -12,17 +13,17 @@ bool Monster::init()
 void Monster::setMonster(int monType)
 {
 	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-	char monPath[20];
+	char monPath[80];
 	if (monType==0)
 	{
 		monsterNo = (int)(CCRANDOM_0_1()*6);
-		sprintf(monPath,"monster%d.png",monsterNo);
+		sprintf(monPath,MONSTER_IMG_PATH,monsterNo);
 		monster = CCSprite::create(monPath);
 		level = (int)(CCRANDOM_0_1()*20);
 	}
 	else
 	{
-		sprintf(monPath,"monster%d.png",monType);
+		sprintf(monPath,MONSTER_IMG_PATH,monType);
 		monster = CCSprite::create(monPath);
 		level = 30;
 	}

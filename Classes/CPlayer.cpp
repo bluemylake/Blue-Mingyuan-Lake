@@ -10,10 +10,11 @@ bool CPlayer::init()
 	
 	return true;
 }
+
 void CPlayer::setPlayer()
 {
 	 CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-	player = CCSprite::create(PLAYER);
+	player = CCSprite::create(PLAYER_IMG_PATH);
 	player->setPosition(ccp(100,visibleSize.height-200));
 	this->addChild(player);
 }

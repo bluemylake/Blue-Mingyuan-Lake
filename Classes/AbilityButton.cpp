@@ -1,13 +1,7 @@
+#include "GlobalPath.h"
 #include "AbilityButton.h"
 
 using namespace cocos2d;
-
-#define FIRE "firebutton.png"
-#define WATER "waterbutton.png"
-#define WOOD "woodbutton.png"
-#define FIRE_DOWN "firebuttondown.png"
-#define WATER_DOWN "waterbuttondown.png"
-#define WOOD_DOWN "woodbuttondown.png"
 
 	
 bool AbilityButton::init()
@@ -19,13 +13,13 @@ bool AbilityButton::init()
 void AbilityButton::CreateButton()
 {
 	/* 正常状态下的按钮图片 */
-	CCScale9Sprite* btnfire = CCScale9Sprite::create(FIRE);
-	CCScale9Sprite* btnwater = CCScale9Sprite::create(WATER);
-	CCScale9Sprite* btnwood = CCScale9Sprite::create(WOOD);
+	CCScale9Sprite* btnfire = CCScale9Sprite::create(FIRE_BTN_IMG_PATH);
+	CCScale9Sprite* btnwater = CCScale9Sprite::create(WATER_BTN_IMG_PATH);
+	CCScale9Sprite* btnwood = CCScale9Sprite::create(WOOD_BTN_IMG_PATH);
 	/* 点击状态下的按钮图片 */  
-    CCScale9Sprite* btnfireDown = CCScale9Sprite::create(FIRE_DOWN); 
-	CCScale9Sprite* btnwaterDown = CCScale9Sprite::create(WATER_DOWN); 
-	CCScale9Sprite* btnwoodDown = CCScale9Sprite::create(WOOD_DOWN); 
+    CCScale9Sprite* btnfireDown = CCScale9Sprite::create(FIRE_DOWN_BTN_IMG_PATH); 
+	CCScale9Sprite* btnwaterDown = CCScale9Sprite::create(WATER_DOWN_BTN_IMG_PATH); 
+	CCScale9Sprite* btnwoodDown = CCScale9Sprite::create(WOOD_DOWN_BTN_IMG_PATH); 
 	/* 按钮标题 */  
 	firetitle = CCLabelTTF::create("@@", "Marker Felt", 80);  
 	watertitle = CCLabelTTF::create("@@", "Marker Felt", 80);  

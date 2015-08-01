@@ -2,6 +2,7 @@
 #define __COMBAT_SCENE_H__
 
 #include "cocos2d.h"
+#include "GlobalPath.h"
 #include "Blood.h"
 #include "CPlayer.h"
 #include "Monster.h"

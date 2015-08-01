@@ -1,35 +1,42 @@
 ﻿#include "CombatScene.h"
-#include "AppMacros.h"
-
 USING_NS_CC;
+
+#define LABEL_FONT "Heiti SC"
+
+#define LEVEL_LBL "Lv:%d"
+#define HEALTH_LBL "Hp:%d"
+#define YOU_WIN_LBL "YOU WIN!"
+#define YOU_LOSE_LBL "YOU LOSE"
+
+#define ANIMATION_MSG "animation"
+#define GAME_OVER_MSG "gameover"
 
 CCScene* Combat::scene()
 {
-    // 'scene' is an autorelease object
-    CCScene *scene = CCScene::create();
-    // 'layer' is an autorelease object
-    Combat *layer = Combat::create();
-    // add layer as a child to scene
-    scene->addChild(layer);
-    // return the scene
-    return scene;
+	// 'scene' is an autorelease object
+	CCScene *scene = CCScene::create();
+	// 'layer' is an autorelease object
+	Combat *layer = Combat::create();
+	// add layer as a child to scene
+	scene->addChild(layer);
+	// return the scene
+	return scene;
 }
 
 // on "init" you need to initialize your instance
 bool Combat::init()
 {
-    //////////////////////////////
-    // 1. super init first
-    if ( !CCLayer::init() )
-    {
-        return false;
-    }
+	// 1. super init first
+	if ( !CCLayer::init() )
+	{
+		return false;
+	}
 	//
 	this->setTag(COMBATLAYER);
-    isPlayingAnimation = false;
+	isPlayingAnimation = false;
 
-    CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-    CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+	CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 	//角色创建
 	cplayer = CPlayer::create();
 	cplayer->setPlayer();
@@ -37,7 +44,7 @@ bool Combat::init()
 	monster = Monster::create();
 	monsterType = 0;//临时
 	monster->setMonster(monsterType);
-	
+
 
 	this->addChild(monster);
 	//血条创建
@@ -57,21 +64,21 @@ bool Combat::init()
 	//等级与当前血量label
 	/*等级*/
 	char level[10],blood[10];
-	sprintf(level,"Lv:%d",cplayer->level);
-	plevelLabel = CCLabelTTF::create(level, "Heiti SC",20);
+	sprintf(level,LEVEL_LBL,cplayer->level);
+	plevelLabel = CCLabelTTF::create(level, LABEL_FONT,20);
 	plevelLabel->setPosition(ccp(60,visibleSize.height-20));
 	this->addChild(plevelLabel,2);
-	sprintf(level,"Lv:%d",monster->level);
-	mlevelLabel = CCLabelTTF::create(level, "Heiti SC",20);
+	sprintf(level,LEVEL_LBL,monster->level);
+	mlevelLabel = CCLabelTTF::create(level, LEVEL_LBL,20);
 	mlevelLabel->setPosition(ccp(visibleSize.width-60,visibleSize.height-20));
 	this->addChild(mlevelLabel,2);
 	/*血量*/
-	sprintf(blood,"Hp:%d",cplayer->currentHp);
-	pbloodLabel = CCLabelTTF::create(blood, "Heiti SC",20);
+	sprintf(blood,HEALTH_LBL,cplayer->currentHp);
+	pbloodLabel = CCLabelTTF::create(blood,LABEL_FONT,20);
 	pbloodLabel->setPosition(ccp(240,visibleSize.height-20));
 	this->addChild(pbloodLabel,2);
-	sprintf(blood,"Hp:%d",monster->currentHp);
-	mbloodLabel = CCLabelTTF::create(blood, "Heiti SC",20);
+	sprintf(blood,HEALTH_LBL,monster->currentHp);
+	mbloodLabel = CCLabelTTF::create(blood,LABEL_FONT,20);
 	mbloodLabel->setPosition(ccp(visibleSize.width-240,visibleSize.height-20));
 	this->addChild(mbloodLabel,2);
 
@@ -91,8 +98,8 @@ bool Combat::init()
 	this->addChild(monsterbutton);
 
 	//游戏结束Label
-	winLabel = CCLabelTTF::create("YOU WIN!", "Heiti SC", 80);
-	loseLabel = CCLabelTTF::create("YOU LOSE", "Heiti SC", 80);
+	winLabel = CCLabelTTF::create(YOU_WIN_LBL, LABEL_FONT, 80);
+	loseLabel = CCLabelTTF::create(YOU_LOSE_LBL, LABEL_FONT, 80);
 	winLabel->setPosition(ccp(visibleSize.width/2-20,visibleSize.height/2+20));
 	loseLabel->setPosition(ccp(visibleSize.width/2-20,visibleSize.height/2+20));
 	winLabel->setVisible(false);
@@ -104,13 +111,12 @@ bool Combat::init()
 	this->scheduleUpdate();
 
 	//订阅播放动画的消息
-	CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(Combat::playAnimation),"animation",NULL);
+	CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(Combat::playAnimation),ANIMATION_MSG,NULL);
 	//订阅游戏结束
-	CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(Combat::gameOver),"gameover",NULL);
+	CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(Combat::gameOver),GAME_OVER_MSG,NULL);
 
 
-
-    return true;
+	return true;
 }
 
 
@@ -131,15 +137,13 @@ void Combat::update(float delta)
 		CCLOG("damage:%d",damage);
 		//播放战斗动画
 		//post消息
-		CCNotificationCenter::sharedNotificationCenter()->postNotification("animation",NULL);
+		CCNotificationCenter::sharedNotificationCenter()->postNotification(ANIMATION_MSG,NULL);
 		//更新血条
 		updateBlood(winnerNum,damage);
 		playerbutton->isTouch=false;
 		//判断是否结束
 		checkGameOver();
-		
 	}
-	
 }
 
 //判断双方选择属性的胜负
@@ -209,9 +213,9 @@ void Combat::updateBlood(int winnerNum,int damage)
 	playerblood->setCurrentBlood(cplayer->currentHp);
 	monsterblood->setCurrentBlood(monster->currentHp);
 	char blood[10];
-	sprintf(blood,"Hp:%d",cplayer->currentHp);
+	sprintf(blood,HEALTH_LBL,cplayer->currentHp);
 	pbloodLabel->setString(blood);
-	sprintf(blood,"Hp:%d",monster->currentHp);
+	sprintf(blood,HEALTH_LBL,monster->currentHp);
 	mbloodLabel->setString(blood);
 }
 //判断游戏是否结束
@@ -219,16 +223,16 @@ void Combat::checkGameOver()
 {
 	if (cplayer->currentHp<=0)
 	{
-			gameWinner = 1;
-		CCNotificationCenter::sharedNotificationCenter()->postNotification("gameover",NULL);
-	
+		gameWinner = 1;
+		CCNotificationCenter::sharedNotificationCenter()->postNotification(GAME_OVER_MSG,NULL);
+
 		CCLOG("monster win!");
 	}
 	else if (monster->currentHp<=0)
 	{
 		gameWinner = 0;
-		CCNotificationCenter::sharedNotificationCenter()->postNotification("gameover",NULL);
-		
+		CCNotificationCenter::sharedNotificationCenter()->postNotification(GAME_OVER_MSG,NULL);
+
 		CCLOG("player win!");
 		cplayer->exp++;
 		sGlobal->playerState->exp = cplayer->exp;
@@ -239,7 +243,7 @@ void Combat::checkGameOver()
 		playerbutton->updateDamage(cplayer->level);
 		monsterbutton->updateDamage(monster->level);
 	}
-		
+
 }
 
 
@@ -283,7 +287,7 @@ void Combat::playAnimation(CCObject* psender)
 		monsterAttack->setWoodParticle();
 		monsterAttack->monsterAttack();
 	}
-	
+
 	if (winnerNum==1)
 	{//monster win
 		pZorder=1;
@@ -304,7 +308,7 @@ void Combat::playAnimation(CCObject* psender)
 	CCSequence* seq = CCSequence::create(CCDelayTime::create(1.5),CCCallFunc::create(this,callfunc_selector(Combat::setSignal)),NULL);
 
 	playerbutton->runAction(seq);
- 
+
 	addChild(playerAttack,pZorder);
 	addChild(monsterAttack,mZorder);
 }

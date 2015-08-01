@@ -54,14 +54,34 @@
 #define LEAFLET_CLOSE_IMG_PATH "img/story/leafletsclose.png"
 
 //new combat
-#define PLAYER_IMG_PATH "img/new combat/hero.png"
-#define ENEMY1_IMG_PATH "img/new combat/enemy.png"
-#define ENEMY2_IMG_PATH "img/new combat/enemy1.png"
-#define ENEMY3_IMG_PATH "img/new combat/enemy2.png"
-#define ENEMY4_IMG_PATH "img/new combat/enemy3.png"
+#define PLAYER_IMG_PATH "img/new combat/char/player.png"
+#define MONSTER_IMG_PATH "img/new combat/char/monster%d.png"
 
-#define MENU_IMG_PATH "img/new combat/menu.png"
+#define FIRE_BTN_IMG_PATH "img/new combat/button/firebutton.png"
+#define WATER_BTN_IMG_PATH "img/new combat/button/waterbutton.png"
+#define WOOD_BTN_IMG_PATH "img/new combat/button/woodbutton.png"
+#define FIRE_DOWN_BTN_IMG_PATH "img/new combat/button/firebuttondown.png"
+#define WATER_DOWN_BTN_IMG_PATH "img/new combat/button/waterbuttondown.png"
+#define WOOD_DOWN_BTN_IMG_PATH "img/new combat/button/woodbuttondown.png"
+
+#define FIRE_PLIST_IMG_PATH "img/new combat/part/FireParticle.plist"
+#define FIRE_PNG_IMG_PATH "img/new combat/part/particleFire.png"
+#define WATER_PLIST_IMG_PATH "img/new combat/part/WaterParticle.plist"
+#define WATER_PNG_IMG_PATH "img/new combat/part/particleNapalm.png"
+#define WOOD_PLIST_IMG_PATH "img/new combat/part/WoodParticle.plist"
+#define WOOD_PNG_IMG_PATH "img/new combat/part/leave.png"
+
+#define BLOOD_BG_IMG_PATH "img/new combat/other/bloodbackground.png"
+#define BLOOD_IMG_PATH "img/new combat/other/blood.png"
+#define SLIDERTHUMB_IMG_PATH "img/new combat/other/thumb.png"
+
 //read csv
 #define  A_CSV_PATH "csv/ability.csv"
 #define  M_CSV_PATH "csv/monster.csv"
+
+//gps 
+#define MAP_CSV_PATH "csv/map.csv"
+#define WHOLE_MAP_MAP_PATH "map/wholemap.png"
+#define MAP_POINT_MAP_PATH "map/mappoint.png"
+#define	TOUCH_POINT_MAP_PATH "map/touchpoint.png"
 #endif

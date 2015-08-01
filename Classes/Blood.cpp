@@ -1,15 +1,17 @@
-﻿#include "Blood.h"
+﻿#include "GlobalPath.h"
+#include "Blood.h"
 USING_NS_CC;
 
 bool Blood::init()
 {
 	return true;
 }
+
 void Blood::setBloodSlider()
 {
-	this->bloodSlider = CCControlSlider::create(CCSprite::create(BLOODBACKGROUND),
-										  CCSprite::create(BLOOD),
-										  CCSprite::create(SLIDERTHUMB));
+	this->bloodSlider = CCControlSlider::create(CCSprite::create(BLOOD_BG_IMG_PATH),
+										  CCSprite::create(BLOOD_IMG_PATH),
+										  CCSprite::create(SLIDERTHUMB_IMG_PATH));
 	this->addChild(bloodSlider,2);
 	bloodSlider->setTouchEnabled(false);
 }

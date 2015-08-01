@@ -1,3 +1,4 @@
+#include "GlobalPath.h"
 #include "GpsScene.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include <jni.h>
@@ -28,7 +29,7 @@ bool Gps::init()
         return false;
     }
 	//csv文件读取数据
-	CsvUtil::sharedCsvUtil()->loadFile(MAP_CSV);
+	CsvUtil::sharedCsvUtil()->loadFile(MAP_CSV_PATH);
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 	//longitude latitude
@@ -48,15 +49,15 @@ bool Gps::init()
 	this->schedule(schedule_selector(Gps::updateView),3.0f);
 
 	//加载地图
-	wholeMap = CCSprite::create(WHOLE_MAP);
+	wholeMap = CCSprite::create(WHOLE_MAP_MAP_PATH);
 	wholeMap->setAnchorPoint(CCPointZero);
 	wholeMap->setPosition(CCPointZero);
 	this->addChild(wholeMap);
 	//加载位置指针
-    mapPoint = CCSprite::create(MAP_POINT);
+    mapPoint = CCSprite::create(MAP_POINT_MAP_PATH);
 	mapPoint->setPosition(ccp(200,150));
 	this->addChild(mapPoint,10);
-	touchPoint = CCSprite::create(TOUCH_POINT);
+	touchPoint = CCSprite::create(TOUCH_POINT_MAP_PATH);
 	touchPoint->setPosition(ccp(200,150));
 	this->addChild(touchPoint,10);
 	
@@ -128,7 +129,7 @@ void Gps::showPoint(int num)
 void Gps::showPosName(int num)
 {
 	const char* name;
-	name = CsvUtil::sharedCsvUtil()->get(num,1,MAP_CSV);
+	name = CsvUtil::sharedCsvUtil()->get(num,1,MAP_CSV_PATH);
 	pLabel2->setString(name);
 }
 
@@ -136,8 +137,8 @@ void Gps::showPosName(int num)
 CCPoint Gps::getpointPos(int num)
 {
 	CCPoint pos;
-	pos.x = CsvUtil::sharedCsvUtil()->getInt(num,4,MAP_CSV);
-	pos.y = CsvUtil::sharedCsvUtil()->getInt(num,5,MAP_CSV);
+	pos.x = CsvUtil::sharedCsvUtil()->getInt(num,4,MAP_CSV_PATH);
+	pos.y = CsvUtil::sharedCsvUtil()->getInt(num,5,MAP_CSV_PATH);
 	CCLOG("坐标：%d,%d",pos.x,pos.y);
 	return pos;
 }
@@ -153,8 +154,8 @@ int Gps::Distance()
 	//int n=70;
 	for (i=0;i<PLACE_NUM;i++)
 	{
-		lat = (double)CsvUtil::sharedCsvUtil()->getFloat(i,2,MAP_CSV);
-		lon = (double)CsvUtil::sharedCsvUtil()->getFloat(i,3,MAP_CSV);
+		lat = (double)CsvUtil::sharedCsvUtil()->getFloat(i,2,MAP_CSV_PATH);
+		lon = (double)CsvUtil::sharedCsvUtil()->getFloat(i,3,MAP_CSV_PATH);
 		d = sqrt((lat-latitude)*(lat-latitude)+(lon-longitude)*(lon-longitude));
 		CCLOG("%d,%lf",num,d);
 
@@ -172,7 +173,7 @@ int Gps::Distance()
 
 
 void Gps::menu3CallBack(CCObject* pSender){
-	CsvUtil::sharedCsvUtil()->releaseFile(MAP_CSV);
+	CsvUtil::sharedCsvUtil()->releaseFile(MAP_CSV_PATH);
 	CCDirector::sharedDirector()->popScene();
 }
 
@@ -199,8 +200,8 @@ int Gps::touchDistance(CCPoint touchPos)
 	CCPoint pos;
 	for (i=0;i<PLACE_NUM;i++)
 	{
-		mapx = (double)CsvUtil::sharedCsvUtil()->getInt(i,4,MAP_CSV);
-		mapy = (double)CsvUtil::sharedCsvUtil()->getInt(i,5,MAP_CSV);
+		mapx = (double)CsvUtil::sharedCsvUtil()->getInt(i,4,MAP_CSV_PATH);
+		mapy = (double)CsvUtil::sharedCsvUtil()->getInt(i,5,MAP_CSV_PATH);
 		d = sqrt((mapx-touchPos.x)*(mapx-touchPos.x)+(mapy-(448-touchPos.y))*(mapy-(448-touchPos.y)));
 		//CCLOG("%d,%f",num,d);
 
@@ -226,7 +227,7 @@ void Gps::showTouchPoint(int num)
 void Gps::showTouchPosName(int num,CCPoint pos)
 {
 	const char* name;
-	name = CsvUtil::sharedCsvUtil()->get(num,1,MAP_CSV);
+	name = CsvUtil::sharedCsvUtil()->get(num,1,MAP_CSV_PATH);
 	pLabel3->setString(name);
 	if (pos.y>300)
 		pLabel3->setPosition(ccp(pos.x+30,pos.y));

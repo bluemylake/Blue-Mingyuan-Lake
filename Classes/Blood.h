@@ -5,10 +5,6 @@
 using namespace cocos2d;
 USING_NS_CC_EXT; 
 
-#define BLOODBACKGROUND "bloodbackground.png"
-#define BLOOD "blood.png"
-#define SLIDERTHUMB "thumb.png"
-
 class Blood : public CCNode
 {
 public:
