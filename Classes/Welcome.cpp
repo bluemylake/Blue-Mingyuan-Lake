@@ -27,8 +27,8 @@ bool Welcome::init() {
 
 void Welcome::menuStartCallback(CCObject* pSender) {
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(MAP_RESOLUWID,MAP_RESOLUHEI, kResolutionExactFit);
-	CCScene* pScene = Combat::scene();
-	//CCScene *pScene = HelloWorld::scene();
+	//CCScene* pScene = Combat::scene();
+	CCScene *pScene = HelloWorld::scene();
 	CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, pScene);
 	CCDirector::sharedDirector()->pushScene(scenetrans);
 }

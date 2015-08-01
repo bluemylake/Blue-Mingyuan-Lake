@@ -36,6 +36,11 @@ ControllerListener* EventManager::happen(CCPoint coord, int ent)
 	if(!event->repeat && sGlobal->doneList[event->id]==true) 
 		return NULL;
 
+	return happen(event);
+}
+
+ControllerListener* EventManager::happen(Event* event)
+{
 	//event happen
 	Event* curPtr=event;
 	ControllerListener* subject=NULL;
@@ -47,19 +52,18 @@ ControllerListener* EventManager::happen(CCPoint coord, int ent)
 		if(listener(onGoing->type)!=NULL) subject=listener(onGoing->type);
 		if(!isInstant(curPtr)) break;
 
-		curPtr=findEventById(event->next);
+		curPtr=findEventById(curPtr->next);
 	}
 	while(curPtr!=NULL);
 
 	return subject;
 }
 
-void EventManager::next()
+ControllerListener* EventManager::next()
 {
 	Event* nextEvent=findEventById(onGoing->next);
-	if(nextEvent==NULL) return;
-	nextEvent->happen();
-	onGoing=nextEvent;
+	if(nextEvent==NULL) return NULL;
+	return happen(nextEvent);
 }
 
 void EventManager::release()
@@ -132,7 +136,7 @@ int EventManager::isInstant(Event* event)
 	const int nn=2;
 	const int instant[nn]={GET_SUP_EVT,SHADOW_EVT};
 	for(int i=0;i<nn;i++)
-		if(event->id==instant[i])
+		if(event->type==instant[i])
 			return TRUE;
 	return FALSE;
 }

@@ -1,4 +1,5 @@
 ﻿#include "CombatScene.h"
+#include "AppMacros.h"
 
 USING_NS_CC;
 
@@ -24,6 +25,7 @@ bool Combat::init()
         return false;
     }
 	//
+	this->setTag(COMBATLAYER);
     isPlayingAnimation = false;
 
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();

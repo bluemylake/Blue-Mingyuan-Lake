@@ -3,7 +3,7 @@
 #include "AppMacros.h"
 #include "CombatUnit.h"
 #include "Entity.h"
-#include "Animation.h"
+//#include "Animation.h"
 #include "Ability.h"
 using namespace cocos2d;
 

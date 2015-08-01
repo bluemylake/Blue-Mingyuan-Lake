@@ -6,12 +6,14 @@
 class BloodyEvent: public Event
 {
 public:
+	CREATE_FUNC(BloodyEvent);
     void happen();
 };
 
 class WateryEvent: public Event
 {
 public:
+	CREATE_FUNC(WateryEvent);
     void happen();
 };
 #endif

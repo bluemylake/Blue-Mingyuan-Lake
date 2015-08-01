@@ -4,6 +4,8 @@
 #include "DiaEvent.h"
 #include "GetShdwEvent.h"
 #include "ReloadEvent.h"
+#include "BloodyEvent.h"
+#include "DuelEvent.h"
 
 CCArray* EventLoader::start(const char* sFilePath)
 {
@@ -30,14 +32,18 @@ CCArray* EventLoader::start(const char* sFilePath)
 				event=GetShdwEvent::create(); break;
 			case RELOAD_EVT:
 				event=ReloadEvent::create(); break;
+			case BLOODY_EVT:
+				event=BloodyEvent::create(); break;
+			case WATERY_EVT:
+				event=WateryEvent::create(); break;
+			case DUEL_EVT:
+				event=DuelEvent::create(); break;
 				/*case ITEM_EVT:
 				  event=ItemEvent::create(); break;
 				  case COMBAT_EVT:
 				  event=CombatEvent::create(); break;
 				  case RESTORATION_EVT:
 				  event=RestorationEvent::create(); break;
-				  case BLOODY_EVT:
-				  event=BloodyEvent::create(); break;
 				  case SCENECH_EVT:
 				  event=SceneChEvent::create(); break;
 				  case NIGHTFALL_EVT:

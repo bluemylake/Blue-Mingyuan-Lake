@@ -17,7 +17,8 @@ class EventManager
 public:
     void load(int fnmapNo, int weekday);
     ControllerListener* happen(CCPoint coord, int ent);//entrance through hero or buttonA
-	void next();
+	ControllerListener* happen(Event* event);
+	ControllerListener* next();
 	int isInstant(Event* event);
 	void release();
     ~EventManager();

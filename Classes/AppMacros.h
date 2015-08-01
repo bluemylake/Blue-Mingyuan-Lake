@@ -3,9 +3,6 @@
 
 #include "GlobalPath.h"
 #include "cocos2d.h"
-//last: 2014-9-29 13:23:33
-//update: 2014-11-17 18:08:39
-
 
 //layer的命名法是scene的首字母加layer名加LAYER
 //layer是100+
@@ -14,6 +11,7 @@
 //HelloWorld的儿子
 #define MAPLAYER 101
 #define CONTROLPANELLAYER 102
+#define COMBATLAYER 103
 
 //MapLayer的儿子
 #define MAP 590
@@ -32,8 +30,6 @@
 
 //Combat的儿子
 #define BACKGROUND 100 
-
-
 
 //Entity bind的sprite命名是IMGSP
 #define IMGSP 500
@@ -83,8 +79,6 @@
 #define STORY_TIME_INI 10
 #define EVENTDONE_INI ""
 
-#define EXP_INI 0
-
 #define SPEED_INI 2.0
 #define TELEPORT_INI false
 #define STEALTH_INI false
@@ -92,7 +86,7 @@
 #define FLASH_INI false
 #define ALL_SUPERPOWER_INI false
 
-
+#define EXP_INI 0
 
 #define MAX_DONE_LIST 100
 #define DEFUALT_DELIM ','
@@ -111,54 +105,26 @@
 //属性名的命名法是属性名加_ATT
 #define STANDTRG_ATT "stand"
 #define ATRG_ATT "atrg"
-
 #define ID_ATT "id"
 
-
-
 #define ROADSIGN_EVT "road sign"
-
 #define TALKATIVEMAN_EVT "talkative man"
-#define NSTR_ATT "nstr"
 
 #define PORTAL_EVT "portal"
 #define IDX_ATT "idx"
 #define IDY_ATT "idy"
 
-#define CHANGESCENE_EVT "change scene"
-#define MAP10 18
-#define MAP11 19
-#define MAP12 20
-#define EVENT_MAP11 0
-#define EVENT_MAP12 1
-
-
-
-#define ANIMATE_EVT "animate"
-#define PLACENAME_EVT "place name"
-
+#define INFORMATION_GRP "information"
+#define PLACENAMEID_OBJ "placenameID"
 /*新建事件的步骤：
 1.选定一个块儿，新建属性stand/atrg=事件名，id=参数。
 2.在event层把这个块儿画在合适的位置。
-//3.若为atrg事件，在wall层对应位置画块儿。
 (若为place name事件，要在地图的information对象层加placenameID对象，属性名为id值，属性值为地名)
-(若为portal事件,参数为idx和idy，代表传送目的地的坐标)
-(若为talkative man事件，id是对应字母减'a'，属性nstr为共有几句话，属性0~9为语句值)
-把信息存在块儿里的问题在于每个事件需要一个不一样的块儿。
-但是即使不存字参数不一样，也还是得每个一个块儿。*/
+(若为portal事件,参数为idx和idy，代表传送目的地的坐标)*/
 
-
-#define INFORMATION_GRP "information"
-#define	TURNINGMAN_OBJ "turningMan"
-#define STANDINGMAN_OBJ "standingMan"
-#define PLACENAMEID_OBJ "placenameID"
-
-#define NNPC_ATT "nnpc"
-#define NPCAX_ATT "npcax"
-
-#define TURNINGMAN_ATTNUM 3
-#define STANDINGMAN_ATTNUM 4
-#define MARK 100
+#define MAP10 18
+#define MAP11 19
+#define MAP12 20
 
 #define EGLVIEW 0.3
 #define ZOOMSTROKELEN 200
@@ -170,7 +136,7 @@
  * 2. define Event Id here
  * 3. register with Event Loader
  * 4. for A Trig, register listener with eManaer listener()
- * 5. for Stand Trig, register instant with isInstant() 
+ * 5. for A Trig, register notInstant with isInstant() 
  * 6. document the CSV arg protocal */
 
 //For Event CSV
@@ -188,6 +154,9 @@
 #define DIALOG_EVT 2
 #define SHADOW_EVT 3
 #define RELOAD_EVT 4
+#define BLOODY_EVT 5
+#define WATERY_EVT 6
+#define DUEL_EVT 7
 
 //Notification Center
 #define HERO_STEP_UP_MSG "HeroStepUp"
@@ -206,4 +175,6 @@ typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
 //switches
 #define DEBUG_MODE true
 #define HERO_COVER_MODE FALSE
+#define TRUE 1
+#define FALSE 0
 #endif /* __APPMACROS_H__ */

@@ -39,7 +39,8 @@ bool ButtonA::ccTouchBegan(CCTouch* pTouch, CCEvent *pEvent)
 	{
 		this->setControllerListener(NULL);
 	    this->enableDirButton();
-		eManager->next();
+		ControllerListener* lst=eManager->next();
+		if(lst!=NULL) this->setControllerListener(lst);
 	}
     }
     //如果没有监听对象
