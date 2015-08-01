@@ -17,7 +17,7 @@ bool StoryWorld::init() {
   }
   char theName[10][11]={"","穆婧:", "子轩:", "少杰:", "建国", "路人A:", "路人B:", "路人C:", "老爷爷:", "江姐:"};
   char play[20] = SCRIPT_PATH;
-  int current=sGlobal->mapState->storyCnt+'0';//stay
+  current=sGlobal->mapState->storyCnt+'0';//stay
   play[SCRIPT_PATH_LEN] = current;
   reader.ReadFileWithFullPath(CCFileUtils::sharedFileUtils()->fullPathForFilename(play));
   setTouchEnabled(true);
@@ -303,7 +303,7 @@ void StoryWorld::characterPasterSwitchCase(int code) {
 // AVG: 特殊部分处理，含剧本切换，保存等
 void StoryWorld::specialPartSwitchCase(int code) {
   switch (code) {
-    case '1':{    // 剧本结束，确认下一个地点
+    case '1':{    
       setTouchEnabled(false);
       CCSprite *back = CCSprite::create(CONFIRM_BACKGROUND_IMG_PATH);
       back->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height/2));
