@@ -20,7 +20,7 @@ bool StoryWorld::init() {
   current=sGlobal->mapState->storyCnt+'0';//stay
   play[SCRIPT_PATH_LEN] = current;
   reader.ReadFileWithFullPath(CCFileUtils::sharedFileUtils()->fullPathForFilename(play));
-  setTouchEnabled(true);
+  this->setTouchEnabled(true);
   CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
   CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
   CCMenuItemImage *pCloseItem = CCMenuItemImage::create(CLOSEN_IMG_PATH, CLOSES_IMG_PATH, this, menu_selector(StoryWorld::menuCloseCallback));
@@ -86,7 +86,17 @@ bool StoryWorld::init() {
   return true;
 }
 
-void StoryWorld::ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent){
+void StoryWorld::registerWithTouchDispatcher(void)
+{
+	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+}
+
+bool StoryWorld::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
+{
+	return true;
+}
+
+void StoryWorld::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent){
   avgGame();
 }
 
@@ -102,14 +112,10 @@ void StoryWorld::avgGame(void) {
   char theName[10][11]={"","穆婧:", "子轩:", "少杰:", "建国", "路人A:", "路人B:", "路人C:", "老爷爷:", "江姐:"};
   
   myName->setString(theName[dialog[0]-48]);
-  // 人物立绘切换
   characterPasterSwitchCase(dialog[0]);
   
   switch (dialog[2]) {
-      // 选择走向
     case '1': {
-      //开始选择走向
-      //停止触摸
       setTouchEnabled(false);
       CCSprite *back = CCSprite::create(LANDSCAPE_IMG_PATH);
       back->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height/2));
@@ -134,7 +140,6 @@ void StoryWorld::avgGame(void) {
         }
           break;
         case '9': {
-          //创建CCMenu
           CCLabelTTF *Label1 = CCLabelTTF::create("子轩", "Heiti SC", 40);
           CCLabelTTF *Label2 = CCLabelTTF::create("少杰", "Heiti SC", 40);
           CCLabelTTF *Label3 = CCLabelTTF::create("建国", "Heiti SC", 40);
@@ -164,7 +169,6 @@ void StoryWorld::avgGame(void) {
     }
       break;
     case '2': {
-      // 以前的战斗Scene入口
     }
       break;
     case '3': {
@@ -195,14 +199,11 @@ void StoryWorld::avgGame(void) {
       break;
   }
   
-  // 剧本切换及完结及特效
   specialPartSwitchCase(dialog[3]);
   
-  //音效
   audioSwitchCase(dialog[4]);
 
   
-  // 背景
   char all_bg[8][4] = {"010", "030", "204", "701", "717", "725", "732"};
   char bg_num[4]="000";
   int curLine = reader.getCurLine();
@@ -225,7 +226,7 @@ void StoryWorld::avgGame(void) {
   
   myDialog->setString(dialog+5);
 }
-// AVG: 人物立绘部分
+
 void StoryWorld::characterPasterSwitchCase(int code) {
   CCSpriteBatchNode *spriteBatch = (CCSpriteBatchNode *)getChildByTag(102);
   CCSprite *myLeftSprite = (CCSprite *)spriteBatch->getChildByTag(1);
@@ -299,25 +300,22 @@ void StoryWorld::characterPasterSwitchCase(int code) {
   }
 }
 
-
-// AVG: 特殊部分处理，含剧本切换，保存等
 void StoryWorld::specialPartSwitchCase(int code) {
   switch (code) {
-    case '1':{    
+    case '1':{
       setTouchEnabled(false);
       CCSprite *back = CCSprite::create(CONFIRM_BACKGROUND_IMG_PATH);
       back->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height/2));
       back->setTag(3);
       addChild(back, 3);
-      
-      // Workspace
+
       CCLabelTTF *nextPlaceName = CCLabelTTF::create("", "Heiti SC", 48);
       nextPlaceName->setString(dialog+5);
       nextPlaceName->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height/5 * 3.1));
       back->addChild(nextPlaceName);
       
       CCMenuItemImage *confirmBtn = CCMenuItemImage::create(CONFIRM_BUTTOM_IMG_PATH, CONFIRM_BUTTOM_IMG_PATH, this, menu_selector(StoryWorld::confirmButtonHandler));
-      confirmBtn->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height/5 * 1.2));
+      confirmBtn->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height/5 * 2));
       CCMenu *menu = CCMenu::create(confirmBtn, NULL);
       menu->setPosition(CCPointZero);
       menu->setTag(2);
@@ -352,7 +350,7 @@ void StoryWorld::specialPartSwitchCase(int code) {
   }
 }
 
-// AVG: 音效处理部分
+
 void StoryWorld::audioSwitchCase(int code) {
   switch (code) {
     case '1':
@@ -418,7 +416,6 @@ void StoryWorld::theFinalChoiceHandler(CCObject *sender) {
     case tChoice:
       fileName[FINAL_SCRIPT_PATH_LEN]='3';
       break;
-      
     default:
       break;
   }
@@ -431,12 +428,11 @@ void StoryWorld::theFinalChoiceHandler(CCObject *sender) {
   avgGame();
 }
 
-// 宣传单选择处理
+
 void StoryWorld::leafletChoiceHandler(CCObject *sender) {
   int choice = ((CCNode *)sender)->getTag();
   switch (choice) {
     case fChoice: {
-      // 显示宣传单一
       removeChildByTag(2);
       removeChildByTag(3);
       
@@ -446,12 +442,11 @@ void StoryWorld::leafletChoiceHandler(CCObject *sender) {
       blackBG->setTag(21);
       addChild(blackBG, 2);
       
-      // 关闭按钮
-      CCMenuItemImage *start = CCMenuItemImage::create(LEAFLET_CLOSE_IMG_PATH, LEAFLET_CLOSE_IMG_PATH, this, menu_selector(StoryWorld::menuLeafletsCloseCallback));
+       CCMenuItemImage *start = CCMenuItemImage::create(LEAFLET_CLOSE_IMG_PATH, LEAFLET_CLOSE_IMG_PATH, this, menu_selector(StoryWorld::menuLeafletsCloseCallback));
       
       start->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width-40, CCDirector::sharedDirector()->getVisibleSize().height-40));
       
-      //菜单
+      
       CCMenu* pMenu = CCMenu::create(start, NULL);
       pMenu->setPosition(CCPointZero);
       pMenu->setTag(23);
@@ -501,12 +496,5 @@ void StoryWorld::confirmButtonHandler(CCObject *sender) {
 
 //
 void StoryWorld::menuCloseCallback(CCObject* pSender) {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-  CCMessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
-#else
-  CCDirector::sharedDirector()->end();
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-  exit(0);
-#endif
-#endif
+
 }

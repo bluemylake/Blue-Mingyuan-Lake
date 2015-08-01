@@ -1,5 +1,7 @@
 #include "TimeUtil.h"
 
+using namespace cocos2d;
+
 int TimeUtil::getHour()
 {
 	int hour=8;

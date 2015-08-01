@@ -6,7 +6,7 @@
 #include "MapState.h"
 #include "SuperPower.h"
 //#include "CombatUnit.h"
-#include "BagRecord.h"
+//#include "BagRecord.h"
 #include "PlayerState.h"
 using namespace cocos2d;
 
@@ -19,7 +19,7 @@ public:
     MapState* mapState;
     SuperPower* superPower;
     //CombatUnit* playerState;
-    BagRecord* bagRecord;
+   // BagRecord* bagRecord;
 	PlayerState* playerState;
     bool doneList[MAX_DONE_LIST];
 public:

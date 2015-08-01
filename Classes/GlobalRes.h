@@ -3,7 +3,7 @@
 #include "Singleton.hpp"
 #include "HumanEntity.h"
 #include "DiaWindow.h"
-#include "Backpack.h"
+//#include "Backpack.h"
 
 class GlobalRes
 {
@@ -13,7 +13,7 @@ public:
 	CCSprite* nightBg; 
     Window* rwindow;
     DiaWindow* diawindow;
-    Backpack* backpack;
+   //ggggg Backpack* backpack;
 	HumanEntity* shadow;
 };
 //note that when an event wish to walk the hero, do as follow:
