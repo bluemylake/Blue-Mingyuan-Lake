@@ -33,8 +33,14 @@ bool Combat::init()
 	}
 	//
 	this->setTag(COMBATLAYER);
+	monsterType = 0; //initial 
 	isPlayingAnimation = false;
 
+	return true;
+}
+
+bool Combat::init(int monsterType)
+{
 	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
 	CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 	//角色创建
@@ -42,7 +48,6 @@ bool Combat::init()
 	cplayer->setPlayer();
 	this->addChild(cplayer);
 	monster = Monster::create();
-	monsterType = 0;//临时
 	monster->setMonster(monsterType);
 
 
@@ -115,8 +120,13 @@ bool Combat::init()
 	//订阅游戏结束
 	CCNotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(Combat::gameOver),GAME_OVER_MSG,NULL);
 
-
 	return true;
+}
+
+void Combat::setMonsterType(int monsterType)
+{
+	this->monsterType=monsterType;
+	init(monsterType);
 }
 
 

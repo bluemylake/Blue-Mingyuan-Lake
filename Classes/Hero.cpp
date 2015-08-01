@@ -67,13 +67,18 @@ void Hero::doEvent(CCPoint heroTilePos)
 	{
 		float i = CCRANDOM_0_1();
 		if (i<0.3)
-		{
+		{	
 			touchEnded=dir;walkEnd();//endWalking
-			//this->focus=false;
+			this->focus=false;
+
+			CCScene* pScene = Combat::scene();
+			Combat* pLayer = (Combat*)pScene->getChildByTag(COMBATLAYER);
+			//pass args here 
+			if(pLayer!=NULL) pLayer->setMonsterType( 0 );
+			else CCLog("Combat Layer get fail. ");
 			//CCEGLView::sharedOpenGLView()->setDesignResolutionSize(JX_RESOLUWID, JX_RESOLUHEI, kResolutionExactFit);
-//			CCScene* combat=Combat::scene();
-			//CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, combat);
-//			CCDirector::sharedDirector()->pushScene(scenetrans);//@
+			CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, pScene);
+			CCDirector::sharedDirector()->pushScene(scenetrans);//@
 		}
 		this->focus=true;
 		;}

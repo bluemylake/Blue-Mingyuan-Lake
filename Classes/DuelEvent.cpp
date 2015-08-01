@@ -7,9 +7,9 @@ void DuelEvent::happen()
 	//pass args(defined in CSV) here 
 	CCInteger* intg = (CCInteger*) this->args->lastObject();
 	if(intg!=NULL && pLayer!=NULL) 
-		pLayer->monsterType = intg->getValue();
+		pLayer->setMonsterType( intg->getValue() );
 	else if(intg==NULL && pLayer!=NULL)
-		pLayer->monsterType = 1;
+		pLayer->setMonsterType( 1 );
 	else
 		CCLog("Combat Layer get fail. ");
 
