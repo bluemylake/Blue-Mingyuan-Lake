@@ -1,5 +1,6 @@
 #include "Welcome.h"
 #include "HelloWorldScene.h"
+#include "LoadingScene.h"
 //update：2014-10-1 15:59:03
 
 USING_NS_CC;
@@ -28,7 +29,8 @@ bool Welcome::init() {
 void Welcome::menuStartCallback(CCObject* pSender) {
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(MAP_RESOLUWID,MAP_RESOLUHEI, kResolutionExactFit);
 	//CCScene* pScene = Combat::scene();
-	CCScene *pScene = HelloWorld::scene();
+	//CCScene *pScene = HelloWorld::scene();
+	CCScene* pScene=LoadingScene::scene();
 	CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, pScene);
 	CCDirector::sharedDirector()->pushScene(scenetrans);
 }

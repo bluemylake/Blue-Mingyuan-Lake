@@ -50,7 +50,7 @@ void Hero::doEvent(CCPoint heroTilePos)
 					this->focus=false;
 					CCEGLView::sharedOpenGLView()->setDesignResolutionSize(JX_RESOLUWID, JX_RESOLUHEI, kResolutionExactFit);
 					CCScene* story=StoryWorld::scene();
-					CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, story);
+					CCTransitionScene *scenetrans = CCTransitionCrossFade::create(1.45, story);
 					CCDirector::sharedDirector()->pushScene(scenetrans);
 					this->gotFocusT();
 					sGlobal->mapState->storyCnt++;
@@ -69,8 +69,8 @@ void Hero::doEvent(CCPoint heroTilePos)
 		if (i<0.3)
 		{
 			touchEnded=dir;walkEnd();//endWalking
-			this->focus=false;
-			CCEGLView::sharedOpenGLView()->setDesignResolutionSize(JX_RESOLUWID, JX_RESOLUHEI, kResolutionExactFit);
+			//this->focus=false;
+			//CCEGLView::sharedOpenGLView()->setDesignResolutionSize(JX_RESOLUWID, JX_RESOLUHEI, kResolutionExactFit);
 //			CCScene* combat=Combat::scene();
 			//CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, combat);
 //			CCDirector::sharedDirector()->pushScene(scenetrans);//@

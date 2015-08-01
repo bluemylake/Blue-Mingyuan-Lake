@@ -63,7 +63,7 @@ bool StoryWorld::init() {
   
   
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(PLIST_IMG_PATH);
-    CCSpriteBatchNode *spriteBatch=CCSpriteBatchNode::create(VDRAWING_IMG_PATH);
+	CCSpriteBatchNode *spriteBatch = CCSpriteBatchNode::createWithTexture(CCTextureCache::sharedTextureCache()->textureForKey(VDRAWING_IMG_PATH));
   spriteBatch->setTag(102);
   addChild(spriteBatch, 0);
   spriteBatch->setPosition(CCPointZero);

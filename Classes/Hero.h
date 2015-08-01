@@ -41,6 +41,5 @@ private:
     bool focus;
 
 	CCAction* moveHero;
-	void stepForward();
 };
 #endif
