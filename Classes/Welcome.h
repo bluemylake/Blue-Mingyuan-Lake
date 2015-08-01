@@ -22,7 +22,6 @@ private:
 	int state;
 	CCTouch* prevTouch;
 	void initView();
-	CCSprite* loading;
 };
 
 #endif

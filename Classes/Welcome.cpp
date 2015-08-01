@@ -19,10 +19,7 @@ bool Welcome::init() {
 	this->prevTouch=NULL;
 	this->setTouchEnabled(true);
 	this->state=0;
-	loading = CCSprite::create("loading.png");
-	loading->setVisible(false);
-	loading->setPosition(ccp(300,240));
-	this->addChild(loading,10);
+
 	sGlobal->load();
 
 	initView();
@@ -30,10 +27,6 @@ bool Welcome::init() {
 }
 
 void Welcome::menuStartCallback(CCObject* pSender) {
-
-	CCScaleTo* scale = CCScaleTo::create(1,2,3);
-	loading->setVisible(true);
-	loading->runAction(scale);
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(MAP_RESOLUWID,MAP_RESOLUHEI, kResolutionExactFit);
 	//CCScene* pScene = Combat::scene();
 	//CCScene *pScene = HelloWorld::scene();
