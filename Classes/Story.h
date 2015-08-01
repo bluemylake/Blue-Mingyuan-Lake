@@ -7,6 +7,7 @@
 #include "SimpleAudioEngine.h"
 #include "Welcome.h"
 #include <vector>
+using namespace cocos2d;
 
 class StoryWorld : public cocos2d::CCLayer
 {
@@ -18,8 +19,9 @@ public:
   CREATE_FUNC(StoryWorld);
 protected:
   enum allChoice {fChoice = 10, sChoice, tChoice};
+  void registerWithTouchDispatcher(void);
+  bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
   void menuCloseCallback(CCObject* pSender);
-  void ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
   void leafletChoiceHandler(CCObject *sender);
   void theFinalChoiceHandler(CCObject *sender);
   void confirmButtonHandler(CCObject *sender);
@@ -32,6 +34,7 @@ protected:
   
   void saveProcessAndPopOut();
   void gameOverAndBackToWelcome();
+  void ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
   char current;
   char dialog[512];
   PlayReader reader;

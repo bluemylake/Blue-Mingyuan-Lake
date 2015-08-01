@@ -5,7 +5,8 @@
 #include "cocos2d.h"
 //last: 2014-9-29 13:23:33
 //update: 2014-11-17 18:08:39
-
+#define TRUE 1
+#define FALSE 0
 
 //layer的命名法是scene的首字母加layer名加LAYER
 //layer是100+

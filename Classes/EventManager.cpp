@@ -133,6 +133,6 @@ int EventManager::isInstant(Event* event)
 	const int instant[nn]={GET_SUP_EVT,SHADOW_EVT};
 	for(int i=0;i<nn;i++)
 		if(event->id==instant[i])
-			return TRUE;
-	return FALSE;
+			return 1;
+	return 0;
 }
