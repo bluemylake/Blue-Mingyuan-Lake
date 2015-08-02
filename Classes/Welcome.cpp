@@ -26,6 +26,17 @@ bool Welcome::init() {
 	return true;
 }
 
+void Welcome::menuMapCallback(CCObject* pSender)
+{
+	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(MAP_RESOLUWID,MAP_RESOLUHEI, kResolutionExactFit);
+	//CCScene* pScene = Combat::scene();
+	//CCScene *pScene = HelloWorld::scene();
+	CCScene* pScene=Gallery::scene();
+	CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, pScene);
+	CCDirector::sharedDirector()->pushScene(scenetrans);
+}
+
+
 void Welcome::menuStartCallback(CCObject* pSender) {
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(MAP_RESOLUWID,MAP_RESOLUHEI, kResolutionExactFit);
 	//CCScene* pScene = Combat::scene();
@@ -96,12 +107,14 @@ void Welcome::initView()
 	addChild(mainbackground,0);
 	CCMenuItemImage *start = CCMenuItemImage::create(START1_PATH,START2_PATH,
 		this,menu_selector(Welcome::menuStartCallback));
+	CCMenuItemImage *map = CCMenuItemImage::create(MAP1_PATH,MAP2_PATH,
+		this,menu_selector(Welcome::menuMapCallback));
 	CCMenuItemImage *clear = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
 		this,menu_selector(Welcome::menuClearCallback));
 	start->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2,
-		CCDirector::sharedDirector()->getVisibleSize().height/2));
-
-	CCMenu* pMenu = CCMenu::create(start, clear, NULL);
+		CCDirector::sharedDirector()->getVisibleSize().height/2+50));
+	map->setPosition(ccp(start->getPosition().x,start->getPosition().y-100));
+	CCMenu* pMenu = CCMenu::create(start, clear,map, NULL);
 	pMenu->setPosition(CCPointZero);
 	addChild(pMenu, 2);
 }

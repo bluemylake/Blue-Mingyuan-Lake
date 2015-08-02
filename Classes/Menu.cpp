@@ -51,7 +51,7 @@ void Menu::save(CCObject* sender)
 
 void Menu::quit(CCObject* sender)
 {
-	CCDirector::sharedDirector()->end();
+	CCDirector::sharedDirector()->popScene();
 }
 
 void Menu::ret(CCObject* sender)
