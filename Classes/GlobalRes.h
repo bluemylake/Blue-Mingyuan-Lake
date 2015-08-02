@@ -11,6 +11,7 @@ public:
     CCTMXTiledMap* map;
     HumanEntity* hero;
 	CCSprite* nightBg; 
+	CCSprite* murkBg;
     Window* rwindow;
     DiaWindow* diawindow;
    //ggggg Backpack* backpack;

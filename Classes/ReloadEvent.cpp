@@ -15,8 +15,10 @@ void ReloadEvent::happen()
 
 void ReloadEvent::action()
 {
-	int opacity=DAYTIME_OPACITY;
-	if(sGlobal->isNight) opacity=NIGHTTIME_OPACITY;
+	int opaNight=DAYTIME_OPACITY, opaMurk=DAYTIME_OPACITY;
+	if(sGlobal->isNight) opaNight=NIGHTTIME_OPACITY;
+	if(TimeUtil::isNightNow()) opaMurk=MURK_TIME_OPACITY;
+
 	CCSprite* blackBg=CCSprite::create(BLACKBG_IMG_PATH);
 	blackBg->setPosition(ccp(blackBg->getContentSize().width / 2, blackBg->getContentSize().height / 2));
 	blackBg->setOpacity(0);
@@ -30,10 +32,16 @@ void ReloadEvent::action()
 	CCSequence* blinkOfNight=CCSequence::create(
 			AnimLib::getAction(FADEIN,CCSize()),
 			CCDelayTime::create(BLACK_DELAY_TIME),
-			AnimLib::getAction(FADEOUT,CCSizeMake(opacity, 0)), 
+			AnimLib::getAction(FADEOUT,CCSizeMake(opaNight, 0)), 
+			NULL);
+	CCSequence* blinkOfMurk=CCSequence::create(
+			AnimLib::getAction(FADEIN,CCSize()),
+			CCDelayTime::create(BLACK_DELAY_TIME),
+			AnimLib::getAction(FADEOUT,CCSizeMake(opaMurk, 0)), 
 			NULL);
 	blackBg->runAction(blinkOfBlack);
 	rGlobal->nightBg->runAction(blinkOfNight);
+	rGlobal->murkBg->runAction(blinkOfMurk);
 }
 
 void ReloadEvent::delayedLoad(float dt)

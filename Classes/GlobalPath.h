@@ -25,7 +25,8 @@
 #define MENUSP2_IMG_PATH "img/button/menuCh2.png"
 #define ITEM_IMG_PATH "img/button/item.png"
 #define ITEM2_IMG_PATH "img/button/item2.png"
-#define NIGHTBG_IMG_PATH "img/window/theNightIsDark.png"
+#define NIGHTBG_IMG_PATH "img/window/fullOfTerrors.png"
+#define MURKBG_IMG_PATH "img/window/theNightIsDark.png"
 #define BLACKBG_IMG_PATH "img/window/ourBloodRunsBlack.png"
 #define EVENT_CSV_PATH "csv/event%d.csv"
 

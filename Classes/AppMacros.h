@@ -191,6 +191,7 @@ typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
 //night fall
 #define DAYTIME_OPACITY 0
 #define NIGHTTIME_OPACITY 150
+#define MURK_TIME_OPACITY 150
 
 //combat
 #define PLAYER_WIN_FLAG 1

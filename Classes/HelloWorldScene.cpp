@@ -42,8 +42,7 @@ Map* HelloWorld::initMap()
 	sGlobalRes::instance()->map=map;
 	
 	//@eManager
-	if(!TimeUtil::isNightNow())eManager->load(mapNo-MAP10, TimeUtil::getWeekDay());
-	else eManager->loadNight(mapNo-MAP10);
+	eManager->load(mapNo-MAP10, TimeUtil::getWeekDay());
 	map->initNPC();
 	map->setGameStartPos();
 

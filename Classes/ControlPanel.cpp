@@ -1,4 +1,5 @@
 #include "ControlPanel.h"
+#include "InitUtil.h"
 
 //last: 2014-9-26 01:34:13
 //update£º2014-11-17 18:07:12
@@ -108,10 +109,13 @@ void ControlPanel::initNightBg()
 	CCSprite* nightBg = CCSprite::create(NIGHTBG_IMG_PATH);
 	rGlobal->nightBg = nightBg;
 	nightBg->setPosition(ccp(nightBg->getContentSize().width / 2, nightBg->getContentSize().height / 2));
+	nightBg->setOpacity(0);
 	this->addChild(nightBg);
 
-	//TimeUtil::timeInitiate()
-	int hour = TimeUtil::getHour();
-	if (hour>=19 || hour<=7) nightBg->setOpacity(150);
-	else nightBg->setOpacity(0);
+	CCSprite* murkBg = CCSprite::create(MURKBG_IMG_PATH);
+	rGlobal->murkBg = murkBg;
+	murkBg->setPosition(ccp(murkBg->getContentSize().width / 2, murkBg->getContentSize().height / 2));
+	this->addChild(murkBg);
+
+	InitUtil::initiate();
 }
