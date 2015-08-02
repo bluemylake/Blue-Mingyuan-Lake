@@ -22,6 +22,7 @@ private:
 	int state;
 	CCTouch* prevTouch;
 	void initView();
+	void menuMapCallback(CCObject* pSender);
 };
 
 #endif

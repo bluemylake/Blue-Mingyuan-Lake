@@ -19,7 +19,7 @@ void Monster::setMonster(int monType)
 		monsterNo = (int)(CCRANDOM_0_1()*6);
 		sprintf(monPath,MONSTER_IMG_PATH,monsterNo);
 		monster = CCSprite::create(monPath);
-		level = (int)(CCRANDOM_0_1()*20);
+		level = (int)(CCRANDOM_0_1()*10);
 	}
 	else
 	{

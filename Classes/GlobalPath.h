@@ -7,6 +7,8 @@
 #define GATE_PATH "img/welcome/gate.jpg"
 #define START1_PATH "img/welcome/start1.png"
 #define START2_PATH "img/welcome/start2.png"
+#define MAP1_PATH "img/welcome/startbutton3.png"
+#define MAP2_PATH "img/welcome/startbutton4.png"
 #define BUTTONB_PATH "img/welcome/buttonB.png"
 #define BUTTONBD_PATH "img/welcome/buttonBDown.png"
 

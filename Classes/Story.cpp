@@ -1,5 +1,7 @@
 #include "Story.h"
 
+#define GET_TEXTURE CCTextureCache::sharedTextureCache()->textureForKey
+
 USING_NS_CC;
 //update: 2015-7-26 13:44:52
 
@@ -35,7 +37,8 @@ bool StoryWorld::init() {
   char bg_num[4]="";
   sprintf(bg_num, "%c00", current);
   sprintf(bg_name, BGNAME_IMG_PATH, bg_num);
-  CCSprite* pBackground = CCSprite::create(bg_name);
+  CCSprite *pBackground = CCSprite::createWithTexture(GET_TEXTURE(bg_name));
+  //CCSprite* pBackground = CCSprite::create(bg_name);
   pBackground->setPosition(ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
   pBackground->setScale(1);
   pBackground->setTag(108);
@@ -63,14 +66,14 @@ bool StoryWorld::init() {
   
   
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(PLIST_IMG_PATH);
-	CCSpriteBatchNode *spriteBatch = CCSpriteBatchNode::createWithTexture(CCTextureCache::sharedTextureCache()->textureForKey(VDRAWING_IMG_PATH));
+	CCSpriteBatchNode *spriteBatch = CCSpriteBatchNode::createWithTexture(GET_TEXTURE(VDRAWING_IMG_PATH));
   spriteBatch->setTag(102);
   addChild(spriteBatch, 0);
   spriteBatch->setPosition(CCPointZero);
   
   CCSprite *leftSprite=CCSprite::createWithSpriteFrameName("me_1.png");
   leftSprite->setScale(0.8);
-  leftSprite->setPosition(ccp(leftSprite->getContentSize().width*0.8, leftSprite->getContentSize().height/2 *0.8));
+  leftSprite->setPosition(ccp(leftSprite->getContentSize().width*0.6, leftSprite->getContentSize().height/2 *0.8));
   leftSprite->setTag(1);
   leftSprite->setOpacity(0);
   spriteBatch->addChild(leftSprite, 0);
@@ -212,14 +215,14 @@ void StoryWorld::avgGame(void) {
     CCSprite *Background = (CCSprite *)getChildByTag(108);
     char bg_name[30]=BGNAME_IMG_PATH;
     bg_name[BGNAME_PATH_LEN] = current;
-    Background->setTexture(CCTextureCache::sharedTextureCache()->addImage(bg_name));
+    Background->setTexture(GET_TEXTURE(bg_name));
   } else {
     for (int i =0; i<8; i++) {
       if (strcmp(all_bg[i], bg_num)==0) {
         CCSprite *Background = (CCSprite *)getChildByTag(108);
         char bg_name[30]="";
         sprintf(bg_name, BGNAME_IMG_PATH, bg_num);
-        Background->setTexture(CCTextureCache::sharedTextureCache()->addImage(bg_name));
+        Background->setTexture(GET_TEXTURE(bg_name));
       }
     }
   }
@@ -323,6 +326,7 @@ void StoryWorld::specialPartSwitchCase(int code) {
     }
       break;
     case '2':{    
+		setTouchEnabled(false);
       CCSprite* staff_bg = CCSprite::create(STAFFBG_IMG_PATH);
       staff_bg->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2 + CCDirector::sharedDirector()->getVisibleOrigin().x, CCDirector::sharedDirector()->getVisibleSize().height/2 + CCDirector::sharedDirector()->getVisibleOrigin().y));
       addChild(staff_bg, 4);
@@ -331,7 +335,7 @@ void StoryWorld::specialPartSwitchCase(int code) {
       staff->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, -CCDirector::sharedDirector()->getVisibleSize().height/2));
       addChild(staff, 5);
       
-      CCActionInterval * moveTo = CCMoveTo::create(20,ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height*3/2));
+      CCActionInterval * moveTo = CCMoveTo::create(10,ccp(CCDirector::sharedDirector()->getVisibleSize().width/2, CCDirector::sharedDirector()->getVisibleSize().height*3/2));
       CCFiniteTimeAction*  sequneceAction = CCSequence::create(moveTo, CCCallFunc::create(this, callfunc_selector(StoryWorld::gameOverAndBackToWelcome)), NULL);
       
       staff->runAction(sequneceAction);
