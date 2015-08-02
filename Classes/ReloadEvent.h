@@ -7,8 +7,10 @@ class ReloadEvent: public Event
 {
 public:
     CREATE_FUNC(ReloadEvent);
-public:
     void happen();
+	static void action();
+private:
+	void delayedLoad(float dt);
 };
 #endif
 

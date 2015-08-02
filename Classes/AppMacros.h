@@ -55,7 +55,9 @@
 #define STORYCNT_MRCD "StoryCnt"
 #define HAS_SHADOW_MRCD "HasShadow"
 #define SH_STAND_P_MRCD "ShStandPos"
-#define STORY_TIME_MRCD "StoryTime"
+#define DAY_TIME_MRCD "StoryTime"
+#define NIGHT_TIME_MRCD "NightStoryTime"
+
 #define EVENTDONE_MRCD "EventDone"
 
 #define SPEED_SRCD "Speed"
@@ -76,7 +78,8 @@
 #define STORYCNT_INI 0
 #define HAS_SHADOW_INI false
 #define SH_STAND_P_INI 2
-#define STORY_TIME_INI 10
+#define DAY_TIME_INI 11
+#define NIGHT_TIME_INI 31
 #define EVENTDONE_INI ""
 
 #define SPEED_INI 2.0
@@ -146,6 +149,8 @@
 #define STAND_TRIG_IMGNO -10
 #define ATRIG_NO_MAN_IMGNO -1
 #define MAP_SCALER 100
+#define DAY_MAP_STATIC 10
+#define NIGHT_MAP_STATIC 30
 
 //Event Ids
 #define NO_EVENT_FLAG -1
@@ -157,6 +162,8 @@
 #define BLOODY_EVT 5
 #define WATERY_EVT 6
 #define DUEL_EVT 7
+#define LNIGHT_EVT 8
+#define LDAY_EVT 9
 
 //Notification Center
 #define HERO_STEP_UP_MSG "HeroStepUp"
@@ -171,10 +178,16 @@ typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
 #define HERO_ON_PANEL_ZOR 3
 #define PANEL_ON_MAPLYR_ZOR 15
 #define WIN_ON_PANEL_ZOR 11
+#define NIGHT_ON_PANEL_ZOR 20
+#define BLACK_ON_PANEL_ZOR 21
 
 //switches
 #define DEBUG_MODE true
 #define HERO_COVER_MODE FALSE
 #define TRUE 1
 #define FALSE 0
+
+//night fall
+#define DAYTIME_OPACITY 0
+#define NIGHTTIME_OPACITY 150
 #endif /* __APPMACROS_H__ */

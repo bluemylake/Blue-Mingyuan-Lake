@@ -18,9 +18,9 @@ class GlobalState: public Singleton<GlobalState>
 public:
     MapState* mapState;
     SuperPower* superPower;
-    //CombatUnit* playerState;
-   // BagRecord* bagRecord;
 	PlayerState* playerState;
+	bool isNight;
+	// BagRecord* bagRecord;
     bool doneList[MAX_DONE_LIST];
 public:
     void load();

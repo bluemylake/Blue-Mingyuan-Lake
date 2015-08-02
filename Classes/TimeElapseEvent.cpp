@@ -2,5 +2,5 @@
 
 void TimeElapseEvent::happen()
 {
-    GlobalState::instance()->mapState->sTime++;
+    GlobalState::instance()->mapState->dTime++;
 }

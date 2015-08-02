@@ -1,3 +1,2 @@
 x,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres
-59,95,loadnight,100,1,0,2,101,0,1,0,1,sleep,,
-0,0,nightfall,101,-1,8,-10,-1,0,0,0,0,,,
+54,60,地图二上人,101,1,0,1,-1,0,1,0,1,Hola,,

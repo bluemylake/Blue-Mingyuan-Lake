@@ -9,7 +9,8 @@ public:
    int positionX;
    int positionY;
    int faceDir;
-   int sTime;
+   int dTime;
+   int nTime;
    bool hasSh;
    int standPos;
 };

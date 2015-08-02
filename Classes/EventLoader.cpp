@@ -6,6 +6,8 @@
 #include "ReloadEvent.h"
 #include "BloodyEvent.h"
 #include "DuelEvent.h"
+#include "LoadNightEvent.h"
+#include "LoadDayEvent.h"
 
 CCArray* EventLoader::start(const char* sFilePath)
 {
@@ -38,6 +40,10 @@ CCArray* EventLoader::start(const char* sFilePath)
 				event=WateryEvent::create(); break;
 			case DUEL_EVT:
 				event=DuelEvent::create(); break;
+			case LNIGHT_EVT:
+				event=LoadNightEvent::create(); break;
+			case LDAY_EVT:
+				event=LoadDayEvent::create(); break;
 				/*case ITEM_EVT:
 				  event=ItemEvent::create(); break;
 				  case COMBAT_EVT:

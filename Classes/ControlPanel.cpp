@@ -110,6 +110,7 @@ void ControlPanel::initNightBg()
 	nightBg->setPosition(ccp(nightBg->getContentSize().width / 2, nightBg->getContentSize().height / 2));
 	this->addChild(nightBg);
 
+	//TimeUtil::timeInitiate()
 	int hour = TimeUtil::getHour();
 	if (hour>=19 || hour<=7) nightBg->setOpacity(150);
 	else nightBg->setOpacity(0);

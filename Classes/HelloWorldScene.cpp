@@ -42,7 +42,8 @@ Map* HelloWorld::initMap()
 	sGlobalRes::instance()->map=map;
 	
 	//@eManager
-	eManager->load(mapNo-MAP10, TimeUtil::getWeekDay());
+	if(!TimeUtil::isNightNow())eManager->load(mapNo-MAP10, TimeUtil::getWeekDay());
+	else eManager->loadNight(mapNo-MAP10);
 	map->initNPC();
 	map->setGameStartPos();
 
@@ -59,6 +60,7 @@ void HelloWorld::initControlPanel(Map* map)
 	ControlPanel* panel=ControlPanel::create(map);
 	//rGlobal->panel=panel;
 	panel->hero->setTag(HERO);
+	panel->setTag(CONTROLPANELLAYER);
 	this->addChild(panel,PANEL_ON_MAPLYR_ZOR);
 
 	if(HERO_COVER_MODE)

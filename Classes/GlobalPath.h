@@ -24,6 +24,8 @@
 #define ITEM_IMG_PATH "img/button/item.png"
 #define ITEM2_IMG_PATH "img/button/item2.png"
 #define NIGHTBG_IMG_PATH "img/window/theNightIsDark.png"
+#define BLACKBG_IMG_PATH "img/window/ourBloodRunsBlack.png"
+#define EVENT_CSV_PATH "csv/event%d.csv"
 
 //combat
 #define COMBAT_IMG_PATH "img/combat/combat.png"

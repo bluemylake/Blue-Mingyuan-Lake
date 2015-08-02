@@ -6,7 +6,8 @@ void EventManager::load(int fnmapNo, int weekday)
 	events=CCArray::create();
 	events->retain();
 	loadAllEvents(fnmapNo*MAP_SCALER+weekday);
-	loadAllEvents(fnmapNo*MAP_SCALER+sGlobal->mapState->sTime);
+	loadAllEvents(fnmapNo*MAP_SCALER+DAY_MAP_STATIC);
+	loadAllEvents(fnmapNo*MAP_SCALER+sGlobal->mapState->dTime);
 	loadEmap();
 }
 
@@ -64,6 +65,15 @@ ControllerListener* EventManager::next()
 	Event* nextEvent=findEventById(onGoing->next);
 	if(nextEvent==NULL) return NULL;
 	return happen(nextEvent);
+}
+
+void EventManager::loadNight(int fnmapNo)
+{
+	events=CCArray::create();
+	events->retain();
+	loadAllEvents(fnmapNo*MAP_SCALER+NIGHT_MAP_STATIC);
+	loadAllEvents(fnmapNo*MAP_SCALER+sGlobal->mapState->nTime);
+	loadEmap();
 }
 
 void EventManager::release()

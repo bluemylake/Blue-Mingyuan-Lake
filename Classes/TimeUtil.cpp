@@ -1,5 +1,8 @@
 #include "TimeUtil.h"
 
+#define NIGHT_START_TIME 19
+#define NIGHT_FINISH_TIME 7
+
 using namespace cocos2d;
 
 int TimeUtil::getHour()
@@ -35,3 +38,20 @@ int TimeUtil::getWeekDay()
 #endif
 	return weekday;
 }
+
+bool TimeUtil::isNightNow()
+{
+	int hh = getHour();
+	return hh >= NIGHT_START_TIME || hh <= NIGHT_FINISH_TIME;
+}
+
+/*void TimeUtil::timeInitiate()
+{
+	//initiate according to current system time 
+	CCSprite* nightBg=rGlobal->nightBg;
+	sGlobal->isNight=isNight(getHour());
+	if(sGlobal->isNight)
+		nightBg->setOpacity(NIGHTTIME_OPACITY);
+	else 
+		nightBg->setOpacity(DAYTIME_OPACITY);
+}*/

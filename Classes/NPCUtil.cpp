@@ -14,7 +14,7 @@ CCArray* NPCUtil::initNPC()
 		{
 			int cat=event->category;
 			int arg0;
-			HumanEntity* man;
+			HumanEntity* man=NULL;
 			CCInteger* intg;
 			if(args->count()!=0) intg = (CCInteger*)args->objectAtIndex(INDEX_ZERO);
 			switch(cat)
@@ -39,7 +39,9 @@ CCArray* NPCUtil::initNPC()
 				    man=theMan;
 				}
 				break;
-			default:break;
+			default:
+				CCLog("Unrecognized Talking Man category: %d of event Id: %d", cat, event->id);
+				break;
 			}
 			man->setTag(MAN_START+event->id);
 			rGlobal->map->addChild(man,NPC_ON_MAP_BACK_ZOR);

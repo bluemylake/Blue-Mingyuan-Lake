@@ -9,9 +9,6 @@
 using namespace cocos2d;
 //loads the Events in memory
 //executes the Events for Hero and ButtonA
-
-#define EVENT_CSV_PATH "csv/event%d.csv"
-
 class EventManager
 {
 public:
@@ -19,6 +16,7 @@ public:
     ControllerListener* happen(CCPoint coord, int ent);//entrance through hero or buttonA
 	ControllerListener* happen(Event* event);
 	ControllerListener* next();
+	void loadNight(int fnmapNo);
 	int isInstant(Event* event);
 	void release();
     ~EventManager();

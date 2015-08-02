@@ -22,6 +22,7 @@ CCFiniteTimeAction* AnimLib::getAction(int choice,CCSize size)
 		CCMoveBy* bai=CCMoveBy::create(0.28f,ccp(-size.width,0));
 		action=CCSequence::create(yao,bai,yao,bai,NULL);
 		}
+		break;
 	case STRIKE:
 		{
 		CCMoveBy* yao=CCMoveBy::create(0.10f,ccp(size.width/2,0));
@@ -84,7 +85,8 @@ CCFiniteTimeAction* AnimLib::getAction(int choice,CCSize size)
 		break;
 	case FADEOUT:
 		{
-			CCFadeTo* fadeTo = CCFadeTo::create(0.5,0);
+			int opacity=size.width;
+			CCFadeTo* fadeTo = CCFadeTo::create(0.5,opacity);
 			action = fadeTo;
 		}
 		break;
