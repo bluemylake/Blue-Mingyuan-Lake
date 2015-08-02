@@ -47,9 +47,9 @@ ControllerListener* EventManager::happen(Event* event)
 	ControllerListener* subject=NULL;
 	do
 	{
+		markHappened(curPtr);
 		curPtr->happen();
 		onGoing=curPtr;
-		if(!curPtr->repeat)markHappened(curPtr);
 		if(listener(onGoing->type)!=NULL) subject=listener(onGoing->type);
 		if(!isInstant(curPtr)) break;
 

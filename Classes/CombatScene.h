@@ -42,6 +42,7 @@ public:
 	void popCombat();
 	//
 	int monsterType;
+	static int gameWinner;
 private:
 	CPlayer* cplayer;
 	Monster* monster;
@@ -61,7 +62,6 @@ private:
 	int monsterButtonTag;
 	int damage;
 	int winnerNum;
-	int gameWinner;
 	bool isPlayingAnimation;
 	bool animationDone;
 

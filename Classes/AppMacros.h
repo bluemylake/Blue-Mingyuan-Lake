@@ -91,7 +91,7 @@
 
 #define EXP_INI 0
 
-#define MAX_DONE_LIST 100
+#define MAX_DONE_LIST 1000
 #define DEFUALT_DELIM ','
 
 //»­Ãæ·Ö±æÂÊ
@@ -164,6 +164,7 @@
 #define DUEL_EVT 7
 #define LNIGHT_EVT 8
 #define LDAY_EVT 9
+#define IS_WIN_EVT 10
 
 //Notification Center
 #define HERO_STEP_UP_MSG "HeroStepUp"
@@ -190,4 +191,8 @@ typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
 //night fall
 #define DAYTIME_OPACITY 0
 #define NIGHTTIME_OPACITY 150
+
+//combat
+#define PLAYER_WIN_FLAG 1
+#define MOSTER_WIN_FLAG 0
 #endif /* __APPMACROS_H__ */

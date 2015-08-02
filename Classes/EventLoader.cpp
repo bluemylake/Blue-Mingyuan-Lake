@@ -8,6 +8,7 @@
 #include "DuelEvent.h"
 #include "LoadNightEvent.h"
 #include "LoadDayEvent.h"
+#include "IsWinEvent.h"
 
 CCArray* EventLoader::start(const char* sFilePath)
 {
@@ -44,6 +45,8 @@ CCArray* EventLoader::start(const char* sFilePath)
 				event=LoadNightEvent::create(); break;
 			case LDAY_EVT:
 				event=LoadDayEvent::create(); break;
+			case IS_WIN_EVT:
+				event=IsWinEvent::create(); break;
 				/*case ITEM_EVT:
 				  event=ItemEvent::create(); break;
 				  case COMBAT_EVT:

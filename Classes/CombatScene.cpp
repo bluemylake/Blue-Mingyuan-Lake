@@ -11,6 +11,8 @@ USING_NS_CC;
 #define ANIMATION_MSG "animation"
 #define GAME_OVER_MSG "gameover"
 
+int Combat::gameWinner;
+
 CCScene* Combat::scene()
 {
 	// 'scene' is an autorelease object
@@ -233,14 +235,14 @@ void Combat::checkGameOver()
 {
 	if (cplayer->currentHp<=0)
 	{
-		gameWinner = 1;
+		gameWinner = MOSTER_WIN_FLAG;
 		CCNotificationCenter::sharedNotificationCenter()->postNotification(GAME_OVER_MSG,NULL);
 
 		CCLOG("monster win!");
 	}
 	else if (monster->currentHp<=0)
 	{
-		gameWinner = 0;
+		gameWinner = PLAYER_WIN_FLAG;
 		CCNotificationCenter::sharedNotificationCenter()->postNotification(GAME_OVER_MSG,NULL);
 
 		CCLOG("player win!");
@@ -332,7 +334,7 @@ void Combat::setSignal()
 
 void Combat::gameOver(CCObject* psender)
 {
-	if (gameWinner==0)
+	if (gameWinner==MOSTER_WIN_FLAG)
 	{
 		winLabel->setVisible(true);
 

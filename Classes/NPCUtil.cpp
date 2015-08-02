@@ -14,13 +14,13 @@ CCArray* NPCUtil::initNPC()
 		{
 			int cat=event->category;
 			int arg0;
-			HumanEntity* man=NULL;
-			CCInteger* intg;
+			HumanEntity* man=NULL; CCInteger* intg=NULL;
 			if(args->count()!=0) intg = (CCInteger*)args->objectAtIndex(INDEX_ZERO);
 			switch(cat)
 			{
 			case STANDING:
-				arg0=intg->getValue();//arg0=faceDir
+				if(intg!=NULL) arg0=intg->getValue();//arg0=faceDir
+				else arg0=Down;
 				man=StandingMan::create(event->imgNo,event->id);
 				man->setFaceDirection(arg0);
 				man->dir=arg0;
