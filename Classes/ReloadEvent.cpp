@@ -17,7 +17,7 @@ void ReloadEvent::action()
 {
 	int opaNight=DAYTIME_OPACITY, opaMurk=DAYTIME_OPACITY;
 	if(sGlobal->isNight) opaNight=NIGHTTIME_OPACITY;
-	if(TimeUtil::isNightNow()) opaMurk=MURK_TIME_OPACITY;
+	if(TimeUtil::isNightNow()&&!sGlobal->isNight) opaMurk=MURK_TIME_OPACITY;
 
 	CCSprite* blackBg=CCSprite::create(BLACKBG_IMG_PATH);
 	blackBg->setPosition(ccp(blackBg->getContentSize().width / 2, blackBg->getContentSize().height / 2));
