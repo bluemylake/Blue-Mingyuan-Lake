@@ -45,13 +45,3 @@ bool TimeUtil::isNightNow()
 	return hh >= NIGHT_START_TIME || hh <= NIGHT_FINISH_TIME;
 }
 
-/*void TimeUtil::timeInitiate()
-{
-	//initiate according to current system time 
-	CCSprite* nightBg=rGlobal->nightBg;
-	sGlobal->isNight=isNight(getHour());
-	if(sGlobal->isNight)
-		nightBg->setOpacity(NIGHTTIME_OPACITY);
-	else 
-		nightBg->setOpacity(DAYTIME_OPACITY);
-}*/
