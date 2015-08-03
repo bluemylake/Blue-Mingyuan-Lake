@@ -5,9 +5,12 @@ void EventManager::load(int fnmapNo, int weekday)
 {
 	events=CCArray::create();
 	events->retain();
-	loadAllEvents(fnmapNo*MAP_SCALER+weekday);
-	loadAllEvents(fnmapNo*MAP_SCALER+DAY_MAP_STATIC);
-	loadAllEvents(fnmapNo*MAP_SCALER+sGlobal->mapState->dTime);
+	CCString* weekdayCSV = CCString::createWithFormat(WEEKDAY_CSV_PATH, fnmapNo, weekday);
+	CCString* dayStaticCSV = CCString::createWithFormat(DAY_STATIC_CSV_PATH, fnmapNo);
+	CCString* dayPlotCSV = CCString::createWithFormat(DAY_PLOT_CSV_PATH, fnmapNo, sGlobal->mapState->dTime);
+	loadAllEvents(weekdayCSV);
+	loadAllEvents(dayStaticCSV);
+	loadAllEvents(dayPlotCSV);
 	loadEmap();
 }
 
@@ -71,8 +74,10 @@ void EventManager::loadNight(int fnmapNo)
 {
 	events=CCArray::create();
 	events->retain();
-	loadAllEvents(fnmapNo*MAP_SCALER+NIGHT_MAP_STATIC);
-	loadAllEvents(fnmapNo*MAP_SCALER+sGlobal->mapState->nTime);
+	CCString* nightStaticCSV = CCString::createWithFormat(NIGHT_STATIC_CSV_PATH, fnmapNo);
+	CCString* nightPlotCSV = CCString::createWithFormat(NIGHT_PLOT_CSV_PATH, fnmapNo, sGlobal->mapState->nTime);
+	loadAllEvents(nightStaticCSV);
+	loadAllEvents(nightPlotCSV);
 	loadEmap();
 }
 
@@ -122,10 +127,9 @@ ControllerListener* EventManager::listener(int type)
     return NULL;
 }
 
-void EventManager::loadAllEvents(int fileCode)
+void EventManager::loadAllEvents(CCString* fpath)
 {
-	CCString* str=CCString::createWithFormat(EVENT_CSV_PATH,fileCode);
-	events->addObjectsFromArray(EventLoader::start(str->getCString())); 
+	events->addObjectsFromArray(EventLoader::start(fpath->getCString())); 
 }
 
 void EventManager::loadEmap()

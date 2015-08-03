@@ -28,7 +28,7 @@ public:
 private:
     Event* findEventById(int id);
     ControllerListener* listener(int type);
-    void loadAllEvents(int fileCode);
+    void loadAllEvents(CCString* fpath);
     void loadEmap();
     void markHappened(Event* event);
 };

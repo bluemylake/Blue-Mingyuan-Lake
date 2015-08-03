@@ -78,8 +78,8 @@
 #define STORYCNT_INI 0
 #define HAS_SHADOW_INI false
 #define SH_STAND_P_INI 2
-#define DAY_TIME_INI 11
-#define NIGHT_TIME_INI 31
+#define DAY_TIME_INI 0
+#define NIGHT_TIME_INI 0
 #define EVENTDONE_INI ""
 
 #define SPEED_INI 2.0
@@ -149,8 +149,6 @@
 #define STAND_TRIG_IMGNO -10
 #define ATRIG_NO_MAN_IMGNO -1
 #define MAP_SCALER 100
-#define DAY_MAP_STATIC 10
-#define NIGHT_MAP_STATIC 30
 
 //Event Ids
 #define NO_EVENT_FLAG -1

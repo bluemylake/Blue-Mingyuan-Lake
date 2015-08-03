@@ -28,7 +28,6 @@
 #define NIGHTBG_IMG_PATH "img/window/fullOfTerrors.png"
 #define MURKBG_IMG_PATH "img/window/theNightIsDark.png"
 #define BLACKBG_IMG_PATH "img/window/ourBloodRunsBlack.png"
-#define EVENT_CSV_PATH "csv/event%d.csv"
 
 //combat
 #define COMBAT_IMG_PATH "img/combat/combat.png"
@@ -81,8 +80,13 @@
 #define SLIDERTHUMB_IMG_PATH "img/new combat/other/thumb.png"
 
 //read csv
-#define  A_CSV_PATH "csv/ability.csv"
-#define  M_CSV_PATH "csv/monster.csv"
+#define A_CSV_PATH "csv/ability.csv"
+#define M_CSV_PATH "csv/monster.csv"
+#define WEEKDAY_CSV_PATH "csv/weekday/map%d_day%d.csv"
+#define DAY_STATIC_CSV_PATH "csv/static/map%d_static_daytime.csv"
+#define NIGHT_STATIC_CSV_PATH "csv/static/map%d_static_night.csv"
+#define DAY_PLOT_CSV_PATH "csv/day_plot/map%d_daytime_plot%d.csv"
+#define NIGHT_PLOT_CSV_PATH "csv/night_plot/map%d_night_plot%d.csv"
 
 //gps 
 #define MAP_CSV_PATH "csv/map.csv"
