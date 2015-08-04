@@ -10,6 +10,7 @@ class GlobalRes
 public:
     CCTMXTiledMap* map;
     HumanEntity* hero;
+	CCLayer* panel;
 	CCSprite* nightBg; 
 	CCSprite* murkBg;
     Window* rwindow;

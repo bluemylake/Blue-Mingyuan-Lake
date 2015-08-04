@@ -57,7 +57,7 @@ Map* HelloWorld::initMap()
 void HelloWorld::initControlPanel(Map* map)
 {
 	ControlPanel* panel=ControlPanel::create(map);
-	//rGlobal->panel=panel;
+	rGlobal->panel=panel;
 	panel->hero->setTag(HERO);
 	panel->setTag(CONTROLPANELLAYER);
 	this->addChild(panel,PANEL_ON_MAPLYR_ZOR);

@@ -163,6 +163,9 @@
 #define LNIGHT_EVT 8
 #define LDAY_EVT 9
 #define IS_WIN_EVT 10
+#define HERO_DIS_EVT 11
+#define HERO_APP_EVT 12
+#define NPC_MOVE_EVT 13
 
 //Notification Center
 #define HERO_STEP_UP_MSG "HeroStepUp"

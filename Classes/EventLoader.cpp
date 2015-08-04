@@ -9,6 +9,9 @@
 #include "LoadNightEvent.h"
 #include "LoadDayEvent.h"
 #include "IsWinEvent.h"
+#include "HeroDisapEvent.h"
+#include "HeroAppearEvent.h"
+#include "NPCMoveEvent.h"
 
 CCArray* EventLoader::start(const char* sFilePath)
 {
@@ -47,21 +50,15 @@ CCArray* EventLoader::start(const char* sFilePath)
 				event=LoadDayEvent::create(); break;
 			case IS_WIN_EVT:
 				event=IsWinEvent::create(); break;
-				/*case ITEM_EVT:
-				  event=ItemEvent::create(); break;
-				  case COMBAT_EVT:
-				  event=CombatEvent::create(); break;
-				  case RESTORATION_EVT:
-				  event=RestorationEvent::create(); break;
-				  case SCENECH_EVT:
-				  event=SceneChEvent::create(); break;
-				  case NIGHTFALL_EVT:
-				  event=NightfallEvent::create(); break;
-				  case TIMEELAPSE:
-				  event=TimeElapseEvent::create(); break;*/
+			case HERO_DIS_EVT:
+				event=HeroDisapEvent::create(); break;
+			case HERO_APP_EVT:
+				event=HeroAppearEvent::create(); break;
+			case NPC_MOVE_EVT:
+				event=NPCMoveEvent::create(); break;
 			default:break;
 		}
-		CCLog("%s",typeid(*event).name());
+		//CCLog("%s",typeid(*event).name());
 
 		CCPoint point=ccp(0,0);
 		strTmp=(CCString*)attList->objectAtIndex(j++);
