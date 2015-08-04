@@ -28,6 +28,9 @@ void ControlPanel::setMap(Map* map)
 void ControlPanel::ccTouchesBegan(CCSet* pTouches, CCEvent *pEvent)
 {
 	int distr;
+	Menu* menu=(Menu*)this->getChildByTag(MENU);
+	menu->ret(NULL);
+
 	dirButton->ccTouchesBegan(pTouches,pEvent);
 	CCTouch* pTouch=(CCTouch*)pTouches->anyObject();
 	buttonA->ccTouchBegan(pTouch,pEvent);
@@ -100,6 +103,7 @@ void ControlPanel::initControllers()
 
 	Menu* menu=Menu::create();
 	menu->setHero(hero);
+	menu->setTag(MENU);
 	this->addChild(menu);
 }
 

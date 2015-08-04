@@ -27,6 +27,7 @@
 #define DIRBUTTON 1
 #define BUTTONA 10
 #define TOUCHSCREEN 100
+#define MENU 1000
 
 //CombatµÄ¶ù×Ó
 #define BACKGROUND 100 

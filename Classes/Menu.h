@@ -13,10 +13,10 @@ public:
 	CREATE_FUNC(Menu);
 	bool init();
 	void setHero(Hero* hero);
+	void ret(CCObject *sender);
 private:
 	void save(CCObject *sender);
 	void quit(CCObject *sender);
-	void ret(CCObject *sender);
 	void show(CCObject* sender);
 	void info(CCObject* sender);
 public:
