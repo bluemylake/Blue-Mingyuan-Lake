@@ -5,6 +5,18 @@ my @defalt=qw(id type 0 0 -1 -1 0 0 0 0);
 my @name=qw(id type x y cat imgNo nPre nDia nArg repeat);
 my @typeName=qw(Talk Super Dialog Shadow Reload Bloody Watery Duel 
 	LNight LDay IsWin);
+my @key=qw/
+	(man|npc|talk)
+	(super|power)
+	(thing|dialog)
+	(boy|follow|bf|shadow)
+	(reload|change)
+	(blood|red)
+	(water|blue|clear)
+	(fight|boss|duel)
+	(real|day)
+	(dream|night)
+	(is|win)/;
 
 my $first=1;
 $out=STDOUT;
@@ -23,6 +35,7 @@ while(<>){
 		#"$nPre, $nDia, $nArg, $repeat, ", @list, "\n";
 	#print "x, y, id, cat, type, imgNo, next, nPre, nDia, nArg, repeat, \n";
 
+	$type=replaceTypename($id, $type);
 	($id,$type,$x,$y,$cat,$imgNo,$nPre,$nDia,$nArg,$repeat)=fillEmpty(
 		$id,$type,$x,$y,$cat,$imgNo,$nPre,$nDia,$nArg,$repeat);
 
@@ -93,6 +106,27 @@ while(<>){
 	$"=",";
 	print "$x,$y,$des,$id,$cat,$type,$imgNo,$next,",
 		"$nPre,$nDia,$nArg,$repeat,@list\n";
+}
+
+#substitue Type name with Type id 
+sub replaceTypename{
+	my $id=shift;
+	my $typename=shift;
+	my $typeid=$typename;
+	if($typename=~ /[\d]+/){
+	   	return $typeid;
+	}
+
+	for($i=0;$i<@key;$i++){
+		if($typename=~ /$key[$i]/ix){
+				$typeid=$i;
+				last;
+		}
+	}
+	if(!($typeid=~ /[\d]+/)){
+		print $out "Error: $id event unrecognized type '$typename'.\n";
+	}
+	$typeid;
 }
 
 # count non-empty elems
