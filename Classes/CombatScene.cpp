@@ -244,7 +244,6 @@ void Combat::checkGameOver()
 	{
 		gameWinner = PLAYER_WIN_FLAG;
 		CCNotificationCenter::sharedNotificationCenter()->postNotification(GAME_OVER_MSG,NULL);
-
 		CCLOG("player win!");
 		cplayer->exp++;
 		sGlobal->playerState->exp = cplayer->exp;
@@ -334,7 +333,7 @@ void Combat::setSignal()
 
 void Combat::gameOver(CCObject* psender)
 {
-	if (gameWinner==MOSTER_WIN_FLAG)
+	if (gameWinner==PLAYER_WIN_FLAG)
 	{
 		winLabel->setVisible(true);
 

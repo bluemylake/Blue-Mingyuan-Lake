@@ -1,0 +1,6 @@
+replacement:
+Welcome.cpp
+Hero.cpp
+HelloWorld.cpp
+Story.cpp
+20140924.2051

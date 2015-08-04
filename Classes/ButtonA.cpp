@@ -35,6 +35,7 @@ bool ButtonA::ccTouchBegan(CCTouch* pTouch, CCEvent *pEvent)
     if(controllerListener!=NULL)
     {
 	controllerListener->respond(0);
+	//this->disableDirButton();
 	if(controllerListener->hasTouchEnded())
 	{
 		this->setControllerListener(NULL);
@@ -84,5 +85,9 @@ void ButtonA::trigEvent()
 		-(hero->move/(hero->map->getTileSize().height)).y);
     //@EventManager takes over from here
     ControllerListener* lst=eManager->happen(facingTile,A_TRIG);
-    if(lst!=NULL) this->setControllerListener(lst);
+    if(lst!=NULL) 
+	{
+		this->setControllerListener(lst);
+		this->disableDirButton();
+	}
 }

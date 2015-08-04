@@ -1,6 +1,8 @@
 #include "Welcome.h"
 #include "HelloWorldScene.h"
+#include "HelpScene.h"
 #include "LoadingScene.h"
+#include "StaffScene.h"
 //update：2014-10-1 15:59:03
 
 USING_NS_CC;
@@ -41,7 +43,16 @@ void Welcome::menuStartCallback(CCObject* pSender) {
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(MAP_RESOLUWID,MAP_RESOLUHEI, kResolutionExactFit);
 	//CCScene* pScene = Combat::scene();
 	//CCScene *pScene = HelloWorld::scene();
-	CCScene* pScene=LoadingScene::scene();
+	if (CCTextureCache::sharedTextureCache()->textureForKey(VDRAWING_IMG_PATH)==NULL)
+	{
+		pScene=LoadingScene::scene();
+	}
+	else
+	{
+		pScene = HelloWorld::scene();
+	}
+	
+	
 	CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, pScene);
 	CCDirector::sharedDirector()->pushScene(scenetrans);
 }
@@ -105,16 +116,87 @@ void Welcome::initView()
 	mainbackground->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2,
 		CCDirector::sharedDirector()->getVisibleSize().height/2));
 	addChild(mainbackground,0);
-	CCMenuItemImage *start = CCMenuItemImage::create(START1_PATH,START2_PATH,
+	//set menu
+	start = CCMenuItemImage::create(START1_PATH,START2_PATH,
 		this,menu_selector(Welcome::menuStartCallback));
-	CCMenuItemImage *map = CCMenuItemImage::create(MAP1_PATH,MAP2_PATH,
+	map = CCMenuItemImage::create(MAP1_PATH,MAP2_PATH,
 		this,menu_selector(Welcome::menuMapCallback));
-	CCMenuItemImage *clear = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
-		this,menu_selector(Welcome::menuClearCallback));
+	
+	settings = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+		this,menu_selector(Welcome::menuSetCallback));
+
+	quitGame = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+		this,menu_selector(Welcome::menuQuitCallback));
+
+	//set menu position
 	start->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2,
 		CCDirector::sharedDirector()->getVisibleSize().height/2+50));
-	map->setPosition(ccp(start->getPosition().x,start->getPosition().y-100));
-	CCMenu* pMenu = CCMenu::create(start, clear,map, NULL);
+	map->setPosition(ccp(start->getPosition().x,start->getPosition().y-73));
+	settings->setPosition(ccp(map->getPosition().x,map->getPosition().y-73));
+	quitGame->setPosition(ccp(settings->getPosition().x,settings->getPosition().y-73));
+	//set second choice 
+	staff = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+		this,menu_selector(Welcome::menuStaffCallback));
+	clear = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+		this,menu_selector(Welcome::menuClearCallback));
+	instruction = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+		this,menu_selector(Welcome::menuInstructionCallback));
+	backToWelcome = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+		this,menu_selector(Welcome::menuBackCallback));
+
+
+
+	clear->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2,
+		CCDirector::sharedDirector()->getVisibleSize().height/2+150));
+	staff->setPosition(ccp(clear->getPosition().x,clear->getPosition().y-100));
+	instruction->setPosition(ccp(staff->getPosition().x,staff->getPosition().y-100));
+	backToWelcome->setPosition(ccp(instruction->getPosition().x,instruction->getPosition().y-100));
+
+	pMenu = CCMenu::create(start,map,settings,quitGame,NULL);
 	pMenu->setPosition(CCPointZero);
-	addChild(pMenu, 2);
+	addChild(pMenu,2);
+	sMenu = CCMenu::create(clear,staff,instruction,backToWelcome,NULL);
+	sMenu->setPosition(CCPointZero);
+	addChild(sMenu, 2);
+	sMenu->setVisible(false);
+	sMenu->setEnabled(false);
+}
+
+
+void Welcome::menuSetCallback(CCObject* pSender)
+{
+	pMenu->setVisible(false);
+	pMenu->setEnabled(false);
+	sMenu->setVisible(true);
+	sMenu->setEnabled(true);
+
+}
+
+
+void Welcome::menuInstructionCallback(CCObject* pSender)
+{
+	CCScene *pScene = HelpScene::scene();
+	CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, pScene);
+	CCDirector::sharedDirector()->pushScene(scenetrans);
+}
+
+
+void Welcome::menuStaffCallback(CCObject* pSender)
+{
+	CCScene *pScene = Staff::scene();
+	CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, pScene);
+	CCDirector::sharedDirector()->pushScene(scenetrans);
+}
+
+void Welcome::menuBackCallback(CCObject* pSender)
+{
+	pMenu->setVisible(true);
+	pMenu->setEnabled(true);
+	sMenu->setVisible(false);
+	sMenu->setEnabled(false);
+}
+
+void Welcome::menuQuitCallback(CCObject* pSender)
+{
+    exit(0);
 }
