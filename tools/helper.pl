@@ -1,12 +1,18 @@
 #!perl
 use 5.010;
+=begin
+steps to add a new event:
+	1. add event key to @key 
+	2. add type name to @typeName
+	3. no arg add to first when 
+	4. has arg add to end of while 
+=cut
 
 my @defalt=qw(id type 0 0 -1 -1 0 0 0 0);
 my @name=qw(id type x y cat imgNo nPre nDia nArg repeat);
 my @typeName=qw(Talk Super Dialog Shadow Reload Bloody Watery Duel 
-	LNight LDay IsWin);
-my @key=qw/
-	(man|npc|talk)
+	LNight LDay IsWin HDisap HAppear NPCMove);
+my @key=qw/ (man|npc|talk)
 	(super|power)
 	(thing|dialog)
 	(boy|follow|bf|shadow)
@@ -16,7 +22,10 @@ my @key=qw/
 	(fight|boss|duel)
 	(real|day)
 	(dream|night)
-	(is|win)/;
+	(win)
+	(disappear|disap)
+	(appear)
+	(mv|mov)/;
 
 my $first=1;
 $out=STDOUT;
@@ -38,9 +47,10 @@ while(<>){
 	$type=replaceTypename($id, $type);
 	($id,$type,$x,$y,$cat,$imgNo,$nPre,$nDia,$nArg,$repeat)=fillEmpty(
 		$id,$type,$x,$y,$cat,$imgNo,$nPre,$nDia,$nArg,$repeat);
+	$des=$typeName[$type] if length $des==0;
 
 	given($type) {
-		when(/^[145689]$/)	{
+		when(/^[145689]$/ || /^1[12]$/)	{
 			if($x!=0 || $y!=0){
 				print $out "Alert: $id event xy not zero, may not be $type\n";
 			}
@@ -87,6 +97,12 @@ while(<>){
 			if($nArg<1 || $nArg>2){
 				print $out "Error: $id IsWin event nArg=$nArg. ",
 					"Should be [1,2]\n";
+			}
+		}
+		when(13) {
+			if($nArg!=3){
+				print $out "Error: $id NPCMove event nArg=$nArg. ",
+					"Should be [3]\n";
 			}
 		}
 		default {
