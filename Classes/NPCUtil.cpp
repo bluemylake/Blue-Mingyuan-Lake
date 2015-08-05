@@ -10,7 +10,7 @@ CCArray* NPCUtil::initNPC()
 	{
 		Event* event=(Event*)eManager->events->objectAtIndex(i);
 		CCArray* args=event->args;
-		if(event->imgNo>=0)
+		if(event->imgNo>=0 && event->type==TALKMAN_EVT)
 		{
 			int cat=event->category;
 			int arg0;
