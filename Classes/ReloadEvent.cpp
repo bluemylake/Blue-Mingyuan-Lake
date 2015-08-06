@@ -4,6 +4,7 @@
 #include "EventManager.h"
 #include "TimeUtil.h"
 #include "Map.h"
+#include "GlobalTmp.h"
 
 #define BLACK_DELAY_TIME 1.25f
 
@@ -48,8 +49,7 @@ void ReloadEvent::action()
 
 void ReloadEvent::delayedLoad(float dt)
 {
-	Event* tPtr=this;
-	ReloadEvent::getPrev(tPtr->args)->repeat=true;
+	ReloadEvent::getPrev(tGlobal->arrForReloads)->repeat=true;
 
 	Map* map=(Map*)rGlobal->map;
 	int mapNo=sGlobal->mapState->mapNo;
@@ -76,7 +76,8 @@ void ReloadEvent::delayedLoad(float dt)
 
 Event* ReloadEvent::getPrev(CCArray* args)
 {
+	tGlobal->arrForReloads=args;
 	if(args->count()<1) CCLog("Reload evt should have an arg");
 	CCInteger* intg=(CCInteger*)args->objectAtIndex(INDEX_ZERO);
-	return eManager->findEventById(intg->getValue);
+	return eManager->findEventById(intg->getValue());
 }

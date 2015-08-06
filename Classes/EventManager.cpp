@@ -92,9 +92,9 @@ void EventManager::redoAll()
 
 void EventManager::redoEvent(int type)
 {
-	for(int i=0;i<doneIdSed->count();i++)
+	for(int i=0;i<sGlobal->doneIdSed->count();i++)
 	{
-		CCInteger* intg=(CCInteger*)doneIdSed->objectAtIndex(i);
+		CCInteger* intg=(CCInteger*)sGlobal->doneIdSed->objectAtIndex(i);
 		Event* event=this->findEventById(intg->getValue());
 		if(event!=NULL && event->type==type)
 			event->happen();

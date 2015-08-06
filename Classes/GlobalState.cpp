@@ -15,7 +15,7 @@ void GlobalState::load()
     loadPlayerState();
     loadDoneList();
 	loadPlayerState();
-	this->isNight=TimeUtil::isNightNow();
+	this->isNight=false;
 }
 
 void GlobalState::save()

@@ -5,6 +5,7 @@
 #include "TimeUtil.h"
 #include "Map.h"
 #include "ReloadEvent.h"
+#include "GlobalTmp.h"
 
 void LoadDayEvent::happen()
 {
@@ -18,8 +19,7 @@ void LoadDayEvent::happen()
 
 void LoadDayEvent::delayedLoad(float dt)
 {
-	Event* tPtr=this;
-	ReloadEvent::getPrev(tPtr->args)->repeat=true;
+	ReloadEvent::getPrev(tGlobal->arrForReloads)->repeat=true;
 
 	Map* map=(Map*)rGlobal->map;
 	int mapNo=sGlobal->mapState->mapNo;
