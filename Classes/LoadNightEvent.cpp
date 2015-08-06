@@ -18,6 +18,8 @@ void LoadNightEvent::happen()
 
 void LoadNightEvent::delayedLoad(float dt)
 {
+	ReloadEvent::getPrev(this->args)->repeat=true;
+
 	Map* map=(Map*)rGlobal->map;
 	int mapNo=sGlobal->mapState->mapNo;
 	for (int i = 0; i < map->NPCs->count(); i++)
@@ -30,6 +32,4 @@ void LoadNightEvent::delayedLoad(float dt)
 	eManager->loadNight(mapNo-MAP10);
 	eManager->redoAll();
 	map->initNPC();
-
-	ReloadEvent::getPrev(this->args)->repeat=true;
 }

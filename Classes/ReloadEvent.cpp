@@ -48,6 +48,8 @@ void ReloadEvent::action()
 
 void ReloadEvent::delayedLoad(float dt)
 {
+	this->getPrev(this->args)->repeat=true;
+
 	Map* map=(Map*)rGlobal->map;
 	int mapNo=sGlobal->mapState->mapNo;
 	for (int i = 0; i < map->NPCs->count(); i++)
@@ -69,8 +71,6 @@ void ReloadEvent::delayedLoad(float dt)
 		eManager->loadNight(mapNo-MAP10);
 	}
 	map->initNPC();
-
-	this->getPrev(this->args)->repeat=true;
 }
 
 Event* ReloadEvent::getPrev(CCArray* args)

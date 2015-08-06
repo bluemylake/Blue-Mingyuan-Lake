@@ -18,6 +18,8 @@ void LoadDayEvent::happen()
 
 void LoadDayEvent::delayedLoad(float dt)
 {
+	ReloadEvent::getPrev(this->args)->repeat=true;
+
 	Map* map=(Map*)rGlobal->map;
 	int mapNo=sGlobal->mapState->mapNo;
 	for (int i = 0; i < map->NPCs->count(); i++)
@@ -30,7 +32,4 @@ void LoadDayEvent::delayedLoad(float dt)
 	eManager->load(mapNo-MAP10,TimeUtil::getWeekDay());
 	eManager->redoAll();
 	map->initNPC();
-
-	ReloadEvent::getPrev(this->args)->repeat=true;
 }
-
