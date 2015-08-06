@@ -48,7 +48,8 @@ void ReloadEvent::action()
 
 void ReloadEvent::delayedLoad(float dt)
 {
-	this->getPrev(this->args)->repeat=true;
+	Event* tPtr=this;
+	ReloadEvent::getPrev(tPtr->args)->repeat=true;
 
 	Map* map=(Map*)rGlobal->map;
 	int mapNo=sGlobal->mapState->mapNo;

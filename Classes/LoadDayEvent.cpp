@@ -18,7 +18,8 @@ void LoadDayEvent::happen()
 
 void LoadDayEvent::delayedLoad(float dt)
 {
-	ReloadEvent::getPrev(this->args)->repeat=true;
+	Event* tPtr=this;
+	ReloadEvent::getPrev(tPtr->args)->repeat=true;
 
 	Map* map=(Map*)rGlobal->map;
 	int mapNo=sGlobal->mapState->mapNo;
