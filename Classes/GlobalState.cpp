@@ -111,14 +111,14 @@ void GlobalState::loadDoneList()
 void GlobalState::saveDoneList()
 {
 	CCArray* list=CCArray::create();
-	for(int i=0;i<MAX_DONE_LIST;i++)
-		if(doneList[i]==true)
-		{
-			char tmp[50];
-			sprintf(tmp, "%d", i);
-			CCString* str=CCString::create(tmp);
-			list->addObject(str);
-		}
+	for(int i=0;i<doneIdSed->count();i++)
+	{
+		char tmp[50];
+		CCInteger* intg=(CCInteger*)doneIdSed->objectAtIndex(i);
+		sprintf(tmp, "%d", intg->getValue());
+		CCString* str=CCString::create(tmp);
+		list->addObject(str);
+	}
 	RcdUtil::saveList(list,DEFUALT_DELIM);
 }
 
