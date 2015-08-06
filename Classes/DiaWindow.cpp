@@ -22,7 +22,7 @@ void DiaWindow::initSprite()
     //ÄÚÈÝ
     content = CCLabelTTF::create();
     content->setTag(CONTENTSP);
-    //content->setDimensions(CCSizeMake(450,120));
+    content->setDimensions(dialogBox->getContentSize()*0.8);
     content->setHorizontalAlignment(kCCTextAlignmentLeft);
 	content->setFontName("Î¢Èí¼ò±êËÎ");
 	content->setFontSize(20);

@@ -45,7 +45,9 @@ Map* Map::crossMap(CCPoint tileBirthPoint,int mapNo)
 		tileBirthPoint=ccp(this->getMapSize().width-3-3,tileBirthPoint.y);
 	sGlobal->mapState->mapNo=mapNo;
 	eManager->release();
-	eManager->load(mapNo-MAP10,TimeUtil::getWeekDay());
+	if(!sGlobal->isNight)
+		eManager->load(mapNo-MAP10,TimeUtil::getWeekDay());
+	else eManager->loadNight(mapNo-MAP10);
 	this->setPosition(this->humanPosForTileMove(tileBirthPoint));
 	initNPC();
 	return this;
