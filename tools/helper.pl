@@ -50,7 +50,7 @@ while(<>){
 	$des=$typeName[$type] if length $des==0;
 
 	given($type) {
-		when(/^[145689]$/ || /^1[12]$/)	{
+		when(/^[156]$/ || /^1[12]$/) { #changed here for load evts
 			if($x!=0 || $y!=0){
 				print $out "Alert: $id event xy not zero, may not be $type\n";
 			}
@@ -85,12 +85,13 @@ while(<>){
 					"Should be [0,1]\n";
 			}
 		}
-		when(7) {
+		when(/4789/) { # changed here for load evts
 			if($x!=0 || $y!=0){
 				print $out "Alert: $id event xy not zero, may not be $type\n";
 			}
 			if($nArg<1){
-				print $out "Alert: $id Duel event should have an arg\n";
+				print $out "Manul: $id event of type $typeName[$type]($type)",
+					"should have an arg\n";
 			}
 		}
 		when(10) {

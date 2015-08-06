@@ -8,6 +8,8 @@
 
 void LoadNightEvent::happen()
 {
+	ReloadEvent::getPrev(this->args)->repeat=false;
+
 	if(sGlobal->isNight==true) return; 
 	sGlobal->isNight=true;
 	rGlobal->map->scheduleOnce(schedule_selector(LoadNightEvent::delayedLoad), 0.6f);
@@ -28,4 +30,6 @@ void LoadNightEvent::delayedLoad(float dt)
 	eManager->loadNight(mapNo-MAP10);
 	eManager->redoAll();
 	map->initNPC();
+
+	ReloadEvent::getPrev(this->args)->repeat=true;
 }

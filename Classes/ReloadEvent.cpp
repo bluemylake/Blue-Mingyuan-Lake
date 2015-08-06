@@ -9,6 +9,8 @@
 
 void ReloadEvent::happen()
 {
+	this->getPrev(this->args)->repeat=false;
+
 	action();
 	rGlobal->map->scheduleOnce(schedule_selector(ReloadEvent::delayedLoad), 0.6f);
 }
@@ -67,4 +69,13 @@ void ReloadEvent::delayedLoad(float dt)
 		eManager->loadNight(mapNo-MAP10);
 	}
 	map->initNPC();
+
+	this->getPrev(this->args)->repeat=true;
+}
+
+Event* ReloadEvent::getPrev(CCArray* args)
+{
+	if(args->count()<1) CCLog("Reload evt should have an arg");
+	CCInteger* intg=(CCInteger*)args->objectAtIndex(INDEX_ZERO);
+	return eManager->findEventById(intg->getValue);
 }

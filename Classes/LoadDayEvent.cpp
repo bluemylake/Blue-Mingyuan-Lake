@@ -8,6 +8,8 @@
 
 void LoadDayEvent::happen()
 {
+	ReloadEvent::getPrev(this->args)->repeat=false;
+
 	if(sGlobal->isNight==false) return;
 	sGlobal->isNight=false;
 	rGlobal->map->scheduleOnce(schedule_selector(LoadDayEvent::delayedLoad), 0.6f);
@@ -28,5 +30,7 @@ void LoadDayEvent::delayedLoad(float dt)
 	eManager->load(mapNo-MAP10,TimeUtil::getWeekDay());
 	eManager->redoAll();
 	map->initNPC();
+
+	ReloadEvent::getPrev(this->args)->repeat=true;
 }
 

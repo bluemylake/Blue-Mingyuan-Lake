@@ -9,6 +9,7 @@ public:
     CREATE_FUNC(ReloadEvent);
     void happen();
 	static void action();
+	static Event* getPrev(CCArray* args);
 private:
 	void delayedLoad(float dt);
 };
