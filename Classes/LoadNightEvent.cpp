@@ -31,6 +31,6 @@ void LoadNightEvent::delayedLoad(float dt)
 	map->NPCs->release();
 	eManager->release();
 	eManager->loadNight(mapNo-MAP10);
-	eManager->redoAll();
 	map->initNPC();
+	eManager->redoAll();
 }
