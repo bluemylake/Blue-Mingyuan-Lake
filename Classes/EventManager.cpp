@@ -85,9 +85,12 @@ void EventManager::redoEvent(int type)
 {
 	for(int i=0;i<MAX_DONE_LIST;i++)
 	{
-		Event* event=(Event*)this->findEventById(i);
-		if(event!=NULL && event->type==type)
-			event->happen();
+		if(sGlobal->doneList[i]==true)
+		{
+			Event* event=(Event*)this->findEventById(i);
+			if(event!=NULL && event->type==type)
+				event->happen();
+		}
 	}
 }
 
