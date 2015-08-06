@@ -92,14 +92,12 @@ void EventManager::redoAll()
 
 void EventManager::redoEvent(int type)
 {
-	for(int i=0;i<MAX_DONE_LIST;i++)
+	for(int i=0;i<doneIdSed->count();i++)
 	{
-		if(sGlobal->doneList[i]==true)
-		{
-			Event* event=(Event*)this->findEventById(i);
-			if(event!=NULL && event->type==type)
-				event->happen();
-		}
+		CCInteger* intg=(CCInteger*)doneIdSed->objectAtIndex(i);
+		Event* event=(Event*)this->findEventById(intg->getValue());
+		if(event!=NULL && event->type==type)
+			event->happen();
 	}
 }
 
@@ -133,6 +131,7 @@ Event* EventManager::findEventById(int id)
 void EventManager::markHappened(Event* event)
 {
     sGlobal->doneList[event->id]=true;
+	sGlobal->doneIdSed->addObject(CCInteger::create(event->id));
     //events->removeObject(event);
 }
 

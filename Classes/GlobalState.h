@@ -22,6 +22,7 @@ public:
 	bool isNight;
 	// BagRecord* bagRecord;
     bool doneList[MAX_DONE_LIST];
+	CCArray* doneIdSed;
 public:
     void load();
     void save();

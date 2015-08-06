@@ -61,6 +61,7 @@ void GlobalState::newr()
 GlobalState::~GlobalState()
 {
     delete []doneList;
+	doneIdSed->release();
 }
 
 
@@ -93,12 +94,16 @@ void GlobalState::loadDoneList()
 {
 	for(int i=0;i<MAX_DONE_LIST;i++)
 		doneList[i]=false;
+	doneIdSed=CCArray::create();
+	doneIdSed->retain();
+
 	CCString* rcd=CCString::create(LOAD_STRING(EVENTDONE_MRCD,EVENTDONE_INI));
 	CCArray* list=RcdUtil::split(rcd,DEFUALT_DELIM);
 	for(int i=0;i<list->count();i++)
 	{
 		CCString* str=(CCString*)list->objectAtIndex(i);
 		doneList[str->intValue()]=true;
+		doneIdSed->addObject(CCInteger::create(str->intValue()));
 	}
 }
 
