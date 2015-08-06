@@ -269,7 +269,7 @@ void Hero::crossToMap(int mapNo)
 	map=Map::create(path->getCString());
 	rGlobal->map=map;
 	map->crossMap(heroTilePos,mapNo);
-	eManager->redoEvent(NPC_MOVE_EVT);
+	eManager->redoAll();
 	this->getParent()->addChild(map);
 
 	//re-create rGlobal->shadow

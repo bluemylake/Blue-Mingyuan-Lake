@@ -81,6 +81,15 @@ void EventManager::loadNight(int fnmapNo)
 	loadEmap();
 }
 
+void EventManager::redoAll()
+{
+	//this->redoEvent(GET_SUP_EVT);
+	this->redoEvent(NPC_MOVE_EVT);
+	//this->redoEvent(SHADOW_EVT);
+	this->redoEvent(BLOODY_EVT);
+	this->redoEvent(WATERY_EVT);
+}
+
 void EventManager::redoEvent(int type)
 {
 	for(int i=0;i<MAX_DONE_LIST;i++)

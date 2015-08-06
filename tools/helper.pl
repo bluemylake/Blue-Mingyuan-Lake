@@ -57,12 +57,12 @@ while(<>){
 			putDefault($id,$type,$x,$y,$cat,$imgNo,$nPre,$nDia,$nArg,$repeat);
 		}
 		when(0) {
-			if($x<=10 || $y<=10){
+			if($x<=0 || $y<=0){ # changed here
 				print $out "Manul: $id event of type $typeName[$type]($type) ",
 					"xy ($x, $y) not set\n";
 			}
 			if($cat<0 || $cat>2){ $cat=1; }
-			if($imgNo<1 || $imgNo>22){
+			if($imgNo<1 || $imgNo>220){ # changed here
 				print $out "Alert: $id NPC IMG $imgNo set to default\n"; 
 				$imgNo=1; 
 			}

@@ -21,6 +21,7 @@ bool ButtonA::ccTouchBegan(CCTouch* pTouch, CCEvent *pEvent)
 {
 	if(hero->isWalking) enable=false;
     if(!enable)return true;
+	this->enable=false;
 
     //判断按到按钮木有
     //CCPoint TouchesLocation = getTouchPos(pTouches);
@@ -52,6 +53,7 @@ bool ButtonA::ccTouchBegan(CCTouch* pTouch, CCEvent *pEvent)
     //@else if(sGlobal->superPower->speed>2.0f){ //hero->run=true; //}
     //else if(!doShrink)hero->speed=3.0f;//$
     //if(!hero->isHeroWalking&&!doShrink)hero->speed=3.0f;//$
+	this->enable=true;
 
     return true;
 }

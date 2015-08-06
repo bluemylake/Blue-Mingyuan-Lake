@@ -33,7 +33,7 @@ while(<>){
 	$id++, $next++;
 	print ",,is_win,$id,,win,,$next,0,0,2,,$NPCId,",$id+2,"\n";
 	$id++, $next++;
-	print ",,lose,$id,,dialog,,$next,0,$lenL,0,,@lTalkList\n";
+	print ",,lose,$id,,dialog,,-1,0,$lenL,0,,@lTalkList\n"; # changed here
 	$id++, $next++;
 	print ",,win,$id,,dialog,,$next,0,$lenW,0,,@wTalkList\n";
 	$id++, $next++;

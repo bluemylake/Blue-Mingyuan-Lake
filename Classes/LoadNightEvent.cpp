@@ -8,6 +8,7 @@
 
 void LoadNightEvent::happen()
 {
+	if(sGlobal->isNight==true) return; 
 	sGlobal->isNight=true;
 	rGlobal->map->scheduleOnce(schedule_selector(LoadNightEvent::delayedLoad), 0.6f);
 	ReloadEvent::action();
@@ -25,6 +26,6 @@ void LoadNightEvent::delayedLoad(float dt)
 	map->NPCs->release();
 	eManager->release();
 	eManager->loadNight(mapNo-MAP10);
-	eManager->redoEvent(NPC_MOVE_EVT);
+	eManager->redoAll();
 	map->initNPC();
 }
