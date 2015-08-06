@@ -45,6 +45,7 @@ Map* HelloWorld::initMap()
 	eManager->load(mapNo-MAP10, TimeUtil::getWeekDay());
 	map->initNPC();
 	map->setGameStartPos();
+	eManager->redoEvent(NPC_MOVE_EVT);
 
 	CCLayer* mapLayer=CCLayer::create();
 	map->setTag(MAP);

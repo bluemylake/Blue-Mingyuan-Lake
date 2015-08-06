@@ -25,6 +25,7 @@ void LoadDayEvent::delayedLoad(float dt)
 	map->NPCs->release();
 	eManager->release();
 	eManager->load(mapNo-MAP10,TimeUtil::getWeekDay());
+	eManager->redoEvent(NPC_MOVE_EVT);
 	map->initNPC();
 }
 
