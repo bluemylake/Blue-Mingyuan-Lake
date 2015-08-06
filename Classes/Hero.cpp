@@ -39,6 +39,7 @@ void Hero::doEvent(CCPoint heroTilePos)
 	//³¡¾°ÇÐ»»ÊÂ¼þinte
 	else if(!eventScene->compare("change scene"))
 	{
+		if(sGlobal->isNight) return;
 		int id=properties->valueForKey("id")->intValue();
 		switch(id)
 		{
