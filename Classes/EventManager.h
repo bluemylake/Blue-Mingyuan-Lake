@@ -19,6 +19,7 @@ public:
 	void loadNight(int fnmapNo);
 	int isInstant(Event* event);
 	void redoEvent(int type);
+	void redoAll();
 	void release();
     ~EventManager();
 public:
