@@ -28,7 +28,7 @@ void Monster::setMonster(int monType)
 		level = 30;
 	}
 
-	healthPoint=100+level*2;
+	healthPoint=1+level*2;//change
 	currentHp=healthPoint;
 	
 	

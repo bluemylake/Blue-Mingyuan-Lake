@@ -272,6 +272,16 @@ void Hero::crossToMap(int mapNo)
 	eManager->redoEvent(NPC_MOVE_EVT);
 	this->getParent()->addChild(map);
 
+	for (int i=0;i<MAX_DONE_LIST;i++)
+	{
+		if (sGlobal->doneList[i]==true)
+		{
+			Event* event = (Event*)eManager->findEventById(i);
+			if(event!=NULL&&event->type==NPC_MOVE_EVT)
+				event->happen();
+		}
+	}
+
 	//re-create rGlobal->shadow
 	if(rGlobal->shadow==NULL) return;
 	rGlobal->shadow = ShadowingMan::create();

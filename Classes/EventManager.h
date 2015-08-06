@@ -26,8 +26,8 @@ public:
     Emap* eStand;
     Emap* eAtrgr;
 	Event* onGoing;
-private:
-    Event* findEventById(int id);
+
+	Event* findEventById(int id);
     ControllerListener* listener(int type);
     void loadAllEvents(CCString* fpath);
     void loadEmap();

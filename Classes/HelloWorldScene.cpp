@@ -47,6 +47,16 @@ Map* HelloWorld::initMap()
 	map->setGameStartPos();
 	eManager->redoEvent(NPC_MOVE_EVT);
 
+	for (int i=0;i<MAX_DONE_LIST;i++)
+	{
+		if (sGlobal->doneList[i]==true)
+		{
+			Event* event = (Event*)eManager->findEventById(i);
+			if(event!=NULL&&event->type==NPC_MOVE_EVT)
+				event->happen();
+		}
+	}
+
 	CCLayer* mapLayer=CCLayer::create();
 	map->setTag(MAP);
 	mapLayer->addChild(map);
