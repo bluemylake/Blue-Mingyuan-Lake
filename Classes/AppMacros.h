@@ -168,6 +168,9 @@
 #define HERO_APP_EVT 12
 #define NPC_MOVE_EVT 13
 
+#define SAVE_SUC_DAY_EVT_ID 1010
+#define SAVE_SUC_NIGHT_EVT_ID 2010
+
 //Notification Center
 #define HERO_STEP_UP_MSG "HeroStepUp"
 typedef enum{kNone=1,kWall=17,kEvent=41}CollisionType;
