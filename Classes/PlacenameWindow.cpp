@@ -50,10 +50,19 @@ void PlacenameWindow::load(CCTMXTiledMap* map,CCDictionary *properties)
 
 void PlacenameWindow::appear()
 {
+	this->inAction=true;
+	dialogBox->stopAllActions(); // don't know if this helps
+	content->stopAllActions();
+
     CCFiniteTimeAction* in=CCFadeIn::create(0.5f);
     CCFiniteTimeAction* stay=CCDelayTime::create(2.0f);
     CCFiniteTimeAction* out=CCFadeOut::create(0.5f);
-    CCAction* placenameAct=CCSequence::create(in,stay,out,NULL);
+	CCCallFunc* reset=CCCallFunc::create(this,
+			callfunc_selector(PlacenameWindow::setActionDone));
+    CCAction* placenameAct;
+	if(this->inAction) placenameAct=CCSequence::create(stay,out,reset,NULL);
+	else placenameAct=CCSequence::create(in,stay,out,reset,NULL);
+
     CCAction* copyAct=(CCAction*)placenameAct->copy();
     dialogBox->runAction(placenameAct);
     content->runAction(copyAct);
@@ -74,4 +83,9 @@ void PlacenameWindow::respond(int curPlaceID)
 	appear();
 	prevPlaceID=curPlaceID;
     }
+}
+
+void PlacenameWindow::setActionDone()
+{
+	this->inAction=false;
 }
