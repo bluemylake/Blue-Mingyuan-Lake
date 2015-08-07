@@ -88,23 +88,24 @@ void ControlPanel::initControllers()
 	dirButton->setPosition(ccp(dirButton->buttonImg->getContentSize().width/2,
 		dirButton->buttonImg->getContentSize().height/2));
 	dirButton->setControllerListener(hero);
-	dirButton->setTag(DIRBUTTON);this->addChild(dirButton);
+	dirButton->setTag(DIRBUTTON);this->addChild(dirButton,BTN_ON_PANEL_ZOR);
 
 	this->buttonA=ButtonA::create();
 	buttonA->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width-
 		buttonA->buttonImg->getContentSize().width,
 		buttonA->buttonImg->getContentSize().height));
 	buttonA->setPointers(hero,diawindow,bigwindow);
-	buttonA->setTag(BUTTONA);this->addChild(buttonA);
+	buttonA->setTag(BUTTONA);this->addChild(buttonA,BTN_ON_PANEL_ZOR);
 
 	this->touchScreen=TouchScreen::create();
 	touchScreen->setPointers(hero,buttonA,dirButton);
-	touchScreen->setTag(TOUCHSCREEN);this->addChild(touchScreen);
+	touchScreen->setTag(TOUCHSCREEN);
+	this->addChild(touchScreen,BTN_ON_PANEL_ZOR);
 
 	Menu* menu=Menu::create();
 	menu->setHero(hero);
 	menu->setTag(MENU);
-	this->addChild(menu);
+	this->addChild(menu,BTN_ON_PANEL_ZOR);
 }
 
 void ControlPanel::initNightBg()
@@ -114,12 +115,12 @@ void ControlPanel::initNightBg()
 	rGlobal->nightBg = nightBg;
 	nightBg->setPosition(ccp(nightBg->getContentSize().width / 2, nightBg->getContentSize().height / 2));
 	nightBg->setOpacity(0);
-	this->addChild(nightBg);
+	this->addChild(nightBg,NIGHT_ON_PANEL_ZOR);
 
 	CCSprite* murkBg = CCSprite::create(MURKBG_IMG_PATH);
 	rGlobal->murkBg = murkBg;
 	murkBg->setPosition(ccp(murkBg->getContentSize().width / 2, murkBg->getContentSize().height / 2));
-	this->addChild(murkBg);
+	this->addChild(murkBg,MURK_ON_PANEL_ZOR);
 
 	InitUtil::initiate();
 }
