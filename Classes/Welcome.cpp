@@ -22,8 +22,6 @@ bool Welcome::init() {
 	this->setTouchEnabled(true);
 	this->state=0;
 
-	sGlobal->load();
-
 	initView();
 	return true;
 }
@@ -41,17 +39,13 @@ void Welcome::menuMapCallback(CCObject* pSender)
 
 void Welcome::menuStartCallback(CCObject* pSender) {
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(MAP_RESOLUWID,MAP_RESOLUHEI, kResolutionExactFit);
+	sGlobal->load();
 	//CCScene* pScene = Combat::scene();
-	//CCScene *pScene = HelloWorld::scene();
-	if (CCTextureCache::sharedTextureCache()->textureForKey(VDRAWING_IMG_PATH)==NULL)
-	{
-		pScene=LoadingScene::scene();
-	}
-	else
-	{
-		pScene = HelloWorld::scene();
-	}
 	
+	if (CCTextureCache::sharedTextureCache()->textureForKey(VDRAWING_IMG_PATH)==NULL)
+		pScene=LoadingScene::scene();
+	else
+		pScene = HelloWorld::scene();
 	
 	CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, pScene);
 	CCDirector::sharedDirector()->pushScene(scenetrans);
