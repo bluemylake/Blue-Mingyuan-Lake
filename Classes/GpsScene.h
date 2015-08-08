@@ -38,6 +38,7 @@ public:
 	void showTouchPosName(int num,CCPoint pos);
 	void ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent);
 public:
+	void delayedPop();
 	double longitude;
 	double latitude;
 	CCLabelTTF* pLabel;

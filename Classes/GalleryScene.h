@@ -50,6 +50,7 @@ public:
 	void scrollBar(cocos2d::extension::CCTableView* table);  
 	void menu4CallBack(CCObject* pSender);
 private:
+	void delayedPush();
 	int count;
 	int menuNum;
 	bool menuEnable;

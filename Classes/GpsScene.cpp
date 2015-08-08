@@ -173,6 +173,19 @@ int Gps::Distance()
 
 
 void Gps::menu3CallBack(CCObject* pSender){
+	CCSprite* map=CCSprite::create("mapinfo/map.png");
+	float scaleX=map->getContentSize().width/wholeMap->getContentSize().width;
+	float scaleY=map->getContentSize().height/wholeMap->getContentSize().height;
+	CCActionInterval* seq=CCSequence::create(
+			CCScaleTo::create(0.5f,scaleX,scaleY),
+			CCCallFunc::create(this,callfunc_selector(Gps::delayedPop)),
+			NULL);
+	CCSpawn* conc=CCSpawn::create(seq,CCMoveTo::create(0.5f,ccp(110,100)),NULL);
+	wholeMap->runAction(conc);
+}
+
+void Gps::delayedPop()
+{
 	CsvUtil::sharedCsvUtil()->releaseFile(MAP_CSV_PATH);
 	CCDirector::sharedDirector()->popScene();
 }

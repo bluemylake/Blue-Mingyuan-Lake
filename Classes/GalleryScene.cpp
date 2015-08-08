@@ -8,20 +8,12 @@ CCScene* Gallery::scene()
 	CCScene * scene = NULL;
 	do 
 	{
-		// 'scene' is an autorelease object
 		scene = CCScene::create();
 		CC_BREAK_IF(! scene);
-
-		// 'layer' is an autorelease object
 		Gallery *layer = Gallery::create();
 		CC_BREAK_IF(! layer);
-		//	CCLayerColor *layer2 = CCLayerColor::create(ccc4(222,222,221,90));
-		// add layer as a child to scene
 		scene->addChild(layer);
-
 	} while (0);
-
-	// return the scene
 	return scene;
 }
 
@@ -189,8 +181,25 @@ void Gallery::menu2CallBack(CCObject* pSender){
 
 void Gallery::menu4CallBack(CCObject* pSender){
 	CCLOG("menu4");
+	map2->setZOrder(100);
+	CCSprite* whole=CCSprite::create(WHOLE_MAP_MAP_PATH);
+	float scaleX=whole->getContentSize().width/map2->getContentSize().width;
+	float scaleY=whole->getContentSize().height/map2->getContentSize().height;
+	CCActionInterval* seq=CCSequence::create(
+			CCScaleTo::create(0.5f,scaleX,scaleY),
+			CCCallFunc::create(this,callfunc_selector(Gallery::delayedPush)),
+			NULL);
+	CCSpawn* conc=CCSpawn::create(seq,CCMoveTo::create(0.5f,ccp(0,0)),NULL);
+	map2->runAction(conc);
+}
+
+void Gallery::delayedPush()
+{
 	CCScene *pScene = Gps::scene();
 	CCDirector::sharedDirector()->pushScene(pScene);
+	map2->setZOrder(0);
+	map2->setScale(1.0f);
+	map2->setPosition(ccp(110, 100));
 }
 
 void Gallery::menu3CallBack(CCObject* pSender){
