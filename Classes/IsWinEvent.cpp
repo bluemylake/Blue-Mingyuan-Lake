@@ -17,7 +17,15 @@ void IsWinEvent::happen()
 	}
 
 	if (Combat::gameWinner == MOSTER_WIN_FLAG)
+	{
 		sGlobal->doneList[checkId]=false;
+		for(int i=0;i<sGlobal->doneIdSed->count();i++)
+		{
+			CCInteger* intg=(CCInteger*)sGlobal->doneIdSed->objectAtIndex(i);
+			if(intg->getValue()==checkId)
+				sGlobal->doneIdSed->removeObject(intg);
+		}
+	}
 	else if(winNext!=NO_EVENT_FLAG)
 		this->next=winNext;
 }

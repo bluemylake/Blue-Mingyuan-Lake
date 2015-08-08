@@ -60,6 +60,9 @@ void GlobalState::newr()
 
 GlobalState::~GlobalState()
 {
+	delete mapState;
+	delete playerState;
+	delete superPower;
     delete []doneList;
 	doneIdSed->release();
 }
