@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "ButtonA.h"
 
 bool Menu::init()
 {
@@ -44,12 +45,20 @@ bool Menu::init()
 
 void Menu::save(CCObject* sender)
 {
-   sGlobal->save();
-   //@present diabox to  confirm
-   if(sGlobal->isNight)
-	   eManager->findEventById(SAVE_SUC_NIGHT_EVT_ID)->happen();
-   else eManager->findEventById(SAVE_SUC_DAY_EVT_ID)->happen();
-   ret(NULL);
+	sGlobal->save();
+	ret(NULL);
+	
+	//@present diabox to  confirm
+	ControllerListener* lst;
+	if(sGlobal->isNight)
+		lst=eManager->happen(eManager->findEventById(SAVE_SUC_NIGHT_EVT_ID));
+	else lst=eManager->happen(eManager->findEventById(SAVE_SUC_DAY_EVT_ID));
+	ButtonA* buttonA=(ButtonA*)rGlobal->panel->getChildByTag(BUTTONA);
+	if(lst!=NULL) 
+	{
+		buttonA->setControllerListener(lst);
+		buttonA->disableDirButton();
+	}
 }
 
 void Menu::quit(CCObject* sender)

@@ -33,7 +33,7 @@
 #define COMBAT_IMG_PATH "img/combat/combat.png"
 #define	HERO_IMG_PATH "img/combat/hero.png"
 #define ENEMY_IMG_PATH "img/combat/enemy.png"
-#define BLOOD_IMG_PATH "img/combat/blood.png"
+//#define BLOOD_IMG_PATH "img/combat/blood.png"
 
 //story
 #define NAME_PATH  "txt/names.txt"
