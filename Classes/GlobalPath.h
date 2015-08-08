@@ -80,6 +80,7 @@
 #define SLIDERTHUMB_IMG_PATH "img/new combat/other/thumb.png"
 
 //read csv
+#define MENU_LABEL_CSV_PATH "csv/menu.csv"
 #define A_CSV_PATH "csv/ability.csv"
 #define M_CSV_PATH "csv/monster.csv"
 #define WEEKDAY_CSV_PATH "csv/weekday/map%d_day%d.csv"

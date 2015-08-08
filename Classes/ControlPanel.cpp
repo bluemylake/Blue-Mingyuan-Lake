@@ -93,7 +93,7 @@ void ControlPanel::initControllers()
 	this->buttonA=ButtonA::create();
 	buttonA->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width-
 		buttonA->buttonImg->getContentSize().width,
-		buttonA->buttonImg->getContentSize().height));
+		buttonA->buttonImg->getContentSize().height*2));
 	buttonA->setPointers(hero,diawindow,bigwindow);
 	buttonA->setTag(BUTTONA);this->addChild(buttonA,BTN_ON_PANEL_ZOR);
 
