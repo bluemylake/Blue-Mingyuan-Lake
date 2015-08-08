@@ -46,6 +46,9 @@ void Menu::save(CCObject* sender)
 {
    sGlobal->save();
    //@present diabox to  confirm
+   if(sGlobal->isNight)
+	   eManager->findEventById(SAVE_SUC_NIGHT_EVT_ID)->happen();
+   else eManager->findEventById(SAVE_SUC_DAY_EVT_ID)->happen();
    ret(NULL);
 }
 

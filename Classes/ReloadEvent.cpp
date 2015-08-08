@@ -25,7 +25,7 @@ void ReloadEvent::action()
 	CCSprite* blackBg=CCSprite::create(BLACKBG_IMG_PATH);
 	blackBg->setPosition(ccp(blackBg->getContentSize().width / 2, blackBg->getContentSize().height / 2));
 	blackBg->setOpacity(0);
-	rGlobal->map->getParent()->getParent()->getChildByTag(CONTROLPANELLAYER)->addChild(blackBg);
+	rGlobal->map->getParent()->getParent()->getChildByTag(CONTROLPANELLAYER)->addChild(blackBg,BLACK_ON_PANEL_ZOR);
 
 	CCSequence* blinkOfBlack=CCSequence::create(
 			AnimLib::getAction(FADEIN,CCSize()),

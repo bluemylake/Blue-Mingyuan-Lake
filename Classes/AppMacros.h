@@ -168,6 +168,9 @@
 #define HERO_APP_EVT 12
 #define NPC_MOVE_EVT 13
 
+#define SAVE_SUC_DAY_EVT_ID 1010
+#define SAVE_SUC_NIGHT_EVT_ID 2010
+
 //Notification Center
 #define HERO_STEP_UP_MSG "HeroStepUp"
 typedef enum{kNone=1,kWall=17,kEvent=41}CollisionType;
@@ -180,9 +183,11 @@ typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
 #define NPC_ON_MAP_FRON_ZOR 6
 #define HERO_ON_PANEL_ZOR 3
 #define PANEL_ON_MAPLYR_ZOR 15
-#define WIN_ON_PANEL_ZOR 11
 #define NIGHT_ON_PANEL_ZOR 20
-#define BLACK_ON_PANEL_ZOR 21
+#define MURK_ON_PANEL_ZOR 20
+#define WIN_ON_PANEL_ZOR 30
+#define BTN_ON_PANEL_ZOR 31
+#define BLACK_ON_PANEL_ZOR 40
 
 //switches
 #define DEBUG_MODE true

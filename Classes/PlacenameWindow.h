@@ -16,8 +16,10 @@ public:
 	void appear();
 	void nextMove();
 	void disappear();
+	void setActionDone();
 public:
 	int prevPlaceID;
+	bool inAction;
 };
 
 #endif
