@@ -203,4 +203,7 @@ typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
 //combat
 #define PLAYER_WIN_FLAG 1
 #define MOSTER_WIN_FLAG 0
+
+//Gallery
+#define GAL_MAP_POS ccp(110,100)
 #endif /* __APPMACROS_H__ */

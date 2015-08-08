@@ -1,5 +1,6 @@
 #include "GlobalPath.h"
 #include "GpsScene.h"
+#include "AppMacros.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include <jni.h>
 #include "platform/android/jni/JniHelper.h"
@@ -180,7 +181,7 @@ void Gps::menu3CallBack(CCObject* pSender){
 			CCScaleTo::create(0.5f,scaleX,scaleY),
 			CCCallFunc::create(this,callfunc_selector(Gps::delayedPop)),
 			NULL);
-	CCSpawn* conc=CCSpawn::create(seq,CCMoveTo::create(0.5f,ccp(110,100)),NULL);
+	CCSpawn* conc=CCSpawn::create(seq,CCMoveTo::create(0.5f,GAL_MAP_POS),NULL);
 	wholeMap->runAction(conc);
 }
 

@@ -1,4 +1,5 @@
 #include "GalleryScene.h"
+#include "AppMacros.h"
 
 USING_NS_CC_EXT;
 using namespace cocos2d;
@@ -58,7 +59,7 @@ bool Gallery::init()
 	//info
 	map2 = CCSprite::create("mapinfo/map.png");
 	map2->setAnchorPoint(CCPointZero);
-	map2->setPosition(ccp(110,100));
+	map2->setPosition(GAL_MAP_POS);
 	this->addChild(map2);
 	this->addChild(posMenu);
 	pointImg = CCSprite::create("mapinfo/point.png");
@@ -199,7 +200,7 @@ void Gallery::delayedPush()
 	CCDirector::sharedDirector()->pushScene(pScene);
 	map2->setZOrder(0);
 	map2->setScale(1.0f);
-	map2->setPosition(ccp(110, 100));
+	map2->setPosition(GAL_MAP_POS);
 }
 
 void Gallery::menu3CallBack(CCObject* pSender){
