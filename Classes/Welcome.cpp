@@ -23,6 +23,7 @@ bool Welcome::init()
 	this->prevTouch=NULL;
 	this->setTouchEnabled(true);
 	this->state=0;
+	sGlobal->init();
 
 	initView();
 	return true;
@@ -104,7 +105,6 @@ void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
 		state=0;
 		prevTouch->release();
 	}
-	sGlobal->superPower->all=false;
 }
 
 void Welcome::initView()

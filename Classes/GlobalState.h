@@ -24,6 +24,7 @@ public:
     bool doneList[MAX_DONE_LIST];
 	CCArray* doneIdSed;
 public:
+	void init();
     void load();
     void save();
     void newr();

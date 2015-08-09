@@ -8,6 +8,13 @@
 #define LOAD_BOOL CCUserDefault::sharedUserDefault()->getBoolForKey
 #define LOAD_STRING CCUserDefault::sharedUserDefault()->getStringForKey
 
+void GlobalState::init()
+{
+    mapState=new MapState;
+    superPower=new SuperPower;
+	playerState = new PlayerState;
+}
+
 void GlobalState::load()
 {
     loadMapState();
@@ -71,7 +78,6 @@ GlobalState::~GlobalState()
 
 void GlobalState::loadMapState()
 {
-    mapState=new MapState;
     mapState->positionX = LOAD_INT(POSITIONX_MRCD, POSITIONX_INI);
     mapState->positionY = LOAD_INT(POSITIONY_MRCD, POSITIONY_INI);
     mapState->faceDir= LOAD_INT(FACEDIR_MRCD, FACEDIR_INI);
@@ -85,7 +91,6 @@ void GlobalState::loadMapState()
 
 void GlobalState::loadSuperPower()
 {
-    superPower=new SuperPower;
     superPower->speed = LOAD_INT(SPEED_SRCD, SPEED_INI);
     superPower->teleport = LOAD_BOOL(TELEPORT_SRCD, TELEPORT_INI);
     superPower->stealth = LOAD_BOOL(STEALTH_SRCD, STEALTH_INI);
@@ -130,6 +135,5 @@ void GlobalState::saveDoneList()
 
 void GlobalState::loadPlayerState()
 {
-	playerState = new PlayerState;
 	playerState->exp = LOAD_INT(EXP_CRCD,EXP_INI);
 }

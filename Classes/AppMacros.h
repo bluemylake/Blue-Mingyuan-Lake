@@ -92,7 +92,7 @@
 
 #define EXP_INI 0
 
-#define MAX_DONE_LIST 1000
+#define MAX_DONE_LIST 2000
 #define DEFUALT_DELIM ','
 
 //»­Ãæ·Ö±æÂÊ
