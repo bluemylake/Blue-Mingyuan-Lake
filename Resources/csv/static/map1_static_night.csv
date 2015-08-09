@@ -1,2 +1,3 @@
-x,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres
-54,60,地图二上人,101,1,0,1,-1,0,1,0,1,Hola,,
+锘縳,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres,,,,,,,
+0,0,save,2010,-1,2,-1,-1,0,1,0,0,瀛樻。淇濆瓨鎴愬姛,,,,,,,,,
+0,0,灏忛,501,2,0,61,-1,0,0,10,1,90,64,108,64,108,28,90,28,90,64
