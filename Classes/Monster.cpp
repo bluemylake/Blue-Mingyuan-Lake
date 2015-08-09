@@ -17,18 +17,26 @@ void Monster::setMonster(int monType)
 	if (monType==0)
 	{
 		monsterNo = (int)(CCRANDOM_0_1()*6);
+		CCLOG("monster:%d",monsterNo);
 		sprintf(monPath,MONSTER_IMG_PATH,monsterNo);
 		monster = CCSprite::create(monPath);
 		level = (int)(CCRANDOM_0_1()*10);
 	}
 	else
 	{
-		sprintf(monPath,MONSTER_IMG_PATH,monType);
-		monster = CCSprite::create(monPath);
-		level = 30;
+		if (monType==5)
+		{
+			monster = CCSprite::create("img/new combat/char/boss5.png");
+			level = 10;
+		}
+		else 
+		{
+			monster = CCSprite::create("img/new combat/char/boss1.png");
+			level = 10;
+		}
 	}
 
-	healthPoint=1+level*2;//change
+	healthPoint=100+level*2;//change
 	currentHp=healthPoint;
 	
 	

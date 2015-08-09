@@ -1,6 +1,6 @@
 #include "HelpScene.h"
 
-#define View_Num 5
+#define View_Num 6
 
 using namespace cocos2d;
 USING_NS_CC_EXT;
@@ -36,7 +36,7 @@ bool HelpScene::init()
 	   page = 1;
 	   CCSize size = CCDirector::sharedDirector()->getVisibleSize();
 	   CCLOG("sizex:%f",size.width);
-	   CCSprite *bg = CCSprite::create("Help/Help_BG.png");
+	   CCSprite *bg = CCSprite::create(STAFF_BG_PATH);
 	   bg->setScaleX(2.0f);
 	   bg->setAnchorPoint(CCPointZero);
 	   bg->setPosition(CCPointZero);
@@ -52,7 +52,7 @@ bool HelpScene::init()
 	   char helpstr[30] = {0};
 	   for (int i=1;i<=View_Num;i++)
 	   {
-		   sprintf(helpstr,"HelloWorld.png",i);
+		   sprintf(helpstr,HELP_IMG_PATH,i);
 		   CCSprite *sprite = CCSprite::create(helpstr);
 		   //sprite->setPosition(ccp(100,100));
 		   sprite->setPosition(ccp(size.width*(i-0.5),size.height/2+25));
@@ -86,9 +86,9 @@ bool HelpScene::init()
 		point->setDisplayFrame(cache->spriteFrameByName("Help_Point02.png"));
 
 
-		CCMenuItemImage *backToWelcome = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+		CCMenuItemImage *backToWelcome = CCMenuItemImage::create("mapinfo/menu3.png","mapinfo/menu3_select.png",
 			this,menu_selector(HelpScene::menuCloseCallback));
-		backToWelcome->setPosition(ccp(size.width-50,50));
+		backToWelcome->setPosition(ccp(size.width-70,30));
 		CCMenu* menu = CCMenu::create(backToWelcome,NULL);
 		menu->setPosition(CCPointZero);
 		this->addChild(menu,10);

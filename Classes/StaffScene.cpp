@@ -35,8 +35,16 @@ bool Staff::init()
 		return false;
 	}
 	//load csv
+
+
+
 	CsvUtil::sharedCsvUtil()->loadFile(STAFF_CSV_PATH);
 	CCSize visibSize=CCDirector::sharedDirector()->getVisibleSize();
+
+	CCSprite* staffBg = CCSprite::create(STAFF_BG_PATH);
+	staffBg->setPosition(ccp(visibSize.width/2,visibSize.height/2));
+	this->addChild(staffBg,0);
+
 	CCTableView *tableView=CCTableView::create(this, CCSizeMake(visibSize.width, visibSize.height));
 	tableView->setDirection(kCCScrollViewDirectionVertical);
 	tableView->setPosition(CCPointZero);
@@ -46,9 +54,9 @@ bool Staff::init()
 	this->addChild(tableView,1);
 	tableView->reloadData();
 
-	CCMenuItemImage *backToWelcome = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+	CCMenuItemImage *backToWelcome = CCMenuItemImage::create("mapinfo/menu3.png","mapinfo/menu3_select.png",
 		this,menu_selector(Staff::menuCloseCallback));
-	backToWelcome->setPosition(ccp(672-50,50));
+	backToWelcome->setPosition(ccp(672-70,50));
 	CCMenu* menu = CCMenu::create(backToWelcome,NULL);
 	menu->setPosition(CCPointZero);
 	this->addChild(menu,10);
@@ -97,7 +105,7 @@ CCTableViewCell* Staff::tableCellAtIndex(CCTableView *table, unsigned int idx)
 		pLabel->setPosition(ccp(200, 10));
 		pLabel->setTag(456);
 		pLabel->setAnchorPoint(CCPointZero);
-		cell->addChild(pLabel);
+		cell->addChild(pLabel,1);
 	}
 	else
 	{

@@ -39,12 +39,13 @@ void Hero::doEvent(CCPoint heroTilePos)
 	//³¡¾°ÇÐ»»ÊÂ¼þinte
 	else if(!eventScene->compare("change scene"))
 	{
-		if(sGlobal->isNight) return;
+		
 		int id=properties->valueForKey("id")->intValue();
 		switch(id)
 		{
 			case 0:case 1:case 2:case 3:case 4:
 			case 5:case 6:case 7:case 8:case 9:
+				if(sGlobal->isNight) return;
 				if(id==sGlobal->mapState->storyCnt)
 				{
 					touchEnded=dir;walkEnd();//endWalking

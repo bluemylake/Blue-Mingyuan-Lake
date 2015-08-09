@@ -4,13 +4,34 @@
 //update:2014-9-30 10:01:13
 
 //welcome
-#define GATE_PATH "img/welcome/gate.jpg"
-#define START1_PATH "img/welcome/start1.png"
-#define START2_PATH "img/welcome/start2.png"
-#define MAP1_PATH "img/welcome/startbutton3.png"
-#define MAP2_PATH "img/welcome/startbutton4.png"
+#define STAFF_BG_PATH "img/welcome/staff_bg.png"
+#define GATE_PATH "img/welcome/gate.png"
+#define START1_PATH "img/welcome/startbutton.png"
+#define START2_PATH "img/welcome/startbuttonDown.png"
+#define MAP1_PATH "img/welcome/mapbutton.png"
+#define MAP2_PATH "img/welcome/mapbuttonDown.png"
 #define BUTTONB_PATH "img/welcome/buttonB.png"
 #define BUTTONBD_PATH "img/welcome/buttonBDown.png"
+
+#define BUTTON_SYS_PATH "img/welcome/settingbutton.png"
+#define BUTTON_SYSD_PATH "img/welcome/settingbuttonDown.png"
+#define BUTTON_QUIT_PATH "img/welcome/quitbutton.png"
+#define BUTTON_QUITD_PATH "img/welcome/quitbuttonDown.png"
+
+#define BUTTON_QUIT_PATH "img/welcome/quitbutton.png"
+#define BUTTON_QUITD_PATH "img/welcome/quitbuttonDown.png"
+
+#define BUTTON_STAFF_PATH "img/welcome/staffbutton.png"
+#define BUTTON_STAFFD_PATH "img/welcome/staffbuttonDown.png"
+
+#define BUTTON_CLEAR_PATH "img/welcome/clearbutton.png"
+#define BUTTON_CLEARD_PATH "img/welcome/clearbuttonDown.png"
+
+#define BUTTON_INS_PATH "img/welcome/insbutton.png"
+#define BUTTON_INSD_PATH "img/welcome/insbuttonDown.png"
+
+#define BUTTON_BACK_PATH "img/welcome/backbutton.png"
+#define BUTTON_BACKD_PATH "img/welcome/backbuttonDown.png"
 
 //map
 #define MAP11_PATH "map/map11.tmx"
@@ -94,4 +115,8 @@
 #define WHOLE_MAP_MAP_PATH "map/wholemap.png"
 #define MAP_POINT_MAP_PATH "map/mappoint.png"
 #define	TOUCH_POINT_MAP_PATH "map/touchpoint.png"
+
+
+//help
+#define  HELP_IMG_PATH "Help/Help_%d_chs-hd.png"
 #endif

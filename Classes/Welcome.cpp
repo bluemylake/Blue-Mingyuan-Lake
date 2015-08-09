@@ -22,6 +22,8 @@ bool Welcome::init() {
 	this->setTouchEnabled(true);
 	this->state=0;
 
+	sGlobal->load();
+
 	initView();
 	return true;
 }
@@ -41,11 +43,16 @@ void Welcome::menuStartCallback(CCObject* pSender) {
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(MAP_RESOLUWID,MAP_RESOLUHEI, kResolutionExactFit);
 	sGlobal->load();
 	//CCScene* pScene = Combat::scene();
-	
+	//CCScene *pScene = HelloWorld::scene();
 	if (CCTextureCache::sharedTextureCache()->textureForKey(VDRAWING_IMG_PATH)==NULL)
+	{
 		pScene=LoadingScene::scene();
+	}
 	else
+	{
 		pScene = HelloWorld::scene();
+	}
+	
 	
 	CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, pScene);
 	CCDirector::sharedDirector()->pushScene(scenetrans);
@@ -116,35 +123,35 @@ void Welcome::initView()
 	map = CCMenuItemImage::create(MAP1_PATH,MAP2_PATH,
 		this,menu_selector(Welcome::menuMapCallback));
 	
-	settings = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+	settings = CCMenuItemImage::create(BUTTON_SYS_PATH,BUTTON_SYSD_PATH,
 		this,menu_selector(Welcome::menuSetCallback));
 
-	quitGame = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+	quitGame = CCMenuItemImage::create(BUTTON_QUIT_PATH,BUTTON_QUITD_PATH,
 		this,menu_selector(Welcome::menuQuitCallback));
 
 	//set menu position
 	start->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2,
-		CCDirector::sharedDirector()->getVisibleSize().height/2+50));
-	map->setPosition(ccp(start->getPosition().x,start->getPosition().y-73));
-	settings->setPosition(ccp(map->getPosition().x,map->getPosition().y-73));
-	quitGame->setPosition(ccp(settings->getPosition().x,settings->getPosition().y-73));
+		CCDirector::sharedDirector()->getVisibleSize().height/2+40));
+	map->setPosition(ccp(start->getPosition().x,start->getPosition().y-55));
+	settings->setPosition(ccp(map->getPosition().x,map->getPosition().y-55));
+	quitGame->setPosition(ccp(settings->getPosition().x,settings->getPosition().y-55));
 	//set second choice 
-	staff = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+	staff = CCMenuItemImage::create(BUTTON_STAFF_PATH,BUTTON_STAFFD_PATH,
 		this,menu_selector(Welcome::menuStaffCallback));
-	clear = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+	clear = CCMenuItemImage::create(BUTTON_CLEAR_PATH,BUTTON_CLEARD_PATH,
 		this,menu_selector(Welcome::menuClearCallback));
-	instruction = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+	instruction = CCMenuItemImage::create(BUTTON_INS_PATH,BUTTON_INSD_PATH,
 		this,menu_selector(Welcome::menuInstructionCallback));
-	backToWelcome = CCMenuItemImage::create(BUTTONB_PATH,BUTTONBD_PATH,
+	backToWelcome = CCMenuItemImage::create(BUTTON_BACK_PATH,BUTTON_BACKD_PATH,
 		this,menu_selector(Welcome::menuBackCallback));
 
 
 
 	clear->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2,
-		CCDirector::sharedDirector()->getVisibleSize().height/2+150));
-	staff->setPosition(ccp(clear->getPosition().x,clear->getPosition().y-100));
-	instruction->setPosition(ccp(staff->getPosition().x,staff->getPosition().y-100));
-	backToWelcome->setPosition(ccp(instruction->getPosition().x,instruction->getPosition().y-100));
+		CCDirector::sharedDirector()->getVisibleSize().height/2+40));
+	staff->setPosition(ccp(clear->getPosition().x,clear->getPosition().y-55));
+	instruction->setPosition(ccp(staff->getPosition().x,staff->getPosition().y-55));
+	backToWelcome->setPosition(ccp(instruction->getPosition().x,instruction->getPosition().y-55));
 
 	pMenu = CCMenu::create(start,map,settings,quitGame,NULL);
 	pMenu->setPosition(CCPointZero);
@@ -192,5 +199,5 @@ void Welcome::menuBackCallback(CCObject* pSender)
 
 void Welcome::menuQuitCallback(CCObject* pSender)
 {
-    exit(0);
+    CCDirector::sharedDirector()->popScene();
 }

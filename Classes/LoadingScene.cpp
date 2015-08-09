@@ -64,7 +64,7 @@ void LoadingScene::loadedCallBack(CCObject* nothing)
     this->runAction(CCDelayTime::create(15)); // ??
 
     char tmp[10];
-    sprintf(tmp, "%%%d",(int)((float)haveLoaded/NUM_TO_LOAD*100));
+    sprintf(tmp, "%d%%",(int)((float)haveLoaded/NUM_TO_LOAD*100));
     ttf->setString(tmp);  
 
     if (haveLoaded==NUM_TO_LOAD)
