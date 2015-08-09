@@ -1,2 +1,2 @@
-x,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres,,
-2,0,StrangeMan,100,1,0,1,-1,0,1,0,1,hello,
+x,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres,
+69,70,长桥,1000,1,0,6,-1,0,2,0,1,长桥连接了教学区和生活区,过去那一边就是教学楼了,,

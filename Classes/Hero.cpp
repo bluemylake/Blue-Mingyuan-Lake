@@ -67,6 +67,7 @@ void Hero::doEvent(CCPoint heroTilePos)
 	}
 	else if(!eventScene->compare("combat"))
 	{
+		if(!sGlobal->isNight)return;
 		float i = CCRANDOM_0_1();
 		if (i<0.3)
 		{	

@@ -57,7 +57,6 @@ void Welcome::menuStartCallback(CCObject* pSender)
 void Welcome::menuClearCallback(CCObject* pSender) 
 {
 	sGlobal->newr();
-	sGlobal->load();
 }
 
 void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)

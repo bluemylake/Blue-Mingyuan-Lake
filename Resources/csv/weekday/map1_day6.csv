@@ -1,1 +1,2 @@
-x,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres,,
+x,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres,
+46,73,商业街,1600,1,0,8,-1,0,2,0,1,这里是商业街，我们吃喝买东西基本都在这里啦,商业街两遍就是宿舍区了,,

@@ -35,7 +35,7 @@ void TouchScreen::zoomStroke(CCSet* pTouches, CCEvent *pEvent)
 
 void TouchScreen::teleportTo(CCSet* pTouch, CCEvent *pEvent)
 {
-	CCTouch* touch=(CCTouch*)pTouch->anyObject();
+	CCTouch* touch=(CCTouch*)pTouch->anyObject();	
 	if((touch->getLocation()-touch->getStartLocation()).getLength()>ZOOMSTROKELEN)return;
 	if(doShrink||(!sGlobal->superPower->teleport&&!sGlobal->superPower->all))return;
 	if(buttonA->getBoundingBox().containsPoint(getTouchPos(pTouch)))return;
