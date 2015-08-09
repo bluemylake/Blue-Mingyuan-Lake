@@ -11,7 +11,8 @@ std::vector<CCPoint> VectorLoader::start(CCArray* intArray)
 	CCInteger* vecX=(CCInteger*)intArray->objectAtIndex(i);
 	CCInteger* vecY=(CCInteger*)intArray->objectAtIndex(i+1);
 	CCPoint curPos=CCPointMake(vecX->getValue(),vecY->getValue());
-	vectorList.push_back(curPos-lastPos);
+	CCPoint diff=curPos-lastPos;
+	vectorList.push_back(ccp(diff.x,-diff.y));
 	lastPos=curPos;
     }
     return vectorList;
