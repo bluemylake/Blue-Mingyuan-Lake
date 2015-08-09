@@ -7,22 +7,22 @@
 
 USING_NS_CC;
 
-CCScene* Welcome::scene() {
+CCScene* Welcome::scene() 
+{
 	CCScene *scene = CCScene::create();
 	Welcome *layer = Welcome::create();
 	scene->addChild(layer);
 	return scene;
 }
 
-bool Welcome::init() {
+bool Welcome::init() 
+{
 	if (!CCLayer::init()) 
 		return false;
 
 	this->prevTouch=NULL;
 	this->setTouchEnabled(true);
 	this->state=0;
-
-	sGlobal->load();
 
 	initView();
 	return true;
@@ -39,26 +39,23 @@ void Welcome::menuMapCallback(CCObject* pSender)
 }
 
 
-void Welcome::menuStartCallback(CCObject* pSender) {
+void Welcome::menuStartCallback(CCObject* pSender) 
+{
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(MAP_RESOLUWID,MAP_RESOLUHEI, kResolutionExactFit);
 	sGlobal->load();
-	//CCScene* pScene = Combat::scene();
-	//CCScene *pScene = HelloWorld::scene();
-	if (CCTextureCache::sharedTextureCache()->textureForKey(VDRAWING_IMG_PATH)==NULL)
-	{
-		pScene=LoadingScene::scene();
-	}
-	else
-	{
-		pScene = HelloWorld::scene();
-	}
 	
+	//CCScene* pScene = Combat::scene();
+	if (CCTextureCache::sharedTextureCache()->textureForKey(VDRAWING_IMG_PATH)==NULL)
+		pScene=LoadingScene::scene();
+	else
+		pScene = HelloWorld::scene();
 	
 	CCTransitionFade *scenetrans = CCTransitionFade::create(0.7, pScene);
 	CCDirector::sharedDirector()->pushScene(scenetrans);
 }
 
-void Welcome::menuClearCallback(CCObject* pSender) {
+void Welcome::menuClearCallback(CCObject* pSender) 
+{
 	sGlobal->newr();
 	sGlobal->load();
 }
