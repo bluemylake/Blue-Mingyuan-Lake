@@ -6,7 +6,7 @@
 #include "Map.h"
 #include "ReloadEvent.h"
 #include "GlobalTmp.h"
-
+ 
 void LoadNightEvent::happen()
 {
 	ReloadEvent::getPrev(this->args)->repeat=false;
