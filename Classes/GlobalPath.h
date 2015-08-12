@@ -39,7 +39,7 @@
 #define MAN_IMG_PATH "img/man/man"
 #define MAN_PATH_LEN 11
 #define BUTTONA_IMG_PATH "img/button/newButtonA.png"
-#define DIRBUTTON_IMG_PATH "img/button/dirButton.png"
+#define DIRBUTTON_IMG_PATH "img/button/dirbutton.png"
 #define DIAWINDOW_IMG_PATH "img/window/diawindow.png"
 #define RWINDOW_IMG_PATH "img/window/placenamewin.png"
 #define MENUSP_IMG_PATH "img/button/menuCh.png"

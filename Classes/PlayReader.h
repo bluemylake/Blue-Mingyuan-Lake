@@ -33,8 +33,6 @@ protected:
   vector<string> dialogs;
   
 };
-#endif /* defined(_________PlayReader__) */
-
 
 class ProcessSaver {
   int _x, _y, _mapProcess;
@@ -51,3 +49,4 @@ public:
   int getMapProcess();
   int getProcess();
 };
+#endif /* defined(_________PlayReader__) */
