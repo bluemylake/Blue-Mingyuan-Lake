@@ -1,1 +1,2 @@
-x,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres,,
+x,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres,
+21,91,行政楼,1800,1,0,9,-1,0,2,0,1,告诉你一个秘密,这就是传说中的综A,,
