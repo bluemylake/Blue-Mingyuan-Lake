@@ -6,6 +6,10 @@
 
 //layer的命名法是scene的首字母加layer名加LAYER
 //layer是100+
+#define WELCOMELAYER 99
+#define SMENU 98
+#define PMENU 97
+
 #define HELLOWORLDLAYER 100
 
 //HelloWorld的儿子

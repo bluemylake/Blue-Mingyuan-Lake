@@ -33,23 +33,10 @@ protected:
 private:
 	int state;
 	CCTouch* prevTouch;
-	CCScene *pScene;
-	CCMenuItemImage *settings;
-	CCMenuItemImage *start;
-	CCMenuItemImage *map;
-	CCMenuItemImage *quitGame;
-
-	CCMenuItemImage *clear;
-	CCMenuItemImage *backToWelcome;
-	CCMenuItemImage *staff;
-	CCMenuItemImage *instruction;
-	CCMenu* pMenu ;
-	CCMenu* sMenu;
-	CCSprite* staffName;
 
 	void initView();
-	
-
+	CCMenu* pMenu;
+	CCMenu* sMenu;
 };
 
 #endif
