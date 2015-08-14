@@ -108,6 +108,20 @@ void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
 		else state=READY_TO_WIRTE;
 		prevTouch->release();
 	}
+
+	SMenu* menu = (SMenu*)sMenu;
+	if(sMenu->getOpacity()==0)
+		for(int i=0;i<menu->arr->count();i++)
+		{
+			CCNode* item=(CCNode*)menu->arr->objectAtIndex(i);
+			item->setPosition(item->getPosition()-ccp(0,50));
+			CCSequence* seq=CCSequence::create(CCDelayTime::create(i*0.2f),
+				CCSpawn::create(CCFadeIn::create(0.5f), 
+					CCMoveBy::create(0.5f,ccp(0,50)),NULL),
+				NULL);
+			item->runAction(seq);
+		}
+	sMenu->setOpacity(255);
 }
 
 void Welcome::initView()
@@ -118,20 +132,25 @@ void Welcome::initView()
     mainbackground->scheduleUpdate();
     CCSize winSize=CCDirector::sharedDirector()->getWinSize();
 	mainbackground->setPosition(ccp(winSize.width/2,winSize.height/2));
-    //CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-	//mainbackground->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2,
-		//CCDirector::sharedDirector()->getVisibleSize().height/2));
 	addChild(mainbackground,0);
 
-	CCMenu* sMenu=SMenu::create();
-	CCMenu* pMenu=PMenu::create();
+	sMenu=SMenu::create();
+	pMenu=PMenu::create();
 	sMenu->setPosition(CCPointZero);
 	pMenu->setPosition(CCPointZero);
-	addChild(sMenu,2);
-	addChild(pMenu,2);
 	sMenu->setTag(SMENU);
 	pMenu->setTag(PMENU);
+	addChild(sMenu,2);
+	addChild(pMenu,2);
 
 	pMenu->setVisible(false);
 	pMenu->setEnabled(false);
+
+	SMenu* menu = (SMenu*)sMenu;
+	sMenu->setOpacity(0);
+	for(int i=0;i<menu->arr->count();i++)
+	{
+		CCMenuItem* item=(CCMenuItem*)menu->arr->objectAtIndex(i);
+		item->setOpacity(0);
+	}
 }

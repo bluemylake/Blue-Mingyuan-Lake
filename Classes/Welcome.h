@@ -25,6 +25,7 @@ private:
 	int state;
 	CCTouch* prevTouch;
 	void initView();
+	CCMenu* sMenu, *pMenu;
 	ens::CrippleSprite* mainbackground;
 };
 

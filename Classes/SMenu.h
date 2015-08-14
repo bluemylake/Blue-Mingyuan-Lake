@@ -15,5 +15,7 @@ public:
 	void menuMapCallback(CCObject* pSender);
 	void menuSetCallback(CCObject* pSender);
 	void menuQuitCallback(CCObject* pSender);
+	CCArray* arr;
+	~SMenu();
 };
 #endif

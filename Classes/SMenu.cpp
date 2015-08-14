@@ -32,6 +32,8 @@ bool SMenu::init()
 	arr->addObject(settings);
 	arr->addObject(quitGame);
 	this->initWithArray(arr);
+	this->arr=arr;
+	this->arr->retain();
 	return true;
 }
 
@@ -71,4 +73,9 @@ void SMenu::menuSetCallback(CCObject* pSender)
 void SMenu::menuQuitCallback(CCObject* pSender)
 {
 	CCDirector::sharedDirector()->popScene();
+}
+
+SMenu::~SMenu()
+{
+	arr->release();
 }
