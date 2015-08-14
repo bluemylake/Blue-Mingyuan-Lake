@@ -39,8 +39,8 @@ bool Gps::init()
 	pLabel = CCLabelTTF::create("", "Arial", 60);
     pLabel->setPosition(ccp(origin.x + visibleSize.width/2,
                             origin.y + visibleSize.height - pLabel->getContentSize().height-150));
-	pLabel2 = CCLabelTTF::create("", "Arial", 60);
-	pLabel2->setPosition(ccp(origin.x + visibleSize.width/2,
+	pLabel2 = CCLabelTTF::create("", "Arial", 30);
+	pLabel2->setPosition(ccp(origin.x + visibleSize.width/5,
 		origin.y + visibleSize.height - pLabel2->getContentSize().height-50));
 	
 	
@@ -62,7 +62,7 @@ bool Gps::init()
 	touchPoint->setPosition(ccp(200,150));
 	this->addChild(touchPoint,10);
 	
-	pLabel3 = CCLabelTTF::create("", "Arial", 40);
+	pLabel3 = CCLabelTTF::create("", "Arial", 30);
 	pLabel3->setPosition(ccp(touchPoint->getPosition().x,touchPoint->getPosition().y+80));
 	this->addChild(pLabel3,10);
 
@@ -87,18 +87,18 @@ void Gps::updateView(float dt)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	int num;
 	JniMethodInfo minfo;
-	bool isHave = JniHelper::getStaticMethodInfo(minfo,"com/xing/game/hello_cocos","getInstance","()Lcom/xing/game/hello_cocos;");
+	bool isHave = JniHelper::getStaticMethodInfo(minfo,"com/bluemylake/game/hello_cocos","getInstance","()Lcom/bluemylake/game/hello_cocos;");
 	jobject jobj;//存对象
 	if (isHave) {
 		//这里的调用getInstance，返回Test类的对象。
 		jobj = minfo.env->CallStaticObjectMethod(minfo.classID, minfo.methodID);
 
-		isHave = JniHelper::getMethodInfo(minfo,"com/xing/game/hello_cocos","getLocationJ","()D");
+		isHave = JniHelper::getMethodInfo(minfo,"com/bluemylake/game/hello_cocos","getLocationJ","()D");
 		if (isHave) {
 			//调用openWebview, 参数1：Test对象   参数2：方法ID
 			longitude = minfo.env->CallDoubleMethod(jobj, minfo.methodID);
 		}
-		isHave = JniHelper::getMethodInfo(minfo,"com/xing/game/hello_cocos","getLocationW","()D");
+		isHave = JniHelper::getMethodInfo(minfo,"com/bluemylake/game/hello_cocos","getLocationW","()D");
 		if (isHave) {
 			//调用openWebview, 参数1：Test对象   参数2：方法ID
 			latitude = minfo.env->CallDoubleMethod(jobj, minfo.methodID);
@@ -113,7 +113,9 @@ void Gps::updateView(float dt)
 	showPoint(num);
 #else
 	//CCString* str = CCString::createWithFormat("%f",(float)longitude);
-	//pLabel->setString(str->getCString());
+	pLabel2->setString("无GPS信号");
+	pLabel2->setColor(ccc3(0,0,200));
+	mapPoint->setPosition(ccp(0,0));
 #endif
 	
 }
@@ -132,6 +134,7 @@ void Gps::showPosName(int num)
 	const char* name;
 	name = CsvUtil::sharedCsvUtil()->get(num,1,MAP_CSV_PATH);
 	pLabel2->setString(name);
+	pLabel2->setColor(ccc3(0,0,200));
 }
 
 
@@ -243,6 +246,7 @@ void Gps::showTouchPosName(int num,CCPoint pos)
 	const char* name;
 	name = CsvUtil::sharedCsvUtil()->get(num,1,MAP_CSV_PATH);
 	pLabel3->setString(name);
+	pLabel3->setColor(ccc3(0,0,200));
 	if (pos.y>300)
 		pLabel3->setPosition(ccp(pos.x+30,pos.y));
 	else
