@@ -189,8 +189,8 @@ typedef enum{Down=0,Left=1,Right=2,Up=3}FaceDirection;
 #define PANEL_ON_MAPLYR_ZOR 15
 #define NIGHT_ON_PANEL_ZOR 20
 #define MURK_ON_PANEL_ZOR 20
-#define WIN_ON_PANEL_ZOR 30
-#define BTN_ON_PANEL_ZOR 31
+#define WIN_ON_PANEL_ZOR 31
+#define BTN_ON_PANEL_ZOR 30
 #define BLACK_ON_PANEL_ZOR 40
 
 //switches

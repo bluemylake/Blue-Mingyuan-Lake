@@ -69,7 +69,7 @@ void Hero::doEvent(CCPoint heroTilePos)
 	{
 		if(!sGlobal->isNight)return;
 		float i = CCRANDOM_0_1();
-		if (i<0.3)
+		if (i<0.2)
 		{	
 			touchEnded=dir;walkEnd();//endWalking
 			this->focus=false;
