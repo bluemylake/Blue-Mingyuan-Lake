@@ -153,4 +153,5 @@ void Welcome::initView()
 		CCMenuItem* item=(CCMenuItem*)menu->arr->objectAtIndex(i);
 		item->setOpacity(0);
 	}
+	sMenu->setEnabled(false);
 }
