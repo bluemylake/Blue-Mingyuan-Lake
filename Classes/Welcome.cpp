@@ -121,6 +121,7 @@ void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
 				NULL);
 			item->runAction(seq);
 		}
+	sMenu->setEnabled(true);
 	sMenu->setOpacity(255);
 }
 
@@ -153,4 +154,5 @@ void Welcome::initView()
 		CCMenuItem* item=(CCMenuItem*)menu->arr->objectAtIndex(i);
 		item->setOpacity(0);
 	}
+	sMenu->setEnabled(false);
 }
