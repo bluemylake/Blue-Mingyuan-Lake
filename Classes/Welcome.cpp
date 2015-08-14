@@ -32,6 +32,36 @@ bool Welcome::init()
 	return true;
 }
 
+void Welcome::ccTouchesBegan(CCSet* pTouches, CCEvent* pEvent)
+{
+    CCSetIterator it;
+    CCTouch* touch;
+	for (it = pTouches->begin(); it != pTouches->end(); it++)
+    {
+        touch = (CCTouch*)(*it);
+        if(!touch) break;
+        
+        CCPoint location = touch->getLocationInView();
+        location = CCDirector::sharedDirector()->convertToGL(location);
+		mainbackground->doTouch(location, 512, 12);
+    }
+}
+
+void Welcome::ccTouchesMoved(CCSet* pTouches, CCEvent* pEvent)
+{
+    CCSetIterator it;
+    CCTouch* touch;
+	for (it = pTouches->begin(); it != pTouches->end(); it++)
+    {
+        touch = (CCTouch*)(*it);
+        if(!touch) break;
+        
+        CCPoint location = touch->getLocationInView();
+        location = CCDirector::sharedDirector()->convertToGL(location);
+		mainbackground->doTouch(location, 512, 12);
+    }
+}
+
 void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
 {
 	CCTouch* touch=(CCTouch*)pTouches->anyObject();
@@ -82,17 +112,23 @@ void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
 
 void Welcome::initView()
 {
-	CCSprite *mainbackground = CCSprite::create(GATE_PATH);
-	mainbackground->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2,
-		CCDirector::sharedDirector()->getVisibleSize().height/2));
+	mainbackground = new ens::CrippleSprite();
+    mainbackground->autorelease();
+	mainbackground->init(GATE_PATH,8);
+    mainbackground->scheduleUpdate();
+    CCSize winSize=CCDirector::sharedDirector()->getWinSize();
+	mainbackground->setPosition(ccp(winSize.width/2,winSize.height/2));
+    //CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+	//mainbackground->setPosition(ccp(CCDirector::sharedDirector()->getVisibleSize().width/2,
+		//CCDirector::sharedDirector()->getVisibleSize().height/2));
 	addChild(mainbackground,0);
 
-	sMenu=SMenu::create();
-	pMenu=PMenu::create();
+	CCMenu* sMenu=SMenu::create();
+	CCMenu* pMenu=PMenu::create();
 	sMenu->setPosition(CCPointZero);
 	pMenu->setPosition(CCPointZero);
-	addChild(sMenu, 2);
-	this->addChild(pMenu,2);
+	addChild(sMenu,2);
+	addChild(pMenu,2);
 	sMenu->setTag(SMENU);
 	pMenu->setTag(PMENU);
 
