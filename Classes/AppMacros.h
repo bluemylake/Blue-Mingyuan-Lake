@@ -59,6 +59,7 @@
 #define MAPNO_MRCD "MapNo"
 #define STORYCNT_MRCD "StoryCnt"
 #define HAS_SHADOW_MRCD "HasShadow"
+#define IS_BLOODY_MRCD "IsBloody"
 #define SH_STAND_P_MRCD "ShStandPos"
 #define DAY_TIME_MRCD "StoryTime"
 #define NIGHT_TIME_MRCD "NightStoryTime"
@@ -82,6 +83,7 @@
 #define MAPNO_INI MAP11
 #define STORYCNT_INI 0
 #define HAS_SHADOW_INI false
+#define IS_BLOODY_INI false
 #define SH_STAND_P_INI 2
 #define DAY_TIME_INI 0
 #define NIGHT_TIME_INI 0

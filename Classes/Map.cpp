@@ -33,8 +33,10 @@ void Map::removeAllChildrenWithCleanup(bool cleanup)
 void Map::initNPC()
 {
     NPCs=NPCUtil::initNPC();
-    if(NPCs==NULL)
-	CCLog("NPC Loading failed! ");
+    if(NPCs==NULL) CCLog("NPC Loading failed! ");
+	//open a new func if necessary for bloody init
+	if(sGlobal->mapState->isBloody && sGlobal->isNight)
+		this->layerNamed(WATER_MLYR)->setVisible(false);
 }
 
 Map* Map::crossMap(CCPoint tileBirthPoint,int mapNo)

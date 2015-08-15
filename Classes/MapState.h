@@ -12,6 +12,7 @@ public:
    int dTime;
    int nTime;
    bool hasSh;
+   bool isBloody;
    int standPos;
 };
 #endif
