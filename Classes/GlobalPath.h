@@ -88,6 +88,9 @@
 #define FIRE_DOWN_BTN_IMG_PATH "img/new combat/button/firebuttondown.png"
 #define WATER_DOWN_BTN_IMG_PATH "img/new combat/button/waterbuttondown.png"
 #define WOOD_DOWN_BTN_IMG_PATH "img/new combat/button/woodbuttondown.png"
+#define RUN_BTN_IMG_PATH "img/new combat/button/run.png"
+#define RUN_DOWN_BTN_IMG_PATH "img/new combat/button/rundown.png"
+
 
 #define FIRE_PLIST_IMG_PATH "img/new combat/part/FireParticle.plist"
 #define FIRE_PNG_IMG_PATH "img/new combat/part/particleFire.png"

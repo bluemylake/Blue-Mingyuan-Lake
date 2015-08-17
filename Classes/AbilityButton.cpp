@@ -21,9 +21,9 @@ void AbilityButton::CreateButton()
 	CCScale9Sprite* btnwaterDown = CCScale9Sprite::create(WATER_DOWN_BTN_IMG_PATH); 
 	CCScale9Sprite* btnwoodDown = CCScale9Sprite::create(WOOD_DOWN_BTN_IMG_PATH); 
 	/* °´Å¥±êÌâ */  
-	firetitle = CCLabelTTF::create("@@", "Marker Felt", 80);  
-	watertitle = CCLabelTTF::create("@@", "Marker Felt", 80);  
-	woodtitle = CCLabelTTF::create("@@", "Marker Felt", 80);  
+	firetitle = CCLabelTTF::create("@@", "Marker Felt", 60);  
+	watertitle = CCLabelTTF::create("@@", "Marker Felt", 60);  
+	woodtitle = CCLabelTTF::create("@@", "Marker Felt", 60);  
 
 //	fireBtn->setPreferredSize(CCSize(100, 100));
 //	waterBtn->setPreferredSize(CCSize(100, 100));
@@ -47,8 +47,8 @@ void AbilityButton::CreateButton()
 void AbilityButton::setButtonPosition(CCPoint pos)
 {
 	fireBtn->setPosition(ccp(pos.x,pos.y));  
-	waterBtn->setPosition(ccp(pos.x+100,pos.y));  
-	woodBtn->setPosition(ccp(pos.x+200,pos.y));  
+	waterBtn->setPosition(ccp(pos.x+70,pos.y));  
+	woodBtn->setPosition(ccp(pos.x+70*2,pos.y));  
 }
 
 void AbilityButton::BindButtonEvent()

@@ -98,9 +98,15 @@ bool Combat::init(int monsterType)
 	playerbutton->setButtonPosition(ccp(50,50));
 	playerbutton->updateDamage(cplayer->level);
 	monsterbutton->CreateButton();
-	monsterbutton->setButtonPosition(ccp(420,50));
+	monsterbutton->setButtonPosition(ccp(480,50));
 	monsterbutton->LockButtonTouch();
 	monsterbutton->updateDamage(monster->level);
+
+	CCMenuItemImage *pCloseItem = CCMenuItemImage::create(RUN_BTN_IMG_PATH,RUN_DOWN_BTN_IMG_PATH,this,menu_selector(Combat::exitCombat));
+	pCloseItem->setPosition(ccp(visibleSize.width/2,50));
+	CCMenu* pMenu = CCMenu::create(pCloseItem,NULL);
+	pMenu->setPosition(CCPointZero);
+	this->addChild(pMenu);
 	this->addChild(playerbutton);
 	this->addChild(monsterbutton);
 
@@ -349,11 +355,18 @@ void Combat::gameOver(CCObject* psender)
 void Combat::popCombat()
 {
 	//存档
-
-
 	//保存：经验值exp
+	//移除观察者
+	CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
+	//popScene
+	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(672,448, kResolutionExactFit);
+	CCDirector::sharedDirector()->popScene();
+}
 
-
+void Combat::exitCombat(CCObject *pSender)
+{
+	//存档
+	//保存：经验值exp
 	//移除观察者
 	CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
 	//popScene

@@ -40,6 +40,7 @@ public:
 	void setSignal();
 	void gameOver(CCObject* psender);
 	void popCombat();
+	void exitCombat(CCObject *pSender);
 	//
 	int monsterType;
 	static int gameWinner;
