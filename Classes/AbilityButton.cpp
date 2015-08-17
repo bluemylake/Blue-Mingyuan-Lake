@@ -47,8 +47,8 @@ void AbilityButton::CreateButton()
 void AbilityButton::setButtonPosition(CCPoint pos)
 {
 	fireBtn->setPosition(ccp(pos.x,pos.y));  
-	waterBtn->setPosition(ccp(pos.x+70,pos.y));  
-	woodBtn->setPosition(ccp(pos.x+70*2,pos.y));  
+	waterBtn->setPosition(ccp(pos.x+80,pos.y));  
+	woodBtn->setPosition(ccp(pos.x+80*2,pos.y));  
 }
 
 void AbilityButton::BindButtonEvent()

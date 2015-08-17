@@ -32,7 +32,7 @@ void Monster::setMonster(int monType)
 		else 
 		{
 			monster = CCSprite::create("img/new combat/char/boss1.png");
-			level = 15;
+			level = 12;
 		}
 	}
 
