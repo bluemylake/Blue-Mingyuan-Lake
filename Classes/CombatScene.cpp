@@ -102,11 +102,15 @@ bool Combat::init(int monsterType)
 	monsterbutton->LockButtonTouch();
 	monsterbutton->updateDamage(monster->level);
 
-	CCMenuItemImage *pCloseItem = CCMenuItemImage::create(RUN_BTN_IMG_PATH,RUN_DOWN_BTN_IMG_PATH,this,menu_selector(Combat::exitCombat));
-	pCloseItem->setPosition(ccp(visibleSize.width/2,50));
-	CCMenu* pMenu = CCMenu::create(pCloseItem,NULL);
-	pMenu->setPosition(CCPointZero);
-	this->addChild(pMenu);
+	if (monsterType==0)
+	{
+		CCMenuItemImage *pCloseItem = CCMenuItemImage::create(RUN_BTN_IMG_PATH,RUN_DOWN_BTN_IMG_PATH,this,menu_selector(Combat::exitCombat));
+		pCloseItem->setPosition(ccp(visibleSize.width/2,50));
+		CCMenu* pMenu = CCMenu::create(pCloseItem,NULL);
+		pMenu->setPosition(CCPointZero);
+		this->addChild(pMenu);
+	}
+
 	this->addChild(playerbutton);
 	this->addChild(monsterbutton);
 
