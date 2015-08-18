@@ -69,11 +69,11 @@ void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
 	int ynd=touch->getLocation().y,ynu=touch->getStartLocation().y;
 	if(state==READY_TO_WIRTE)
 	{
+		//pre condition: prev released
 		bool pie=xnu>xnd&&ynu>ynd&&(xnu-xnd)>((ynu-ynd)/10);
 		if(pie)
 		{
 			state++;
-			CC_SAFE_RELEASE(prevTouch);
 			prevTouch=touch;
 			CC_SAFE_RETAIN(prevTouch);
 			//@display here
@@ -81,6 +81,7 @@ void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
 	}
 	else if(state==FIRST_STROKE_DONE)
 	{
+		//pre condition: prev retained
 		int xpd=prevTouch->getLocation().x,xpu=prevTouch->getStartLocation().x;
 		int ypd=prevTouch->getLocation().y,ypu=prevTouch->getStartLocation().y;
 		bool shu=ypu>ynu&&ypd<ynd&&xnu>xpu&&xnd>xpd&&abs(xnu-xnd)<((ynu-ynd)/2);
@@ -92,21 +93,31 @@ void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
 			prevTouch->retain();
 			//@display here
 		}
-		else state=READY_TO_WIRTE;
+		else
+		{
+			state=READY_TO_WIRTE;
+			prevTouch->release();
+		}
 	}
 	else if(state==SEC_STROKE_DONE)
 	{
+		//pre condition: prev retained
 		int xpd=prevTouch->getLocation().x,xpu=prevTouch->getStartLocation().x;
 		int ypd=prevTouch->getLocation().y,ypu=prevTouch->getStartLocation().y;
 		bool shu=ypu<ynu&&ypd>ynd&&xnu>xpu&&xnd>xpd&&abs(xnu-xnd)<((ynu-ynd)/2);
 		if(shu)
 		{
 			sGlobal->superPower->all=true;
+			state++;
+			prevTouch->release();
 			//CCLog("Chuan! ");
 			//@display here
 		}
-		else state=READY_TO_WIRTE;
-		prevTouch->release();
+		else 
+		{
+			state=READY_TO_WIRTE;
+			prevTouch->release();
+		}
 	}
 
 	SMenu* menu = (SMenu*)sMenu;
