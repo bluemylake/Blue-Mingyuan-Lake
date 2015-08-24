@@ -1,0 +1,3 @@
+x,y,description,id,category,type,imgNo,next,nPreCondition,nDialog,nArgument,repeat,args,dialogs,pres,
+95,23,不高山,1400,1,0,21,-1,0,1,0,1,听说不高山是用挖明远湖的土堆成的,,,
+100,67,明远湖,1401,1,0,23,-1,0,3,0,1,子张问明,子曰，浸润之谮，肤受之愬，不行焉，可谓<明>也已矣,浸润之谮，肤受之愬，不行焉，可谓<远>也已矣,
