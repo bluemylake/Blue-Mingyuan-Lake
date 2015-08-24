@@ -5,6 +5,7 @@
 #include "AppMacros.h"
 #include "PlayReader.h"
 #include "SimpleAudioEngine.h"
+#include "AudioPlayer.h"
 #include "Welcome.h"
 #include <vector>
 using namespace cocos2d;
@@ -21,7 +22,6 @@ protected:
   enum allChoice {fChoice = 10, sChoice, tChoice};
   void registerWithTouchDispatcher(void);
   bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
-  void menuCloseCallback(CCObject* pSender);
   void leafletChoiceHandler(CCObject *sender);
   void theFinalChoiceHandler(CCObject *sender);
   void confirmButtonHandler(CCObject *sender);

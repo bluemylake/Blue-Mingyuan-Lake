@@ -27,6 +27,9 @@ bool Welcome::init()
 	this->setTouchEnabled(true);
 	this->state=0;
 	sGlobal->init();
+  
+  // BGM load
+  AudioPlayer::PlayDayBGM();
 
 	initView();
 	return true;
@@ -138,32 +141,32 @@ void Welcome::ccTouchesEnded(CCSet* pTouches, CCEvent *pEvent)
 
 void Welcome::initView()
 {
-	mainbackground = new ens::CrippleSprite();
-    mainbackground->autorelease();
-	mainbackground->init(GATE_PATH,8);
-    mainbackground->scheduleUpdate();
-    CCSize winSize=CCDirector::sharedDirector()->getWinSize();
-	mainbackground->setPosition(ccp(winSize.width/2,winSize.height/2));
-	addChild(mainbackground,0);
-
-	sMenu=SMenu::create();
-	pMenu=PMenu::create();
-	sMenu->setPosition(CCPointZero);
-	pMenu->setPosition(CCPointZero);
-	sMenu->setTag(SMENU);
-	pMenu->setTag(PMENU);
-	addChild(sMenu,2);
-	addChild(pMenu,2);
-
-	pMenu->setVisible(false);
-	pMenu->setEnabled(false);
-
-	SMenu* menu = (SMenu*)sMenu;
-	sMenu->setOpacity(0);
-	for(int i=0;i<menu->arr->count();i++)
-	{
-		CCMenuItem* item=(CCMenuItem*)menu->arr->objectAtIndex(i);
-		item->setOpacity(0);
-	}
-	sMenu->setEnabled(false);
+  mainbackground = new ens::CrippleSprite();
+  mainbackground->autorelease();
+  mainbackground->init(GATE_PATH,8);
+  mainbackground->scheduleUpdate();
+  CCSize winSize=CCDirector::sharedDirector()->getWinSize();
+  mainbackground->setPosition(ccp(winSize.width/2,winSize.height/2));
+  addChild(mainbackground,0);
+  
+  sMenu=SMenu::create();
+  pMenu=PMenu::create();
+  sMenu->setPosition(CCPointZero);
+  pMenu->setPosition(CCPointZero);
+  sMenu->setTag(SMENU);
+  pMenu->setTag(PMENU);
+  addChild(sMenu,2);
+  addChild(pMenu,2);
+  
+  pMenu->setVisible(false);
+  pMenu->setEnabled(false);
+  
+  SMenu* menu = (SMenu*)sMenu;
+  sMenu->setOpacity(0);
+  for(int i=0;i<menu->arr->count();i++)
+  {
+    CCMenuItem* item=(CCMenuItem*)menu->arr->objectAtIndex(i);
+    item->setOpacity(0);
+  }
+  sMenu->setEnabled(false);
 }

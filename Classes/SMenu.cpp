@@ -30,7 +30,9 @@ bool SMenu::init()
 	CCArray* arr = CCArray::createWithObject(start);
 	arr->addObject(map);
 	arr->addObject(settings);
-	arr->addObject(quitGame);
+  #if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC && CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
+  arr->addObject(quitGame);
+  #endif
 	this->initWithArray(arr);
 	this->arr=arr;
 	this->arr->retain();

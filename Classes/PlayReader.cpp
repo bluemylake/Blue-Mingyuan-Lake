@@ -7,7 +7,6 @@
 //
 
 #include "PlayReader.h"
-#include "strtok_r.c"
 
 PlayReader::PlayReader() {
   lineNum=0;

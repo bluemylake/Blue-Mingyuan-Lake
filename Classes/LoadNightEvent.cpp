@@ -11,6 +11,9 @@ void LoadNightEvent::happen()
 {
 	ReloadEvent::getPrev(this->args)->repeat=false;
 
+  // Switch Background Music
+  AudioPlayer::PlayNightBGM();
+  
 	if(sGlobal->isNight==true) return; 
 	sGlobal->isNight=true;
 	rGlobal->map->scheduleOnce(schedule_selector(LoadNightEvent::delayedLoad), 0.6f);

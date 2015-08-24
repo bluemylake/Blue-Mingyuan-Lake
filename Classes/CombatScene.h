@@ -1,4 +1,4 @@
-﻿#ifndef __COMBAT_SCENE_H__
+#ifndef __COMBAT_SCENE_H__
 #define __COMBAT_SCENE_H__
 
 #include "cocos2d.h"
@@ -8,6 +8,7 @@
 #include "Monster.h"
 #include "AbilityButton.h"
 #include "Particles.h"
+#include "AudioPlayer.h"
 
 using namespace cocos2d;
 

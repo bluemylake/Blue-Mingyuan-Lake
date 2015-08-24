@@ -14,6 +14,10 @@
 #include <string>
 #include "cocos2d.h"
 
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC && CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
+#include "strtok_r.c"
+#endif
+
 using namespace std;
 class PlayReader {
 public:

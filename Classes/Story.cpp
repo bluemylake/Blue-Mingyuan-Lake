@@ -19,19 +19,12 @@ bool StoryWorld::init() {
   }
   char theName[10][11]={"","穆婧:", "子轩:", "少杰:", "建国", "路人A:", "路人B:", "路人C:", "老爷爷:", "江姐:"};
   char play[20] = SCRIPT_PATH;
-  current=sGlobal->mapState->storyCnt+'0';//stay
+  current=sGlobal->mapState->storyCnt+'0';
   play[SCRIPT_PATH_LEN] = current;
   reader.ReadFileWithFullPath(CCFileUtils::sharedFileUtils()->fullPathForFilename(play));
   this->setTouchEnabled(true);
   CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
   CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
-  CCMenuItemImage *pCloseItem = CCMenuItemImage::create(CLOSEN_IMG_PATH, CLOSES_IMG_PATH, this, menu_selector(StoryWorld::menuCloseCallback));
-  
-  pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 , origin.y + pCloseItem->getContentSize().height/2));
-  
-  CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-  pMenu->setPosition(CCPointZero);
-  addChild(pMenu, 2);
   
   char bg_name[30] = "" ;
   char bg_num[4]="";
@@ -363,17 +356,12 @@ void StoryWorld::audioSwitchCase(int code) {
     case '4':
     case '5':
     case '6':{
-      char musicName[7] = " .mp3";
-      musicName[0] = dialog[4];
-      if (CocosDenshion::SimpleAudioEngine::sharedEngine()->isBackgroundMusicPlaying()) {
-        CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
-      }
-      CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic(CCFileUtils::sharedFileUtils()->fullPathForFilename(musicName).c_str());
-      CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic(CCFileUtils::sharedFileUtils()->fullPathForFilename(musicName).c_str(), true);
+      char musicName[12] = "audio/ .mp3";
+      musicName[6] = dialog[4];
+      AudioPlayer::switchBGM(musicName);
     }
       break;
     case '7': {
-      CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
     }
       break;
     case '8':
@@ -383,21 +371,19 @@ void StoryWorld::audioSwitchCase(int code) {
     case 'C':
     case 'D':
     case 'G':{
-      char effectName[7] = " .wav";
-      effectName[0] = dialog[4];
+      char effectName[12] = "audio/ .wav";
+      effectName[6] = dialog[4];
       
-      CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadEffect(CCFileUtils::sharedFileUtils()->fullPathForFilename(effectName).c_str());
-      CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(CCFileUtils::sharedFileUtils()->fullPathForFilename(effectName).c_str());
+      AudioPlayer::playEffect(effectName);
     }
       break;
     case 'E':
     case 'F':
     case 'H':{
-      char effectName[7] = " .mp3";
-      effectName[0] = dialog[4];
+      char effectName[12] = "audio/ .mp3";
+      effectName[6] = dialog[4];
       
-      CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadEffect(CCFileUtils::sharedFileUtils()->fullPathForFilename(effectName).c_str());
-      CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(CCFileUtils::sharedFileUtils()->fullPathForFilename(effectName).c_str());
+      AudioPlayer::playEffect(effectName);
     }
       break;
       
@@ -468,9 +454,14 @@ void StoryWorld::leafletChoiceHandler(CCObject *sender) {
 
 // 
 void StoryWorld::gameOverAndBackToWelcome() {
-  CCScene *welcome = Welcome::scene();
-  CCTransitionCrossFade *backToWelcome = CCTransitionCrossFade::create(0.7, welcome);
-  CCDirector::sharedDirector()->replaceScene(backToWelcome);
+//  CCScene *welcome = Welcome::scene();
+//  CCTransitionCrossFade *backToWelcome = CCTransitionCrossFade::create(0.7, welcome);
+//  CCEGLView::sharedOpenGLView()->setDesignResolutionSize(672, 448, kResolutionExactFit);
+//  CCDirector::sharedDirector()->replaceScene(backToWelcome);
+  
+  AudioPlayer::PlayDayBGM();
+  CCEGLView::sharedOpenGLView()->setDesignResolutionSize(672, 448, kResolutionExactFit);
+  CCDirector::sharedDirector()->popScene();
 }
 
 
@@ -479,8 +470,9 @@ void StoryWorld::saveProcessAndPopOut() {
   current+=1;
   CCUserDefault::sharedUserDefault()->setIntegerForKey("Process", current-'0');
   CCUserDefault::sharedUserDefault()->flush();
-  CCEGLView::sharedOpenGLView()->setDesignResolutionSize(672, 448, kResolutionExactFit);
   
+  AudioPlayer::PlayDayBGM();
+  CCEGLView::sharedOpenGLView()->setDesignResolutionSize(672, 448, kResolutionExactFit);
   CCDirector::sharedDirector()->popScene();
 }
 
@@ -496,9 +488,4 @@ void StoryWorld::menuLeafletsCloseCallback(CCObject* sender) {
 
 void StoryWorld::confirmButtonHandler(CCObject *sender) {
   saveProcessAndPopOut();
-}
-
-//
-void StoryWorld::menuCloseCallback(CCObject* pSender) {
-
 }

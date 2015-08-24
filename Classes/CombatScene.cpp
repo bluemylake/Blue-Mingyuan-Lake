@@ -1,4 +1,4 @@
-﻿#include "CombatScene.h"
+#include "CombatScene.h"
 USING_NS_CC;
 
 #define LABEL_FONT "Heiti SC"
@@ -45,6 +45,10 @@ bool Combat::init(int monsterType)
 {
 	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
 	CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+  
+  // Switch BGM
+  AudioPlayer::PlayCombatBGM();
+  
 	//角色创建
 	cplayer = CPlayer::create();
 	cplayer->setPlayer();
@@ -369,11 +373,5 @@ void Combat::popCombat()
 
 void Combat::exitCombat(CCObject *pSender)
 {
-	//存档
-	//保存：经验值exp
-	//移除观察者
-	CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
-	//popScene
-	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(672,448, kResolutionExactFit);
-	CCDirector::sharedDirector()->popScene();
+	popCombat();
 }

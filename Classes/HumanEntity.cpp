@@ -1,6 +1,6 @@
 #include "HumanEntity.h"
 
-//Ó¢ÐÛ¾²Ö¹³¯Ïò
+//è‹±é›„é™æ­¢æœå‘
 void HumanEntity::setFaceDirection(int dirc)
 {
 	if(dirc>Up)dirc=Down;
@@ -13,10 +13,10 @@ void HumanEntity::initSprite()
 	IntToAddrForPNG(addr,MAN_PATH_LEN,picNo);
 	CCTexture2D* HumanEntityTexture=CCTextureCache::sharedTextureCache()->addImage(addr);
 	
-	//ÈËÎï¾²Ö¹Í¼ÏñÉèÖÃ
+	//äººç‰©é™æ­¢å›¾åƒè®¾ç½®
 	const int downStatic=0;//macro
 	sprite=CCSprite::createWithTexture(HumanEntityTexture);
-	sprite->setTextureRect(CCRectMake(0,32*downStatic,32,48));//³õÊ¼¾²Ö¹Í¼Æ¬£¡
+	sprite->setTextureRect(CCRectMake(0,32*downStatic,32,48));//åˆå§‹é™æ­¢å›¾ç‰‡ï¼
 	sprite->setTag(IMGSP);
 	addChild(sprite);
 }

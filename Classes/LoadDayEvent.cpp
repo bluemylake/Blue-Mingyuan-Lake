@@ -10,6 +10,9 @@
 void LoadDayEvent::happen()
 {
 	ReloadEvent::getPrev(this->args)->repeat=false;
+  
+  // Switch Background Music
+  AudioPlayer::PlayDayBGM();
 
 	if(sGlobal->isNight==false) return;
 	sGlobal->isNight=false;

@@ -1,6 +1,7 @@
 #ifndef _LOAD_DAY_EVENT_H_
 #define _LOAD_DAY_EVENT_H_
 #include "Event.h"
+#include "AudioPlayer.h"
 
 //Load day scene and event 
 class LoadDayEvent: public Event
