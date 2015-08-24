@@ -92,6 +92,15 @@ bool HelpScene::init()
 		CCMenu* menu = CCMenu::create(backToWelcome,NULL);
 		menu->setPosition(CCPointZero);
 		this->addChild(menu,10);
+
+		CCSprite *swipe = CCSprite::create(LEFT_SWIPE_IMG_PATH);
+		swipe->setPosition(ccp(size.width/2,35));
+		CCBlink* blk = CCBlink::create(1,3);
+		CCFadeOut* fadeout = CCFadeOut::create(1.0);
+		CCSequence* pblink = CCSequence::create(CCDelayTime::create(1.0),blk,CCDelayTime::create(1.0),fadeout,NULL);
+		swipe->runAction(pblink);
+		this->addChild(swipe,20);
+
     return true;
 }
 

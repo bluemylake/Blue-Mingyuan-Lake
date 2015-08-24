@@ -65,6 +65,8 @@ void GlobalState::newr()
 	SAVE_BOOL(STEALTH_SRCD,STEALTH_INI);
 	SAVE_BOOL(SURF_SRCD,SURF_INI);
 	SAVE_STRING(EVENTDONE_MRCD,EVENTDONE_INI);
+
+	SAVE_INT("SwipeRefer",0);
 }
 
 GlobalState::~GlobalState()

@@ -122,4 +122,6 @@
 
 //help
 #define  HELP_IMG_PATH "Help/Help_%d_chs-hd.png"
+#define  LEFT_SWIPE_IMG_PATH "Help/leftswipe.png"
+#define  UP_SWIPE_IMG_PATH "Help/upswipe.png"
 #endif

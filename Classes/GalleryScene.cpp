@@ -66,6 +66,22 @@ bool Gallery::init()
 	pointImg->setPosition(ccp(120,500));
 	this->addChild(pointImg,3);
 
+
+	//·­Ò³ÌáÊ¾
+	if (CCUserDefault::sharedUserDefault()->getIntegerForKey("SwipeRefer")!=1)
+	{
+		CCSprite *swipe = CCSprite::create(UP_SWIPE_IMG_PATH);
+		swipe->setPosition(ccp(50,visibSize.height/2));
+		CCBlink* blk = CCBlink::create(1,3);
+		CCFadeOut* fadeout = CCFadeOut::create(1.0);
+		CCSequence* pblink = CCSequence::create(blk,CCDelayTime::create(1.5),fadeout,NULL);
+		swipe->runAction(pblink);
+		this->addChild(swipe,20);
+		CCUserDefault::sharedUserDefault()->setIntegerForKey("SwipeRefer",1);
+	}
+	
+
+
 	return true;
 }
 
