@@ -367,6 +367,7 @@ void Combat::popCombat()
 	//移除观察者
 	CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
 	//popScene
+  AudioPlayer::PlayNightBGM();
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(672,448, kResolutionExactFit);
 	CCDirector::sharedDirector()->popScene();
 }
