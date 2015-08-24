@@ -4,27 +4,27 @@
 #include "GlobalPath.h"
 #include "cocos2d.h"
 
-//layerçš„å‘½åæ³•æ˜¯sceneçš„é¦–å­—æ¯åŠ layerååŠ LAYER
-//layeræ˜¯100+
+//layerµÄÃüÃû·¨ÊÇsceneµÄÊ××ÖÄ¸¼ÓlayerÃû¼ÓLAYER
+//layerÊÇ100+
 #define WELCOMELAYER 99
 #define SMENU 98
 #define PMENU 97
 
 #define HELLOWORLDLAYER 100
 
-//HelloWorldçš„å„¿å­
+//HelloWorldµÄ¶ù×Ó
 #define MAPLAYER 101
 #define CONTROLPANELLAYER 102
 #define COMBATLAYER 103
 
-//MapLayerçš„å„¿å­
+//MapLayerµÄ¶ù×Ó
 #define MAP 590
 #define HERO 510
 
-//Mapçš„å„¿å­
+//MapµÄ¶ù×Ó
 #define MAN_START 36 
 
-//ControlPanelçš„å„¿å­
+//ControlPanelµÄ¶ù×Ó
 #define RWINDOW 521
 #define BIGWINDOW 522
 #define DIAWINDOW 523
@@ -33,16 +33,16 @@
 #define TOUCHSCREEN 100
 #define MENU 1000
 
-//Combatçš„å„¿å­
+//CombatµÄ¶ù×Ó
 #define BACKGROUND 100 
 
-//Entity bindçš„spriteå‘½åæ˜¯IMGSP
+//Entity bindµÄspriteÃüÃûÊÇIMGSP
 #define IMGSP 500
 #define DIABOXSP 501
 #define LABELSP 502
 #define CONTENTSP 503
 
-//åœ°å›¾å±‚çš„å‘½åæ³•æ˜¯å›¾å±‚ååŠ _MLYR
+//µØÍ¼²ãµÄÃüÃû·¨ÊÇÍ¼²ãÃû¼Ó_MLYR
 #define EVENT_MLYR "event"
 #define BUILDING2_MLYR "building2"
 #define BUILDING_MLYR "building"
@@ -51,7 +51,7 @@
 #define FLOOR_MLYR "floor"
 #define WATER_MLYR "water"
 
-//æ¸¸æˆè®°å½•çš„å±æ€§åå‘½åæ³•æ˜¯å±æ€§ååŠ _(M/S)RCD
+//ÓÎÏ·¼ÇÂ¼µÄÊôĞÔÃûÃüÃû·¨ÊÇÊôĞÔÃû¼Ó_(M/S)RCD
 #define FIRSTSAVE_RCD "FisrtSave"
 #define POSITIONX_MRCD "PositionX"
 #define POSITIONY_MRCD "PositionY"
@@ -75,7 +75,7 @@
 
 #define EXP_CRCD "Exp"
 
-//æ¸¸æˆè®°å½•çš„åˆå§‹å€¼å‘½åæ³•æ˜¯å±æ€§ååŠ _INI
+//ÓÎÏ·¼ÇÂ¼µÄ³õÊ¼ÖµÃüÃû·¨ÊÇÊôĞÔÃû¼Ó_INI
 #define FIRSTSAVE_INI true
 #define POSITIONX_INI 63
 #define POSITIONY_INI 98
@@ -101,18 +101,18 @@
 #define MAX_DONE_LIST 2100
 #define DEFUALT_DELIM ','
 
-//ç”»é¢åˆ†è¾¨ç‡
+//»­Ãæ·Ö±æÂÊ
 #define JX_RESOLUWID 1136
 #define JX_RESOLUHEI 640
 #define MAP_RESOLUWID 672
 #define MAP_RESOLUHEI 448
 
 
-//äº‹ä»¶çš„å‘½åæ³•æ˜¯äº‹ä»¶ååŠ _EVT
-//äº‹ä»¶æœ‰ä¸¤ç§è§¦å‘æ–¹å¼ï¼šç«™è§¦å‘å’ŒAè§¦å‘
-//äº‹ä»¶åœ¨åœ°å›¾eventå±‚
-//ç«™è§¦å‘çœ‹standå±æ€§ï¼ŒAè§¦å‘çœ‹atrgå±æ€§
-//å±æ€§åçš„å‘½åæ³•æ˜¯å±æ€§ååŠ _ATT
+//ÊÂ¼şµÄÃüÃû·¨ÊÇÊÂ¼şÃû¼Ó_EVT
+//ÊÂ¼şÓĞÁ½ÖÖ´¥·¢·½Ê½£ºÕ¾´¥·¢ºÍA´¥·¢
+//ÊÂ¼şÔÚµØÍ¼event²ã
+//Õ¾´¥·¢¿´standÊôĞÔ£¬A´¥·¢¿´atrgÊôĞÔ
+//ÊôĞÔÃûµÄÃüÃû·¨ÊÇÊôĞÔÃû¼Ó_ATT
 #define STANDTRG_ATT "stand"
 #define ATRG_ATT "atrg"
 #define ID_ATT "id"
@@ -126,11 +126,11 @@
 
 #define INFORMATION_GRP "information"
 #define PLACENAMEID_OBJ "placenameID"
-/*æ–°å»ºäº‹ä»¶çš„æ­¥éª¤ï¼š
-1.é€‰å®šä¸€ä¸ªå—å„¿ï¼Œæ–°å»ºå±æ€§stand/atrg=äº‹ä»¶åï¼Œid=å‚æ•°ã€‚
-2.åœ¨eventå±‚æŠŠè¿™ä¸ªå—å„¿ç”»åœ¨åˆé€‚çš„ä½ç½®ã€‚
-(è‹¥ä¸ºplace nameäº‹ä»¶ï¼Œè¦åœ¨åœ°å›¾çš„informationå¯¹è±¡å±‚åŠ placenameIDå¯¹è±¡ï¼Œå±æ€§åä¸ºidå€¼ï¼Œå±æ€§å€¼ä¸ºåœ°å)
-(è‹¥ä¸ºportaläº‹ä»¶,å‚æ•°ä¸ºidxå’Œidyï¼Œä»£è¡¨ä¼ é€ç›®çš„åœ°çš„åæ ‡)*/
+/*ĞÂ½¨ÊÂ¼şµÄ²½Öè£º
+1.Ñ¡¶¨Ò»¸ö¿é¶ù£¬ĞÂ½¨ÊôĞÔstand/atrg=ÊÂ¼şÃû£¬id=²ÎÊı¡£
+2.ÔÚevent²ã°ÑÕâ¸ö¿é¶ù»­ÔÚºÏÊÊµÄÎ»ÖÃ¡£
+(ÈôÎªplace nameÊÂ¼ş£¬ÒªÔÚµØÍ¼µÄinformation¶ÔÏó²ã¼ÓplacenameID¶ÔÏó£¬ÊôĞÔÃûÎªidÖµ£¬ÊôĞÔÖµÎªµØÃû)
+(ÈôÎªportalÊÂ¼ş,²ÎÊıÎªidxºÍidy£¬´ú±í´«ËÍÄ¿µÄµØµÄ×ø±ê)*/
 
 #define MAP10 18
 #define MAP11 19
