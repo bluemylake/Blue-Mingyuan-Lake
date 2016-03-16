@@ -58,54 +58,53 @@ void ControlPanel::ccTouchesMoved(CCSet* pTouch, CCEvent *pEvent)
 
 void ControlPanel::initControllerListeners()
 {
-	//´´½¨Ó¢ÐÛ
-	hero=Hero::create();
-	hero->gotFocusT();
-	rGlobal->hero=hero;//@
+	hero = Hero::create();
+	rGlobal->hero = hero;
 	hero->setFaceDirection(hero->dir);
 	hero->setPosition(
 		ccp(CCDirector::sharedDirector()->getWinSize().width/2,
-		CCDirector::sharedDirector()->getWinSize().height/2)-ccp(0,hero->map->getTileSize().height/2));
+		CCDirector::sharedDirector()->getWinSize().height/2)-
+		ccp(0,rGlobal->map->getTileSize().height/2));
 
-	PlacenameWindow* rwindow=PlacenameWindow::create();
+	PlacenameWindow* rwindow = PlacenameWindow::create();
 	rwindow->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2,
 		CCDirector::sharedDirector()->getWinSize().height/2));
-	rGlobal->rwindow=rwindow;
+	rGlobal->rwindow = rwindow;
 	this->addChild(rwindow,WIN_ON_PANEL_ZOR);
 
 	//bigwindow=BigWindow::create();
 	//this->setTag(BIGWINDOW);this->addChild(bigwindow,11);
-	bigwindow=NULL;
+	bigwindow = NULL;
 
-	diawindow=DiaWindow::create();
-	rGlobal->diawindow=diawindow;
-	this->setTag(DIAWINDOW);this->addChild(diawindow,WIN_ON_PANEL_ZOR);
+	diawindow = DiaWindow::create();
+	rGlobal->diawindow = diawindow;
+	this->setTag(DIAWINDOW); this->addChild(diawindow,WIN_ON_PANEL_ZOR);
 }
 
 void ControlPanel::initControllers()
 {
-	this->dirButton=DirButton::create();
+	this->dirButton = DirButton::create();
 	dirButton->setPosition(ccp(dirButton->buttonImg->getContentSize().width/2,
 		dirButton->buttonImg->getContentSize().height/2));
-	dirButton->setControllerListener(hero);
-	dirButton->setTag(DIRBUTTON);this->addChild(dirButton,BTN_ON_PANEL_ZOR);
+	dirButton->setControllerListener( heroWalker );
+	dirButton->setTag(DIRBUTTON); this->addChild(dirButton, BTN_ON_PANEL_ZOR);
 
-	this->buttonA=ButtonA::create();
+	this->buttonA = ButtonA::create();
 	buttonA->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width-
 		buttonA->buttonImg->getContentSize().width,
 		buttonA->buttonImg->getContentSize().height*2));
-	buttonA->setPointers(hero,diawindow,bigwindow);
-	buttonA->setTag(BUTTONA);this->addChild(buttonA,BTN_ON_PANEL_ZOR);
+	buttonA->setPointers(heroWalker, diawindow, bigwindow);
+	buttonA->setTag(BUTTONA); this->addChild(buttonA, BTN_ON_PANEL_ZOR);
 
-	this->touchScreen=TouchScreen::create();
-	touchScreen->setPointers(hero,buttonA,dirButton);
+	this->touchScreen = TouchScreen::create();
+	touchScreen->setPointers(heroWalker, buttonA, dirButton);
 	touchScreen->setTag(TOUCHSCREEN);
-	this->addChild(touchScreen,BTN_ON_PANEL_ZOR);
+	this->addChild(touchScreen, BTN_ON_PANEL_ZOR);
 
-	Menu* menu=Menu::create();
+	Menu* menu = Menu::create();
 	menu->setHero(hero);
 	menu->setTag(MENU);
-	this->addChild(menu,BTN_ON_PANEL_ZOR);
+	this->addChild(menu, BTN_ON_PANEL_ZOR);
 }
 
 void ControlPanel::initNightBg()

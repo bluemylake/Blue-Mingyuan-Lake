@@ -2,7 +2,7 @@
 #define _BUTTON_H_
 #include "cocos2d.h"
 #include "Controller.h"
-#include "Hero.h"
+#include "Hero2.h"
 using namespace cocos2d;
 
 //2014-9-26 16:00:05

@@ -1,4 +1,4 @@
-#include "Hero.h"
+#include "Hero2.h"
 
 bool Hero::init() 
 {

@@ -17,7 +17,7 @@ public:
 	void ccTouchesBegan(CCSet* pTouch, CCEvent *pEvent);
 	void ccTouchesEnded(CCSet* pTouch, CCEvent *pEvent);
 	void ccTouchesMoved(CCSet* pTouch, CCEvent *pEvent);	
-	void setPointers(Hero* hero,Button* buttonA, Button* dirButton);
+	void setPointers(Hero* hero, Button* buttonA, Button* dirButton);
 private:
 	void zoomStroke(CCSet* pTouch, CCEvent *pEvent);
 	void teleportTo(CCSet* pTouch, CCEvent *pEvent);

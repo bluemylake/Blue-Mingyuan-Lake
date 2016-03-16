@@ -15,10 +15,10 @@ public:
 	virtual void initSprite();
 	bool ccTouchBegan(CCTouch* pTouch, CCEvent *pEvent);
 	void ccTouchEnded(CCTouch* pTouch, CCEvent *pEvent);
-	void setPointers(Hero* hero,DiaWindow* diawindow,BigWindow* bigwindow);
+	void setPointers(HeroWalker* hero, DiaWindow* diawindow, BigWindow* bigwindow);
 	void disableDirButton();
 public:
-	Hero* hero;
+	HeroWalker* hero;
 	DiaWindow* diawindow;
 	BigWindow* bigwindow;
 private:

@@ -3,11 +3,12 @@
 
 #include "cocos2d.h"
 #include "AppMacros.h"
-#include "DirButton.h"
 #include "ButtonA.h"
-#include "TouchScreen.h"
+#include "DirButton.h"
+#include "HeroWalker.h"
 #include "Menu.h"
 #include "TimeUtil.h"
+#include "TouchScreen.h"
 using namespace cocos2d;
 
 //update£º2014-9-26 01:33:57
@@ -35,6 +36,7 @@ public:
 	PlacenameWindow* plcnwindow;
 	DiaWindow* diawindow;
 	BigWindow* bigwindow;
+	HeroWalker heroWalker;
 };
 
 #endif

@@ -1,4 +1,14 @@
 #include "HeroWalker.h"
+#include "GlobalRes.h"
+
+HeroWalker::HeroWalker()
+{
+	isWalking = false;
+	focus = true;
+	_stepCnt = 0;
+	_map = (Map*) rGlobal->map;
+	_hero = (Hero*) rGlobal->hero;
+}
 
 void HeroWalker::respond(int direction)
 {
@@ -6,12 +16,13 @@ void HeroWalker::respond(int direction)
 
 	_isStopping = false;
 	_direction = direction;
-	_initMovement( direction );
+	_hero->dir = direction;
+	initMovement( direction );
 	this->isWalking = true;
 	this->schduleUpdate();
 }
 
-void HeroWalker::_initMovement(int direction)
+void HeroWalker::initMovement(int direction)
 {
 	switch(direction)
 	{
@@ -22,6 +33,7 @@ void HeroWalker::_initMovement(int direction)
 	}
 	const int speed = 1;
 	_moveByPosition *= speed;
+	hero->move = _moveByPosition;
 }
 
 void HeroWalker::endRespond()

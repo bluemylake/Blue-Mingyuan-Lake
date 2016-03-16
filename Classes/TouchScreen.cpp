@@ -1,4 +1,5 @@
 #include "TouchScreen.h"
+#include "GlobalRes.h"
 
 bool TouchScreen::init()
 {
@@ -41,17 +42,17 @@ void TouchScreen::teleportTo(CCSet* pTouch, CCEvent *pEvent)
 	if(buttonA->getBoundingBox().containsPoint(getTouchPos(pTouch)))return;
 	if(dirButton->getBoundingBox().containsPoint(getTouchPos(pTouch)))return;
 
-	CCPoint BX=touch->getLocation(),BD=hero->map->getPosition();
+	CCPoint BX=touch->getLocation(), BD=rGlobal->map->getPosition();
 	CCPoint BA=ccp(CCDirector::sharedDirector()->getWinSize().width/2,CCDirector::sharedDirector()->getWinSize().height/2);
 	CCPoint destPlace=BX-BA-(BD-BA)*0.3;
 	
-	int x=destPlace.x/(hero->map->getTileSize().width*EGLVIEW);
-	int y=(((hero->map->getMapSize().height)*hero->map->getTileSize().height*EGLVIEW)
-		-destPlace.y)/(hero->map->getTileSize().height*EGLVIEW);
+	int x=destPlace.x/(rGlobal->map->getTileSize().width*EGLVIEW);
+	int y=(((rGlobal->map->getMapSize().height)*rGlobal->map->getTileSize().height*EGLVIEW)
+		-destPlace.y)/(rGlobal->map->getTileSize().height*EGLVIEW);
 	CCPoint mapTileCoord=ccp(x,y);
-	CCPoint touchTilePos=hero->map->tileCoordFromPosition(touch->getLocation());
-	CCPoint touchTiledPos=hero->map->positionFromTileCoord(touchTilePos);
-	CCPoint mapTileMove=hero->map->humanPosForTileMove(mapTileCoord);
+	CCPoint touchTilePos=rGlobal->map->tileCoordFromPosition(touch->getLocation());
+	CCPoint touchTiledPos=rGlobal->map->positionFromTileCoord(touchTilePos);
+	CCPoint mapTileMove=rGlobal->map->humanPosForTileMove(mapTileCoord);
 
 	CCSequence* teleport=CCSequence::create(CCDelayTime::create(0.5f),
 		AnimLib::getAction(TELEPORTOUT,hero->getChildByTag(IMGSP)->getContentSize()),
@@ -64,19 +65,19 @@ void TouchScreen::teleportTo(CCSet* pTouch, CCEvent *pEvent)
 
 	doShrink=!doShrink;
 	hero->runAction(teleport);
-	hero->map->runAction(mapMove);
-	hero->map->getParent()->runAction(mapLayerMove);
+	rGlobal->map->runAction(mapMove);
+	rGlobal->map->getParent()->runAction(mapLayerMove);
 	sGlobal->mapState->positionX=hero->getHeroTilePos().x; 
 	sGlobal->mapState->positionY=hero->getHeroTilePos().y;
 	sGlobal->mapState->faceDir=hero->dir;
 }
 
-void TouchScreen::setPointers(Hero* hero,Button* buttonA, Button* dirButton)
+void TouchScreen::setPointers(Hero* hero, Button* buttonA, Button* dirButton)
 {
-	this->hero=hero;this->buttonA=buttonA;this->dirButton=dirButton;
+	this->hero=hero; this->buttonA=buttonA; this->dirButton=dirButton; 
 }
 
-//CCPoint heroPos=hero->getPosition()-hero->map->getPosition();
-	//CCPoint DX=touchTiledPos-hero->map->getPosition()-ccp(0,86);
+//CCPoint heroPos=hero->getPosition()-rGlobal->map->getPosition();
+	//CCPoint DX=touchTiledPos-rGlobal->map->getPosition()-ccp(0,86);
 	//if(hero->checkCollision(ccp(DX.x,
-		//DX.y-hero->map->getTileSize().height/4))==kWall)return;
+		//DX.y-rGlobal->map->getTileSize().height/4))==kWall)return;

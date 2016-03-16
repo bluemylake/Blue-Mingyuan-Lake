@@ -29,3 +29,7 @@
 
 # Vim
 *.swp 
+tags
+
+# Mac
+.DS_Store

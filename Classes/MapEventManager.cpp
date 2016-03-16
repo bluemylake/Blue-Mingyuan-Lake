@@ -1,10 +1,11 @@
 #include "MapEventManager.h"
+#include "GlobalRes.h"
 
-bool MapEventManager::init()
+MapEventManager::MapEventManager()
 {
 	//_functionMap = {}; 
-	_map = rGlobal->map;
-	_hero = rGlobal->hero;
+	_map = (Map*) rGlobal->map;
+	_hero = (Hero*) rGlobal->hero;
 }
 
 void MapEventManager::doEvent(CCPoint heroTilePos)
@@ -14,9 +15,9 @@ void MapEventManager::doEvent(CCPoint heroTilePos)
 	CCDictionary *properties = _map->propertiesForGID(tileGid);
 	const CCString *eventScene = properties->valueForKey("stand");
 
-	if(!eventScene->compare("place name"))
-		_doPlaceNameEvent();
-	else if(!eventScene->compare("change scene"))
+	//if(!eventScene->compare("place name"))
+		//_doPlaceNameEvent();
+	if(!eventScene->compare("change scene"))
 		_doChangeSceneEvent();
 	else if(!eventScene->compare("combat"))
 		_doCombatEvent()
@@ -24,14 +25,14 @@ void MapEventManager::doEvent(CCPoint heroTilePos)
 		_doPortalEvent();
 }
 
-void MapEventManager::_doPlaceNameEvent()
+void MapEventManager::_doPlaceNameEvent(CCDictionary* properties)
 {
-	int curPlaceID=properties->valueForKey("id")->intValue();
-	rGlobal->rwindow->load(map, properties);
+	int curPlaceID = properties->valueForKey("id")->intValue();
+	rGlobal->rwindow->load(_map, properties);
 	rGlobal->rwindow->respond(curPlaceID);
 }
 
-void MapEventManager::_doChangeSceneEvent()
+void MapEventManager::_doChangeSceneEvent(CCDictionary* properties)
 {
 	// TODO: focus
 	int id = properties->valueForKey("id")->intValue();
@@ -61,7 +62,7 @@ void MapEventManager::_doChangeSceneEvent()
 	}
 }
 
-void MapEventManager::_doCombatEvent()
+void MapEventManager::_doCombatEvent(CCDictionary* properties)
 {
 	// TODO: focus
 	if(!sGlobal->isNight)return;
@@ -81,7 +82,7 @@ void MapEventManager::_doCombatEvent()
 	//this->focus=true;
 }
 
-void MapEventManager::_doPortalEvent()
+void MapEventManager::_doPortalEvent(CCDictionary* properties)
 {
 	// TODO: focus, Shouldn't manwalker make the fly?
 	//this->focus=false;
@@ -113,10 +114,10 @@ void MapEventManager::_crossToMap(int mapNo)
 	//change map
 	_map->removeAllChildrenWithCleanup(true);
 	_map = Map::create(path->getCString());
-	rGlobal->map = map;
+	rGlobal->map = _map;
 	_map->crossMap(heroTilePos, mapNo);
 	eManager->redoAll();
-	this->getParent()->addChild(map);
+	this->getParent()->addChild(_map);
 
 	//re-create rGlobal->shadow
 	if(rGlobal->shadow == NULL) return;

@@ -62,11 +62,11 @@ void ButtonA::ccTouchEnded(CCTouch* pTouch, CCEvent *pEvent)
     //hero->speed=1.0f;//$
 }
 
-void ButtonA::setPointers(Hero* hero,DiaWindow* diawindow,BigWindow* bigwindow)
+void ButtonA::setPointers(HeroWalker* hero,DiaWindow* diawindow,BigWindow* bigwindow)
 {
-    this->hero=hero;
-    this->diawindow=diawindow;
-    this->bigwindow=bigwindow;
+	this->hero=hero;
+	this->diawindow=diawindow;
+	this->bigwindow=bigwindow;
 }
 
 void ButtonA::disableDirButton()
@@ -82,8 +82,8 @@ void ButtonA::enableDirButton()
 void ButtonA::trigEvent()
 {
     CCPoint facingTile = hero->getHeroTilePos()+
-	ccp((hero->move/(hero->map->getTileSize().height)).x,
-		-(hero->move/(hero->map->getTileSize().height)).y);
+	ccp((hero->move/(hero->_map->getTileSize().height)).x,
+		-(hero->move/(hero->_map->getTileSize().height)).y);
     //@EventManager takes over from here
     ControllerListener* lst=eManager->happen(facingTile,A_TRIG);
     if(lst!=NULL) 
