@@ -4,8 +4,8 @@
 #include "cocos2d.h"
 using namespace cocos2d;
 
-//Entity is a class of object that is represented by a certain picture
-//it contains a sprite
+//Entity is a Sprite wrapper
+//It holds the picNo(image id)
 class Entity: public CCNode
 {
 public:

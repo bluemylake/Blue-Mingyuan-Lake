@@ -7,6 +7,11 @@
 #define PIC_MAX 110
 using namespace cocos2d;
 
+//All Human has an ID
+//All Human knows the direction it's facing
+//HumanEntity is an Entity with a sprite
+//The sprite holds a large texture, showing only a part
+//Human Entity can init its sprite
 class HumanEntity : public Entity, public ControllerListener
 {
 public:
@@ -19,12 +24,13 @@ public:
 public:
 	int id;
 	int dir;
+	const int MAN_WIDTH;
+	const int MAN_HEIGHT;
 };
 
 //初始化id
 //自动initSprite和Animation和Anim
 //goWalking定义了NPC的正常（初始）运动状态
 //picNo决定用哪张图
-
 
 #endif
