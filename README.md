@@ -1,4 +1,4 @@
-![](Resources/readme/logo.png)
+<img src="Resources/readme/logo.png" width=200/>
 
 # Blue-Mingyuan-Lake
 ![](Resources/readme/gate.png)
