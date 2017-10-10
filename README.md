@@ -1,7 +1,9 @@
+![](Resources/readme/logo.png)
+
 # Blue-Mingyuan-Lake
 ![](Resources/readme/gate.png)
 
-Blue Mingyuan Lake is a Campus Navigation RPG Mobile game dedicated to Sichuan University of China, featuring 2D depiction of Jiangan Campus, in-campus GPS positioning and fascinating AVG storylines. See [Blue Mingyuan Lake—RPG Mobile Game](https://youtu.be/ax3AKhc8Y30) for a showcase video. 
+Blue Mingyuan Lake is a Campus Navigation RPG Mobile game dedicated to Sichuan University of China, featuring 2D depiction of Jiangan Campus, in-campus GPS positioning and fascinating storylines. See [Blue Mingyuan Lake—RPG Mobile Game](https://youtu.be/ax3AKhc8Y30) for a showcase video. 
 
 The game tells of a story about the adventure of a freshman at her first year in Sichuan University. In the game, you have just arrived at Jiangan Campus and about to begin your university life. While you are excitedly exploring the campus, you find something magical about the lake located at the center of the campus. You later learned of its ancient name: Mingyuan. 
 
